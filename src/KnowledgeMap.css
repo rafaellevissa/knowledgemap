@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); /* Fundo de espaço profundo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* O Contêiner SVG */
+.knowledge-map-container {
+    width: 100vw;
+    height: 100vh;
+    cursor: grab;
+}
+
+.knowledge-map-container:active {
+    cursor: grabbing;
+}
+
+/* Estilo do Tooltip */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    z-index: 10; /* Garante que o tooltip fique por cima */
+}
+
+.tooltip.visible {
+    opacity: 0.9;
+}
+
+/* Efeito de brilho para as estrelas */
+.node-circle {
+    transition: all 0.3s ease;
+    cursor: pointer; /* Indica que é clicável */
+}
+.node-circle:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 210, 0.9));
+    stroke: #fff;
+    stroke-width: 3px;
+}
+
+/* PAINEL LATERAL DE DETALHES */
+.details-panel {
+    position: fixed;
+    top: 20px;
+    right: -400px; /* Começa escondido */
+    width: 350px;
+    height: calc(100vh - 40px);
+    background: rgba(20, 20, 30, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 100;
+    overflow-y: auto;
+    color: #edf2f4;
+}
+
+.details-panel.open {
+    right: 20px;
+}
+
+.details-panel h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid; /* Cor definida inline baseado no grupo */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.details-panel h3 {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+
+.details-panel p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #d1d5db;
+}
+
+.details-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.details-panel li {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+/* Scrollbar Bonita */
+.details-panel::-webkit-scrollbar {
+    width: 6px;
+}
+.details-panel::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+.details-panel::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+}
