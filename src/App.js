@@ -1,9 +1,13 @@
-import KnowledgeMap from './KnowledgeMap';
+import KnowledgeMap from "./KnowledgeMap";
+import KnowledgeMap2 from "./KnowledgeMap2";
 
 function App() {
   return (
     <div className="App">
-      <KnowledgeMap />
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+        <KnowledgeMap />
+        <KnowledgeMap2 />
+      </div>
     </div>
   );
 }
