@@ -1665,6 +1665,389 @@ const graphData = {
       ],
       links: [],
     },
+    // ============================
+    // 11. SISTEMAS OPERACIONAIS
+    // ============================
+    {
+      id: "sistemas_operacionais",
+      label: "Sistemas Operacionais",
+      group: 6,
+      status: "locked",
+      description:
+        "O software fundamental que atua como intermediário entre o usuário/aplicações e o hardware do computador. Transforma o hardware bruto e complexo em uma máquina estendida (abstração limpa) e atua como gerenciador de recursos, controlando a alocação ordenada de CPUs, memórias e dispositivos de E/S.",
+      examples: [
+        "Abstração de Máquina Estendida",
+        "Gerenciamento de Recursos de Hardware",
+        "Evolução Histórica (Monolíticos a Micronúcleos)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais - William Stallings",
+        "Sistemas Operacionais Modernos - Peter Baer Galvin & Abraham Silberschatz",
+      ],
+      practice: [
+        {
+          question: "Quais são as duas funções principais e conceitualmente distintas de um Sistema Operacional?",
+          answer:
+            "As duas funções principais são: 1) Prover uma abstração de máquina estendida (ou virtual) para os programadores, ocultando a complexidade do hardware real por meio de interfaces mais simples. 2) Atuar como um gerenciador de recursos, controlando e multiplexando de forma ordenada, segura e eficiente o tempo e o espaço de CPUs, memórias, discos e demais periféricos entre os diversos processos.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "kernel_so",
+      label: "Núcleo do Sistema Operacional (Kernel)",
+      group: 6,
+      status: "locked",
+      description:
+        "A parte central do sistema operacional que permanece carregada continuamente na memória principal (RAM) e possui controle total sobre todo o hardware. É responsável por gerenciar diretamente o isolamento de processos, a gerência de memória baixa, e os subsistemas vitais que conversam com o processador.",
+      examples: ["Núcleos Monolíticos", "Microkernel (Minix/QNX)", "Sistemas Híbridos"],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Operating Systems: Internals and Design Principles - William Stallings",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a diferença arquitetural básica entre um design de kernel Monolítico e uma arquitetura baseada em Microkernel?",
+          answer:
+            "No kernel Monolítico, praticamente todas as funções do SO (escalonador, gerência de memória, sistemas de arquivos e drivers) rodam juntas em um único grande binário dentro do espaço de núcleo (altamente eficiente, mas vulnerável a falhas). No Microkernel, o núcleo é reduzido ao mínimo necessário (comunicação IPC e gerência básica de hardware), e os serviços tradicionais rodam isolados no espaço de usuário como servidores independentes (altamente estável e modular, mas com overhead de comunicação).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modo_usuario_kernel",
+      label: "Modos de Execução (Usuário vs. Kernel)",
+      group: 6,
+      status: "locked",
+      description:
+        "Mecanismo de proteção suportado diretamente pelo silício da CPU (através de bits de estado no registrador de status). Divide o ambiente de execução em Modo Kernel (onde qualquer instrução de máquina pode ser executada e qualquer endereço de memória pode ser acessado) e Modo Usuário (onde instruções sensíveis ou de controle de hardware são proibidas e geram exceções se disparadas por software comum).",
+      examples: [
+        "Bits de Proteção do Processador (Ring 0 e Ring 3 em x86)",
+        "Instruções Privilegiadas (CLI, STI, HLT)",
+        "Exceções de Proteção Geral (General Protection Fault)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Computer Organization and Architecture - William Stallings",
+      ],
+      practice: [
+        {
+          question:
+            "Como o hardware da CPU impede que um programa malicioso escrito pelo usuário altere as configurações físicas de interrupção ou formate o disco diretamente?",
+          answer:
+            "O hardware utiliza o bit de modo de execução. Programas de usuário rodam em Modo Usuário (Ring 3). Caso o código tente executar uma instrução privilegiada (como desativar interrupções ou acessar os registradores físicos do controlador de disco), a CPU intercepta a ação antes de executá-la, bloqueia a instrução e dispara uma interrupção de hardware (trap) passando o controle para o manipulador de falhas do Kernel, que encerra o programa invasor.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "chamadas_de_sistema",
+      label: "Chamadas de Sistema (System Calls)",
+      group: 6,
+      status: "locked",
+      description:
+        "A interface de programação (API) que define a ponte e o contrato de transição controlada do espaço de usuário para o espaço de kernel. Permite que programas de aplicação solicitem de forma segura serviços executados estritamente pelo núcleo do sistema operacional.",
+      examples: [
+        "System Calls POSIX (fork, read, write, open)",
+        "Instrução de Trap/Instrução de Interrupção de Software (INT 0x80, SYSCALL)",
+        "Mapeamento de Vetores de Chamadas",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Digital Design and Computer Architecture - Harris & Harris",
+      ],
+      practice: [
+        {
+          question:
+            "Descreva a mecânica de hardware e baixo nível que ocorre quando um programa em Assembly executa uma Chamada de Sistema para ler um arquivo.",
+          answer:
+            "O programa coloca os argumentos da chamada e o número identificador da System Call em registradores específicos da CPU. Em seguida, executa uma instrução especial de interrupção por software (como `SYSCALL` ou `INT`). Esta instrução faz a CPU mudar fisicamente do modo usuário para o modo kernel, salva o contador de programa (PC) atual e desvia o fluxo para um endereço fixo de memória (vetor de interrupções) controlado pelo SO. O manipulador do kernel decodifica o número da chamada, executa o serviço de forma protegida, coloca o resultado em um registrador e executa uma instrução de retorno (como `SYSRET`), que devolve a CPU ao modo usuário e ao fluxo do programa.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "tratamento_de_interrupcoes",
+      label: "Tratamento de Interrupções no SO",
+      group: 6,
+      status: "locked",
+      description:
+        "A gerência de software básico responsável por capturar os sinais elétricos assíncronos gerados por barramentos e periféricos e traduzi-los em ações lógicas do sistema. Salva o contexto exato do processamento atual e despacha a execução para a rotina de serviço de interrupção (ISR) cadastrada no vetor de hardware.",
+      examples: [
+        "Rotinas de Serviço de Interrupção (ISR)",
+        "Vetor de Interrupções da CPU",
+        "Ocultamento de Sinais de Relógio e Teclado",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Organização e Projeto de Computadores - Patterson & Hennessy",
+      ],
+      practice: [
+        {
+          question:
+            "Por que as rotinas de tratamento de interrupções (ISRs) devem ser projetadas para serem o mais curtas e rápidas possíveis em nível de sistema?",
+          answer:
+            "Enquanto uma interrupção física está sendo tratada pelo hardware e pelo software da ISR, outras interrupções de mesma prioridade ou menores podem ser desativadas ou mascaradas pelo processador. Se a ISR demorar muito executando tarefas complexas, o sistema pode perder sinais críticos assíncronos vindos de outros barramentos ou periféricos (como bytes trafegando na placa de rede ou pulsos do clock do sistema), gerando perda de dados ou instabilidade.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "device_drivers",
+      label: "Controladores de Dispositivos (Device Drivers)",
+      group: 6,
+      status: "locked",
+      description:
+        "Módulos de software altamente especializados que contêm o código específico para interagir com o controlador físico de um dispositivo de E/S. Aceitam requisições abstratas e padronizadas do SO (como 'leia o bloco X') e as convertem em uma sequência de leituras e escritas nos registradores elétricos mapeados no barramento do hardware periférico.",
+      examples: [
+        "Drivers de Controladoras Gráficas",
+        "Drivers de Barramento USB/PCIe",
+        "Comunicação via Registradores de I/O",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais - William Stallings",
+      ],
+      practice: [
+        {
+          question:
+            "Como o conceito de Device Driver ajuda a manter a independência de dispositivo dentro do Sistema Operacional?",
+          answer:
+            "Ele encapsula e isola todas as peculiaridades e comandos elétricos proprietários de um fabricante de hardware específico atrás de uma interface uniforme exigida pelo sistema operacional. O sistema operacional dita uma API padrão para o subsistema (ex: comandos genéricos de blocos), e o fabricante escreve o driver traduzindo esses comandos para os comandos reais que os chips da placa entendem. Isso impede que o núcleo do SO precise ser modificado a cada novo periférico lançado no mercado.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "escalonamento_de_processos",
+      label: "Escalonamento de Processos",
+      group: 6,
+      status: "locked",
+      description:
+        "Conjunto de algoritmos e políticas do sistema encarregados de decidir qual dos processos elegíveis e em estado de 'Pronto' receberá o controle físico da Unidade Central de Processamento (CPU) e por quanto tempo, baseando-se no temporizador elétrico (clock/quantum) e nos objetivos de eficiência do sistema.",
+      examples: [
+        "Escalonamento por Chaveamento Circular (Round-Robin)",
+        "Prioridades Dinâmicas e Múltiplas Filas",
+        "Escalonamento Preemptivo vs. Não-Preemptivo",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais Modernos - Peter Baer Galvin & Abraham Silberschatz",
+      ],
+      practice: [
+        {
+          question: "O que diferencia um algoritmo de escalonamento Preemptivo de um Não-Preemptivo (Cooperativo)?",
+          answer:
+            "No escalonamento Não-Preemptivo, um processo ganha o controle da CPU e o mantém até voluntariamente liberá-lo (via chamada de sistema ou término de tarefa). No escalonamento Preemptivo, o SO utiliza uma interrupção periódica gerada pelo hardware de clock (timer) para interromper à força o processo em execução após o término de sua fatia de tempo (quantum), devolvendo o controle ao escalonador para que outro processo possa rodar, garantindo o compartilhamento equitativo do processador.",
+        },
+        {
+          question:
+            "Por que uma fatia de tempo (quantum) muito pequena ou muito grande prejudica o desempenho do sistema em um algoritmo Round-Robin?",
+          answer:
+            "Se o quantum for curto demais (ex: 1 ms), a CPU gastará uma porcentagem excessiva de tempo e ciclos executando a troca de contexto de hardware (salvar e carregar registradores, invalidar cache), reduzindo a eficiência útil do processador. Se for longo demais (ex: 500 ms), o sistema perde a característica de tempo compartilhado, e processos interativos ou de interface vão parecer travados, degradando o tempo de resposta percebido pelo usuário.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "gerenciamento_de_threads",
+      label: "Gerenciamento de Threads",
+      group: 6,
+      status: "locked",
+      description:
+        "A gerência das linhas de execução (threads) que compartilham o mesmo espaço de endereçamento virtual de um processo pai. Aborda a criação, escalonamento e troca de contexto de linhas de código concorrentes, gerenciadas a nível de espaço de usuário (User-level) ou diretamente pelo núcleo (Kernel-level).",
+      examples: ["Threads Pthreads (POSIX)", "Threads de Usuário vs. Threads de Kernel", "Troca de Contexto Leve"],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais - William Stallings",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a vantagem de desempenho em se utilizar múltiplas Threads em vez de múltiplos Processos isolados em um sistema multicore?",
+          answer:
+            "As threads de um mesmo processo compartilham os mesmos recursos físicos e a mesma tabela de páginas de memória. Portanto, criar uma nova thread ou efetuar uma troca de contexto entre threads do mesmo processo é imensamente mais rápido e consome menos overhead do que entre processos, pois não exige que a CPU limpe e recarregue os mapas da MMU ou os registradores de controle de memória virtual (como o CR3 do x86).",
+        },
+        {
+          question:
+            "Explique o problema de se utilizar Threads em Espaço de Usuário pura (sem suporte do Kernel) quando uma delas executa uma operação de E/S bloqueante.",
+          answer:
+            "Se as threads forem gerenciadas inteiramente por uma biblioteca em espaço de usuário, o kernel do SO enxerga apenas o processo pai como um único fluxo de execução. Se uma thread individual disparar uma chamada de sistema bloqueante (como aguardar a leitura do disco), o kernel colocará o processo inteiro no estado de 'Bloqueado', impedindo que todas as outras threads internas e prontas daquele processo continuem rodando, mesmo que elas não dependessem do disco.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "condicoes_de_corrida",
+      label: "Condições de Corrida (Race Conditions)",
+      group: 6,
+      status: "locked",
+      description:
+        "Uma situação patológica que ocorre em ambientes multiprocessados ou multithreaded onde dois ou mais fluxos de execução tentam ler e escrever em um dado/recurso compartilhado simultaneamente. O resultado final da execução torna-se dependente da ordem exata e do sincronismo de nanossegundos em que as instruções de máquina se intercalaram no barramento elétrico.",
+      examples: [
+        "Inconsistência de Variáveis Globais de Controle",
+        "Acessos Simultâneos a Estruturas de Dados em RAM",
+        "Intercalação Crítica de Instruções ASM (Read-Modify-Write)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais Modernos - Peter Baer Galvin & Abraham Silberschatz",
+      ],
+      practice: [
+        {
+          question:
+            "Por que uma operação simples de alto nível como `cont++` pode gerar uma Condição de Corrida quando executada por duas threads simultaneamente se não for protegida?",
+          answer:
+            "Em nível de montagem (Assembly), a instrução `cont++` é desmembrada pela CPU em três etapas físicas: 1) Ler o valor da memória e carregá-lo em um registrador (`MOV EAX, [cont]`). 2) Incrementar o registrador (`INC EAX`). 3) Gravar o valor do registrador de volta na memória (`MOV [cont], EAX`). Se a Thread 1 for interrompida pelo escalonador logo após a etapa 1, a Thread 2 lerá o mesmo valor antigo da memória. Ambas incrementarão o mesmo valor antigo e gravarão o mesmo resultado, fazendo com que um dos incrementos seja completamente perdido devido ao entrelaçamento assíncrono.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "deadlocks",
+      label: "Impasses (Deadlocks)",
+      group: 6,
+      status: "locked",
+      description:
+        "Condição de travamento mútuo definitivo e catastrófico que ocorre em sistemas de concorrência ativa. Um conjunto de processos fica permanentemente bloqueado porque cada processo retém exclusivamente um recurso de hardware ou software e aguarda pela liberação de outro recurso retido por outro processo do mesmo conjunto, criando uma dependência circular cíclica.",
+      examples: [
+        "Disputa Exclusiva por Gravadores/Impressoras",
+        "Bloqueios Cruzados de Semáforos e Mutexes",
+        "As Quatro Condições de Coffman",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Operating Systems: Internals and Design Principles - William Stallings",
+      ],
+      practice: [
+        {
+          question:
+            "Quais são as Quatro Condições de Coffman que devem ocorrer de forma simultânea para que um Deadlock possa se estabelecer em um sistema?",
+          answer:
+            "As quatro condições são: 1) Exclusão Mútua (cada recurso só pode estar alocado a um processo por vez). 2) Posse e Espera (processos que já retêm recursos podem solicitar novos recursos). 3) Não Preempção (um recurso não pode ser retirado à força de um processo). 4) Espera Circular (existe uma cadeia fechada de processos onde cada um aguarda um recurso retido pelo próximo membro da fila).",
+        },
+        {
+          question:
+            "O que dita a estratégia de tratamento de deadlocks conhecida como 'Algoritmo do Avestruz' mencionada por Tanenbaum?",
+          answer:
+            "O Algoritmo do Avestruz estabelece a estratégia de simplesmente ignorar o problema. Baseia-se no argumento econômico e prático de que, se os deadlocks ocorrem de forma extremamente rara e o custo de detecção ou prevenção contínua em tempo de execução for muito alto em termos de perda de clock e desempenho, é melhor fingir que nada aconteceu e simplesmente resetar o sistema caso o travamento raro venha a ocorrer.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "gerenciamento_de_memoria",
+      label: "Gerenciamento de Memória",
+      group: 6,
+      status: "locked",
+      description:
+        "O subsistema do SO responsável por controlar e mapear o espaço de armazenamento volátil do computador. Monitora quais partes da memória estão em uso, aloca dinamicamente blocos para novos processos e protege as fronteiras físicas do silício para evitar que processos invadam o espaço alheio ou corrompam o kernel.",
+      examples: [
+        "Alocação Contígua Simples",
+        "Registradores Base e Limite de Hardware",
+        "Swapping (Troca de Processos para Disco)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais Modernos - Peter Baer Galvin & Abraham Silberschatz",
+      ],
+      practice: [
+        {
+          question:
+            "Como os registradores físicos de hardware 'Base' e 'Limite' atuam na proteção e gerenciamento de memória em sistemas primitivos?",
+          answer:
+            "O registrador Base armazena o endereço físico inicial da RAM onde o processo foi carregado, e o registrador Limite armazena o tamanho total do segmento alocado. Toda vez que o processo tenta ler ou escrever em um endereço de memória, o circuito do processador intercepta a instrução, soma o endereço lógico ao registrador Base e verifica se o resultado ultrapassa o registrador Limite. Caso ultrapasse, o hardware bloqueia o acesso instantaneamente e gera uma trap de violação de segmentação.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "memoria_virtual",
+      label: "Memória Virtual",
+      group: 6,
+      status: "locked",
+      description:
+        "Técnica de arquitetura que cria uma abstração elegante da memória principal, separando o espaço de endereçamento lógico visto pelo programa dos endereços físicos reais da memória RAM. Permite que um processo execute mesmo utilizando um espaço combinado maior do que a RAM física instalada, usando suporte de hardware (MMU) e armazenamento secundário.",
+      examples: [
+        "Unidade de Gerenciamento de Memória (MMU)",
+        "Endereços Lógicos vs. Endereços Físicos",
+        "Falha de Página (Page Fault)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Organização e Projeto de Computadores - Patterson & Hennessy",
+        "Computer Systems: A Programmer's Perspective - Bryant & O'Hallaron",
+      ],
+      practice: [
+        {
+          question:
+            "Qual o papel desempenhado pela MMU (Memory Management Unit) no hardware e o que ocorre quando ela detecta um bit de presença igual a zero?",
+          answer:
+            "A MMU é o circuito de hardware integrado à CPU encarregado de traduzir em tempo real cada endereço virtual gerado pelo programa em um endereço físico real da RAM consultando as tabelas de páginas. Caso ela tente traduzir um endereço e descubra que o bit de presença daquela página está em zero (indicando que a página não está na RAM, mas guardada no disco), a MMU suspende a instrução imediatamente e dispara uma interrupção especial de hardware chamada Falha de Página (Page Fault), forçando o SO a carregar o bloco do disco para a RAM.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "paginacao",
+      label: "Paginação de Memória",
+      group: 6,
+      status: "locked",
+      description:
+        "Mapeamento de memória virtual onde o espaço de endereçamento lógico é dividido em blocos de tamanho fixo chamados 'Páginas', e a memória RAM física é dividida em blocos de idêntico tamanho chamados 'Molduras' (Frames). Elimina completamente a fragmentação externa dividindo dados através de tabelas de índices indexadas por hardware.",
+      examples: [
+        "Tabelas de Páginas (Page Tables)",
+        "Estruturas de Tabelas Multinível",
+        "Buffer de Tradução Antecipada (TLB - Translation Lookaside Buffer)",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Memory Systems: Cache, DRAM, Disk - Bruce Jacob et al.",
+      ],
+      practice: [
+        {
+          question:
+            "Como o hardware utiliza a TLB (Translation Lookaside Buffer) para mitigar a penalidade de velocidade de acesso à memória imposta pelas Tabelas de Páginas?",
+          answer:
+            "Como as Tabelas de Páginas ficam armazenadas na RAM principal, cada acesso lógico de leitura do programa exigiria duas leituras físicas à RAM (uma para buscar o endereço traduzido na tabela e outra para buscar o dado real), cortando o desempenho pela metade. A TLB resolve isso atuando como uma pequena memória cache associativa ultra-rápida integrada na CPU que armazena as traduções de páginas mais recentes. Se o endereço virtual atingir a TLB (TLB hit), a tradução física ocorre em um único ciclo de clock.",
+        },
+        {
+          question:
+            "O que define a ocorrência do fenômeno patológico de Thrashing (Hiperpaginação) em sistemas operacionais com paginação sob demanda?",
+          answer:
+            "O Thrashing ocorre quando o conjunto de páginas ativas e vitais sendo utilizadas por todos os processos em execução conjunta é maior do que o total de molduras de RAM física disponíveis no sistema. Como resultado, o SO passa a gastar quase 100% do seu tempo de processador e barramento tratando consecutivas interrupções de Page Fault e chaveando blocos entre o disco e a RAM, fazendo com que o processamento útil do computador colapse e caia a quase zero.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "segmentacao",
+      label: "Segmentação de Memória",
+      group: 6,
+      status: "locked",
+      description:
+        "Mapeamento de memória virtual que divide o espaço lógicos de endereçamento em blocos lógicos e independentes de tamanho variável chamados 'Segmentos', refletindo diretamente a organização lógica do programa feita pelo compilador (segmento de código, segmento de dados, pilha e heap).",
+      examples: [
+        "Segmentos de Texto, Data e BSS",
+        "Tabelas de Segmentos (LDT/GDT em x86)",
+        "Fragmentação Externa de Memória RAM",
+      ],
+      books: [
+        "Sistemas Operacionais Modernos - Andrew S. Tanenbaum & Herbert Bos",
+        "Sistemas Operacionais Modernos - Peter Baer Galvin & Abraham Silberschatz",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a diferença conceitual e geométrica básica entre as estruturas de Paginação e de Segmentação?",
+          answer:
+            "A Paginação divide a memória em blocos puramente físicos e de tamanho estritamente fixo (invisível ao programador), focando em eliminar a fragmentação externa e facilitar a troca com o disco. A Segmentação divide a memória em blocos lógicos, funcionais e de tamanho dinâmico/variável (visível ao compilador e programador), focando em espelhar as divisões de código, dados e proteção de rotinas, sofrendo, porém, com o problema de fragmentação externa da RAM.",
+        },
+      ],
+      links: [],
+    },
   ],
   links: [
     // ===================================
@@ -1802,6 +2185,33 @@ const graphData = {
     { source: "transistores_mosfet", target: "familias_logicas" },
     { source: "transistores_bjt", target: "familias_logicas" },
     { source: "amp_ops", target: "interface_mundo_analogico" },
+
+    // ==============================
+    // 11. SISTEMAS OPERACIONAIS
+    // =============================
+    { source: "cpu", target: "sistemas_operacionais" },
+    { source: "arquitetura_von_neumann", target: "sistemas_operacionais" },
+    { source: "sistemas_operacionais", target: "kernel_so" },
+    { source: "cpu_arquiteturas", target: "modo_usuario_kernel" },
+    { source: "kernel_so", target: "modo_usuario_kernel" },
+    { source: "assembly", target: "chamadas_de_sistema" },
+    { source: "chamadas_de_sistema", target: "kernel_so" },
+    { source: "barramentos_interrupcoes", target: "tratamento_de_interrupcoes" },
+    { source: "kernel_so", target: "tratamento_de_interrupcoes" },
+    { source: "entrada_saida", target: "device_drivers" },
+    { source: "dispositivos_io", target: "device_drivers" },
+    { source: "kernel_so", target: "device_drivers" },
+    { source: "cpu_uc", target: "escalonamento_de_processos" },
+    { source: "sistemas_operacionais", target: "escalonamento_de_processos" },
+    { source: "sistemas_operacionais", target: "gerenciamento_de_threads" },
+    { source: "escalonamento_de_processos", target: "condicoes_de_corrida" },
+    { source: "gerenciamento_de_threads", target: "condicoes_de_corrida" },
+    { source: "condicoes_de_corrida", target: "deadlocks" },
+    { source: "memoria_principal", target: "gerenciamento_de_memoria" },
+    { source: "gerenciamento_de_memoria", target: "memoria_virtual" },
+    { source: "cpu_arquiteturas", target: "memoria_virtual" },
+    { source: "memoria_virtual", target: "paginacao" },
+    { source: "memoria_virtual", target: "segmentacao" },
   ],
 };
 const statusColor = {
