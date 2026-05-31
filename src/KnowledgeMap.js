@@ -2048,6 +2048,239 @@ const graphData = {
       ],
       links: [],
     },
+    // ===========================
+    // 12. MATEMÁTICA DISCRETA
+    // ===========================
+    {
+      id: "matematica_discreta",
+      label: "Matemática Discreta",
+      group: 7,
+      status: "locked",
+      description:
+        "O núcleo teórico que embasa a ciência da computação. Diferente do cálculo, lida com estruturas matemáticas que são fundamentalmente discretas (finitas ou enumeráveis), fornecendo o vocabulário rigoroso necessário para o projeto de hardware, análise de algoritmos e criptografia.",
+      examples: ["Bases Numéricas", "Estruturas de Dados Abstratas", "Fundamentos de Algoritmos"],
+      books: [
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a diferença fundamental entre a Matemática Contínua (Cálculo) e a Matemática Discreta no contexto computacional?",
+          answer:
+            "A matemática contínua lida com números reais e variações suaves (como a física analógica). A matemática discreta lida com valores separados e contáveis (como inteiros, grafos e lógicas booleanas). Como computadores digitais operam internamente com estados finitos e discretos (bits 0 e 1), a matemática discreta é a linguagem natural para descrever o comportamento exato das máquinas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "logica_matematica",
+      label: "Lógica Matemática",
+      group: 7,
+      status: "locked",
+      description:
+        "Estudo formal das regras de inferência e raciocínio. Define proposições, conectivos (E, OU, NÃO) e tabelas-verdade, servindo como o alicerce teórico direto para o desenvolvimento da Álgebra Booleana e a construção física de circuitos lógicos no silício.",
+      examples: ["Lógica Proposicional", "Lógica de Predicados", "Tabelas-Verdade"],
+      books: ["Matemática Discreta e Suas Aplicações - Kenneth H. Rosen"],
+      practice: [
+        {
+          question: "O que é uma proposição lógica?",
+          answer:
+            "Uma proposição é uma sentença declarativa que pode ser classificada estritamente como Verdadeira (V) ou Falsa (F), mas nunca ambas simultaneamente. É a unidade básica de tomada de decisão, análoga a um bit isolado em um registrador.",
+        },
+        {
+          question:
+            "Como a operação lógica 'Se... Então...' (Implicação Lógica) difere da execução de um 'if' na programação?",
+          answer:
+            "Na programação, um 'if' dita o fluxo de execução (faz algo se a condição for verdadeira). Na lógica matemática, a implicação (P -> Q) é uma declaração de valor de verdade: ela só é considerada falsa se a premissa (P) for verdadeira e a conclusão (Q) for falsa. Se a premissa for falsa, a implicação inteira é vacuamente verdadeira.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "aritmetica_modular",
+      label: "Aritmética Modular",
+      group: 7,
+      status: "locked",
+      description:
+        "Ramo da teoria dos números que foca no comportamento de inteiros através de sistemas de 'aritmética de relógio' (resto da divisão). É a explicação matemática de como CPUs lidam com tamanhos fixos de registradores e o pilar principal da criptografia moderna (como RSA).",
+      examples: ["Congruência Modulo N", "Algoritmo de Euclides", "Complemento de 2"],
+      books: [
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+      ],
+      practice: [
+        {
+          question:
+            "Por que a Aritmética Modular é o modelo matemático perfeito para explicar o 'overflow' em registradores de CPU?",
+          answer:
+            "Um registrador de N bits só consegue armazenar valores até um limite (ex: um byte vai de 0 a 255). Se você somar 1 a 255, o hardware zera e volta para 0. Isso é exatamente a definição de aritmética modular (módulo 256): os números 'dão a volta' e recomeçam, em vez de se estenderem infinitamente.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "teoria_dos_conjuntos",
+      label: "Teoria dos Conjuntos (Naive Set Theory)",
+      group: 7,
+      status: "locked",
+      description:
+        "O estudo formal de coleções de objetos de forma abstrata. Fornece a base teórica para o modelo relacional de bancos de dados (SQL), definição de tipos de dados em linguagens de programação e operações lógicas sobre grupos de elementos.",
+      examples: ["União e Interseção", "Conjunto das Partes (Power Set)", "Produto Cartesiano"],
+      books: ["Naive Set Theory - Paul Halmos", "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen"],
+      practice: [
+        {
+          question:
+            "De acordo com a teoria básica de conjuntos, o que caracteriza a diferença entre um 'Conjunto' e uma 'Tupla/Lista'?",
+          answer:
+            "Em um conjunto matemático clássico, a ordem dos elementos não importa e elementos duplicados não são permitidos (ex: {1, 2, 3} é idêntico a {3, 1, 2, 2}). Já em uma tupla ou lista de programação, a ordem posicional é fundamental e valores repetidos são permitidos.",
+        },
+        {
+          question: "O que é o Produto Cartesiano de dois conjuntos e onde o vemos na computação?",
+          answer:
+            "O Produto Cartesiano de A e B gera um novo conjunto formado por todos os pares ordenados possíveis combinando um elemento de A com um de B. Na computação, isso é a base matemática da operação 'JOIN' em Bancos de Dados Relacionais, onde as linhas de duas tabelas são combinadas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "teoria_dos_grafos",
+      label: "Teoria dos Grafos",
+      group: 7,
+      status: "locked",
+      description:
+        "O estudo matemático de redes, focando em vértices (nós) conectados por arestas (linhas). É a principal estrutura universal usada na engenharia para modelar roteamento de redes, dependências de compilação e transições de máquinas de estado.",
+      examples: ["Caminho Mais Curto (Dijkstra)", "Grafos Direcionados vs Não-Direcionados", "Isomorfismo"],
+      books: [
+        "Introduction to Graph Theory - Robin J. Wilson",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+      ],
+      practice: [
+        {
+          question: "Como você define formalmente um Grafo e quais são seus componentes fundamentais?",
+          answer:
+            "Formalmente, um grafo G é definido como um par ordenado G = (V, E), onde V é um conjunto não vazio de vértices (ou nós) e E é um conjunto de arestas (links) que conectam pares de vértices.",
+        },
+        {
+          question:
+            "Qual a diferença prática entre um grafo direcionado e um grafo não-direcionado em modelagem de sistemas?",
+          answer:
+            "Em um grafo não-direcionado, a relação é simétrica: se o Computador A está conectado ao B, o B está conectado ao A (ex: cabo de rede Ethernet). Em um grafo direcionado, as arestas têm sentido, indicando um fluxo unilateral (ex: o Processo A depende do resultado do Processo B, mas não o contrário).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "arvores_matematica",
+      label: "Árvores",
+      group: 7,
+      status: "locked",
+      description:
+        "Subcategoria estrita dos grafos caracterizada por formar estruturas totalmente conexas e livres de ciclos fechados. Essencial para modelar estruturas hierárquicas, busca binária, diretórios de SO e árvores de decisão em Inteligência Artificial.",
+      examples: ["Árvores Binárias", "Grafos Conexos Acíclicos", "Raiz, Folhas e Profundidade"],
+      books: [
+        "Introduction to Graph Theory - Robin J. Wilson",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+      ],
+      practice: [
+        {
+          question:
+            "Na teoria dos grafos, quais são as duas condições obrigatórias para que um grafo qualquer seja classificado como uma Árvore?",
+          answer:
+            "Para ser uma árvore, o grafo deve ser inteiramente Conexo (existe um caminho entre qualquer par de nós, sem ilhas isoladas) e Acíclico (não existem loops ou caminhos fechados que permitam sair de um nó e voltar para ele sem repetir arestas).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "combinatoria",
+      label: "Combinatória",
+      group: 7,
+      status: "locked",
+      description:
+        "A matemática da contagem e estruturação. Permite calcular o número de possibilidades de estados de um sistema, o custo no pior caso de um algoritmo ou a resistência de uma chave criptográfica baseando-se no total de arranjos possíveis.",
+      examples: ["Permutações e Combinações", "Princípio da Casa dos Pombos", "Regra da Multiplicação"],
+      books: [
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+      ],
+      practice: [
+        {
+          question: "Qual a diferença essencial entre Permutação e Combinação?",
+          answer:
+            "Na Permutação, a ordem dos elementos importa (arranjar A,B,C é diferente de C,B,A, como em uma senha bancária). Na Combinação, a ordem é irrelevante, importando apenas o conjunto final (escolher os processos P1 e P2 para a memória é o mesmo que escolher P2 e P1).",
+        },
+        {
+          question: "Explique de forma prática o Princípio da Casa dos Pombos (Pigeonhole Principle).",
+          answer:
+            "Se você tem N caixas (pombais) e precisa distribuir N+1 itens (pombos) entre elas, matematicamente pelo menos uma caixa terá que conter dois ou mais itens. Na computação, isso prova que em tabelas Hash com mais entradas do que slots disponíveis, as colisões são uma inevitabilidade matemática absoluta.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "relacoes_de_recorrencia",
+      label: "Relações de Recorrência",
+      group: 7,
+      status: "locked",
+      description:
+        "Equações matemáticas que definem termos subsequentes de uma sequência utilizando os termos anteriores. É o equivalente matemático de uma função recursiva em programação, essencial para decifrar algoritmos que 'dividem e conquistam'.",
+      examples: ["Sequência de Fibonacci", "Torres de Hanói", "Teorema Mestre"],
+      books: ["Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik"],
+      practice: [
+        {
+          question:
+            "Quais são as duas partes obrigatórias ao se definir uma Relação de Recorrência para que ela tenha um resultado finito?",
+          answer:
+            "Ela precisa ter a Equação Recursiva (que define o N-ésimo termo em função dos anteriores) e os Casos Base (também chamados de condições iniciais, que estipulam um valor fixo onde a recursão deve parar, como f(0) = 0). Sem o caso base, a recorrência gera um loop infinito.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "analise_assintotica",
+      label: "Análise Assintótica (Notação Big-O)",
+      group: 7,
+      status: "locked",
+      description:
+        "O vocabulário formal utilizado para descrever o limite de consumo de tempo e memória de um algoritmo conforme o tamanho da sua entrada de dados tende ao infinito, abstraindo fatores de hardware.",
+      examples: ["O(1), O(N), O(N²), O(log N)", "Pior Caso vs. Caso Médio"],
+      books: [
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+      ],
+      practice: [
+        {
+          question:
+            "Por que a Notação Big-O ignora constantes multiplicativas (ex: O(5N) vira O(N)) ao avaliar o desempenho de algoritmos?",
+          answer:
+            "Porque o objetivo da análise assintótica é medir a 'taxa de crescimento' da complexidade conforme a entrada tende ao infinito, independentemente se você roda o código em um processador de 2GHz ou 4GHz. O foco está em como o algoritmo escala arquiteturalmente, e não no tempo absoluto cronometrado.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "probabilidade_discreta",
+      label: "Probabilidade Discreta",
+      group: 7,
+      status: "locked",
+      description:
+        "O estudo matemático do acaso em espaços finitos. Fornece o raciocínio rigoroso para Inteligência Artificial (Redes Bayesianas), confiabilidade de armazenamento, transmissão de redes sujeita a ruídos e Machine Learning.",
+      examples: ["Probabilidade Condicional", "Teorema de Bayes", "Eventos Independentes"],
+      books: [
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Concrete Mathematics - Donald Knuth, Ronald Graham & Oren Patashnik",
+      ],
+      practice: [
+        {
+          question: "O que significa afirmar, em probabilidade, que dois eventos A e B são mutuamente exclusivos?",
+          answer:
+            "Significa que a ocorrência de um evento impede absolutamente a ocorrência do outro no mesmo instante (a interseção entre eles é nula). Por exemplo, um bit de hardware ser transmitido fisicamente como 0 e como 1 ao mesmo exato tempo no mesmo fio.",
+        },
+      ],
+      links: [],
+    },
   ],
   links: [
     // ===================================
@@ -2212,6 +2445,25 @@ const graphData = {
     { source: "cpu_arquiteturas", target: "memoria_virtual" },
     { source: "memoria_virtual", target: "paginacao" },
     { source: "memoria_virtual", target: "segmentacao" },
+
+    // ===========================
+    // 12. MATEMÁTICA DISCRETA
+    // ===========================
+    { source: "sistemas_digitais", target: "matematica_discreta" },
+    { source: "matematica_discreta", target: "logica_matematica" },
+    { source: "logica_matematica", target: "algebra_booleana" },
+    { source: "matematica_discreta", target: "aritmetica_modular" },
+    { source: "aritmetica_modular", target: "sistemas_de_numeracao" },
+    { source: "aritmetica_modular", target: "aritmetica_digital" },
+    { source: "matematica_discreta", target: "teoria_dos_conjuntos" },
+    { source: "teoria_dos_conjuntos", target: "teoria_dos_grafos" },
+    { source: "teoria_dos_grafos", target: "arvores_matematica" },
+    { source: "teoria_dos_grafos", target: "maquinas_de_estado" },
+    { source: "arvores_matematica", target: "escalonamento_de_processos" },
+    { source: "matematica_discreta", target: "combinatoria" },
+    { source: "combinatoria", target: "relacoes_de_recorrencia" },
+    { source: "relacoes_de_recorrencia", target: "analise_assintotica" },
+    { source: "combinatoria", target: "probabilidade_discreta" },
   ],
 };
 const statusColor = {
