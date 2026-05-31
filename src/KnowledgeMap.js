@@ -2281,6 +2281,559 @@ const graphData = {
       ],
       links: [],
     },
+    // =============================================
+    // 13. REDES DE COMPUTADORES E INFRAESTRUTURA
+    // =============================================
+    {
+      id: "dma_acesso_direto",
+      label: "DMA (Direct Memory Access)",
+      group: 13,
+      status: "locked",
+      description:
+        "Mecanismo que permite que periféricos, como a placa de rede, transfiram dados diretamente para a memória RAM sem a intervenção contínua da CPU, vital para redes de alta velocidade.",
+      examples: ["Controlador DMA", "Zero-copy", "Redução de Interrupções de CPU"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "O que significa a sigla DMA e qual o seu propósito?",
+          answer:
+            "Significa Direct Memory Access (Acesso Direto à Memória). Permite que hardwares como a placa de rede movam dados diretamente para a RAM, liberando a CPU para outras tarefas.",
+        },
+        {
+          question: "Por que o DMA é essencial para conexões de rede Gigabit?",
+          answer:
+            "Se a CPU precisasse copiar cada byte recebido da rede gerando uma interrupção (I/O programado), uma rede muito rápida faria a CPU travar apenas movendo dados. O DMA evita esse gargalo.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "placa_de_rede_nic",
+      label: "Placa de Rede (NIC)",
+      group: 13,
+      status: "locked",
+      description:
+        "O componente de hardware físico que conecta o computador ao meio de transmissão, convertendo dados lógicos da memória em sinais elétricos, ópticos ou de rádio.",
+      examples: ["NIC Ethernet", "Adaptador Wi-Fi (WLAN)", "Transceiver"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "Qual é a função principal de uma Placa de Rede (NIC)?",
+          answer:
+            "Atuar como a interface física entre o computador e o cabeamento de rede, transformando os bits armazenados na RAM em sinais físicos transmissíveis e vice-versa.",
+        },
+        {
+          question: "Qual identificador único de rede vem gravado na placa de rede de fábrica?",
+          answer: "O Endereço MAC (Media Access Control), que é o endereço físico único do hardware da placa.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "pilha_tcp_ip",
+      label: "Pilha TCP/IP (Implementação no Kernel)",
+      group: 13,
+      status: "locked",
+      description:
+        "O conjunto de protocolos de comunicação implementado dentro do núcleo (Kernel) do Sistema Operacional, responsável por empacotar e garantir a entrega dos dados.",
+      examples: ["Modelo de 4 Camadas", "Espaço de Kernel", "Processamento de Datagramas"],
+      books: [
+        "Internetworking with TCP-IP - Douglas Comer",
+        "Redes de Computadores - Andrew S. Tanenbaum",
+        "Computer Networking - Kurose & Ross",
+      ],
+      practice: [
+        {
+          question: "A pilha TCP/IP geralmente é executada fisicamente na placa de rede ou no Sistema Operacional?",
+          answer:
+            "Na esmagadora maioria dos sistemas, a lógica da pilha TCP/IP roda via software dentro do Kernel do Sistema Operacional, usando os recursos de processamento da CPU principal.",
+        },
+        {
+          question: "Quais são as quatro camadas clássicas do modelo TCP/IP?",
+          answer:
+            "Camada de Enlace (Interface de Rede), Camada de Internet (Rede), Camada de Transporte e Camada de Aplicação.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "sockets_api",
+      label: "Sockets API",
+      group: 13,
+      status: "locked",
+      description:
+        "A interface de programação de software (API) padrão que os aplicativos de usuário utilizam para se comunicar com a pilha de rede do Sistema Operacional.",
+      examples: ["Berkeley Sockets", "Bind() e Listen()", "Sockets de Fluxo (TCP) vs Datagrama (UDP)"],
+      books: ["Internetworking with TCP-IP - Douglas Comer", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "O que é um Socket em programação de redes?",
+          answer:
+            "É um ponto de extremidade de comunicação (endpoint). Funciona como uma 'porta virtual' pela qual um aplicativo envia e recebe dados através da rede gerenciada pelo SO.",
+        },
+        {
+          question: "Quais são os dois parâmetros lógicos básicos para conectar um Socket a um servidor?",
+          answer:
+            "O Endereço IP (que identifica a máquina de destino) e o número da Porta (que identifica o aplicativo específico rodando naquela máquina).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "camada_fisica_redes",
+      label: "Camada Física",
+      group: 13,
+      status: "locked",
+      description:
+        "A camada 1 do modelo OSI. Trata da transmissão de bits brutos por um canal de comunicação, envolvendo voltagens, temporização e pinagem de cabos.",
+      examples: ["Cabos Ethernet", "Frequências de Rádio", "Hubs Repetidores"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "A Camada Física entende o conceito de pacotes e IPs?",
+          answer:
+            "Não. A camada física enxerga e transmite apenas sinais puros (pulsos elétricos ou luz) que representam 0s e 1s brutos, sem qualquer noção do que esses bits significam.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "meios_de_transmissao",
+      label: "Meios de Transmissão",
+      group: 13,
+      status: "locked",
+      description:
+        "Os canais físicos pelos quais a informação trafega: fios de cobre (par trançado/coaxial), fibras ópticas e espectro eletromagnético (sem fio).",
+      examples: ["Cabo UTP (CAT6)", "Fibra Óptica Monomodo", "Wi-Fi (Ondas de Rádio)"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "Qual a principal vantagem da transmissão por fibras ópticas em relação aos cabos de cobre?",
+          answer:
+            "A fibra óptica transmite usando luz, o que a torna totalmente imune a interferências eletromagnéticas, além de possuir uma largura de banda muito maior para longas distâncias.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modulacao_e_sinais",
+      label: "Modulação e Sinais",
+      group: 13,
+      status: "locked",
+      description:
+        "O processo de converter dados digitais em sinais físicos, variando propriedades como amplitude, frequência ou fase de uma onda para representar informações.",
+      examples: ["Modulação QAM", "Baud Rate", "Sinal Analógico vs Digital"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "O que é largura de banda (bandwidth) em termos de sinais físicos?",
+          answer:
+            "É a faixa de frequências que pode ser transmitida pelo canal sem degradação excessiva. Canais com maior largura de banda conseguem transmitir mais dados simultaneamente.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "camada_de_enlace",
+      label: "Camada de Enlace",
+      group: 13,
+      status: "locked",
+      description:
+        "A camada 2 do modelo OSI. Pega os bits brutos da camada física e os organiza em unidades estruturadas chamadas Quadros (Frames), garantindo uma transmissão inicial sem erros.",
+      examples: ["Quadros Ethernet", "Switches (Camada 2)", "Topologia Estrela"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "Qual é a unidade de dados (PDU) manipulada na Camada de Enlace?",
+          answer:
+            "O Quadro (Frame), que encapsula os pacotes de rede e adiciona cabeçalhos físicos, como endereços MAC e códigos de verificação de erro.",
+        },
+        {
+          question: "Qual equipamento clássico de rede opera primariamente na camada de enlace?",
+          answer:
+            "O Switch. Ele lê os endereços MAC contidos nos quadros para enviá-los apenas para as portas onde os destinatários corretos estão conectados.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "subcamada_mac",
+      label: "Subcamada MAC",
+      group: 13,
+      status: "locked",
+      description:
+        "Media Access Control. Subcamada de enlace que lida com regras de acesso a meios compartilhados, decidindo quem pode transmitir quando vários dispositivos usam o mesmo canal.",
+      examples: ["Endereço MAC", "CSMA/CD (Ethernet)", "CSMA/CA (Wi-Fi)"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question:
+            "O que acontece se dois computadores transmitirem sinais simultaneamente no mesmo canal compartilhado?",
+          answer:
+            "Ocorre uma colisão de dados, o que corrompe o sinal físico. A subcamada MAC define regras para detectar colisões e retransmitir em momentos diferentes.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "deteccao_correcao_erros",
+      label: "Detecção e Correção de Erros",
+      group: 13,
+      status: "locked",
+      description:
+        "Mecanismos matemáticos que permitem que o receptor saiba se os bits foram alterados por ruído ou interferência durante a viagem no cabo.",
+      examples: ["CRC (Cyclic Redundancy Check)", "Paridade", "Checksum"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "Qual a diferença entre detecção de erro e correção de erro?",
+          answer:
+            "A detecção apenas avisa que o pacote chegou corrompido (para ser descartado). A correção de erro contém redundância suficiente para o receptor consertar os bits errados sem precisar pedir retransmissão.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolo_arp",
+      label: "Protocolo ARP",
+      group: 13,
+      status: "locked",
+      description:
+        "Address Resolution Protocol. É o tradutor vital que descobre o endereço físico de hardware (MAC) correspondente a um endereço lógico (IP) na mesma rede local.",
+      examples: ["Tabela ARP", "ARP Request em Broadcast"],
+      books: ["Internetworking with TCP-IP - Douglas Comer", "Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "Por que um computador precisa do ARP se ele já sabe o IP de destino?",
+          answer:
+            "Porque as placas de rede e os switches só entendem endereços MAC. O computador precisa do MAC para formatar o Quadro de Enlace antes de colocá-lo no fio.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "camada_de_rede",
+      label: "Camada de Rede",
+      group: 13,
+      status: "locked",
+      description:
+        "A camada 3 do modelo OSI. Responsável pelo endereçamento lógico global e por rotear pacotes através de múltiplas redes intermediárias até o destino final.",
+      examples: ["Datagramas", "Roteadores", "Endereçamento Lógico"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "Qual é o principal dispositivo de hardware que atua na Camada de Rede?",
+          answer: "O Roteador, que interliga redes diferentes e escolhe o melhor caminho para repassar os pacotes IP.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolo_ip_v4_v6",
+      label: "Protocolo IP (IPv4 e IPv6)",
+      group: 13,
+      status: "locked",
+      description:
+        "O protocolo núcleo da internet. Fornece endereçamento global e roteamento de 'melhor esforço', empacotando dados em datagramas sem garantia de entrega.",
+      examples: ["Endereço IPv4 (32 bits)", "Endereço IPv6 (128 bits)", "TTL (Time to Live)"],
+      books: ["Internetworking with TCP-IP - Douglas Comer", "Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "O protocolo IP garante que o datagrama chegará ao destino sem ser perdido?",
+          answer:
+            "Não. O IP oferece um serviço não confiável (best-effort). Se houver congestionamento, o roteador pode simplesmente descartar o pacote. Quem cuida da entrega confiável é o TCP.",
+        },
+        {
+          question: "Para que serve o campo TTL (Time to Live) no cabeçalho IP?",
+          answer:
+            "Para evitar que pacotes fiquem rodando em loops infinitos na internet. A cada roteador que o pacote passa, o TTL diminui. Se chegar a zero, o pacote é destruído.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "algoritmos_de_roteamento",
+      label: "Algoritmos de Roteamento",
+      group: 13,
+      status: "locked",
+      description:
+        "Protocolos e fórmulas (como Dijkstra) que os roteadores usam para conversar entre si, atualizar tabelas e calcular a rota mais rápida ou com menor custo na malha da internet.",
+      examples: ["OSPF (Link-State)", "BGP (Border Gateway Protocol)", "Tabelas de Roteamento"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "O que é uma Tabela de Roteamento?",
+          answer:
+            "Um banco de dados interno do roteador que mapeia redes de destino e indica qual é a 'próxima porta' (next hop) para onde o pacote deve ser jogado para se aproximar do destino.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "camada_de_transporte",
+      label: "Camada de Transporte",
+      group: 13,
+      status: "locked",
+      description:
+        "A camada 4. Eleva a comunicação (que antes era de máquina-para-máquina pelo IP) para aplicativo-para-aplicativo através do conceito de Portas, lidando com confiabilidade fim-a-fim.",
+      examples: ["Segmentos (TCP)", "Portas de Aplicação (Porta 80, 443)", "Multiplexação"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question:
+            "Como o sistema operacional sabe para qual aplicativo entregar os dados que acabaram de chegar da rede?",
+          answer:
+            "Através do número de Porta contido no cabeçalho da camada de Transporte (ex: porta 80 vai para o servidor web, porta 22 para o SSH).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolos_tcp_udp",
+      label: "Protocolos TCP e UDP",
+      group: 13,
+      status: "locked",
+      description:
+        "Os pilares do transporte. O TCP é confiável e ordenado, usa conexões (Handshake). O UDP é rápido, não gera conexões e joga dados na rede sem se importar com perdas.",
+      examples: ["Three-way Handshake", "Streaming (UDP)", "Transferência de Arquivos (TCP)"],
+      books: ["Internetworking with TCP-IP - Douglas Comer", "Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "O que é o 'Three-way Handshake' do TCP?",
+          answer:
+            "É o processo de estabelecimento de conexão em três passos (SYN, SYN-ACK, ACK) que servidor e cliente fazem antes de mandar o primeiro byte real de dados.",
+        },
+        {
+          question: "Por que streaming de vídeo ao vivo ou jogos de tiro costumam usar UDP em vez de TCP?",
+          answer:
+            "Porque o TCP insiste em reenviar dados perdidos, gerando atraso (lag) inaceitável. No UDP, é melhor perder um frame de vídeo momentâneo do que travar a tela esperando o reenvio.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "controle_de_congestionamento",
+      label: "Controle de Congestionamento",
+      group: 13,
+      status: "locked",
+      description:
+        "Inteligência embutida no TCP para frear a velocidade de envio quando detecta que a rede intermediária está entupida, salvando a internet de um colapso catastrófico.",
+      examples: ["Janela de Congestionamento (cwnd)", "Slow Start", "Algoritmo CUBIC"],
+      books: ["Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "Como o protocolo TCP 'percebe' que há um congestionamento na rede?",
+          answer:
+            "Principalmente pela ausência de respostas de confirmação (ACKs) por parte do destinatário e por timeouts frequentes. Quando o roteador fica lotado, ele descarta pacotes, o TCP nota a perda e reduz a velocidade.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "camada_de_aplicacao",
+      label: "Camada de Aplicação",
+      group: 13,
+      status: "locked",
+      description:
+        "A camada mais alta, contendo os protocolos que prestam serviços diretos ao usuário e onde efetivamente trabalham os desenvolvedores de software.",
+      examples: ["Navegadores Web", "SMTP (Email)", "SSH"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "A camada de aplicação se preocupa em saber por qual cabo ou roteador os dados vão passar?",
+          answer:
+            "Não. A camada de aplicação é uma camada de software pura. Ela entrega os dados estruturados (texto, imagens) para o Socket e a pilha do SO cuida do resto do trajeto físico e lógico.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "dns",
+      label: "DNS (Domain Name System)",
+      group: 13,
+      status: "locked",
+      description:
+        "O serviço de diretórios distribuído da internet, que traduz nomes de domínio humanamente legíveis (como google.com) para endereços IP roteáveis pelas máquinas.",
+      examples: ["Registros A e CNAME", "Servidores Raiz", "Cache DNS"],
+      books: ["DNS and Bind - Cricket Liu", "Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "O que acontece na prática quando você digita um site, mas seu servidor DNS está fora do ar?",
+          answer:
+            "Sua internet continua funcionando e você consegue acessar servidores diretamente pelo IP (se souber), mas o navegador exibirá erro ao tentar resolver qualquer nome de domínio com letras.",
+        },
+        {
+          question: "O que define um registro tipo 'A' no DNS?",
+          answer: "É o registro fundamental que mapeia diretamente um nome de domínio para um endereço IPv4 numérico.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolos_iot_mqtt",
+      label: "Protocolos IoT (MQTT)",
+      group: 13,
+      status: "locked",
+      description:
+        "Protocolos leves e de baixo consumo de recursos projetados para a Internet das Coisas (IoT), operando bem sobre redes não confiáveis e hardware de baixa potência.",
+      examples: ["Padrão Publish/Subscribe", "Broker MQTT", "Telemetria"],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question:
+            "Por que o modelo MQTT (usando um Broker intermediário) é melhor para sensores IoT do que requisições HTTP diretas?",
+          answer:
+            "O HTTP exige requisições contínuas, é verboso (cabeçalhos pesados) e consome muita bateria do microcontrolador. O MQTT mantém conexões minúsculas ativas e reage via eventos apenas quando há dados novos para publicar.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolo_http",
+      label: "Protocolo HTTP",
+      group: 13,
+      status: "locked",
+      description:
+        "O Hypertext Transfer Protocol. É a linguagem universal da Web baseada em requisição e resposta de textos estruturados. Não guarda o estado do cliente entre requisições.",
+      examples: ["HTTP/1.1 vs HTTP/2", "Status Codes (200, 404, 500)", "Verbos GET/POST"],
+      books: ["HTTP The Definitive Guide - Gourley & Totty", "RESTful Web Services - Richardson & Ruby"],
+      practice: [
+        {
+          question: "O que significa dizer que o protocolo HTTP é 'stateless' (sem estado)?",
+          answer:
+            "Significa que o servidor trata cada requisição HTTP de forma isolada, como um evento novo. Ele não guarda memória ou contexto natural de que aquela requisição veio do mesmo cliente que pediu algo 5 segundos atrás.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "http_headers",
+      label: "HTTP Headers (Cabeçalhos)",
+      group: 13,
+      status: "locked",
+      description:
+        "Linhas de texto fundamentais que acompanham toda requisição ou resposta HTTP, passando metadados de controle cruciais entre cliente e servidor.",
+      examples: ["Content-Type", "User-Agent", "Authorization"],
+      books: ["HTTP The Definitive Guide - Gourley & Totty"],
+      practice: [
+        {
+          question:
+            "Como o navegador do cliente sabe se a resposta enviada pelo servidor é um arquivo PDF ou um JSON de API?",
+          answer:
+            "Através do cabeçalho 'Content-Type', que informa o MIME Type do corpo (payload) entregue (ex: application/json ou application/pdf).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "cookies_sessoes",
+      label: "Cookies e Sessões",
+      group: 13,
+      status: "locked",
+      description:
+        "Gambiarra padronizada e vital da Web para resolver a falta de estado do HTTP. Permite manter usuários logados e armazenar preferências enviando pequenos identificadores nas requisições.",
+      examples: ["Set-Cookie Header", "Session ID no Servidor", "Cadeia de Autenticação"],
+      books: ["HTTP The Definitive Guide - Gourley & Totty"],
+      practice: [
+        {
+          question: "Qual a relação entre Cookie e Sessão?",
+          answer:
+            "A Sessão armazena dados pesados (carrinho, perfil) seguramente do lado do servidor. O servidor gera um 'Session ID' e pede para o navegador salvá-lo como um Cookie. O navegador passa a enviar esse Cookie em toda nova requisição para se identificar.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "ssl_tls_https",
+      label: "SSL/TLS e HTTPS",
+      group: 13,
+      status: "locked",
+      description:
+        "Protocolos de segurança criptográfica que operam acima do TCP para garantir que os dados trafeguem confidencialmente (criptografia), de forma íntegra e para um servidor autenticado.",
+      examples: ["Handshake TLS", "Criptografia Assimétrica", "Certificados Digitais (X.509)"],
+      books: ["Bulletproof SSL and TLS - Ivan Ristic", "HTTP The Definitive Guide - Gourley & Totty"],
+      practice: [
+        {
+          question: "Para que serve um Certificado Digital associado ao TLS do servidor?",
+          answer:
+            "Para garantir a autenticação de quem é dono do site. Ele impede ataques de Man-in-the-Middle confirmando (através de uma Autoridade Certificadora como a Let's Encrypt) que você está falando com o servidor real, e não um falso intermediário.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "firewalls",
+      label: "Firewalls",
+      group: 13,
+      status: "locked",
+      description:
+        "Sistemas (hardware ou software) que interceptam e filtram todo o tráfego de rede de acordo com regras de segurança rígidas, como bloqueio de portas ou de IPs específicos.",
+      examples: ["Regras Iptables", "Default Deny", "Inspeção de Estado"],
+      books: ["Firewalls and Internet Security - Cheswick & Bellovin"],
+      practice: [
+        {
+          question: "O que significa a política de configuração de Firewall conhecida como 'Default Deny'?",
+          answer:
+            "É a prática recomendada onde o Firewall é configurado para bloquear absolutamente todo e qualquer tráfego, forçando o administrador a liberar explicitamente apenas as portas estritamente necessárias (como a 80 e 443).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "proxy_reverso",
+      label: "Proxy Reverso",
+      group: 13,
+      status: "locked",
+      description:
+        "Um servidor robusto (como NGINX) que senta de frente para a internet, recebendo o tráfego dos usuários e o roteando para as aplicações internas escondidas no backend.",
+      examples: ["NGINX", "Terminação SSL", "Cache de Conteúdo"],
+      books: ["Mastering NGINX - Dimitri Aivaliotis"],
+      practice: [
+        {
+          question: "Qual a diferença central entre um Proxy comum e um Proxy Reverso?",
+          answer:
+            "O Proxy comum senta junto aos clientes e mascara as saídas (ex: proxy corporativo para bloquear redes sociais dos funcionários). O Proxy Reverso senta junto aos servidores de uma empresa, recebendo as requisições que chegam de fora e repassando-as internamente, ocultando a infraestrutura da aplicação.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "load_balancing",
+      label: "Load Balancing",
+      group: 13,
+      status: "locked",
+      description:
+        "A técnica crítica para escalar sistemas modernos, distribuindo requisições de rede equilibradamente por dezenas ou centenas de servidores clonados no backend.",
+      examples: ["Algoritmo Round-Robin", "Health Checks", "AWS Application Load Balancer"],
+      books: ["Mastering NGINX - Dimitri Aivaliotis"],
+      practice: [
+        {
+          question: "O que o Proxy Reverso faz quando executa um 'Health Check' na frota de servidores balanceada?",
+          answer:
+            "Ele testa constantemente se os servidores backend estão vivos respondendo a requisições HTTP. Se um servidor da frota cair, o Load Balancer remove ele temporariamente da distribuição de tráfego, evitando direcionar clientes para um servidor morto.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "cdn",
+      label: "CDN (Content Delivery Network)",
+      group: 13,
+      status: "locked",
+      description:
+        "Um cluster global e distribuído de servidores proxy cujo único objetivo é guardar cópias em cache de conteúdo estático (imagens, vídeos) nos datacenters geograficamente mais próximos do usuário final.",
+      examples: ["Cloudflare", "Akamai", "Redução de Latência por Borda (Edge)"],
+      books: ["Content Delivery Networks - Buyya et al."],
+      practice: [
+        {
+          question:
+            "Como uma CDN melhora radicalmente a performance de um site hospedado nos Estados Unidos para um usuário no Brasil?",
+          answer:
+            "A CDN copia o código visual (HTML, CSS e imagens pesadas) do site para um servidor em São Paulo (Edge Server). Quando o usuário brasileiro acessa, os dados viajam apenas da sua cidade até SP (ms de latência), em vez de cruzarem cabos submarinos até os EUA.",
+        },
+      ],
+      links: [],
+    },
   ],
   links: [
     // ===================================
@@ -2464,6 +3017,44 @@ const graphData = {
     { source: "combinatoria", target: "relacoes_de_recorrencia" },
     { source: "relacoes_de_recorrencia", target: "analise_assintotica" },
     { source: "combinatoria", target: "probabilidade_discreta" },
+
+    // ===============================================
+    // 13. REDES DE COMPUTADORES E INFRAESTRUTURA
+    // ===============================================
+    { source: "dispositivos_io", target: "placa_de_rede_nic" },
+    { source: "device_drivers", target: "placa_de_rede_nic" },
+    { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
+    { source: "dma_acesso_direto", target: "placa_de_rede_nic" },
+    { source: "kernel_so", target: "pilha_tcp_ip" },
+    { source: "chamadas_de_sistema", target: "sockets_api" },
+    { source: "sockets_api", target: "pilha_tcp_ip" },
+    { source: "placa_de_rede_nic", target: "camada_fisica_redes" },
+    { source: "interface_mundo_analogico", target: "camada_fisica_redes" },
+    { source: "camada_fisica_redes", target: "meios_de_transmissao" },
+    { source: "camada_fisica_redes", target: "modulacao_e_sinais" },
+    { source: "camada_fisica_redes", target: "camada_de_enlace" },
+    { source: "camada_de_enlace", target: "subcamada_mac" },
+    { source: "camada_de_enlace", target: "deteccao_correcao_erros" },
+    { source: "subcamada_mac", target: "protocolo_arp" },
+    { source: "pilha_tcp_ip", target: "camada_de_rede" },
+    { source: "camada_de_enlace", target: "camada_de_rede" },
+    { source: "protocolo_arp", target: "camada_de_rede" },
+    { source: "camada_de_rede", target: "protocolo_ip_v4_v6" },
+    { source: "camada_de_rede", target: "algoritmos_de_roteamento" },
+    { source: "camada_de_rede", target: "camada_de_transporte" },
+    { source: "camada_de_transporte", target: "protocolos_tcp_udp" },
+    { source: "protocolos_tcp_udp", target: "controle_de_congestionamento" },
+    { source: "camada_de_transporte", target: "camada_de_aplicacao" },
+    { source: "camada_de_aplicacao", target: "dns" },
+    { source: "camada_de_aplicacao", target: "protocolos_iot_mqtt" },
+    { source: "camada_de_aplicacao", target: "protocolo_http" },
+    { source: "protocolo_http", target: "http_headers" },
+    { source: "protocolo_http", target: "cookies_sessoes" },
+    { source: "protocolo_http", target: "ssl_tls_https" },
+    { source: "camada_de_rede", target: "firewalls" },
+    { source: "protocolo_http", target: "proxy_reverso" },
+    { source: "proxy_reverso", target: "load_balancing" },
+    { source: "proxy_reverso", target: "cdn" },
   ],
 };
 const statusColor = {
