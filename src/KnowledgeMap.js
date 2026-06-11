@@ -1964,11 +1964,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 5. Arquitetura de Computadores
+    // 11. Arquitetura de Computadores
     {
       id: "arquitetura_de_computadores",
       label: "Arquitetura de Computadores",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A ponte entre o hardware elétrico e o software que usamos. Estuda como montar, organizar e medir o desempenho de um computador equilibrando velocidade, custo e consumo de energia.",
@@ -1994,7 +1994,7 @@ const graphData = {
     {
       id: "tipos_computadores",
       label: "Classes e Tipos de Computadores",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A classificação dos computadores de acordo com a finalidade de mercado. Mostra como o projeto do hardware muda drasticamente se o chip for usado em um relógio de pulso ou em um servidor do Google.",
@@ -2018,7 +2018,7 @@ const graphData = {
     {
       id: "arquitetura_von_neumann",
       label: "Arquitetura Von Neumann",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O modelo clássico em que praticamente todos os computadores baseiam-se hoje. O seu grande diferencial foi colocar tanto os dados do usuário quanto as instruções do programa dentro da mesma memória unificada.",
@@ -2044,7 +2044,7 @@ const graphData = {
     {
       id: "isa",
       label: "ISA (Arquitetura do Conjunto de Instruções)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A linguagem oficial que o processador entende. É o 'manual de regras' que faz a ponte entre o hardware e o software, definindo quais comandos matemáticos e de memória existem no chip.",
@@ -2069,7 +2069,7 @@ const graphData = {
     {
       id: "assembly",
       label: "Linguagem Assembly",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A forma textual do código de máquina. Em vez de obrigar o programador a escrever tudo com zeros e uns, o Assembly usa palavras curtas (como ADD, SUB, MOV) para representar as instruções do processador.",
@@ -2092,7 +2092,7 @@ const graphData = {
     {
       id: "isa_cisc_x86",
       label: "ISA CISC (Família x86)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "Computadores com Conjunto Complexo de Instruções. A filosofia aqui é ter instruções muito poderosas, que façam o trabalho matemático e o acesso à memória na mesma linha, gerando programas pequenos em tamanho.",
@@ -2115,7 +2115,7 @@ const graphData = {
     {
       id: "isa_risc_arm",
       label: "ISA RISC (ARM, RISC-V)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "Computadores com Conjunto Reduzido de Instruções. O foco vira o jogo: usa apenas instruções muito simples e todas do mesmo tamanho, o que facilita construir um hardware extremamente rápido e limpo.",
@@ -2138,7 +2138,7 @@ const graphData = {
     {
       id: "cpu",
       label: "A Unidade Central de Processamento (CPU)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O verdadeiro cérebro da máquina. É a estrutura gigante que passa a vida repetindo três passos: busca uma instrução na memória, decifra o que ela quer fazer, e aciona os circuitos para executá-la.",
@@ -2163,7 +2163,7 @@ const graphData = {
     {
       id: "cpu_ula",
       label: "Unidade Lógica e Aritmética (ULA/ALU)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O núcleo matemático da CPU. Um gigantesco emaranhado de portas lógicas que não tem inteligência, apenas obedece comandos para somar, subtrair, ou comparar duas palavras de bits.",
@@ -2187,7 +2187,7 @@ const graphData = {
     {
       id: "cpu_uc",
       label: "Unidade de Controle (UC)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O maestro do processador. Ela não faz contas, mas lê o código da instrução e dispara dezenas de sinais elétricos que ativam a ULA, os registradores e a memória na hora exata.",
@@ -2213,7 +2213,7 @@ const graphData = {
     {
       id: "cpu_clock",
       label: "Clock, Tempo e Sincronização",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O oscilador eletrônico que funciona como o metrônomo do processador. Os pulsos de energia dão o ritmo para garantir que as correntes elétricas terminem de fluir antes do próximo passo.",
@@ -2236,7 +2236,7 @@ const graphData = {
     {
       id: "cpu_arquiteturas",
       label: "Microarquiteturas Avançadas e Pipelining",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "As grandes mágicas de engenharia feitas para executar várias instruções ao mesmo tempo dentro de um mesmo núcleo, sem aumentar a velocidade do clock.",
@@ -2260,7 +2260,7 @@ const graphData = {
     {
       id: "paralelismo_multiprocessadores",
       label: "Paralelismo e Multiprocessadores",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "Como conectar vários processadores para trabalharem juntos. Explora do processamento em vetor das placas de vídeo até a Lei de Amdahl, que dita o limite matemático de quanto um software consegue ficar mais rápido.",
@@ -2284,7 +2284,7 @@ const graphData = {
     {
       id: "cpu_tipos",
       label: "Evolução e Tipos de Processadores",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "Mostra como o design da CPU evoluiu. Analisa as especializações físicas, indo desde processadores com muitos núcleos para uso diário, até placas de vídeo massivas desenhadas para hiper-paralelismo.",
@@ -2307,7 +2307,7 @@ const graphData = {
     {
       id: "memoria",
       label: "O Subsistema de Memória",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O amplo conjunto de tecnologias encarregadas de guardar a informação do computador, variando dos flip-flops que alimentam a ULA até os enormes discos que guardam o sistema operacional.",
@@ -2333,7 +2333,7 @@ const graphData = {
     {
       id: "hierarquia_memoria",
       label: "A Hierarquia de Memória",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A genial organização em formato de pirâmide. O computador finge ter uma memória gigante e incrivelmente rápida colocando chips caros e pequenos no topo, e memórias massivas e baratas na base.",
@@ -2357,7 +2357,7 @@ const graphData = {
     {
       id: "memoria_principal",
       label: "Memória Principal (RAM)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O imenso espaço de trabalho volátil do computador. É aqui que os arquivos parados do disco ganham vida e passam a ser dados ativos prontos para o processador manipular.",
@@ -2380,7 +2380,7 @@ const graphData = {
     {
       id: "caches_niveis",
       label: "Memórias Cache (L1, L2, L3)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "As guardiãs da CPU. Memórias minúsculas, caras e puramente de SRAM de altíssima velocidade grudadas no processador. A função exclusiva delas é interceptar a RAM principal para evitar que a CPU fique esperando.",
@@ -2403,7 +2403,7 @@ const graphData = {
     {
       id: "armazenamento_secundario",
       label: "Armazenamento Secundário (HDs e SSDs)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A base gorda, lenta e persistente da pirâmide. Guarda todos os programas, o sistema operacional e as fotos do usuário indefinidamente, mesmo quando o sistema é totalmente desenergizado da tomada.",
@@ -2426,7 +2426,7 @@ const graphData = {
     {
       id: "entrada_saida",
       label: "O Sistema de Entrada e Saída (I/O)",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "O porto de contato entre o cérebro da máquina e o mundo humano e de periféricos. É uma arquitetura focada em compatibilizar a CPU absurdamente rápida com impressoras e placas lentas e assíncronas.",
@@ -2452,7 +2452,7 @@ const graphData = {
     {
       id: "barramentos_interrupcoes",
       label: "Barramentos, Interrupções e DMA",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A logística nervosa do trânsito de dados do PC. Estuda como as vias de fios são organizadas, como os componentes ganham prioridade de fala e como aparelhos pedem socorro para a CPU processá-los.",
@@ -2475,7 +2475,7 @@ const graphData = {
     {
       id: "dispositivos_io",
       label: "Dispositivos Periféricos",
-      group: 5,
+      group: 11,
       status: "pending",
       description:
         "A classificação lógica dos aparelhos finais instalados nas pontas do computador de acordo com o modo exato em que recebem e empacotam o fluxo de zeros e uns.",
@@ -2495,11 +2495,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 6. Sistemas Operacionais
+    // 12. Sistemas Operacionais
     {
       id: "sistemas_operacionais",
       label: "Sistemas Operacionais",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O software mestre que atua como tradutor e gerente geral. Ele esconde toda a fiação e complexidade da placa-mãe criando uma 'máquina virtual' limpa e fácil de usar, enquanto divide de forma justa a CPU, a RAM e o disco entre todos os programas abertos.",
@@ -2521,7 +2521,7 @@ const graphData = {
     {
       id: "kernel_so",
       label: "Núcleo do Sistema (Kernel)",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O coração do sistema operacional. É a porção de código que fica carregada na memória RAM o tempo todo e possui poder absoluto e irrestrito sobre a máquina. É ele quem decide qual programa usa o processador e quando.",
@@ -2540,7 +2540,7 @@ const graphData = {
     {
       id: "modo_usuario_kernel",
       label: "Modos de Execução",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "A barreira de segurança construída fisicamente no chip do processador. O computador é dividido em Modo Usuário (onde os programas rodam em uma 'caixa de areia' sem poder danificar o hardware) e Modo Kernel (permissão total).",
@@ -2563,7 +2563,7 @@ const graphData = {
     {
       id: "chamadas_de_sistema",
       label: "Chamadas de Sistema (System Calls)",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O 'guichê de atendimento' do sistema. Como os programas normais estão presos no Modo Usuário e não podem tocar na placa-mãe, eles usam essas chamadas para pedir educadamente ao Kernel que salve um arquivo ou acesse a internet por eles.",
@@ -2586,7 +2586,7 @@ const graphData = {
     {
       id: "tratamento_de_interrupcoes",
       label: "Tratamento de Interrupções",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O sistema de alarme da máquina. Se você clicar o mouse, o hardware envia um choque que pausa a CPU imediatamente. O SO atende essa interrupção, anota o clique e devolve a CPU para o que estava fazendo antes.",
@@ -2609,7 +2609,7 @@ const graphData = {
     {
       id: "device_drivers",
       label: "Device Drivers",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "Os manuais de instrução dos periféricos. Como o SO não sabe a língua de todas as impressoras ou placas de vídeo do mundo, os drivers são pequenos códigos injetados no Kernel que ensinam o sistema a comandar os chips elétricos corretos.",
@@ -2632,7 +2632,7 @@ const graphData = {
     {
       id: "sistemas_de_arquivos",
       label: "Sistemas de Arquivos",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "A biblioteca lógica do sistema operacional. Transforma os bilhões de setores e trilhas confusas do disco rígido em uma estrutura elegante e familiar de pastas, diretórios e nomes de arquivos que os usuários conseguem entender e organizar.",
@@ -2651,7 +2651,7 @@ const graphData = {
     {
       id: "escalonamento_de_processos",
       label: "Escalonamento de Processos",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O relógio de ponto da CPU. O Escalonador é o algoritmo que escolhe qual programa vai rodar no processador e por quantos milissegundos. Ele troca os programas tão rápido que cria a ilusão de que tudo roda ao mesmo tempo.",
@@ -2679,7 +2679,7 @@ const graphData = {
     {
       id: "gerenciamento_de_threads",
       label: "Gerenciamento de Threads",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "A divisão de trabalho dentro de um mesmo programa. Uma 'Thread' é como um braço do processo. Ela permite que um editor de texto use um braço para salvar o arquivo no disco enquanto o outro braço continua aceitando a sua digitação.",
@@ -2708,7 +2708,7 @@ const graphData = {
     {
       id: "condicoes_de_corrida",
       label: "Condições de Corrida",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O caos do trabalho em equipe desorganizado. Acontece quando duas threads mexem na mesma variável ou arquivo exatamente no mesmo microssegundo. Uma apaga a conta matemática da outra e o resultado fica corrompido e imprevisível.",
@@ -2731,7 +2731,7 @@ const graphData = {
     {
       id: "deadlocks",
       label: "Impasses (Deadlocks)",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O 'abraço da morte' dos computadores. É um travamento total e sem volta onde o Programa A segura o HD e espera a Placa de Rede, e o Programa B segura a Placa de Rede e espera o HD. Como nenhum solta, os dois congelam para sempre.",
@@ -2760,7 +2760,7 @@ const graphData = {
     {
       id: "gerenciamento_de_memoria",
       label: "Gerenciamento de Memória",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O zelador e segurança do espaço eletrônico. O SO cataloga quais partes da RAM estão vazias para abrir novos programas e constrói escudos virtuais para impedir que o navegador invada ou apague os dados do antivírus.",
@@ -2783,7 +2783,7 @@ const graphData = {
     {
       id: "memoria_virtual",
       label: "Memória Virtual",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "A maior mágica dos sistemas operacionais. O sistema mente para os programas, fingindo que cada um deles é o dono absoluto de uma RAM gigantesca de 64 GB, quando na verdade, o SO fatia os programas em blocos na RAM física e no HD.",
@@ -2805,7 +2805,7 @@ const graphData = {
     {
       id: "paginacao",
       label: "Paginação",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "O principal método para fazer a Memória Virtual funcionar. Divide a memória falsa do programa e a memória RAM real em blocos rigorosamente do mesmo tamanho (Páginas), permitindo que o SO brinque de Lego encaixando as peças onde quiser.",
@@ -2834,7 +2834,7 @@ const graphData = {
     {
       id: "segmentacao",
       label: "Segmentação",
-      group: 6,
+      group: 12,
       status: "pending",
       description:
         "Um modelo alternativo para gerenciar a memória virtual. Em vez de usar blocos travados do mesmo tamanho como a Paginação faz, ela divide o programa de acordo com as funções da programação (um pedaço para o código, outro só para as variáveis).",
@@ -2853,11 +2853,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 7. Redes de Computadores
+    // 13. Redes de Computadores
     {
       id: "redes_de_computadores",
       label: "Redes de Computadores",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A espinha dorsal da internet. Estuda como interligar computadores isolados para trocar informações através de um conjunto de regras e camadas, permitindo que um celular no Brasil acesse perfeitamente um servidor no Japão.",
@@ -2875,7 +2875,7 @@ const graphData = {
     {
       id: "camada_fisica_redes",
       label: "Camada Física",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A camada 1 do modelo OSI. Trata da transmissão de bits brutos por um canal de comunicação, envolvendo voltagens, temporização, feixes de luz e pinagem de cabos.",
@@ -2893,7 +2893,7 @@ const graphData = {
     {
       id: "meios_de_transmissao",
       label: "Meios de Transmissão",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Os canais físicos pelos quais a informação trafega: fios de cobre (par trançado/coaxial), fibras ópticas e espectro eletromagnético (sem fio).",
@@ -2911,7 +2911,7 @@ const graphData = {
     {
       id: "modulacao_e_sinais",
       label: "Modulação e Sinais",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O processo de converter dados digitais do computador em sinais físicos, variando propriedades como amplitude, frequência ou fase de uma onda para representar informações na vida real.",
@@ -2929,7 +2929,7 @@ const graphData = {
     {
       id: "camada_de_enlace",
       label: "Camada de Enlace",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A camada 2 do modelo OSI. Pega os bits soltos que chegam da camada física e os organiza em caixas estruturadas chamadas Quadros (Frames), garantindo a entrega do pacote entre duas máquinas conectadas diretamente.",
@@ -2947,7 +2947,7 @@ const graphData = {
     {
       id: "subcamada_mac",
       label: "Subcamada MAC",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Media Access Control. O 'guarda de trânsito' da camada de enlace que lida com regras de acesso a meios compartilhados, decidindo quem pode falar e quando, caso vários PCs usem o mesmo cabo ou rede Wi-Fi.",
@@ -2966,7 +2966,7 @@ const graphData = {
     {
       id: "placa_de_rede_nic",
       label: "Placa de Rede (NIC)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O componente de hardware físico instalado na placa-mãe que conecta o computador à rede. Atua convertendo os dados lógicos presentes na memória RAM em sinais elétricos, ópticos ou de rádio.",
@@ -2984,7 +2984,7 @@ const graphData = {
     {
       id: "dma_acesso_direto",
       label: "DMA (Direct Memory Access)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Mecanismo autônomo que permite que hardwares pesados, como a placa de rede Gigabit, transfiram enormes arquivos da internet direto para a memória RAM, sem precisar pedir para a CPU fazer o trabalho manual.",
@@ -3003,7 +3003,7 @@ const graphData = {
     {
       id: "deteccao_correcao_erros",
       label: "Detecção e Correção de Erros",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A matemática embutida no final do pacote de dados que permite ao PC receptor descobrir se a mensagem sofreu interferência eletromagnética durante a viagem, evitando abrir arquivos corrompidos.",
@@ -3021,7 +3021,7 @@ const graphData = {
     {
       id: "camada_de_rede",
       label: "Camada de Rede",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A camada 3 do modelo OSI (o carteiro global). É ela a responsável por fornecer o mapa da internet inteira, escolhendo e roteando os pacotes através de um labirinto de países e redes até o destino final.",
@@ -3039,7 +3039,7 @@ const graphData = {
     {
       id: "protocolo_ip_v4_v6",
       label: "Protocolo IP (IPv4 e IPv6)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A essência absoluta da internet. Cria o CEP eletrônico global (Endereço IP) para que pacotes viagem pelo globo através de um esforço não-confiável ('melhor esforço'), sem prometer que o pacote vai chegar perfeito.",
@@ -3058,7 +3058,7 @@ const graphData = {
     {
       id: "protocolo_arp",
       label: "Protocolo ARP",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O tradutor entre a camada 3 (IP) e a camada 2 (MAC). Quando o PC sabe o IP do vizinho mas precisa descobrir o endereço de hardware da placa dele para enviar a carta na rede local, ele usa o ARP para 'gritar' na rede perguntando quem é dono daquele IP.",
@@ -3077,7 +3077,7 @@ const graphData = {
     {
       id: "algoritmos_de_roteamento",
       label: "Algoritmos de Roteamento",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O GPS da internet. Fórmulas e protocolos inteligentes (como OSPF e BGP) que permitem que os roteadores conversem entre si nos bastidores, avisando quais rotas estão caídas e recalculando o caminho mais rápido na hora.",
@@ -3095,7 +3095,7 @@ const graphData = {
     {
       id: "firewalls",
       label: "Firewalls",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O porteiro de segurança da rede. Um sistema rigoroso que senta na porta de entrada da sua rede e intercepta os pacotes, bloqueando invasores de acordo com listas de IPs e Portas proibidas.",
@@ -3114,7 +3114,7 @@ const graphData = {
     {
       id: "camada_de_transporte",
       label: "Camada de Transporte",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A camada 4 do modelo OSI. Eleva a comunicação de um nível 'Máquina para Máquina' (que era o IP) para o nível 'Aplicativo para Aplicativo', criando o conceito de Portas Lógicas para que os dados achem a aba certa do seu programa.",
@@ -3137,7 +3137,7 @@ const graphData = {
     {
       id: "protocolos_tcp_udp",
       label: "Protocolos TCP e UDP",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Os dois grandes chefes do transporte. O TCP é obcecado por garantia e ordem (mas é lerdo). O UDP não liga se pacotes se perderem pelo caminho, sendo absurdamente rápido e direto ao ponto.",
@@ -3165,7 +3165,7 @@ const graphData = {
     {
       id: "controle_de_congestionamento",
       label: "Controle de Congestionamento",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A inteligência embutida no TCP para frear as máquinas. Ele percebe quando roteadores mundiais estão engasgando de dados e manda o seu PC fazer o upload mais devagar para salvar a internet de um colapso catastrófico.",
@@ -3184,7 +3184,7 @@ const graphData = {
     {
       id: "pilha_tcp_ip",
       label: "A Pilha TCP/IP no SO",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A implementação física das regras dos protocolos na forma de código da linguagem C puro embutido direto no coração do núcleo (Kernel) do Windows ou do Linux. É o pedaço do SO que monta o pacote de dados real.",
@@ -3207,7 +3207,7 @@ const graphData = {
     {
       id: "sockets_api",
       label: "A Interface de Sockets",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Os ganchos de programação. A API universal que permite aos programadores pedirem para o Sistema Operacional conectar a sua aplicação à internet sem que o programador precise saber como montar um cabeçalho IP manualmente.",
@@ -3229,7 +3229,7 @@ const graphData = {
     {
       id: "camada_de_aplicacao",
       label: "Camada de Aplicação",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A camada 7 do topo do modelo. Aqui os aplicativos deixam de se importar com cabos e IPs e se focam apenas na semântica humana: como formatar um e-mail legível, como renderizar a página Web ou como transferir um arquivo.",
@@ -3247,7 +3247,7 @@ const graphData = {
     {
       id: "dns",
       label: "DNS (Sistema de Nomes de Domínio)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O catálogo telefônico da internet. É o sistema distribuído que traduz nomes legíveis por humanos (como 'google.com') nos códigos matemáticos cruéis (Endereços IP) que os roteadores exigem para funcionar.",
@@ -3270,7 +3270,7 @@ const graphData = {
     {
       id: "protocolos_iot_mqtt",
       label: "Protocolos IoT (MQTT)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Protocolos ultraleves desenhados com parcimônia para internet das coisas. Ideal para chips baratos, baterias limitadas e conexões instáveis de roça que não aguentariam a complexidade dos protocolos tradicionais.",
@@ -3289,7 +3289,7 @@ const graphData = {
     {
       id: "protocolo_http",
       label: "Protocolo HTTP",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A linguagem universal da Web (Hypertext Transfer Protocol). Foi criado para enviar páginas, mas acabou virando a base que movimenta desde Netflix até integrações em microsserviços via requisições verbosas.",
@@ -3312,7 +3312,7 @@ const graphData = {
     {
       id: "http_headers",
       label: "HTTP Cabeçalhos (Headers)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Os metadados ocultos que vão anexados em toda conversa web. São linhas de texto que descrevem o que está sendo enviado (vídeo ou texto?), quem está enviando e qual a linguagem esperada.",
@@ -3331,7 +3331,7 @@ const graphData = {
     {
       id: "cookies_sessoes",
       label: "Cookies e Sessões",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A gambiarra brilhante que a indústria criou para contornar a amnésia natural do HTTP. Permite manter usuários autenticados em lojas e bancos exigindo que o navegador carregue crachás virtuais de identificação.",
@@ -3350,7 +3350,7 @@ const graphData = {
     {
       id: "ssl_tls_https",
       label: "SSL/TLS e HTTPS",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A blindagem militar inserida no meio da pilha de redes (entre o TCP e o HTTP). Embaralha todos os dados trocados para que roteadores espiões no meio da rua enxerguem apenas ruído, provando a verdadeira identidade de sites bancários.",
@@ -3373,7 +3373,7 @@ const graphData = {
     {
       id: "proxy_reverso",
       label: "Servidores de Proxy Reverso",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A muralha da aplicação web moderna. Um super servidor blindado de alta performance (como o NGINX) que recebe todos os tiros e tráfegos dos clientes e reencaminha educadamente apenas o que interessa para as aplicações escondidas da empresa.",
@@ -3395,7 +3395,7 @@ const graphData = {
     {
       id: "load_balancing",
       label: "Load Balancing",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A técnica de escalabilidade horizontal. Se o seu site ficou famoso e um único computador não aguenta os cliques, o Load Balancer distribui os usuários com perfeição matemática em cima de um exército de servidores gêmeos invisíveis.",
@@ -3418,7 +3418,7 @@ const graphData = {
     {
       id: "cdn",
       label: "CDN (Rede de Entrega de Conteúdo)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A cura para a latência das longas distâncias marítimas. Uma frota de datacenters espalhados em centenas de países que mantêm cópias congeladas das fotos e vídeos da sua aplicação nas cidades e bordas mais próximas dos usuários finais.",
@@ -3441,7 +3441,7 @@ const graphData = {
     {
       id: "subredes_cidr",
       label: "Sub-redes e CIDR",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A matemática do endereçamento IP. Ensina como fatiar grandes redes em redes menores (Subnetting) para organizar a topologia de uma empresa e evitar o desperdício brutal de endereços.",
@@ -3459,7 +3459,7 @@ const graphData = {
     {
       id: "nat_dhcp",
       label: "NAT e DHCP",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Os salvadores do protocolo IPv4. O DHCP atua como um rececionista, distribuindo endereços IP automaticamente a quem entra na rede. O NAT atua como um tradutor, permitindo que uma rede inteira aceda à internet partilhando um único IP público.",
@@ -3482,7 +3482,7 @@ const graphData = {
     {
       id: "protocolo_icmp",
       label: "Protocolo ICMP",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "O sistema de diagnóstico e alerta da Camada de Rede. É utilizado pelos routers e sistemas operativos para reportar erros (como 'Destino Inacessível') e testar a saúde da conectividade.",
@@ -3504,7 +3504,7 @@ const graphData = {
     {
       id: "vlans",
       label: "VLANs (Redes Locais Virtuais)",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "A técnica da Camada de Enlace que permite fatiar um único Switch físico em vários switches lógicos isolados. Utilizado para separar e trancar o tráfego de diferentes departamentos (ex: RH e Financeiro) por segurança.",
@@ -3527,7 +3527,7 @@ const graphData = {
     {
       id: "ssh_protocolo",
       label: "Protocolo SSH",
-      group: 7,
+      group: 13,
       status: "pending",
       description:
         "Secure Shell. É o túnel blindado da internet. Permite que você acesse e controle o terminal de um servidor Linux que está do outro lado do mundo de forma totalmente criptografada, impedindo que hackers roubem as suas senhas pelo caminho.",
@@ -3555,11 +3555,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 8. Linux e Administração de Servidores
+    // 14. Linux e Administração de Servidores
     {
       id: "linux",
       label: "Linux e SO de Servidores",
-      group: 8,
+      group: 14,
       status: "pending",
       description:
         "O sistema operacional de código aberto baseado no Unix. É a espinha dorsal da internet: domina os servidores globais, data centers e atua como a fundação nativa onde a nuvem e os contêineres existem.",
@@ -3581,7 +3581,7 @@ const graphData = {
     {
       id: "terminal_shell",
       label: "Terminal e Shell",
-      group: 8,
+      group: 14,
       status: "pending",
       description:
         "A interface puramente textual (CLI) onde o usuário opera o sistema enviando comandos diretos. Permite uma administração de altíssima eficiência e velocidade, dispensando o uso de interfaces gráficas pesadas.",
@@ -3603,7 +3603,7 @@ const graphData = {
     {
       id: "bash_scripting",
       label: "Bash Scripting",
-      group: 8,
+      group: 14,
       status: "pending",
       description:
         "A programação do dia a dia do administrador. Consiste em agrupar comandos do terminal em arquivos de texto utilizando lógica de programação (if, loops, variáveis) para automatizar rotinas do sistema.",
@@ -3621,7 +3621,7 @@ const graphData = {
     {
       id: "permissoes_linux",
       label: "Permissões Linux",
-      group: 8,
+      group: 14,
       status: "pending",
       description:
         "O modelo de segurança e gestão do sistema de arquivos. Define rigorosamente quem possui o direito de Ler (Read), Escrever (Write) ou Executar (Execute) cada pasta e arquivo no disco.",
@@ -3643,7 +3643,7 @@ const graphData = {
     {
       id: "virtualizacao_hypervisors",
       label: "Virtualização (VMs)",
-      group: 8,
+      group: 14,
       status: "pending",
       description:
         "A tecnologia que emula hardware físico através de software. O Hypervisor fatia a CPU e a RAM de um servidor gigante para rodar múltiplos Sistemas Operacionais simultâneos e isolados na mesma placa-mãe.",
@@ -3662,11 +3662,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 9. DevOps e Cloud Computing
+    // 15. DevOps e Cloud Computing
     {
       id: "cultura_devops",
       label: "Cultura DevOps",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A ponte entre o Desenvolvimento e a Operação de Infraestrutura. Metodologia focada em destruir as barreiras entre equipes através de colaboração e automação maciça para lançar softwares com velocidade e estabilidade.",
@@ -3684,7 +3684,7 @@ const graphData = {
     {
       id: "git_versionamento",
       label: "Git & Versionamento",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A máquina do tempo dos programadores. Um sistema de controle de versão distribuído que grava todas as edições feitas no código, permitindo viajar para o passado e colaborar sem apagar o trabalho do colega.",
@@ -3706,7 +3706,7 @@ const graphData = {
     {
       id: "github_fluxos",
       label: "GitHub & Fluxos de Trabalho",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A plataforma social e colaborativa para hospedagem de código Git. Facilita o controle do projeto através de revisões de código, fóruns de discussão e automação de processos de aceitação.",
@@ -3746,7 +3746,7 @@ const graphData = {
     {
       id: "orquestracao_k8s",
       label: "Kubernetes (K8s)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "O maestro dos contêineres. Um sistema avançado que decide em quais servidores os contêineres Docker vão rodar, garantindo que eles se multipliquem automaticamente em caso de muitos acessos e recriando os que falharem.",
@@ -3764,7 +3764,7 @@ const graphData = {
     {
       id: "ci_cd_pipelines",
       label: "CI/CD (Pipelines)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A linha de montagem industrial do código. Automatiza o processo de Integração Contínua (compilar e testar o código assim que ele chega no Git) e Entrega Contínua (publicar no servidor automaticamente).",
@@ -3782,7 +3782,7 @@ const graphData = {
     {
       id: "aws_cloud",
       label: "Cloud Computing (AWS)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A terceirização maciça de datacenters. Em vez de comprar servidores físicos, as empresas alugam máquinas e serviços nas fazendas da Amazon, pagando por segundo de uso com a capacidade de escalar recursos de forma quase infinita.",
@@ -3804,7 +3804,7 @@ const graphData = {
     {
       id: "aws_compute",
       label: "Computação na Nuvem (EC2/Lambda)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "Os motores de processamento da Nuvem. Ofertam o aluguel de Máquinas Virtuais cruas e dedicadas (EC2) ou plataformas Serverless (Lambda), onde o desenvolvedor apenas roda o código e a nuvem cobra somente pelos milissegundos utilizados.",
@@ -3814,7 +3814,7 @@ const graphData = {
         {
           question: "Qual é o desafio arquitetural conhecido como 'Cold Start' ao utilizar o AWS Lambda?",
           answer:
-            "Como a AWS desliga a sua função Serverless quando ela não está em uso, a primeira invocação exige que a nuvem busque o código e inicie um ambiente do zero, causando um atraso momentâneo de milissegundos na resposta para o cliente.",
+            "Como a AWS desliga a sua função Serverless quando ela não está em uso, a primeira invocação exige que a nuvem busque o código e inicie um ambiente do zero, causando um atraso momentâneo de milissegundos na resposta para o cliente,",
         },
       ],
       links: [],
@@ -3822,7 +3822,7 @@ const graphData = {
     {
       id: "aws_storage",
       label: "Armazenamento na Nuvem (S3/EBS)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "As soluções para guardar dados indefinidamente. Variam desde discos rígidos virtuais anexados às máquinas (EBS) até baldes de armazenamento de objetos globais (S3) ideais para backups pesados e fotos de usuários.",
@@ -3840,7 +3840,7 @@ const graphData = {
     {
       id: "aws_redes_vpc",
       label: "Redes Virtuais (VPC)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A infraestrutura de redes virtuais que permite isolar seus servidores em um datacenter privado dentro da nuvem. Define tabelas de roteamento, controle de tráfego e decide quais máquinas terão acesso à internet pública.",
@@ -3858,7 +3858,7 @@ const graphData = {
     {
       id: "aws_servicos",
       label: "Ecossistema de Serviços AWS",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "O catálogo de componentes gerenciados prontos para uso. Fornece ferramentas como bancos de dados, envio de e-mails em massa e filas de mensagens sem que você precise instalar nada nos servidores manualmente.",
@@ -3880,7 +3880,7 @@ const graphData = {
     {
       id: "seguranca_nuvem",
       label: "Segurança na Nuvem (IAM/WAF)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "As chaves e os firewalls da nuvem. Onde regras estritas de identidade definem exatamente quais usuários ou sistemas podem criar recursos ou acessar dados sensíveis, garantindo a proteção da infraestrutura.",
@@ -3902,7 +3902,7 @@ const graphData = {
     {
       id: "iac_terraform",
       label: "Infraestrutura como Código (IaC)",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "A revolução no provisionamento. Em vez de clicar em painéis, escrevem-se arquivos de texto declarativos descrevendo o Datacenter desejado. Ferramentas como o Terraform leem o arquivo e constroem tudo automaticamente na nuvem.",
@@ -3924,7 +3924,7 @@ const graphData = {
     {
       id: "monitoramento_observabilidade",
       label: "Monitoramento e Observabilidade",
-      group: 9,
+      group: 15,
       status: "pending",
       description:
         "Os exames diagnósticos da infraestrutura. O Monitoramento avisa quando algo falhou (ex: 'CPU está em 100%'). A Observabilidade utiliza rastreamentos profundos e logs para permitir ao engenheiro descobrir por que a falha aconteceu.",
@@ -3948,17 +3948,6 @@ const graphData = {
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssl_tls_https" },
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssh_protocolo" },
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "deteccao_correcao_erros" },
-    // Matemática Discreta -> Estruturas de Dados
-    // { source: "relacoes", target: "teoria_dos_grafos" },
-    // { source: "teoria_dos_grafos", target: "arvores_matematicas" },
-    // { source: "inducao_matematica", target: "relacoes_de_recorrencia" },
-    // Estruturas de Dados -> Algoritmos e Lógica de Programação
-    // { source: "relacoes_de_recorrencia", target: "analise_assintotica" },
-    // Matemática Discreta -> Teoria da Computabilidade
-    // { source: "relacoes", target: "gramaticas_e_linguagens" },
-    // { source: "gramaticas_e_linguagens", target: "maquina_turing" }
-    // Teoria da Computabilidade -> Sistemas Digitais
-    // { source: "gramaticas_e_linguagens", target: "maquinas_estados_finitos" },
     // Fundamentos da Eletricidade -> Circuitos Elétricos
     { source: "tensao_eletrica", target: "lei_de_ohm" },
     { source: "corrente_eletrica", target: "lei_de_ohm" },
@@ -3980,17 +3969,35 @@ const graphData = {
     { source: "eletronica_geral", target: "sistemas_digitais" },
     // Circuitos Elétricos -> Sistemas Digitais
     { source: "circuitos_eletricos", target: "sistemas_digitais" },
-
-    // { source: "fundamentos_eletricidade", target: "circuitos_eletricos" },
-    // { source: "circuitos_eletricos", target: "eletronica_geral" },
-    // { source: "eletronica_geral", target: "sistemas_digitais" },
-    // { source: "sistemas_digitais", target: "arquitetura_de_computadores" },
-    // { source: "arquitetura_de_computadores", target: "sistemas_operacionais" },
-    // { source: "sistemas_operacionais", target: "redes_de_computadores" },
-    // { source: "sistemas_operacionais", target: "linux" },
-    // { source: "linux", target: "cultura_devops" },
-    // { source: "ssh_protocolo", target: "terminal_shell" },
-    // { source: "virtualizacao_hypervisors", target: "containers_docker" },
+    // Sistemas Digitais -> Arquitetura de Computadores
+    { source: "sistemas_digitais", target: "arquitetura_de_computadores" },
+    { source: "circuitos_combinacionais_msi", target: "cpu_ula" },
+    { source: "maquinas_de_estado", target: "cpu_uc" },
+    { source: "dispositivos_de_memoria", target: "hierarquia_memoria" },
+    { source: "dispositivos_de_memoria", target: "memoria" },
+    { source: "latches_flipflops", target: "caches_niveis" },
+    // Arquitetura de Computadores -> Redes de Computadores
+    { source: "dispositivos_io", target: "placa_de_rede_nic" },
+    { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
+    // Sistemas Digitais -> Redes de Computadores
+    { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
+    { source: "codigos_digitais", target: "deteccao_correcao_erros" },
+    // Sistemas Operacionais -> Redes de Computadores
+    { source: "device_drivers", target: "placa_de_rede_nic" },
+    { source: "chamadas_de_sistema", target: "sockets_api" },
+    { source: "sistemas_operacionais", target: "linux" },
+    // Sistemas Operacionais -> Linux e Servidores
+    { source: "sistemas_de_arquivos", target: "permissoes_linux" },
+    { source: "kernel_so", target: "virtualizacao_hypervisors" },
+    // Redes de Computadores -> Linux e Servidores
+    { source: "ssh_protocolo", target: "terminal_shell" },
+    { source: "firewalls", target: "linux" },
+    // Redes de Computadores -> DevOps e Cloud Computing
+    { source: "subredes_cidr", target: "aws_redes_vpc" },
+    { source: "nat_dhcp", target: "aws_redes_vpc" },
+    { source: "proxy_reverso", target: "orquestracao_k8s" },
+    { source: "load_balancing", target: "aws_servicos" },
+    { source: "cdn", target: "aws_cloud" },
 
     // 1. Matemática Discreta
     { source: "matematica_discreta", target: "logica_proposicional_e_quantificadores" },
@@ -4078,22 +4085,23 @@ const graphData = {
     { source: "dispositivos_de_memoria", target: "dispositivos_programaveis_cpld_fpga" },
     { source: "dispositivos_programaveis_cpld_fpga", target: "linguagens_hdl" },
 
-    // 5. Arquitetura de Computadores
-    { source: "arquitetura_de_computadores", target: "tipos_computadores" },
+    // 11. Arquitetura de Computadores
+    { source: "tipos_computadores", target: "arquitetura_de_computadores" },
     { source: "arquitetura_de_computadores", target: "arquitetura_von_neumann" },
     { source: "arquitetura_de_computadores", target: "isa" },
     { source: "isa", target: "assembly" },
     { source: "isa", target: "isa_cisc_x86" },
     { source: "isa", target: "isa_risc_arm" },
+    { source: "assembly", target: "cpu" },
     { source: "arquitetura_von_neumann", target: "cpu" },
     { source: "arquitetura_von_neumann", target: "memoria" },
     { source: "arquitetura_von_neumann", target: "entrada_saida" },
     { source: "cpu", target: "cpu_ula" },
     { source: "cpu", target: "cpu_uc" },
     { source: "cpu", target: "cpu_clock" },
-    { source: "cpu", target: "cpu_arquiteturas" },
-    { source: "cpu", target: "cpu_tipos" },
-    { source: "cpu_arquiteturas", target: "paralelismo_multiprocessadores" },
+    { source: "cpu_clock", target: "cpu_arquiteturas" },
+    { source: "cpu_arquiteturas", target: "cpu_tipos" },
+    { source: "cpu_tipos", target: "paralelismo_multiprocessadores" },
     { source: "memoria", target: "hierarquia_memoria" },
     { source: "hierarquia_memoria", target: "memoria_principal" },
     { source: "hierarquia_memoria", target: "armazenamento_secundario" },
@@ -4101,7 +4109,7 @@ const graphData = {
     { source: "entrada_saida", target: "barramentos_interrupcoes" },
     { source: "entrada_saida", target: "dispositivos_io" },
 
-    // 6. Sistemas Operacionais
+    // 12. Sistemas Operacionais
     { source: "sistemas_operacionais", target: "kernel_so" },
     { source: "sistemas_operacionais", target: "sistemas_de_arquivos" },
     { source: "sistemas_operacionais", target: "escalonamento_de_processos" },
@@ -4117,7 +4125,7 @@ const graphData = {
     { source: "memoria_virtual", target: "paginacao" },
     { source: "memoria_virtual", target: "segmentacao" },
 
-    // 7. Redes de Computadores
+    // 13. Redes de Computadores
     { source: "redes_de_computadores", target: "camada_fisica_redes" },
     { source: "camada_fisica_redes", target: "camada_de_enlace" },
     { source: "camada_de_enlace", target: "camada_de_rede" },
@@ -4152,13 +4160,13 @@ const graphData = {
     { source: "protocolo_ip_v4_v6", target: "subredes_cidr" },
     { source: "protocolo_ip_v4_v6", target: "nat_dhcp" },
 
-    // 8. Linux e Administração de Sistemas
+    // 14. Linux e Administração de Sistemas
     { source: "linux", target: "terminal_shell" },
     { source: "linux", target: "permissoes_linux" },
     { source: "linux", target: "virtualizacao_hypervisors" },
     { source: "terminal_shell", target: "bash_scripting" },
 
-    // 9. DevOps e Cloud Computing
+    // 15. DevOps e Cloud Computing
     { source: "cultura_devops", target: "git_versionamento" },
     { source: "git_versionamento", target: "github_fluxos" },
     { source: "github_fluxos", target: "ci_cd_pipelines" },
@@ -4199,24 +4207,24 @@ const statusColor = {
 
 const GROUP_CONFIG = {
   1: { color: "#3b82f6", label: "1. Matemática Discreta" },
-  2: { color: "#06b6d4", label: "2. Cálculo e Álgebra" },
-  3: { color: "#6366f1", label: "3. Teoria da Computação" },
-  4: { color: "#0ea5e9", label: "4. Algoritmos e Lógica de Programação" },
-  5: { color: "#1d4ed8", label: "5. Estruturas de Dados" },
-  6: { color: "#4f46e5", label: "6. Fundamentos da Eletricidade" },
-  7: { color: "#e11d48", label: "7. Circuitos Elétricos" },
-  8: { color: "#d946ef", label: "8. Eletrônica Geral" },
-  9: { color: "#a855f7", label: "9. Sistemas Digitais" },
-  10: { color: "#db2777", label: "10. Processamento Digital de Sinais" },
-  11: { color: "#7c3aed", label: "11. Arquitetura de Computadores" },
-  12: { color: "#0d9488", label: "12. Sistemas Operacionais" },
-  13: { color: "#10b981", label: "13. Redes de Computadores" },
-  14: { color: "#14b8a6", label: "14. Linux e Administração de Sistemas" },
-  15: { color: "#059669", label: "15. DevOps e Cloud Computing" },
-  16: { color: "#ea580c", label: "16. Linguagens de Programação" },
-  17: { color: "#ca8a04", label: "17. Bancos de Dados" },
-  18: { color: "#f97316", label: "18. Engenharia de Software" },
-  19: { color: "#eab308", label: "19. Inteligência Artificial e Machine Learning" },
+  2: { color: "#f97316", label: "2. Cálculo e Álgebra" },
+  3: { color: "#22c55e", label: "3. Teoria da Computação" },
+  4: { color: "#ec4899", label: "4. Algoritmos e Lógica de Programação" },
+  5: { color: "#eab308", label: "5. Estruturas de Dados" },
+  6: { color: "#06b6d4", label: "6. Fundamentos da Eletricidade" },
+  7: { color: "#ef4444", label: "7. Circuitos Elétricos" },
+  8: { color: "#6366f1", label: "8. Eletrônica Geral" },
+  9: { color: "#84cc16", label: "9. Sistemas Digitais" },
+  10: { color: "#a855f7", label: "10. Processamento Digital de Sinais" },
+  11: { color: "#14b8a6", label: "11. Arquitetura de Computadores" },
+  12: { color: "#f59e0b", label: "12. Sistemas Operacionais" },
+  13: { color: "#f43f5e", label: "13. Redes de Computadores" },
+  14: { color: "#0ea5e9", label: "14. Linux e Administração de Sistemas" },
+  15: { color: "#64748b", label: "15. DevOps e Cloud Computing" },
+  16: { color: "#d946ef", label: "16. Linguagens de Programação" },
+  17: { color: "#10b981", label: "17. Bancos de Dados" },
+  18: { color: "#78716c", label: "18. Engenharia de Software" },
+  19: { color: "#8b5cf6", label: "19. Inteligência Artificial" },
 };
 
 const KnowledgeMap = () => {
