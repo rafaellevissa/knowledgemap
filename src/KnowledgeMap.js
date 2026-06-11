@@ -2504,6 +2504,7 @@ const graphData = {
       description:
         "O software mestre que atua como tradutor e gerente geral. Ele esconde toda a fiação e complexidade da placa-mãe criando uma 'máquina virtual' limpa e fácil de usar, enquanto divide de forma justa a CPU, a RAM e o disco entre todos os programas abertos.",
       examples: [
+        "Sistemas Famosos: Windows, GNU/Linux, macOS, Android e iOS",
         "O Conceito de Máquina Estendida (Abstração)",
         "Gerenciamento e Multiplexação de Recursos",
         "Evolução dos Sistemas (Monolíticos a Micronúcleos)",
@@ -2873,6 +2874,51 @@ const graphData = {
       links: [],
     },
     {
+      id: "modelo_osi",
+      label: "O Modelo OSI",
+      group: 13,
+      status: "pending",
+      description:
+        "A estrutura teórica de 7 camadas criada pela ISO. Embora quase ninguém use o OSI puro na prática hoje, ele é o modelo didático universal usado para explicar como as redes dividem problemas complexos em pedaços menores.",
+      examples: [
+        "As 7 Camadas (Física à Aplicação)",
+        "O Conceito de Encapsulamento (Bonecas Russas)",
+        "Diferença entre Serviço, Interface e Protocolo",
+      ],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "Qual é a diferença entre um Protocolo e uma Interface no contexto do Modelo OSI?",
+          answer:
+            "Um Protocolo é o conjunto de regras matemáticas que a Camada 'N' de uma máquina usa para conversar com a mesma Camada 'N' do computador do outro lado do mundo (comunicação horizontal). Uma Interface é a forma como a Camada 'N' entrega o pacote para a camada imediatamente abaixo dela dentro do mesmo computador (comunicação vertical).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modelo_tcp_ip",
+      label: "O Modelo TCP/IP",
+      group: 13,
+      status: "pending",
+      description:
+        "A arquitetura prática e enxuta que venceu a guerra das normas e construiu a internet real. Foca menos no rigor acadêmico do OSI e mais na sobrevivência militar e na eficiência de repasse de pacotes.",
+      examples: [
+        "As 4 Camadas Originais do DoD",
+        "Fusão das Camadas de Sessão, Apresentação e Aplicação",
+        "A Falha Prática das Normas OSI",
+      ],
+      books: ["Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question:
+            "Por que o modelo TCP/IP fundiu as camadas de Sessão e Apresentação do OSI diretamente na camada de Aplicação?",
+          answer:
+            "Os criadores do TCP/IP perceberam que nem todo aplicativo precisa abrir sessões complexas ou traduzir dados nativamente na rede. Eles deixaram a infraestrutura da internet mais 'burra' e rápida, passando a responsabilidade de criptografar ou gerenciar sessões inteiramente para o código do programador que está criando o aplicativo.",
+        },
+      ],
+      links: [],
+    },
+    {
       id: "camada_fisica_redes",
       label: "Camada Física",
       group: 13,
@@ -2959,6 +3005,29 @@ const graphData = {
             "O que acontece se dois computadores transmitirem sinais simultaneamente no mesmo canal compartilhado?",
           answer:
             "Ocorre uma colisão de dados, o que corrompe o sinal elétrico ou de rádio no ar. A subcamada MAC possui regras matemáticas rígidas para detectar o acidente, calar os computadores e forçá-los a retransmitir em frações de segundos diferentes.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "vlans",
+      label: "VLANs (Redes Locais Virtuais)",
+      group: 13,
+      status: "pending",
+      description:
+        "A técnica da Camada de Enlace que permite fatiar um único Switch físico em vários switches lógicos isolados. Utilizado para separar e trancar o tráfego de diferentes departamentos (ex: RH e Financeiro) por segurança.",
+      examples: [
+        "Segmentação de Tráfego de Broadcast",
+        "Protocolo IEEE 802.1Q (VLAN Tagging)",
+        "Portas de Acesso (Access) vs Portas Tronco (Trunk)",
+      ],
+      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question:
+            "O que acontece ao cabeçalho do Quadro Ethernet quando utilizamos o protocolo 802.1Q para configurar VLANs num cabo tronco?",
+          answer:
+            "O switch rasga o cabeçalho original do quadro Ethernet e insere lá no meio uma 'Etiqueta' (Tag) de 4 bytes. Esta etiqueta contém um ID numérico, permitindo que os pacotes de diferentes redes virtuais viajem misturados no mesmo cabo e sejam separados corretamente quando chegam ao próximo switch.",
         },
       ],
       links: [],
@@ -3093,20 +3162,64 @@ const graphData = {
       links: [],
     },
     {
-      id: "firewalls",
-      label: "Firewalls",
+      id: "subredes_cidr",
+      label: "Sub-redes e CIDR",
       group: 13,
       status: "pending",
       description:
-        "O porteiro de segurança da rede. Um sistema rigoroso que senta na porta de entrada da sua rede e intercepta os pacotes, bloqueando invasores de acordo com listas de IPs e Portas proibidas.",
-      examples: ["Regras Iptables e UFW", "Política Default Deny", "Inspeção de Estado de Conexão"],
-      books: ["Firewalls and Internet Security - William Cheswick & Steven Bellovin"],
+        "A matemática do endereçamento IP. Ensina como fatiar grandes redes em redes menores (Subnetting) para organizar a topologia de uma empresa e evitar o desperdício brutal de endereços.",
+      examples: ["Máscaras de Sub-rede", "Notação CIDR (/24, /16)", "Cálculo de IP de Broadcast e IP de Rede"],
+      books: ["Computer Networking - Kurose & Ross", "Redes de Computadores - Andrew S. Tanenbaum"],
+      practice: [
+        {
+          question: "Para que serve exatamente a Máscara de Sub-rede?",
+          answer:
+            "Serve para indicar matematicamente ao sistema qual a porção do endereço IP que identifica a 'Rua' (Rede) e qual a porção que identifica a 'Casa' (Dispositivo/Host). Isso permite à máquina saber se o destinatário está na mesma rede local ou se o pacote tem de ser atirado para o router.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "nat_dhcp",
+      label: "NAT e DHCP",
+      group: 13,
+      status: "pending",
+      description:
+        "Os salvadores do protocolo IPv4. O DHCP atua como um rececionista, distribuindo endereços IP automaticamente a quem entra na rede. O NAT atua como um tradutor, permitindo que uma rede inteira aceda à internet partilhando um único IP público.",
+      examples: [
+        "Tradução de Endereços de Rede (NAT)",
+        "Servidor DHCP (Discover, Offer, Request, Acknowledge)",
+        "IPs Privados vs IPs Públicos",
+      ],
+      books: ["Computer Networking - Kurose & Ross", "Internetworking with TCP-IP - Douglas Comer"],
       practice: [
         {
           question:
-            "Na segurança de redes, o que dita a política de configuração de Firewall conhecida como 'Default Deny'?",
+            "Como é que o NAT (Network Address Translation) impede o esgotamento dos endereços IPv4 da internet?",
           answer:
-            "É a lei número um de segurança: o Firewall é configurado para negar e bloquear absolutamente todo o tráfego do universo por padrão. O administrador então precisa ir até o sistema e criar exceções liberando estritamente as portinhas que o sistema usa para trabalhar (ex: porta 80 para a Web), deixando o resto lacrado.",
+            "O NAT permite que milhares de dispositivos numa rede local (como na sua casa) usem IPs privados que não existem e não são válidos na internet. Quando os pacotes saem para a web, o router apaga o IP privado e coloca o seu único IP público válido como remetente, fazendo o processo inverso quando o site responde.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "protocolo_icmp",
+      label: "Protocolo ICMP",
+      group: 13,
+      status: "pending",
+      description:
+        "O sistema de diagnóstico e alerta da Camada de Rede. É utilizado pelos routers e sistemas operativos para reportar erros (como 'Destino Inacessível') e testar a saúde da conectividade.",
+      examples: [
+        "O Comando Ping (Echo Request/Reply)",
+        "O Comando Traceroute",
+        "Mensagens de Tempo Excedido (TTL Expired)",
+      ],
+      books: ["TCP-IP Illustrated - W. Richard Stevens", "Computer Networking - Kurose & Ross"],
+      practice: [
+        {
+          question: "O comando 'Ping' utiliza portas TCP ou UDP para testar a ligação a um servidor?",
+          answer:
+            "Nenhum dos dois. O Ping não opera na Camada de Transporte. Ele envia pacotes de diagnóstico utilizando diretamente o protocolo ICMP (Internet Control Message Protocol), que viaja encapsulado puro no protocolo IP.",
         },
       ],
       links: [],
@@ -3182,16 +3295,35 @@ const graphData = {
       links: [],
     },
     {
-      id: "pilha_tcp_ip",
-      label: "A Pilha TCP/IP no SO",
+      id: "firewalls",
+      label: "Firewalls",
       group: 13,
       status: "pending",
       description:
-        "A implementação física das regras dos protocolos na forma de código da linguagem C puro embutido direto no coração do núcleo (Kernel) do Windows ou do Linux. É o pedaço do SO que monta o pacote de dados real.",
+        "O porteiro de segurança da rede. Um sistema rigoroso que senta na porta de entrada da sua rede e intercepta os pacotes, bloqueando invasores de acordo com listas de IPs (Camada 3) e Portas (Camada 4) proibidas.",
+      examples: ["Regras Iptables e UFW", "Política Default Deny", "Inspeção de Estado de Conexão"],
+      books: ["Firewalls and Internet Security - William Cheswick & Steven Bellovin"],
+      practice: [
+        {
+          question:
+            "Na segurança de redes, o que dita a política de configuração de Firewall conhecida como 'Default Deny'?",
+          answer:
+            "É a lei número um de segurança: o Firewall é configurado para negar e bloquear absolutamente todo o tráfego do universo por padrão. O administrador então precisa ir até o sistema e criar exceções liberando estritamente as portinhas que o sistema usa para trabalhar (ex: porta 80 para a Web), deixando o resto lacrado.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "pilha_tcp_ip",
+      label: "A Pilha TCP/IP no Kernel",
+      group: 13,
+      status: "pending",
+      description:
+        "A implementação física das regras dos protocolos na forma de código da linguagem C puro embutido direto no coração do núcleo (Kernel) do Windows ou do Linux. É o pedaço vivo do SO que lê a memória RAM e monta o pacote de dados real.",
       examples: [
-        "O Modelo Clássico de 4 Camadas (DoD)",
+        "Processamento de Interrupções de Rede no SO",
         "O Espaço Protegido de Kernel",
-        "Processamento e Desencapsulamento de Datagramas",
+        "Desencapsulamento de Datagramas",
       ],
       books: ["Internetworking with TCP-IP - Douglas Comer", "TCP-IP Illustrated - W. Richard Stevens"],
       practice: [
@@ -3263,25 +3395,6 @@ const graphData = {
             "O que acontece fisicamente na rede da sua casa quando o seu provedor relata que o 'Servidor DNS caiu'?",
           answer:
             "A sua internet contínua fisicamente perfeita e rápida para coisas já conectadas. No entanto, o seu navegador não sabe e não tem a tabela de qual é o IP real por trás do nome 'instagram.com', então toda tentativa de acessar um site novo por nome falha e exibe erro de página.",
-        },
-      ],
-      links: [],
-    },
-    {
-      id: "protocolos_iot_mqtt",
-      label: "Protocolos IoT (MQTT)",
-      group: 13,
-      status: "pending",
-      description:
-        "Protocolos ultraleves desenhados com parcimônia para internet das coisas. Ideal para chips baratos, baterias limitadas e conexões instáveis de roça que não aguentariam a complexidade dos protocolos tradicionais.",
-      examples: ["Padrão Publish / Subscribe", "O Papel do Broker MQTT", "Telemetria de Sensores Leves"],
-      books: ["Redes de Computadores - Andrew S. Tanenbaum"],
-      practice: [
-        {
-          question:
-            "Por que o modelo MQTT (baseado em um Broker central) é melhor para um sensor de agricultura movido a pilha do que montar uma conexão padrão HTTP?",
-          answer:
-            "O protocolo padrão da internet (HTTP) exige carregar cabeçalhos textuais gigantescos e fazer as 3 confirmações do TCP a cada segundo, esgotando a bateria de chips fracos e comendo todo o pacote de dados. O MQTT permite que o chip mantenha um 'tubo fino' aberto com o servidor, disparando mensagens cruas (eventos) apenas quando o valor lido muda de verdade.",
         },
       ],
       links: [],
@@ -3439,87 +3552,20 @@ const graphData = {
       links: [],
     },
     {
-      id: "subredes_cidr",
-      label: "Sub-redes e CIDR",
+      id: "protocolos_iot_mqtt",
+      label: "Protocolos IoT (MQTT)",
       group: 13,
       status: "pending",
       description:
-        "A matemática do endereçamento IP. Ensina como fatiar grandes redes em redes menores (Subnetting) para organizar a topologia de uma empresa e evitar o desperdício brutal de endereços.",
-      examples: ["Máscaras de Sub-rede", "Notação CIDR (/24, /16)", "Cálculo de IP de Broadcast e IP de Rede"],
-      books: ["Computer Networking - Kurose & Ross", "Redes de Computadores - Andrew S. Tanenbaum"],
-      practice: [
-        {
-          question: "Para que serve exatamente a Máscara de Sub-rede?",
-          answer:
-            "Serve para indicar matematicamente ao sistema qual a porção do endereço IP que identifica a 'Rua' (Rede) e qual a porção que identifica a 'Casa' (Dispositivo/Host). Isso permite à máquina saber se o destinatário está na mesma rede local ou se o pacote tem de ser atirado para o router.",
-        },
-      ],
-      links: [],
-    },
-    {
-      id: "nat_dhcp",
-      label: "NAT e DHCP",
-      group: 13,
-      status: "pending",
-      description:
-        "Os salvadores do protocolo IPv4. O DHCP atua como um rececionista, distribuindo endereços IP automaticamente a quem entra na rede. O NAT atua como um tradutor, permitindo que uma rede inteira aceda à internet partilhando um único IP público.",
-      examples: [
-        "Tradução de Endereços de Rede (NAT)",
-        "Servidor DHCP (Discover, Offer, Request, Acknowledge)",
-        "IPs Privados vs IPs Públicos",
-      ],
-      books: ["Computer Networking - Kurose & Ross", "Internetworking with TCP-IP - Douglas Comer"],
-      practice: [
-        {
-          question:
-            "Como é que o NAT (Network Address Translation) impede o esgotamento dos endereços IPv4 da internet?",
-          answer:
-            "O NAT permite que milhares de dispositivos numa rede local (como na sua casa) usem IPs privados que não existem e não são válidos na internet. Quando os pacotes saem para a web, o router apaga o IP privado e coloca o seu único IP público válido como remetente, fazendo o processo inverso quando o site responde.",
-        },
-      ],
-      links: [],
-    },
-    {
-      id: "protocolo_icmp",
-      label: "Protocolo ICMP",
-      group: 13,
-      status: "pending",
-      description:
-        "O sistema de diagnóstico e alerta da Camada de Rede. É utilizado pelos routers e sistemas operativos para reportar erros (como 'Destino Inacessível') e testar a saúde da conectividade.",
-      examples: [
-        "O Comando Ping (Echo Request/Reply)",
-        "O Comando Traceroute",
-        "Mensagens de Tempo Excedido (TTL Expired)",
-      ],
-      books: ["TCP-IP Illustrated - W. Richard Stevens", "Computer Networking - Kurose & Ross"],
-      practice: [
-        {
-          question: "O comando 'Ping' utiliza portas TCP ou UDP para testar a ligação a um servidor?",
-          answer:
-            "Nenhum dos dois. O Ping não opera na Camada de Transporte. Ele envia pacotes de diagnóstico utilizando diretamente o protocolo ICMP (Internet Control Message Protocol), que viaja encapsulado puro no protocolo IP.",
-        },
-      ],
-      links: [],
-    },
-    {
-      id: "vlans",
-      label: "VLANs (Redes Locais Virtuais)",
-      group: 13,
-      status: "pending",
-      description:
-        "A técnica da Camada de Enlace que permite fatiar um único Switch físico em vários switches lógicos isolados. Utilizado para separar e trancar o tráfego de diferentes departamentos (ex: RH e Financeiro) por segurança.",
-      examples: [
-        "Segmentação de Tráfego de Broadcast",
-        "Protocolo IEEE 802.1Q (VLAN Tagging)",
-        "Portas de Acesso (Access) vs Portas Tronco (Trunk)",
-      ],
+        "Protocolos ultraleves desenhados com parcimônia para internet das coisas. Ideal para chips baratos, baterias limitadas e conexões instáveis de roça que não aguentariam a complexidade dos protocolos tradicionais.",
+      examples: ["Padrão Publish / Subscribe", "O Papel do Broker MQTT", "Telemetria de Sensores Leves"],
       books: ["Redes de Computadores - Andrew S. Tanenbaum"],
       practice: [
         {
           question:
-            "O que acontece ao cabeçalho do Quadro Ethernet quando utilizamos o protocolo 802.1Q para configurar VLANs num cabo tronco?",
+            "Por que o modelo MQTT (baseado em um Broker central) é melhor para um sensor de agricultura movido a pilha do que montar uma conexão padrão HTTP?",
           answer:
-            "O switch rasga o cabeçalho original do quadro Ethernet e insere lá no meio uma 'Etiqueta' (Tag) de 4 bytes. Esta etiqueta contém um ID numérico, permitindo que os pacotes de diferentes redes virtuais viajem misturados no mesmo cabo e sejam separados corretamente quando chegam ao próximo switch.",
+            "O protocolo padrão da internet (HTTP) exige carregar cabeçalhos textuais gigantescos e fazer as 3 confirmações do TCP a cada segundo, esgotando a bateria de chips fracos e comendo todo o pacote de dados. O MQTT permite que o chip mantenha um 'tubo fino' aberto com o servidor, disparando mensagens cruas (eventos) apenas quando o valor lido muda de verdade.",
         },
       ],
       links: [],
@@ -3555,10 +3601,10 @@ const graphData = {
       ],
       links: [],
     },
-    // 14. Linux e Administração de Servidores
+    // 14. Linux e Servidores
     {
       id: "linux",
-      label: "Linux e SO de Servidores",
+      label: "Linux e Servidores",
       group: 14,
       status: "pending",
       description:
@@ -3979,25 +4025,38 @@ const graphData = {
     // Arquitetura de Computadores -> Redes de Computadores
     { source: "dispositivos_io", target: "placa_de_rede_nic" },
     { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
+    // Arquitetura de Computadores -> Sistemas Operacionais
+    { source: "isa", target: "modo_usuario_kernel" },
+    { source: "isa", target: "chamadas_de_sistema" },
+    { source: "barramentos_interrupcoes", target: "tratamento_de_interrupcoes" },
+    { source: "dispositivos_io", target: "device_drivers" },
+    { source: "memoria_principal", target: "gerenciamento_de_memoria" },
+    { source: "hierarquia_memoria", target: "memoria_virtual" },
+    { source: "caches_niveis", target: "paginacao" },
+    { source: "armazenamento_secundario", target: "sistemas_de_arquivos" },
     // Sistemas Digitais -> Redes de Computadores
     { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
     { source: "codigos_digitais", target: "deteccao_correcao_erros" },
     // Sistemas Operacionais -> Redes de Computadores
     { source: "device_drivers", target: "placa_de_rede_nic" },
+    { source: "tratamento_de_interrupcoes", target: "dma_acesso_direto" },
+    { source: "kernel_so", target: "pilha_tcp_ip" },
     { source: "chamadas_de_sistema", target: "sockets_api" },
-    { source: "sistemas_operacionais", target: "linux" },
     // Sistemas Operacionais -> Linux e Servidores
+    { source: "sistemas_operacionais", target: "linux" },
     { source: "sistemas_de_arquivos", target: "permissoes_linux" },
     { source: "kernel_so", target: "virtualizacao_hypervisors" },
-    // Redes de Computadores -> Linux e Servidores
-    { source: "ssh_protocolo", target: "terminal_shell" },
-    { source: "firewalls", target: "linux" },
+    // Linux e Servidores -> Redes de Computadores
+    { source: "terminal_shell", target: "ssh_protocolo" },
     // Redes de Computadores -> DevOps e Cloud Computing
     { source: "subredes_cidr", target: "aws_redes_vpc" },
     { source: "nat_dhcp", target: "aws_redes_vpc" },
     { source: "proxy_reverso", target: "orquestracao_k8s" },
     { source: "load_balancing", target: "aws_servicos" },
-    { source: "cdn", target: "aws_cloud" },
+    // Linux e Servidores -> DevOps e Cloud Computing
+    { source: "linux", target: "cultura_devops" },
+    { source: "terminal_shell", target: "containers_docker" },
+    { source: "bash_scripting", target: "ci_cd_pipelines" },
 
     // 1. Matemática Discreta
     { source: "matematica_discreta", target: "logica_proposicional_e_quantificadores" },
@@ -4087,15 +4146,15 @@ const graphData = {
 
     // 11. Arquitetura de Computadores
     { source: "tipos_computadores", target: "arquitetura_de_computadores" },
-    { source: "arquitetura_de_computadores", target: "arquitetura_von_neumann" },
     { source: "arquitetura_de_computadores", target: "isa" },
+    { source: "arquitetura_de_computadores", target: "arquitetura_von_neumann" },
     { source: "isa", target: "assembly" },
     { source: "isa", target: "isa_cisc_x86" },
     { source: "isa", target: "isa_risc_arm" },
-    { source: "assembly", target: "cpu" },
     { source: "arquitetura_von_neumann", target: "cpu" },
     { source: "arquitetura_von_neumann", target: "memoria" },
     { source: "arquitetura_von_neumann", target: "entrada_saida" },
+    { source: "arquitetura_von_neumann", target: "barramentos_interrupcoes" },
     { source: "cpu", target: "cpu_ula" },
     { source: "cpu", target: "cpu_uc" },
     { source: "cpu", target: "cpu_clock" },
@@ -4103,83 +4162,88 @@ const graphData = {
     { source: "cpu_arquiteturas", target: "cpu_tipos" },
     { source: "cpu_tipos", target: "paralelismo_multiprocessadores" },
     { source: "memoria", target: "hierarquia_memoria" },
+    { source: "hierarquia_memoria", target: "caches_niveis" },
     { source: "hierarquia_memoria", target: "memoria_principal" },
     { source: "hierarquia_memoria", target: "armazenamento_secundario" },
-    { source: "hierarquia_memoria", target: "caches_niveis" },
-    { source: "entrada_saida", target: "barramentos_interrupcoes" },
     { source: "entrada_saida", target: "dispositivos_io" },
 
     // 12. Sistemas Operacionais
     { source: "sistemas_operacionais", target: "kernel_so" },
-    { source: "sistemas_operacionais", target: "sistemas_de_arquivos" },
-    { source: "sistemas_operacionais", target: "escalonamento_de_processos" },
-    { source: "sistemas_operacionais", target: "gerenciamento_de_memoria" },
     { source: "kernel_so", target: "modo_usuario_kernel" },
     { source: "kernel_so", target: "chamadas_de_sistema" },
     { source: "kernel_so", target: "tratamento_de_interrupcoes" },
+    { source: "kernel_so", target: "escalonamento_de_processos" },
+    { source: "kernel_so", target: "gerenciamento_de_memoria" },
+    { source: "kernel_so", target: "sistemas_de_arquivos" },
     { source: "kernel_so", target: "device_drivers" },
+    { source: "tratamento_de_interrupcoes", target: "escalonamento_de_processos" },
     { source: "escalonamento_de_processos", target: "gerenciamento_de_threads" },
-    { source: "escalonamento_de_processos", target: "condicoes_de_corrida" },
+    { source: "gerenciamento_de_threads", target: "condicoes_de_corrida" },
     { source: "condicoes_de_corrida", target: "deadlocks" },
     { source: "gerenciamento_de_memoria", target: "memoria_virtual" },
     { source: "memoria_virtual", target: "paginacao" },
     { source: "memoria_virtual", target: "segmentacao" },
 
     // 13. Redes de Computadores
-    { source: "redes_de_computadores", target: "camada_fisica_redes" },
-    { source: "camada_fisica_redes", target: "camada_de_enlace" },
-    { source: "camada_de_enlace", target: "camada_de_rede" },
-    { source: "camada_de_rede", target: "camada_de_transporte" },
-    { source: "camada_de_transporte", target: "camada_de_aplicacao" },
+    { source: "redes_de_computadores", target: "modelo_osi" },
+    { source: "modelo_osi", target: "modelo_tcp_ip" },
+    { source: "modelo_tcp_ip", target: "camada_fisica_redes" },
     { source: "camada_fisica_redes", target: "meios_de_transmissao" },
     { source: "camada_fisica_redes", target: "modulacao_e_sinais" },
+    { source: "camada_fisica_redes", target: "camada_de_enlace" },
     { source: "camada_de_enlace", target: "subcamada_mac" },
-    { source: "camada_de_enlace", target: "deteccao_correcao_erros" },
-    { source: "camada_de_enlace", target: "placa_de_rede_nic" },
-    { source: "placa_de_rede_nic", target: "dma_acesso_direto" },
-    { source: "camada_de_rede", target: "protocolo_ip_v4_v6" },
-    { source: "camada_de_rede", target: "protocolo_arp" },
-    { source: "camada_de_rede", target: "algoritmos_de_roteamento" },
-    { source: "camada_de_rede", target: "firewalls" },
-    { source: "camada_de_transporte", target: "protocolos_tcp_udp" },
-    { source: "protocolos_tcp_udp", target: "controle_de_congestionamento" },
-    { source: "protocolos_tcp_udp", target: "pilha_tcp_ip" },
-    { source: "pilha_tcp_ip", target: "sockets_api" },
-    { source: "camada_de_aplicacao", target: "dns" },
-    { source: "camada_de_aplicacao", target: "protocolos_iot_mqtt" },
-    { source: "camada_de_aplicacao", target: "protocolo_http" },
-    { source: "camada_de_aplicacao", target: "ssh_protocolo" },
-    { source: "protocolo_http", target: "http_headers" },
-    { source: "protocolo_http", target: "cookies_sessoes" },
-    { source: "protocolo_http", target: "ssl_tls_https" },
-    { source: "protocolo_http", target: "proxy_reverso" },
-    { source: "proxy_reverso", target: "load_balancing" },
-    { source: "load_balancing", target: "cdn" },
     { source: "camada_de_enlace", target: "vlans" },
+    { source: "camada_de_enlace", target: "deteccao_correcao_erros" },
+    { source: "subcamada_mac", target: "placa_de_rede_nic" },
+    { source: "placa_de_rede_nic", target: "dma_acesso_direto" },
+    { source: "camada_de_enlace", target: "camada_de_rede" },
+    { source: "camada_de_rede", target: "protocolo_ip_v4_v6" },
     { source: "camada_de_rede", target: "protocolo_icmp" },
     { source: "protocolo_ip_v4_v6", target: "subredes_cidr" },
     { source: "protocolo_ip_v4_v6", target: "nat_dhcp" },
+    { source: "protocolo_ip_v4_v6", target: "algoritmos_de_roteamento" },
+    { source: "subcamada_mac", target: "protocolo_arp" },
+    { source: "protocolo_ip_v4_v6", target: "protocolo_arp" },
+    { source: "protocolo_ip_v4_v6", target: "camada_de_transporte" },
+    { source: "camada_de_transporte", target: "protocolos_tcp_udp" },
+    { source: "protocolos_tcp_udp", target: "controle_de_congestionamento" },
+    { source: "protocolos_tcp_udp", target: "firewalls" },
+    { source: "protocolos_tcp_udp", target: "pilha_tcp_ip" },
+    { source: "pilha_tcp_ip", target: "sockets_api" },
+    { source: "sockets_api", target: "camada_de_aplicacao" },
+    { source: "camada_de_aplicacao", target: "dns" },
+    { source: "camada_de_aplicacao", target: "protocolo_http" },
+    { source: "camada_de_aplicacao", target: "ssh_protocolo" },
+    { source: "camada_de_aplicacao", target: "protocolos_iot_mqtt" },
+    { source: "protocolo_http", target: "http_headers" },
+    { source: "http_headers", target: "cookies_sessoes" },
+    { source: "protocolo_http", target: "ssl_tls_https" },
+    { source: "ssl_tls_https", target: "proxy_reverso" },
+    { source: "proxy_reverso", target: "load_balancing" },
+    { source: "load_balancing", target: "cdn" },
 
-    // 14. Linux e Administração de Sistemas
+    // 14. Linux e Servidores
     { source: "linux", target: "terminal_shell" },
-    { source: "linux", target: "permissoes_linux" },
     { source: "linux", target: "virtualizacao_hypervisors" },
+    { source: "terminal_shell", target: "permissoes_linux" },
     { source: "terminal_shell", target: "bash_scripting" },
 
     // 15. DevOps e Cloud Computing
     { source: "cultura_devops", target: "git_versionamento" },
+    { source: "cultura_devops", target: "containers_docker" },
+    { source: "cultura_devops", target: "aws_cloud" },
     { source: "git_versionamento", target: "github_fluxos" },
     { source: "github_fluxos", target: "ci_cd_pipelines" },
-    { source: "cultura_devops", target: "containers_docker" },
     { source: "containers_docker", target: "orquestracao_k8s" },
+    { source: "containers_docker", target: "ci_cd_pipelines" },
     { source: "aws_cloud", target: "aws_compute" },
     { source: "aws_cloud", target: "aws_storage" },
     { source: "aws_cloud", target: "aws_redes_vpc" },
     { source: "aws_cloud", target: "aws_servicos" },
     { source: "aws_cloud", target: "seguranca_nuvem" },
-    { source: "aws_cloud", target: "iac_terraform" },
-    { source: "aws_cloud", target: "monitoramento_observabilidade" },
+    { source: "aws_compute", target: "iac_terraform" },
     { source: "ci_cd_pipelines", target: "iac_terraform" },
+    { source: "aws_compute", target: "monitoramento_observabilidade" },
     { source: "orquestracao_k8s", target: "monitoramento_observabilidade" },
 
     // // to-do: 11. Estruturas de Dados
@@ -4249,11 +4313,10 @@ const KnowledgeMap = () => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [tooltip, setTooltip] = useState({ visible: false, content: "", x: 0, y: 0 });
 
-  // Estados para controle de isolamento de grupos e visibilidade da legenda
-  const [activeLegendGroup, setActiveLegendGroup] = useState(null);
+  // Array de identificadores para controle de múltiplos grupos simultâneos
+  const [activeLegendGroups, setActiveLegendGroups] = useState([]);
   const [showLegend, setShowLegend] = useState(true);
 
-  // Estados auxiliares para efeito hover nos botões inline
   const [hoverReset, setHoverReset] = useState(false);
   const [hoverToggle, setHoverToggle] = useState(false);
 
@@ -4298,10 +4361,10 @@ const KnowledgeMap = () => {
     localStorage.removeItem("knowledge_map_data");
     setNodes(graphData.nodes.map((n) => ({ ...n, status: "pending" })));
     setSelectedNode(null);
-    setActiveLegendGroup(null);
+    setActiveLegendGroups([]);
   };
 
-  // Sincronização visual estendida para suportar filtragem por activeLegendGroup
+  // Mutação visual reativa a múltiplos grupos ativos em activeLegendGroups
   useEffect(() => {
     if (nodeRef.current) {
       nodeRef.current
@@ -4317,7 +4380,7 @@ const KnowledgeMap = () => {
         .style("opacity", (d) => {
           const isLocked = checkIsLocked(d.id, nodes);
           let opacity = isLocked ? 0.35 : 1;
-          if (activeLegendGroup !== null && d.group !== activeLegendGroup) {
+          if (activeLegendGroups.length > 0 && !activeLegendGroups.includes(d.group)) {
             opacity *= 0.15;
           }
           return opacity;
@@ -4331,7 +4394,7 @@ const KnowledgeMap = () => {
         .style("opacity", (d) => {
           const isLocked = checkIsLocked(d.id, nodes);
           let opacity = isLocked ? 0.4 : 1;
-          if (activeLegendGroup !== null && d.group !== activeLegendGroup) {
+          if (activeLegendGroups.length > 0 && !activeLegendGroups.includes(d.group)) {
             opacity *= 0.15;
           }
           return opacity;
@@ -4349,12 +4412,12 @@ const KnowledgeMap = () => {
           return sourceNode?.status === "done" ? "#10b981" : "#475569";
         })
         .style("opacity", (d) => {
-          if (activeLegendGroup !== null) {
+          if (activeLegendGroups.length > 0) {
             const sourceGroup =
               typeof d.source === "object" ? d.source.group : nodes.find((n) => n.id === d.source)?.group;
             const targetGroup =
               typeof d.target === "object" ? d.target.group : nodes.find((n) => n.id === d.target)?.group;
-            if (sourceGroup !== activeLegendGroup && targetGroup !== activeLegendGroup) {
+            if (!activeLegendGroups.includes(sourceGroup) && !activeLegendGroups.includes(targetGroup)) {
               return 0.05;
             }
           }
@@ -4368,7 +4431,7 @@ const KnowledgeMap = () => {
           return sourceNode?.status === "done" ? 2.5 : 1.5;
         });
     }
-  }, [nodes, activeLegendGroup]);
+  }, [nodes, activeLegendGroups]);
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -4515,7 +4578,6 @@ const KnowledgeMap = () => {
   return (
     <div
       style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden", backgroundColor: "#0f172a" }}>
-      {/* Botão de Reset integrado ao padrão visual Dark/Glassmorphism */}
       <button
         onClick={resetProgress}
         onMouseEnter={() => setHoverReset(true)}
@@ -4696,69 +4758,6 @@ const KnowledgeMap = () => {
                 ) : (
                   <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exemplo registrado.</p>
                 )}
-
-                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Bibliografia Recomendada</h3>
-                {currentNode.books && currentNode.books.length > 0 ? (
-                  <ul
-                    style={{
-                      paddingLeft: "0",
-                      listStyleType: "none",
-                      fontSize: "14px",
-                      color: "#94a3b8",
-                      lineHeight: "1.6",
-                    }}>
-                    {currentNode.books.map((book, i) => (
-                      <li key={i} style={{ marginBottom: "8px" }}>
-                        📖 {book}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum livro registrado.</p>
-                )}
-
-                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Exercícios Práticos</h3>
-                {currentNode.practice && currentNode.practice.length > 0 ? (
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {currentNode.practice.map((prac, i) => (
-                      <details
-                        key={i}
-                        style={{
-                          background: "rgba(255,255,255,0.05)",
-                          borderRadius: "6px",
-                          padding: "12px",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                        }}>
-                        <summary
-                          style={{
-                            cursor: "pointer",
-                            color: "#cbd5e1",
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            outline: "none",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                          }}>
-                          <span>📝</span> {prac.question}
-                        </summary>
-                        <div
-                          style={{
-                            marginTop: "10px",
-                            paddingTop: "10px",
-                            borderTop: "1px solid rgba(255,255,255,0.1)",
-                            color: "#94a3b8",
-                            fontSize: "13px",
-                            lineHeight: "1.6",
-                          }}>
-                          <strong style={{ color: "#10b981" }}>Resolução:</strong> {prac.answer}
-                        </div>
-                      </details>
-                    ))}
-                  </div>
-                ) : (
-                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exercício registrado.</p>
-                )}
               </>
             );
           })()}
@@ -4766,7 +4765,6 @@ const KnowledgeMap = () => {
 
       <svg ref={svgRef} style={{ width: "100%", height: "100%" }}></svg>
 
-      {/* Interface de Controle da Legenda (Minimizada / Expandida) */}
       {!showLegend ? (
         <button
           onClick={() => setShowLegend(true)}
@@ -4810,7 +4808,7 @@ const KnowledgeMap = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "between",
+              justifyContent: "space-between",
               alignItems: "center",
               borderBottom: "1px solid rgba(255,255,255,0.15)",
               paddingBottom: "6px",
@@ -4837,11 +4835,15 @@ const KnowledgeMap = () => {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, max-content)", gap: "6px 24px" }}>
             {Object.entries(GROUP_CONFIG).map(([key, group]) => {
               const groupNum = Number(key);
-              const isSelected = activeLegendGroup === groupNum;
+              const isSelected = activeLegendGroups.includes(groupNum);
               return (
                 <div
                   key={key}
-                  onClick={() => setActiveLegendGroup(isSelected ? null : groupNum)}
+                  onClick={() => {
+                    setActiveLegendGroups((prev) =>
+                      prev.includes(groupNum) ? prev.filter((g) => g !== groupNum) : [...prev, groupNum],
+                    );
+                  }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -4850,7 +4852,7 @@ const KnowledgeMap = () => {
                     padding: "2px 4px",
                     borderRadius: "4px",
                     background: isSelected ? "rgba(255,255,255,0.08)" : "transparent",
-                    opacity: activeLegendGroup === null || isSelected ? 1 : 0.4,
+                    opacity: activeLegendGroups.length === 0 || isSelected ? 1 : 0.4,
                     transition: "all 0.15s ease",
                   }}
                   onMouseEnter={(e) => {
