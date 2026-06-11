@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
-import "./KnowledgeMap.css";
 
 const graphData = {
   nodes: [
@@ -3057,59 +3056,97 @@ const graphData = {
     { source: "proxy_reverso", target: "cdn" },
   ],
 };
-const statusColor = {
-  pending: "#e74c3c",
-  in_progress: "#3498db",
-  done: "#f1c40f",
-  skip: "#95a5a6",
 
-  // Legacy
-  locked: "#e74c3c",
-  available: "#3498db",
-  mastered: "#f1c40f",
+const statusColor = {
+  pending: "#ef4444",
+  in_progress: "#3b82f6",
+  done: "#10b981",
+  skip: "#94a3b8",
+  locked: "#64748b",
+};
+
+const GROUP_CONFIG = {
+  1: { color: "#3b82f6", label: "1. Matemática Discreta" },
+  2: { color: "#06b6d4", label: "2. Cálculo e Álgebra" },
+  3: { color: "#6366f1", label: "3. Teoria da Computação" },
+  4: { color: "#0ea5e9", label: "4. Algoritmos e Lógica de Programação" },
+  5: { color: "#1d4ed8", label: "5. Estruturas de Dados" },
+  6: { color: "#4f46e5", label: "6. Fundamentos da Eletricidade" },
+  7: { color: "#e11d48", label: "7. Circuitos Elétricos" },
+  8: { color: "#d946ef", label: "8. Eletrônica Geral" },
+  9: { color: "#a855f7", label: "9. Sistemas Digitais" },
+  10: { color: "#db2777", label: "10. Processamento Digital de Sinais" },
+  11: { color: "#7c3aed", label: "11. Arquitetura de Computadores" },
+  12: { color: "#0d9488", label: "12. Sistemas Operacionais" },
+  13: { color: "#10b981", label: "13. Redes de Computadores" },
+  14: { color: "#14b8a6", label: "14. Linux e Administração de Sistemas" },
+  15: { color: "#059669", label: "15. DevOps e Cloud Computing" },
+  16: { color: "#ea580c", label: "16. Linguagens de Programação" },
+  17: { color: "#ca8a04", label: "17. Bancos de Dados" },
+  18: { color: "#f97316", label: "18. Engenharia de Software" },
+  19: { color: "#eab308", label: "19. Inteligência Artificial e Machine Learning" },
 };
 
 const KnowledgeMap = () => {
   const svgRef = useRef(null);
   const nodeRef = useRef(null);
+  const linkRef = useRef(null);
 
   const [nodes, setNodes] = useState(() => {
-    // 1. Try to load from local storage
-    const saved = localStorage.getItem("knowledge_map_data");
-    const savedStatusMap = saved ? JSON.parse(saved) : {};
-
-    return graphData.nodes.map((n) => {
-      // 2. If saved status exists, use it
-      if (savedStatusMap[n.id]) {
-        return { ...n, status: savedStatusMap[n.id] };
-      }
-
-      // 3. Otherwise, default everything to "pending"
-      // Legacy mapping can be kept if we want to migrate hardcoded "locked/available" to "pending",
-      // but the user requirement is "default all... to pending".
-      return { ...n, status: "pending" };
-    });
+    try {
+      const saved = localStorage.getItem("knowledge_map_data");
+      const savedStatusMap = saved ? JSON.parse(saved) : {};
+      return graphData.nodes.map((n) => ({
+        ...n,
+        status: savedStatusMap[n.id] || "pending",
+      }));
+    } catch (e) {
+      return graphData.nodes.map((n) => ({ ...n, status: "pending" }));
+    }
   });
 
   const [links] = useState(graphData.links.map((l) => ({ ...l })));
-
   const [selectedNode, setSelectedNode] = useState(null);
-  const [tooltip, setTooltip] = useState({
-    visible: false,
-    content: "",
-    x: 0,
-    y: 0,
-  });
+  const [tooltip, setTooltip] = useState({ visible: false, content: "", x: 0, y: 0 });
+
+  // Estados para controle de isolamento de grupos e visibilidade da legenda
+  const [activeLegendGroup, setActiveLegendGroup] = useState(null);
+  const [showLegend, setShowLegend] = useState(true);
+
+  // Estados auxiliares para efeito hover nos botões inline
+  const [hoverReset, setHoverReset] = useState(false);
+  const [hoverToggle, setHoverToggle] = useState(false);
+
+  const checkIsLocked = (nodeId, currentNodes) => {
+    const prerequisites = links.filter((l) => {
+      const targetId = typeof l.target === "object" ? l.target.id : l.target;
+      return targetId === nodeId;
+    });
+    if (prerequisites.length === 0) return false;
+    return prerequisites.some((l) => {
+      const sourceId = typeof l.source === "object" ? l.source.id : l.source;
+      const parentNode = currentNodes.find((n) => n.id === sourceId);
+      return !parentNode || parentNode.status !== "done";
+    });
+  };
+
+  const getMissingPrerequisites = (nodeId) => {
+    const prerequisites = links.filter((l) => {
+      const targetId = typeof l.target === "object" ? l.target.id : l.target;
+      return targetId === nodeId;
+    });
+    return prerequisites
+      .map((l) => {
+        const sourceId = typeof l.source === "object" ? l.source.id : l.source;
+        return nodes.find((n) => n.id === sourceId);
+      })
+      .filter((parentNode) => !parentNode || parentNode.status !== "done");
+  };
 
   const handleStatusChange = (newStatus) => {
-    if (!selectedNode) return;
-
-    // Update Node State
+    if (!selectedNode || checkIsLocked(selectedNode.id, nodes)) return;
     const updatedNodes = nodes.map((n) => (n.id === selectedNode.id ? { ...n, status: newStatus } : n));
     setNodes(updatedNodes);
-    setSelectedNode((prev) => ({ ...prev, status: newStatus }));
-
-    // Persist to LocalStorage
     const statusMap = updatedNodes.reduce((acc, node) => {
       acc[node.id] = node.status;
       return acc;
@@ -3117,31 +3154,81 @@ const KnowledgeMap = () => {
     localStorage.setItem("knowledge_map_data", JSON.stringify(statusMap));
   };
 
+  const resetProgress = () => {
+    localStorage.removeItem("knowledge_map_data");
+    setNodes(graphData.nodes.map((n) => ({ ...n, status: "pending" })));
+    setSelectedNode(null);
+    setActiveLegendGroup(null);
+  };
+
+  // Sincronização visual estendida para suportar filtragem por activeLegendGroup
   useEffect(() => {
     if (nodeRef.current) {
-      nodeRef.current.select("circle").attr("stroke", (d) => {
-        const match = nodes.find((n) => n.id === d.id);
-        return statusColor[match ? match.status : d.status];
-      });
-    }
-  }, [nodes]);
+      nodeRef.current
+        .select("circle")
+        .transition()
+        .duration(300)
+        .attr("stroke", (d) => {
+          const isLocked = checkIsLocked(d.id, nodes);
+          if (isLocked) return statusColor.locked;
+          const match = nodes.find((n) => n.id === d.id);
+          return statusColor[match ? match.status : d.status];
+        })
+        .style("opacity", (d) => {
+          const isLocked = checkIsLocked(d.id, nodes);
+          let opacity = isLocked ? 0.35 : 1;
+          if (activeLegendGroup !== null && d.group !== activeLegendGroup) {
+            opacity *= 0.15;
+          }
+          return opacity;
+        })
+        .attr("stroke-dasharray", (d) => (checkIsLocked(d.id, nodes) ? "4 4" : "none"));
 
-  // Definição Central de Cores e Labels
-  const GROUP_CONFIG = {
-    1: { color: "#6c5ce7", label: "1. Fundamentos & Math" },
-    2: { color: "#e17055", label: "2. Hardware & Arquitetura" },
-    3: { color: "#e84393", label: "3. CS & Algoritmos" },
-    4: { color: "#00cec9", label: "4. Sistemas Operacionais" },
-    5: { color: "#0984e3", label: "5. Redes & Comunicação" },
-    6: { color: "#ffeaa7", label: "6. Linguagens" },
-    7: { color: "#00b894", label: "7. JavaScript Técnico" },
-    8: { color: "#636e72", label: "8. Frontend React" },
-    9: { color: "#d63031", label: "9. Backend & APIs" },
-    10: { color: "#fd79a8", label: "10. BD & Eng. Dados" },
-    11: { color: "#a29bfe", label: "11. DevOps & Cloud" },
-    12: { color: "#55efc4", label: "12. Eng. Software QA" },
-    13: { color: "#74b9ff", label: "13. IA & Dados" },
-  };
+      nodeRef.current
+        .select("text")
+        .transition()
+        .duration(300)
+        .style("opacity", (d) => {
+          const isLocked = checkIsLocked(d.id, nodes);
+          let opacity = isLocked ? 0.4 : 1;
+          if (activeLegendGroup !== null && d.group !== activeLegendGroup) {
+            opacity *= 0.15;
+          }
+          return opacity;
+        })
+        .style("font-style", (d) => (checkIsLocked(d.id, nodes) ? "italic" : "normal"));
+    }
+
+    if (linkRef.current) {
+      linkRef.current
+        .transition()
+        .duration(300)
+        .attr("stroke", (d) => {
+          const sourceId = typeof d.source === "object" ? d.source.id : d.source;
+          const sourceNode = nodes.find((n) => n.id === sourceId);
+          return sourceNode?.status === "done" ? "#10b981" : "#475569";
+        })
+        .style("opacity", (d) => {
+          if (activeLegendGroup !== null) {
+            const sourceGroup =
+              typeof d.source === "object" ? d.source.group : nodes.find((n) => n.id === d.source)?.group;
+            const targetGroup =
+              typeof d.target === "object" ? d.target.group : nodes.find((n) => n.id === d.target)?.group;
+            if (sourceGroup !== activeLegendGroup && targetGroup !== activeLegendGroup) {
+              return 0.05;
+            }
+          }
+          const sourceId = typeof d.source === "object" ? d.source.id : d.source;
+          const sourceNode = nodes.find((n) => n.id === sourceId);
+          return sourceNode?.status === "done" ? 0.8 : 0.4;
+        })
+        .attr("stroke-width", (d) => {
+          const sourceId = typeof d.source === "object" ? d.source.id : d.source;
+          const sourceNode = nodes.find((n) => n.id === sourceId);
+          return sourceNode?.status === "done" ? 2.5 : 1.5;
+        });
+    }
+  }, [nodes, activeLegendGroup]);
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -3149,27 +3236,33 @@ const KnowledgeMap = () => {
 
     d3.select(svgRef.current).selectAll("*").remove();
 
-    const svg = d3
-      .select(svgRef.current)
-      .attr("viewBox", [0, 0, width, height])
-      .classed("knowledge-map-container", true);
+    const svg = d3.select(svgRef.current).attr("viewBox", [0, 0, width, height]).style("background", "#0f172a");
+
+    svg
+      .append("defs")
+      .append("marker")
+      .attr("id", "arrowhead")
+      .attr("viewBox", "-0 -5 10 10")
+      .attr("refX", 26)
+      .attr("refY", 0)
+      .attr("orient", "auto")
+      .attr("markerWidth", 8)
+      .attr("markerHeight", 8)
+      .attr("xoverflow", "visible")
+      .append("svg:path")
+      .attr("d", "M 0,-5 L 10 ,0 L 0,5")
+      .attr("fill", "#64748b")
+      .style("stroke", "none");
 
     const g = svg.append("g");
 
     const zoom = d3
       .zoom()
-      .scaleExtent([0.1, 4])
+      .scaleExtent([0.2, 3])
       .on("zoom", (event) => {
         g.attr("transform", event.transform);
       });
     svg.call(zoom);
-
-    // Initial simulation setup using the state-initialized nodes
-    // We do NOT want to re-run this effect when 'nodes' state changes to avoid position reset.
-    // The 'nodes' variable here comes from the closure of the first render (if deps is [])
-    // OR we should trust the state passed.
-    // However, D3 mutates objects.
-    // If we use the 'nodes' from the very first render, it's fine.
 
     const simulation = d3
       .forceSimulation(nodes)
@@ -3178,87 +3271,73 @@ const KnowledgeMap = () => {
         d3
           .forceLink(links)
           .id((d) => d.id)
-          .distance(100),
+          .distance(160),
       )
-      .force("charge", d3.forceManyBody().strength(-300))
+      .force("charge", d3.forceManyBody().strength(-400))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collide", d3.forceCollide().radius(30));
+      .force("collide", d3.forceCollide().radius(45));
 
     const link = g
       .append("g")
-      .attr("stroke", "#999")
-      .attr("stroke-opacity", 0.3)
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke-width", 1.5);
+      .attr("stroke", "#475569")
+      .attr("stroke-width", 1.5)
+      .attr("stroke-opacity", 0.4)
+      .attr("marker-end", "url(#arrowhead)");
 
-    const node = g.append("g").selectAll("g").data(nodes).join("g").call(drag(simulation));
+    linkRef.current = link;
 
-    // Save Ref
+    const node = g
+      .append("g")
+      .selectAll("g")
+      .data(nodes)
+      .join("g")
+      .style("cursor", (d) => (checkIsLocked(d.id, nodes) ? "not-allowed" : "grab"))
+      .call(drag(simulation));
+
     nodeRef.current = node;
 
     node
       .append("circle")
-      .attr("r", 10) // Standardization
-      .attr("fill", (d) => GROUP_CONFIG[d.group].color)
-      .attr("class", "node-circle")
-      .attr("stroke", (d) => statusColor[d.status])
-      .attr("stroke-width", 3);
+      .attr("r", 12)
+      .attr("fill", (d) => GROUP_CONFIG[d.group]?.color || "#fff")
+      .attr("stroke-width", 3.5);
 
     node
       .append("text")
       .text((d) => d.label)
-      .attr("x", 18)
-      .attr("y", 5)
-      .style("font-size", "12px")
-      .style("fill", "#ccc")
+      .attr("x", 20)
+      .attr("y", 4)
+      .style("font-size", "13px")
+      .style("font-family", "sans-serif")
+      .style("fill", "#f8fafc")
       .style("pointer-events", "none")
-      .style("text-shadow", "1px 1px 2px #000");
+      .style("text-shadow", "2px 2px 4px #000");
 
     node
       .on("mouseover", (event, d) => {
-        d3.select(event.currentTarget).select("circle").transition().duration(200).attr("r", 18);
+        const isLocked = checkIsLocked(d.id, nodes);
+        d3.select(event.currentTarget).select("circle").transition().duration(150).attr("r", 16);
         setTooltip({
           visible: true,
-          content: `<strong>${d.label}</strong>`,
-          x: event.pageX + 10,
+          content: `<strong>${d.label}</strong> ${isLocked ? "<br/><span style='color:#ef4444;'>🔒 Bloqueado</span>" : ""}`,
+          x: event.pageX + 12,
           y: event.pageY - 28,
         });
       })
-      .on("mousemove", (event) => {
-        setTooltip((prev) => ({
-          ...prev,
-          x: event.pageX + 10,
-          y: event.pageY - 28,
-        }));
-      })
-      .on("mouseout", (event, d) => {
-        d3.select(event.currentTarget).select("circle").transition().duration(200).attr("r", 10);
+      .on("mousemove", (event) => setTooltip((prev) => ({ ...prev, x: event.pageX + 12, y: event.pageY - 28 })))
+      .on("mouseout", (event) => {
+        d3.select(event.currentTarget).select("circle").transition().duration(150).attr("r", 12);
         setTooltip((prev) => ({ ...prev, visible: false }));
       })
       .on("click", (event, d) => {
         event.stopPropagation();
-        // Look up latest node data from state if possible, but 'd' is decent for ID
-        // To be safe and get the latest status, we should find it in the nodes array
-        // But inside this effect closure, 'nodes' is the initial array.
-        // We will just use 'd' to get ID, and 'setSelectedNode' will need to find the node or
-        // we assume 'd' has the correct ID.
-        // Actually, we can just set the ID and let the UI find the node from 'nodes' state?
-        // But currently setSelectedNode stores the whole object.
-        // We will fix this by searching in the 'nodes' STATE when opening.
-        // But to access current 'nodes' state here, we would need it in deps, which triggers re-render.
-        // Workaround: Pass a function to setSelectedNode or just pass 'd' (which has stale status)
-        // and let the render logic find the up-to-date node.
-        // For now, I'll pass 'd'.
-        // In the render: selectedNode state object will be used.
-        // I will update the render logic to find the node in 'nodes' state based on 'selectedNode.id'.
         setSelectedNode(d);
       });
 
-    svg.on("click", () => {
-      setSelectedNode(null);
-    });
+    svg.on("click", () => setSelectedNode(null));
 
     simulation.on("tick", () => {
       link
@@ -3270,191 +3349,418 @@ const KnowledgeMap = () => {
     });
 
     function drag(simulation) {
-      function dragstarted(event) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        event.subject.fx = event.subject.x;
-        event.subject.fy = event.subject.y;
-        d3.select(this).style("cursor", "grabbing");
-      }
-      function dragged(event) {
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
-      }
-      function dragended(event) {
-        if (!event.active) simulation.alphaTarget(0);
-        event.subject.fx = null;
-        event.subject.fy = null;
-        d3.select(this).style("cursor", "grab");
-      }
-      return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+      return d3
+        .drag()
+        .on("start", function (event) {
+          if (!event.active) simulation.alphaTarget(0.3).restart();
+          event.subject.fx = event.subject.x;
+          event.subject.fy = event.subject.y;
+          d3.select(this).style("cursor", "grabbing");
+        })
+        .on("drag", function (event) {
+          event.subject.fx = event.x;
+          event.subject.fy = event.y;
+        })
+        .on("end", function (event) {
+          if (!event.active) simulation.alphaTarget(0);
+          event.subject.fx = null;
+          event.subject.fy = null;
+          d3.select(this).style("cursor", "grab");
+        });
     }
 
     return () => simulation.stop();
   }, []);
 
   return (
-    <>
+    <div
+      style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden", backgroundColor: "#0f172a" }}>
+      {/* Botão de Reset integrado ao padrão visual Dark/Glassmorphism */}
+      <button
+        onClick={resetProgress}
+        onMouseEnter={() => setHoverReset(true)}
+        onMouseLeave={() => setHoverReset(false)}
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "20px",
+          zIndex: 10,
+          padding: "8px 14px",
+          background: hoverReset ? "rgba(30, 41, 59, 0.9)" : "rgba(30, 41, 59, 0.6)",
+          backdropFilter: "blur(8px)",
+          color: hoverReset ? "#f8fafc" : "#94a3b8",
+          border: `1px solid ${hoverReset ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.1)"}`,
+          borderRadius: "6px",
+          cursor: "pointer",
+          fontFamily: "sans-serif",
+          fontSize: "12px",
+          fontWeight: "bold",
+          transition: "all 0.2s ease",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+        }}>
+        Limpar Progresso
+      </button>
+
       <div
-        className={`tooltip ${tooltip.visible ? "visible" : ""}`}
-        style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px` }}
+        style={{
+          position: "absolute",
+          left: `${tooltip.x}px`,
+          top: `${tooltip.y}px`,
+          visibility: tooltip.visible ? "visible" : "hidden",
+          opacity: tooltip.visible ? 1 : 0,
+          background: "rgba(15, 23, 42, 0.95)",
+          color: "#f8fafc",
+          padding: "8px 12px",
+          borderRadius: "6px",
+          fontSize: "12px",
+          fontFamily: "sans-serif",
+          pointerEvents: "none",
+          border: "1px solid rgba(255,255,255,0.15)",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+          zIndex: 100,
+          transition: "opacity 0.15s ease",
+        }}
         dangerouslySetInnerHTML={{ __html: tooltip.content }}
       />
 
-      {/* PAINEL LATERAL DE DETALHES */}
-      <div className={`details-panel ${selectedNode ? "open" : ""}`}>
-        <button className="close-btn" onClick={() => setSelectedNode(null)}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "420px",
+          height: "100%",
+          backgroundColor: "rgba(15, 23, 42, 0.85)",
+          backdropFilter: "blur(12px)",
+          borderLeft: "1px solid rgba(255, 255, 255, 0.1)",
+          boxShadow: "-4px 0 24px rgba(0,0,0,0.5)",
+          transform: selectedNode ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          zIndex: 50,
+          padding: "30px",
+          color: "#e2e8f0",
+          fontFamily: "sans-serif",
+          overflowY: "auto",
+          boxSizing: "border-box",
+        }}>
+        <button
+          onClick={() => setSelectedNode(null)}
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "20px",
+            background: "none",
+            border: "none",
+            color: "#94a3b8",
+            fontSize: "24px",
+            cursor: "pointer",
+          }}>
           &times;
         </button>
+
         {selectedNode &&
           (() => {
-            // Find the latest state for this node
             const currentNode = nodes.find((n) => n.id === selectedNode.id) || selectedNode;
+            const isLocked = checkIsLocked(currentNode.id, nodes);
+            const missingPrereqs = getMissingPrerequisites(currentNode.id);
 
             return (
               <>
-                <h2 style={{ borderBottomColor: GROUP_CONFIG[currentNode.group].color }}>{currentNode.label}</h2>
+                <h2
+                  style={{
+                    margin: "10px 0 20px 0",
+                    paddingBottom: "10px",
+                    borderBottom: `3px solid ${GROUP_CONFIG[currentNode.group]?.color || "#ccc"}`,
+                  }}>
+                  {currentNode.label}
+                </h2>
 
-                <div style={{ marginBottom: "15px" }}>
-                  <label style={{ marginRight: "10px", color: "#ccc" }}>Status:</label>
+                {isLocked ? (
+                  <div
+                    style={{
+                      backgroundColor: "rgba(239, 68, 68, 0.15)",
+                      border: "1px solid #ef4444",
+                      padding: "15px",
+                      borderRadius: "8px",
+                      marginBottom: "20px",
+                    }}>
+                    <h4
+                      style={{
+                        margin: "0 0 8px 0",
+                        color: "#f87171",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                      }}>
+                      <span>🔒</span> Pré-requisitos Pendentes
+                    </h4>
+                    <p style={{ margin: 0, fontSize: "13px", color: "#fca5a5" }}>
+                      Conclua os seguintes itens para liberar este nó:
+                    </p>
+                    <ul style={{ margin: "8px 0 0 0", paddingLeft: "20px", fontSize: "13px", color: "#fca5a5" }}>
+                      {missingPrereqs.map((p) => (
+                        <li key={p.id}>{p.label}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      backgroundColor: "rgba(16, 185, 129, 0.15)",
+                      border: "1px solid #10b981",
+                      padding: "12px",
+                      borderRadius: "8px",
+                      marginBottom: "20px",
+                      color: "#a7f3d0",
+                      fontSize: "13px",
+                    }}>
+                    <span>🔓</span> Nó de estudo desbloqueado.
+                  </div>
+                )}
+
+                <div style={{ marginBottom: "25px", display: "flex", alignItems: "center", gap: "12px" }}>
+                  <label style={{ color: "#94a3b8", fontSize: "14px" }}>Status:</label>
                   <select
-                    value={currentNode.status}
+                    value={isLocked ? "pending" : currentNode.status}
+                    disabled={isLocked}
                     onChange={(e) => handleStatusChange(e.target.value)}
                     style={{
-                      padding: "5px 10px",
-                      borderRadius: "5px",
-                      border: `2px solid ${statusColor[currentNode.status]}`,
-                      backgroundColor: "rgba(0,0,0,0.3)",
-                      color: "white",
-                      cursor: "pointer",
+                      padding: "8px 12px",
+                      borderRadius: "6px",
+                      border: `1px solid ${isLocked ? "#475569" : statusColor[currentNode.status]}`,
+                      backgroundColor: "#1e293b",
+                      color: isLocked ? "#64748b" : "white",
+                      cursor: isLocked ? "not-allowed" : "pointer",
                       outline: "none",
                       fontWeight: "bold",
                     }}>
-                    <option value="in_progress">In Progress</option>
-                    <option value="pending">Pending</option>
-                    <option value="done">Done</option>
-                    <option value="skip">Skip</option>
+                    <option value="pending">Pendente</option>
+                    <option value="in_progress">Em Progresso</option>
+                    <option value="done">Concluído</option>
+                    <option value="skip">Ignorar</option>
                   </select>
                 </div>
 
-                <h3>Sobre o Conceito</h3>
-                <p>{currentNode.description || "Descrição detalhada em breve..."}</p>
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Descrição</h3>
+                <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: "0 0 20px 0" }}>
+                  {currentNode.description || "Indisponível."}
+                </p>
 
-                <h3>Exemplos Práticos</h3>
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Exemplos de Aplicação</h3>
                 {currentNode.examples && currentNode.examples.length > 0 ? (
-                  <ul>
+                  <ul style={{ paddingLeft: "20px", fontSize: "14px", color: "#94a3b8", lineHeight: "1.6" }}>
                     {currentNode.examples.map((ex, i) => (
                       <li key={i}>{ex}</li>
                     ))}
                   </ul>
                 ) : (
-                  <p>Exemplos práticos serão adicionados.</p>
+                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exemplo registrado.</p>
                 )}
 
-                <h3>Onde Aprender (Livros)</h3>
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Bibliografia Recomendada</h3>
                 {currentNode.books && currentNode.books.length > 0 ? (
-                  <ul>
-                    {currentNode.books.map((bk, i) => (
-                      <li key={i}>📖 {bk}</li>
+                  <ul
+                    style={{
+                      paddingLeft: "0",
+                      listStyleType: "none",
+                      fontSize: "14px",
+                      color: "#94a3b8",
+                      lineHeight: "1.6",
+                    }}>
+                    {currentNode.books.map((book, i) => (
+                      <li key={i} style={{ marginBottom: "8px" }}>
+                        📖 {book}
+                      </li>
                     ))}
                   </ul>
                 ) : (
-                  <p>Referências bibliográficas em breve.</p>
+                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum livro registrado.</p>
                 )}
 
-                <h3>Exercícios Práticos</h3>
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Exercícios Práticos</h3>
                 {currentNode.practice && currentNode.practice.length > 0 ? (
-                  <ul style={{ paddingLeft: "20px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                     {currentNode.practice.map((prac, i) => (
-                      <li key={i} style={{ marginBottom: "10px" }}>
-                        {typeof prac === "string" ? (
-                          <span>🛠️ {prac}</span>
-                        ) : (
-                          <details>
-                            <summary style={{ cursor: "pointer", fontWeight: "bold" }}>❓ {prac.question}</summary>
-                            <div
-                              style={{
-                                marginTop: "5px",
-                                padding: "10px",
-                                background: "rgba(255,255,255,0.05)",
-                                borderRadius: "5px",
-                                fontSize: "0.9em",
-                                whiteSpace: "pre-wrap",
-                              }}>
-                              💡 <strong>Resolução:</strong> {prac.answer}
-                            </div>
-                          </details>
-                        )}
-                      </li>
+                      <details
+                        key={i}
+                        style={{
+                          background: "rgba(255,255,255,0.05)",
+                          borderRadius: "6px",
+                          padding: "12px",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                        }}>
+                        <summary
+                          style={{
+                            cursor: "pointer",
+                            color: "#cbd5e1",
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            outline: "none",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}>
+                          <span>📝</span> {prac.question}
+                        </summary>
+                        <div
+                          style={{
+                            marginTop: "10px",
+                            paddingTop: "10px",
+                            borderTop: "1px solid rgba(255,255,255,0.1)",
+                            color: "#94a3b8",
+                            fontSize: "13px",
+                            lineHeight: "1.6",
+                          }}>
+                          <strong style={{ color: "#10b981" }}>Resolução:</strong> {prac.answer}
+                        </div>
+                      </details>
                     ))}
-                  </ul>
+                  </div>
                 ) : (
-                  <p>Exercícios em breve.</p>
-                )}
-
-                <h3>Links</h3>
-                {currentNode.links && currentNode.links.length > 0 ? (
-                  <ul>
-                    {currentNode.links.map((link, i) => (
-                      <li key={i}>
-                        🔗{" "}
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ color: "#3498db", textDecoration: "none" }}>
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>Links serão adicionados.</p>
+                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exercício registrado.</p>
                 )}
               </>
             );
           })()}
       </div>
 
-      <svg ref={svgRef}></svg>
+      <svg ref={svgRef} style={{ width: "100%", height: "100%" }}></svg>
 
-      {/* Legenda Dinâmica */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 20,
-          right: 20,
-          zIndex: 10,
-          color: "white",
-          fontFamily: "sans-serif",
-          fontSize: "12px",
-          background: "rgba(0,0,0,0.7)",
-          padding: "10px",
-          borderRadius: "8px",
-          pointerEvents: "none",
-          display: "flex",
-          alignItems: "flex-start",
-          flexDirection: "column",
-          gap: "8px",
-          border: "1px solid rgba(255,255,255,0.1)",
-        }}>
-        <h3 style={{ margin: "0 0 5px 0" }}>Legenda de Áreas</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "8px" }}>
-          {Object.values(GROUP_CONFIG).map((group, index) => (
-            <div key={index} style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+      {/* Interface de Controle da Legenda (Minimizada / Expandida) */}
+      {!showLegend ? (
+        <button
+          onClick={() => setShowLegend(true)}
+          onMouseEnter={() => setHoverToggle(true)}
+          onMouseLeave={() => setHoverToggle(false)}
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 10,
+            padding: "8px 14px",
+            background: hoverToggle ? "rgba(30, 41, 59, 0.9)" : "rgba(30, 41, 59, 0.6)",
+            backdropFilter: "blur(8px)",
+            color: "#f8fafc",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontFamily: "sans-serif",
+            fontSize: "11px",
+            fontWeight: "bold",
+            transition: "all 0.2s ease",
+          }}>
+          👁️ Exibir Legenda
+        </button>
+      ) : (
+        <div
+          style={{
+            position: "absolute",
+            bottom: 20,
+            right: 20,
+            zIndex: 10,
+            color: "white",
+            fontFamily: "sans-serif",
+            fontSize: "11px",
+            background: "rgba(15, 23, 42, 0.92)",
+            padding: "15px",
+            borderRadius: "8px",
+            border: "1px solid rgba(255,255,255,0.1)",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+          }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "between",
+              alignItems: "center",
+              borderBottom: "1px solid rgba(255,255,255,0.15)",
+              paddingBottom: "6px",
+              marginBottom: "8px",
+            }}>
+            <h4 style={{ margin: 0, fontSize: "12px", flexGrow: 1 }}>Legenda Estrutural</h4>
+            <button
+              onClick={() => setShowLegend(false)}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#64748b",
+                cursor: "pointer",
+                fontSize: "11px",
+                padding: "2px 6px",
+                borderRadius: "4px",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#f8fafc")}
+              onMouseLeave={(e) => (e.target.style.color = "#64748b")}>
+              Ocultar
+            </button>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, max-content)", gap: "6px 24px" }}>
+            {Object.entries(GROUP_CONFIG).map(([key, group]) => {
+              const groupNum = Number(key);
+              const isSelected = activeLegendGroup === groupNum;
+              return (
+                <div
+                  key={key}
+                  onClick={() => setActiveLegendGroup(isSelected ? null : groupNum)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                    padding: "2px 4px",
+                    borderRadius: "4px",
+                    background: isSelected ? "rgba(255,255,255,0.08)" : "transparent",
+                    opacity: activeLegendGroup === null || isSelected ? 1 : 0.4,
+                    transition: "all 0.15s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) e.currentTarget.style.background = "transparent";
+                  }}>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: 8,
+                      height: 8,
+                      background: group.color,
+                      borderRadius: "50%",
+                      flexShrink: 0,
+                    }}></span>
+                  <span
+                    style={{ color: isSelected ? "#f8fafc" : "#cbd5e1", fontWeight: isSelected ? "bold" : "normal" }}>
+                    {group.label}
+                  </span>
+                </div>
+              );
+            })}
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                marginTop: "4px",
+                paddingTop: "8px",
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+                gridColumn: "1 / -1",
+              }}>
               <span
                 style={{
                   display: "inline-block",
-                  width: 10,
-                  height: 10,
-                  background: group.color,
+                  width: 8,
+                  height: 8,
+                  border: "2px dashed #64748b",
                   borderRadius: "50%",
+                  flexShrink: 0,
                 }}></span>
-              {group.label}
+              <span style={{ color: "#64748b" }}>Nó Bloqueado (Pré-requisitos Pendentes)</span>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
