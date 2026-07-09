@@ -250,6 +250,370 @@ const graphData = {
       ],
       links: [],
     },
+    // 3. Teoria da Computação
+    {
+      id: "teoria_da_computacao",
+      label: "Teoria da Computação",
+      group: 3,
+      status: "pending",
+      description:
+        "O estudo dos modelos matemáticos abstratos de computadores. Em vez de lidar com circuitos ou código, utiliza conjuntos e lógica para definir formalmente o que é um alfabeto, uma linguagem e o que significa 'computar' algo, servindo de fundação para criar novas linguagens de programação.",
+      examples: [
+        "Alfabetos, Strings e Linguagens Formais",
+        "A Hierarquia de Chomsky",
+        "Modelos de Computação (Transições de Estado)",
+      ],
+      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      practice: [
+        {
+          question: "Na Teoria da Computação, qual é a definição formal de uma 'Linguagem'?",
+          answer:
+            "Uma linguagem é simplesmente um conjunto (finito ou infinito) de strings formadas por símbolos de um alfabeto específico. Por exemplo, a linguagem de programação C não passa de um conjunto gigantesco, mas bem definido, de todas as strings (arquivos de texto) que compilam sem erros de sintaxe.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "automatos_finitos_e_regex",
+      label: "Autômatos Finitos e Expressões Regulares",
+      group: 3,
+      status: "pending",
+      description:
+        "O modelo computacional com memória estritamente limitada. Define o que são Linguagens Regulares, fundamentais para buscas de texto rápidas e para construir a Análise Léxica (Lexers/Tokenizers) do compilador de uma linguagem de programação.",
+      examples: [
+        "Autômatos Finitos Determinísticos e Não-Determinísticos (DFA/NFA)",
+        "Expressões Regulares (Regex) puras",
+        "O Lema do Bombeamento (Pumping Lemma) para Linguagens Regulares",
+      ],
+      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      practice: [
+        {
+          question:
+            "Por que Expressões Regulares (Regex) não conseguem validar se uma expressão matemática tem parênteses balanceados (ex: '((a+b)*c)')?",
+          answer:
+            "Porque linguagens com aninhamento exigem 'memória' infinita para contar quantos parênteses foram abertos. Autômatos Finitos (a base matemática do Regex verdadeiro) possuem um número fixo de estados e não têm uma estrutura de pilha para lembrar uma contagem arbitrária. Isso força o uso de modelos mais poderosos, como as Gramáticas Livres de Contexto.",
+        },
+        {
+          question:
+            "Como o conceito de DFA (Autômato Finito Determinístico) se traduz na primeira fase de um Compilador?",
+          answer:
+            "Ele é usado no Analisador Léxico (Lexer). O compilador lê o código-fonte caractere por caractere e usa DFAs para reconhecer e agrupar letras em 'tokens' válidos, diferenciando rapidamente palavras reservadas (como 'if' ou 'while'), identificadores e números.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "gramaticas_livres_de_contexto",
+      label: "Gramáticas Livres de Contexto",
+      group: 3,
+      status: "pending",
+      description:
+        "Regras de substituição que permitem descrever a estrutura hierárquica e aninhada de blocos de texto. É a tecnologia matemática que permite construir Analisadores Sintáticos (Parsers) e Árvores de Sintaxe Abstrata (ASTs) para interpretar o seu código.",
+      examples: [
+        "Gramáticas Livres de Contexto (CFGs)",
+        "Autômatos com Pilha (Pushdown Automata)",
+        "Árvores de Derivação e Ambiguidade de Gramáticas",
+      ],
+      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      practice: [
+        {
+          question: "Qual a relação entre um Autômato com Pilha e a execução de código que utiliza funções?",
+          answer:
+            "Um Autômato com Pilha é um autômato finito acoplado a uma memória do tipo LIFO (Last-In, First-Out). Isso é o modelo teórico exato da Call Stack (pilha de chamadas) usada pelos sistemas operacionais: quando uma função chama a si mesma recursivamente, o contexto anterior é empilhado, permitindo aninhamento ilimitado (até acabar a memória física).",
+        },
+        {
+          question: "O que significa uma gramática de linguagem de programação ser 'Ambígua'?",
+          answer:
+            "Significa que uma mesma string (ou linha de código) pode gerar duas ou mais Árvores de Sintaxe Abstrata (ASTs) diferentes e válidas. Um exemplo clássico é o 'Dangling Else', onde o compilador não saberia matematicamente a qual 'If' um 'Else' solitário pertence, a não ser que regras adicionais de precedência sejam criadas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "maquinas_de_turing_e_computabilidade",
+      label: "Máquinas de Turing e Computabilidade",
+      group: 3,
+      status: "pending",
+      description:
+        "O modelo abstrato de um computador generalista de fita infinita. Define o limite absoluto do que pode ser resolvido algoritmicamente e estabelece o padrão de 'Completude de Turing', que é a base para o conjunto de instruções do Assembly (ISA).",
+      examples: [
+        "A Máquina de Turing e suas Variantes",
+        "A Tese de Church-Turing",
+        "O Problema da Parada (Halting Problem) e Indecidibilidade",
+      ],
+      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      practice: [
+        {
+          question:
+            "O que quer dizer a afirmação: 'Linguagens de Programação e Arquiteturas Assembly são Turing-completas'?",
+          answer:
+            "Significa que elas possuem poder expressivo suficiente (como laços condicionais e memória arbitrária) para simular o comportamento de uma Máquina de Turing teórica. Ignorando as restrições físicas de memória e tempo, qualquer algoritmo que possa ser calculado no universo pode ser programado nessas linguagens ou instruções de processador.",
+        },
+        {
+          question: "Como o Problema da Parada de Alan Turing afeta o dia a dia da Engenharia de Software?",
+          answer:
+            "Turing provou que é matematicamente impossível criar um programa genérico que analise o código de qualquer outro programa e diga, com 100% de certeza prévia, se ele vai terminar de executar ou ficar preso num loop infinito. Isso significa que analisadores estáticos, compiladores e linters sempre terão limitações fundamentais e precisarão recorrer a heurísticas ou aproximações, justificando testes dinâmicos e validações contínuas.",
+        },
+      ],
+      links: [],
+    },
+
+    // 4. Algoritmos e Lógica de Programação
+    {
+      id: "logica_de_programacao",
+      label: "Lógica de Programação",
+      group: 4,
+      status: "pending",
+      description:
+        "O ponto de partida computacional. Traduz o raciocínio dedutivo e proposicional da matemática para estruturas de controle de fluxo (laços de repetição, condicionais e recursão), definindo o alicerce para implementar qualquer algoritmo em pseudocódigo ou linguagem real.",
+      examples: [
+        "Estruturas de Controle (If/Else, While, For)",
+        "Tradução de Modelos Matemáticos para Pseudocódigo",
+        "Invariantes de Laço (Loop Invariants) para Correção",
+      ],
+      books: [
+        "Introduction to Algorithms - Thomas H. Cormen et al.",
+        "The Little Schemer - Daniel P. Friedman & Matthias Felleisen",
+      ],
+      practice: [
+        {
+          question:
+            "Segundo o CLRS, quais são as três propriedades que devem ser provadas sobre uma 'Invariante de Laço' (Loop Invariant) para garantir que um algoritmo está correto?",
+          answer:
+            "1. Inicialização: A invariante é verdadeira antes da primeira iteração do laço. 2. Manutenção: Se for verdadeira antes de uma iteração, permanece verdadeira antes da próxima. 3. Término: Quando o laço termina, a invariante nos dá uma propriedade útil que ajuda a provar que o algoritmo resolveu o problema (diferente da indução matemática padrão que segue infinitamente).",
+        },
+        {
+          question:
+            "No contexto do CLRS, por que o pseudocódigo é preferido em vez de uma linguagem de programação real para estudar a lógica inicial dos algoritmos?",
+          answer:
+            "O pseudocódigo permite focar na essência e na lógica matemática do algoritmo (a resolução do problema em si), ignorando questões de engenharia de software, tratamento de erros de sintaxe ou peculiaridades de gerenciamento de memória que linguagens como C, Java ou Python exigiriam.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "fundamentos_da_analise_de_algoritmos",
+      label: "Fundamentos da Análise de Algoritmos",
+      group: 4,
+      status: "pending",
+      description:
+        "A base para avaliar a eficiência de um software de forma independente do hardware. Utiliza o comportamento assintótico para classificar algoritmos quanto ao consumo de tempo e memória conforme a entrada de dados cresce ao infinito.",
+      examples: [
+        "Notação Assintótica (Big-O, Ômega Ω, Theta Θ)",
+        "Análise de Pior Caso, Melhor Caso e Caso Médio",
+        "Cálculo de Custos em Pseudocódigo (Modelo RAM)",
+      ],
+      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithms - Robert Sedgewick & Kevin Wayne"],
+      practice: [
+        {
+          question:
+            "Qual é a diferença rigorosa entre as notações Big-O (O), Omega (Ω) e Theta (Θ) na análise assintótica?",
+          answer:
+            "Big-O (O) fornece um limite superior assintótico (o tempo de execução cresce no máximo a essa taxa). Omega (Ω) fornece um limite inferior (o tempo cresce pelo menos a essa taxa). Theta (Θ) indica um limite restrito, ou seja, o algoritmo é limitado tanto superiormente quanto inferiormente pela mesma função (o caso de execução cresce exatamente àquela taxa).",
+        },
+        {
+          question: "Por que o CLRS geralmente foca na análise do 'Pior Caso' de um algoritmo em vez do 'Caso Médio'?",
+          answer:
+            "1) Dá uma garantia (limite superior) para qualquer entrada, garantindo que o programa nunca demorará mais que aquilo. 2) Para muitos algoritmos (como busca), o pior caso ocorre com frequência (ex: quando o item não está no array). 3) O 'caso médio' muitas vezes é tão ruim quanto o pior caso matematicamente (ex: Insertion Sort tem caso médio e pior caso ambos Θ(n²)).",
+        },
+        {
+          question:
+            "O que caracteriza o modelo de máquina RAM (Random-Access Machine) utilizado para analisar custos no livro?",
+          answer:
+            "No modelo RAM, as instruções (soma, subtração, atribuição, controle de fluxo) são executadas uma após a outra, sem operações simultâneas (sem paralelismo). Supõe-se que cada instrução básica leve um tempo constante para ser executada.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "algoritmos_de_ordenacao_e_selecao",
+      label: "Algoritmos de Ordenação e Seleção",
+      group: 4,
+      status: "pending",
+      description:
+        "O estudo clássico do rearranjo de dados. Compara algoritmos in-place e estáveis, demonstrando os limites matemáticos da ordenação baseada em comparação e explorando alternativas de tempo linear para cenários restritos.",
+      examples: [
+        "Ordenação por Comparação (MergeSort, QuickSort, HeapSort)",
+        "Ordenação em Tempo Linear (Counting Sort, Radix Sort)",
+        "Seleção do i-ésimo menor elemento (Selection em tempo linear)",
+      ],
+      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithms - Robert Sedgewick & Kevin Wayne"],
+      practice: [
+        {
+          question:
+            "De acordo com o modelo de Árvores de Decisão (Decision Trees), qual é o limite inferior de tempo para qualquer algoritmo de ordenação baseado em comparação?",
+          answer:
+            "O limite inferior é Ω(n log n). Qualquer algoritmo que ordene elementos fazendo apenas comparações entre eles (como MergeSort ou HeapSort) precisa fazer pelo menos n log n comparações no pior caso para descobrir a permutação correta entre as n! (fatorial) possibilidades.",
+        },
+        {
+          question:
+            "Por que o QuickSort é amplamente utilizado na indústria em vez do MergeSort, mesmo tendo um pior caso de O(n²)?",
+          answer:
+            "Apesar do pior caso O(n²), o caso médio do QuickSort é Θ(n log n) com constantes ocultas extremamente pequenas. Além disso, ele ordena 'in-place' (usa apenas memória extra constante O(1)), possuindo excelente localidade de cache de hardware, superando o MergeSort que exige alocação de memória auxiliar O(n).",
+        },
+        {
+          question:
+            "O que define um algoritmo de ordenação como 'Estável' (Stable) e por que isso é crucial para algoritmos como o Radix Sort?",
+          answer:
+            "Um algoritmo é estável se ele preserva a ordem relativa dos elementos que possuem chaves idênticas. Isso é vital no Radix Sort, pois ele ordena dígito a dígito; se a ordenação dos dígitos intermediários não for estável, o trabalho feito nas casas decimais anteriores é destruído.",
+        },
+        {
+          question:
+            "Como algoritmos como Counting Sort quebram o limite inferior de Ω(n log n) e operam em tempo linear O(n)?",
+          answer:
+            "Eles não utilizam comparações (não comparam se A < B). Eles usam os próprios valores dos elementos (que devem ser inteiros pertencentes a um intervalo limitado conhecido) como índices de um array para contar frequências, permitindo ordenar em tempo linear.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "estrategias_dividir_para_conquistar",
+      label: "Estratégias Dividir para Conquistar",
+      group: 4,
+      status: "pending",
+      description:
+        "Paradigma que quebra recursivamente um problema em subproblemas independentes e menores, resolve-os de forma simples e combina os resultados. Exige ferramentas matemáticas robustas para calcular o custo das chamadas recursivas.",
+      examples: [
+        "Abordagem Recursiva de Problemas",
+        "Árvores de Recursão e Método da Substituição",
+        "O Teorema Mestre (Master Theorem) para Recorrências",
+      ],
+      books: [
+        "Introduction to Algorithms - Thomas H. Cormen et al.",
+        "Algorithm Design - Jon Kleinberg & Éva Tardos",
+        "The Little Schemer - Daniel P. Friedman & Matthias Felleisen",
+      ],
+      practice: [
+        {
+          question: "Quais são os três passos fundamentais do paradigma Dividir para Conquistar?",
+          answer:
+            "1) DIVIDIR o problema original em vários subproblemas menores da mesma natureza. 2) CONQUISTAR resolvendo os subproblemas recursivamente (ou resolvendo diretamente se forem pequenos o suficiente - caso base). 3) COMBINAR as soluções dos subproblemas para formar a solução do problema original.",
+        },
+        {
+          question: "Para que serve o Teorema Mestre (Master Theorem) no estudo de algoritmos?",
+          answer:
+            "Ele fornece um método direto ('receita de bolo') para resolver equações de recorrência comuns do tipo T(n) = aT(n/b) + f(n). Ele compara a função de divisão/combinação f(n) com a função n^(log_b a) para determinar a complexidade Big-O sem precisar desenhar árvores de recursão inteiras.",
+        },
+        {
+          question: "O Teorema Mestre resolve todas as recorrências? Quando ele falha?",
+          answer:
+            "Não resolve. Ele falha quando a função f(n) cai em uma 'lacuna' (gap) entre os três casos do teorema (por exemplo, f(n) é menor, mas não polinomialmente menor). Nesses casos, utiliza-se o método da árvore de recursão ou o método da substituição (indução forte) para provar o limite.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "programacao_dinamica",
+      label: "Programação Dinâmica",
+      group: 4,
+      status: "pending",
+      description:
+        "Técnica de otimização que troca memória por velocidade. Utilizada quando um problema pode ser quebrado em subproblemas sobrepostos (overlapping subproblems), armazenando os resultados intermediários (memoization) para evitar recálculos exponenciais.",
+      examples: [
+        "Subestrutura Ótima e Subproblemas Sobrepostos",
+        "Memoization (Top-down) vs Tabulação (Bottom-up)",
+        "Problemas Clássicos: Mochila 0/1, Maior Subsequência Comum (LCS)",
+      ],
+      books: [
+        "Introduction to Algorithms - Thomas H. Cormen et al.",
+        "Algorithm Design - Jon Kleinberg & Éva Tardos",
+        "Dynamic Programming for Coding Interviews - Meenakshi & Kamal Rawat",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a diferença central e arquitetônica entre 'Dividir para Conquistar' e 'Programação Dinâmica'?",
+          answer:
+            "O paradigma Dividir para Conquistar quebra o problema em subproblemas *independentes* (que não se repetem). A Programação Dinâmica é aplicada quando os subproblemas se *sobrepõem* (o algoritmo precisa resolver o mesmo subproblema repetidas vezes). A DP otimiza isso salvando a resposta na memória.",
+        },
+        {
+          question:
+            "Quais são os dois ingredientes/características essenciais que um problema deve ter para que a Programação Dinâmica seja aplicável?",
+          answer:
+            "1) Subestrutura Ótima: A solução ótima do problema contém as soluções ótimas de seus subproblemas. 2) Subproblemas Sobrepostos: O espaço de subproblemas é pequeno, de modo que um algoritmo recursivo resolve o mesmo subproblema várias vezes.",
+        },
+        {
+          question:
+            "Qual a diferença entre a abordagem Top-Down (Memoization) e Bottom-Up (Tabulação) na Programação Dinâmica?",
+          answer:
+            "Top-down escreve a solução recursivamente de forma natural, mas guarda o resultado de cada subproblema (memoization) para retornar a resposta se chamada novamente. Bottom-up remove a recursão: identifica a ordem dos problemas do menor para o maior e preenche uma tabela (array/matriz) iterativamente, geralmente economizando overhead de chamadas de funções da CPU.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "algoritmos_gulosos",
+      label: "Algoritmos Gulosos (Greedy Algorithms)",
+      group: 4,
+      status: "pending",
+      description:
+        "Constrói soluções tomando a decisão localmente ótima e definitiva a cada passo, na esperança de atingir um ótimo global. É o motor matemático por trás de eficientes sistemas operacionais, compressão de dados (Huffman) e aplicações complexas de otimização, como a minimização do número de transações em plataformas de divisão de despesas financeiras.",
+      examples: [
+        "A Propriedade da Escolha Gulosa",
+        "Teoria dos Matroides (Matroids)",
+        "Códigos de Huffman e Agendamento de Tarefas",
+      ],
+      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithm Design - Jon Kleinberg & Éva Tardos"],
+      practice: [
+        {
+          question: "O que é a 'Propriedade da Escolha Gulosa' e como ela difere do princípio da Programação Dinâmica?",
+          answer:
+            "A propriedade da escolha gulosa afirma que uma solução ótima global pode ser alcançada fazendo uma escolha que parece ser a melhor localmente, no momento, *sem* precisar revisar escolhas anteriores. Na Programação Dinâmica, nós fazemos escolhas baseadas na resolução (e comparação) de subproblemas cujas escolhas globais afetam as locais.",
+        },
+        {
+          question:
+            "Por que um Algoritmo Guloso encontra a solução perfeita para o Problema da Mochila Fracionária, mas falha gravemente no Problema da Mochila 0/1?",
+          answer:
+            "Na Mochila 0/1, ao fazer a escolha gulosa (pegar o item mais caro), pode sobrar um espaço inútil que comportaria dois itens menores que, somados, valem mais. Na Fracionária, o guloso funciona (ordenando por taxa valor/peso) porque o item pode ser cortado/fracionado para preencher perfeitamente os espaços vazios residuais.",
+        },
+        {
+          question:
+            "No contexto dos Códigos de Huffman para compressão de dados, qual é a escolha gulosa realizada pelo algoritmo?",
+          answer:
+            "Na construção da árvore de códigos de Huffman, a escolha gulosa a cada iteração é sempre selecionar os dois caracteres/nós que possuem as menores frequências de aparição, combinando-os em um novo nó intermediário.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "complexidade_computacional_np",
+      label: "Complexidade Computacional e NP-Completude",
+      group: 4,
+      status: "pending",
+      description:
+        "O limite do que os computadores conseguem resolver eficientemente. Estuda algoritmos cujas soluções corretas não podem ser encontradas em tempo polinomial, exigindo o uso de heurísticas e algoritmos de aproximação no mundo real.",
+      examples: [
+        "Classes de Complexidade: P, NP, NP-Difícil e NP-Completo",
+        "Polinômio de Redução e Provas de NP-Completude",
+        "O Problema do Caixeiro Viajante (TSP) e Cobertura de Vértices (Vertex Cover)",
+      ],
+      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithm Design - Jon Kleinberg & Éva Tardos"],
+      practice: [
+        {
+          question: "O que definem as classes P e NP na complexidade computacional?",
+          answer:
+            "A classe P engloba problemas que podem ser *resolvidos* eficientemente (em tempo polinomial) por um computador determinístico. A classe NP engloba problemas cuja solução, se dada por alguém, pode ser *verificada* eficientemente em tempo polinomial.",
+        },
+        {
+          question:
+            "O que significa dizer que um problema, na vida real de um Engenheiro de Software, é 'NP-Completo'?",
+          answer:
+            "Significa que o problema é tão 'difícil' quanto qualquer outro problema em NP. É altamente provável que não exista um algoritmo rápido (polinomial) que encontre a solução perfeita (P ≠ NP). Ao deparar com um (como o Caixeiro Viajante), o engenheiro deve parar de tentar achar a solução ótima rápida e passar a usar heurísticas ou algoritmos de aproximação.",
+        },
+        {
+          question: "O que é uma 'Redução em Tempo Polinomial' e para que é usada no estudo de NP-Completude?",
+          answer:
+            "É um algoritmo que pega uma instância de um problema A e a transforma (traduz) em uma instância de um problema B em tempo polinomial. É usado para provar a dificuldade de um problema: se você pode traduzir um problema NP-Completo conhecido (A) num problema novo (B), você prova que B é NP-Difícil (tão difícil quanto A).",
+        },
+        {
+          question:
+            "Já que problemas NP-Completos (como Cobertura de Vértices) exigem tempo exponencial para a resposta ótima, qual a solução prática ensinada no livro?",
+          answer:
+            "O uso de Algoritmos de Aproximação em tempo polinomial. O CLRS mostra que, para Cobertura de Vértices, existe um algoritmo rápido que garante devolver uma solução que é, no máximo, duas vezes o tamanho da cobertura ótima real (taxa de aproximação de 2).",
+        },
+      ],
+      links: [],
+    },
     // 6. Fundamentos da Eletricidade
     {
       id: "fundamentos_eletricidade",
@@ -3985,15 +4349,201 @@ const graphData = {
       ],
       links: [],
     },
+    // 16. Linguagens de Programação e Compiladores
+    {
+      id: "linguagens_de_programacao",
+      label: "Linguagens de Programação",
+      group: 16,
+      status: "pending",
+      description:
+        "O nó raiz que conecta os limites teóricos da computação à prática da engenharia de software. Estuda os princípios de design, sintaxe e semântica que guiam a criação das linguagens, analisando por que algumas adotam tipagem estática e compilação rigorosa, enquanto outras priorizam a expressividade dinâmica e a interpretação em tempo de execução.",
+      examples: [
+        "Sintaxe (Forma) vs Semântica (Significado)",
+        "Sistemas de Execução: Compilados, Interpretados e JIT (Just-In-Time)",
+        "Critérios de Design: Legibilidade, Ortogonalidade e Confiabilidade",
+      ],
+      books: ["Programming Language Pragmatics - Michael L. Scott"],
+      practice: [
+        {
+          question:
+            "Qual é a principal diferença conceitual entre a Sintaxe e a Semântica de uma linguagem de programação?",
+          answer:
+            "A sintaxe define apenas as regras estruturais e gramaticais (ex: exigir um ponto e vírgula no final da linha ou chaves para abrir um bloco). A semântica define o significado e o comportamento dessas estruturas quando o programa roda (ex: o que exatamente acontece na memória quando uma variável do tipo Array recebe um novo valor).",
+        },
+        {
+          question:
+            "No design de linguagens, o que significa o conceito de 'Ortogonalidade' apontado por Michael L. Scott?",
+          answer:
+            "Ortogonalidade significa que um conjunto relativamente pequeno de construções primitivas pode ser combinado de qualquer maneira lógica para construir o sistema, sem que haja exceções ou regras especiais. Quanto mais ortogonal é uma linguagem, mais fácil ela é de aprender, pois o comportamento das suas estruturas (como funções, ponteiros ou arrays) é consistente independentemente do contexto em que são usadas.",
+        },
+        {
+          question:
+            "Como a Teoria da Computação justifica a existência de tantas linguagens de programação diferentes, se todas são 'Turing-completas'?",
+          answer:
+            "Sendo Turing-completas, qualquer linguagem pode resolver qualquer problema computável. A existência de várias linguagens não se deve ao poder matemático, mas sim ao 'Pragmatismo': linguagens diferentes oferecem abstrações diferentes (paradigmas, gerenciamento de memória automático, segurança de tipos) que tornam a modelagem de certos problemas do mundo real mais segura, expressiva ou eficiente para os engenheiros humanos.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "paradigmas_de_programacao",
+      label: "Paradigmas de Programação",
+      group: 16,
+      status: "pending",
+      description:
+        "O estudo dos diferentes estilos de construção de software (Imperativo, Orientado a Objetos, Funcional e Lógico). Entender paradigmas é essencial antes de estudar como um compilador traduz essas diferentes abstrações humanas para o formato sequencial da máquina.",
+      examples: [
+        "Avaliação Preguiçosa (Lazy Evaluation) vs Ansiosa (Eager)",
+        "Gerenciamento de Memória (Garbage Collection vs Manual)",
+        "Sistemas de Tipagem Fortes, Fracos, Estáticos e Dinâmicos",
+      ],
+      books: ["Programming Language Pragmatics - Michael L. Scott"],
+      practice: [
+        {
+          question: "Qual o impacto do paradigma de gerenciamento de memória no design de um compilador/runtime?",
+          answer:
+            "Linguagens manuais (como C/C++) delegam a liberação ao programador, resultando em compiladores mais simples e binários menores. Linguagens gerenciadas precisam incluir no runtime um algoritmo de Garbage Collection (como Mark-and-Sweep), que consome ciclos de CPU periodicamente, mas elimina vazamentos de memória comuns.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "analise_lexica_compiladores",
+      label: "Análise Léxica (Lexers)",
+      group: 16,
+      status: "pending",
+      description:
+        "A primeira fase de um compilador. Puxa os conceitos de Autômatos Finitos e Regex da Teoria da Computação para varrer o código-fonte caractere por caractere e agrupá-los em 'Tokens' significativos (palavras-chave, identificadores, operadores), ignorando espaços e comentários.",
+      examples: [
+        "Geração de Tokens a partir de Streams de Texto",
+        "Implementação de Scanners (Lex/Flex)",
+        "Tratamento de Erros Léxicos",
+      ],
+      books: ["Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman"],
+      practice: [
+        {
+          question: "Por que a Análise Léxica é separada da Análise Sintática na arquitetura de um compilador?",
+          answer:
+            "Por eficiência e simplicidade. Usar Expressões Regulares para identificar palavras isoladas é computacionalmente muito mais rápido (tempo linear) do que usar Gramáticas Livres de Contexto. O Lexer 'limpa' o texto e entrega blocos mastigados (Tokens) para o Parser focar apenas na estrutura hierárquica.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "analise_sintatica_parsers",
+      label: "Análise Sintática (Parsers) e ASTs",
+      group: 16,
+      status: "pending",
+      description:
+        "O coração estrutural do compilador. Utiliza Gramáticas Livres de Contexto para validar se a sequência de tokens forma expressões matemáticas e blocos lógicos corretos, construindo a Árvore de Sintaxe Abstrata (AST). É a tecnologia usada por frameworks modernos para compilar templates declarativos.",
+      examples: [
+        "Parsers Top-Down (Descida Recursiva, LL) e Bottom-Up (LR, Yacc/Bison)",
+        "Construção de Árvores de Sintaxe Abstrata (AST)",
+        "Resolução de Ambiguidades Gramaticais",
+      ],
+      books: ["Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman"],
+      practice: [
+        {
+          question: "O que é uma Árvore de Sintaxe Abstrata (AST)?",
+          answer:
+            "É uma representação estrutural em formato de árvore do código-fonte, onde cada nó interno é um operador (como '+') e as folhas são os operandos. A AST remove ruídos visuais do código (como ponto-e-vírgula e parênteses excessivos) mantendo apenas a essência lógica que será avaliada ou traduzida.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "analise_semantica_e_tipagem",
+      label: "Análise Semântica e Sistemas de Tipos",
+      group: 16,
+      status: "pending",
+      description:
+        "A fase em que o compilador 'entende' o significado do código. Garante que variáveis foram declaradas antes do uso, valida o escopo e executa a checagem de tipos (Type Checking). Ferramentas robustas de tipagem estática operam ativamente nesta camada da AST.",
+      examples: [
+        "Tabelas de Símbolos (Symbol Tables)",
+        "Verificação de Tipos (Type Checking) e Inferência",
+        "Regras de Escopo (Léxico vs Dinâmico)",
+      ],
+      books: [
+        "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman",
+        "Types and Programming Languages - Benjamin C. Pierce",
+      ],
+      practice: [
+        {
+          question: "Qual a função primária da Tabela de Símbolos (Symbol Table) durante a análise semântica?",
+          answer:
+            "A tabela de símbolos (frequentemente implementada como uma Hash Table de alta performance) armazena informações sobre todos os identificadores (variáveis, funções, classes) do código. Quando o compilador encontra a chamada de uma função, ele consulta essa tabela para verificar se a função existe no escopo atual e se os argumentos passados batem com os tipos originais.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "otimizacao_de_codigo_intermediario",
+      label: "Representação Intermediária e Otimização",
+      group: 16,
+      status: "pending",
+      description:
+        "Para evitar reescrever o compilador para cada nova CPU arquitetada, o código é traduzido para uma linguagem neutra (IR - Intermediate Representation). Nesta fase, algoritmos pesados (como propagação de constantes e eliminação de código morto) são aplicados para deixar o programa mais rápido sem alterar seu resultado.",
+      examples: [
+        "Código de Três Endereços e Grafos de Fluxo de Controle (CFG)",
+        "Eliminação de Subexpressões Comuns (CSE)",
+        "Desdobramento de Laços (Loop Unrolling)",
+      ],
+      books: ["Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman"],
+      practice: [
+        {
+          question:
+            "O que é o processo de 'Constant Folding' (Dobramento de Constantes) numa otimização de compilador?",
+          answer:
+            "É a técnica onde o compilador resolve expressões matemáticas de valores constantes durante o tempo de compilação. Se você escreve 'let x = 60 * 60 * 24;', o compilador calcula isso antecipadamente e insere apenas 'let x = 86400;' na Representação Intermediária, poupando ciclos de CPU da máquina do usuário final.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "geracao_de_codigo_objeto",
+      label: "Geração de Código (Back-end do Compilador)",
+      group: 16,
+      status: "pending",
+      description:
+        "O estágio final que une o software ao hardware. Mapeia a Representação Intermediária otimizada para as instruções específicas da arquitetura alvo (Assembly x86, ARM, ou Bytecodes). Envolve decisões críticas como a alocação de registradores usando heurísticas de grafos.",
+      examples: [
+        "Alocação de Registradores via Coloração de Grafos",
+        "Seleção de Instruções (Instruction Selection)",
+        "Geração de Arquivos Objeto e Ligação (Linking)",
+      ],
+      books: ["Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman"],
+      practice: [
+        {
+          question: "Como o problema NP-Completo de 'Coloração de Grafos' é utilizado na fase de geração de código?",
+          answer:
+            "CPUs possuem um número limitado de registradores ultrarrápidos. O compilador cria um Grafo de Interferência, onde as variáveis são os vértices e há uma aresta se elas estiverem ativas ao mesmo tempo. A tentativa de 'colorir' esse grafo com K cores (onde K é o número de registradores físicos disponíveis) garante que variáveis concorrentes não sobrescrevam o mesmo espaço de memória na CPU.",
+        },
+      ],
+      links: [],
+    },
   ],
   links: [
-    // 0. Ligações entre os grupos
+    // =========================================================
+    // 0. LIGAÇÕES ENTRE OS GRUPOS (INTER-GRUPOS)
+    // =========================================================
+
     // Matemática Discreta -> Sistemas Digitais
     { source: "logica_proposicional_e_quantificadores", target: "algebra_booleana" },
+
     // Matemática Discreta -> Redes de Computadores
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssl_tls_https" },
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssh_protocolo" },
     { source: "aritmetica_modular_e_teoria_dos_numeros", target: "deteccao_correcao_erros" },
+
+    // Matemática Discreta -> Algoritmos e Lógica de Programação
+    { source: "logica_proposicional_e_quantificadores", target: "logica_de_programacao" },
+    { source: "inducao_matematica_e_recursao", target: "estrategias_dividir_para_conquistar" },
+    { source: "funcoes_sequencias_e_somatorios", target: "fundamentos_da_analise_de_algoritmos" },
+
+    // Matemática Discreta -> Teoria da Computação
+    { source: "teoria_dos_conjuntos", target: "teoria_da_computacao" },
+    { source: "metodos_de_provacao", target: "teoria_da_computacao" },
+
     // Fundamentos da Eletricidade -> Circuitos Elétricos
     { source: "tensao_eletrica", target: "lei_de_ohm" },
     { source: "corrente_eletrica", target: "lei_de_ohm" },
@@ -4001,8 +4551,10 @@ const graphData = {
     { source: "efeito_joule", target: "circuitos_eletricos" },
     { source: "potencia_eletrica", target: "circuitos_eletricos" },
     { source: "lei_de_ohm", target: "circuitos_eletricos" },
+
     // Fundamentos da Eletricidade -> Eletrônica Geral
     { source: "condutores_isolantes", target: "semicondutores" },
+
     // Circuitos Elétricos -> Eletrônica Geral
     { source: "teoremas_thevenin_norton", target: "transistores_bjt" },
     { source: "teoremas_thevenin_norton", target: "transistores_fet" },
@@ -4011,10 +4563,13 @@ const graphData = {
     { source: "analise_de_circuitos", target: "amplificadores_bjt_mosfet" },
     { source: "senoides_e_fasores", target: "resposta_em_frequencia" },
     { source: "circuitos_segunda_ordem_rlc", target: "aplicacoes_amp_op" },
+
     // Eletrônica Geral -> Sistemas Digitais
     { source: "eletronica_geral", target: "sistemas_digitais" },
+
     // Circuitos Elétricos -> Sistemas Digitais
     { source: "circuitos_eletricos", target: "sistemas_digitais" },
+
     // Sistemas Digitais -> Arquitetura de Computadores
     { source: "sistemas_digitais", target: "arquitetura_de_computadores" },
     { source: "circuitos_combinacionais_msi", target: "cpu_ula" },
@@ -4022,9 +4577,15 @@ const graphData = {
     { source: "dispositivos_de_memoria", target: "hierarquia_memoria" },
     { source: "dispositivos_de_memoria", target: "memoria" },
     { source: "latches_flipflops", target: "caches_niveis" },
+
+    // Sistemas Digitais -> Redes de Computadores
+    { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
+    { source: "codigos_digitais", target: "deteccao_correcao_erros" },
+
     // Arquitetura de Computadores -> Redes de Computadores
     { source: "dispositivos_io", target: "placa_de_rede_nic" },
     { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
+
     // Arquitetura de Computadores -> Sistemas Operacionais
     { source: "isa", target: "modo_usuario_kernel" },
     { source: "isa", target: "chamadas_de_sistema" },
@@ -4034,29 +4595,45 @@ const graphData = {
     { source: "hierarquia_memoria", target: "memoria_virtual" },
     { source: "caches_niveis", target: "paginacao" },
     { source: "armazenamento_secundario", target: "sistemas_de_arquivos" },
-    // Sistemas Digitais -> Redes de Computadores
-    { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
-    { source: "codigos_digitais", target: "deteccao_correcao_erros" },
+
     // Sistemas Operacionais -> Redes de Computadores
     { source: "device_drivers", target: "placa_de_rede_nic" },
     { source: "tratamento_de_interrupcoes", target: "dma_acesso_direto" },
     { source: "kernel_so", target: "pilha_tcp_ip" },
     { source: "chamadas_de_sistema", target: "sockets_api" },
+
     // Sistemas Operacionais -> Linux e Servidores
     { source: "sistemas_operacionais", target: "linux" },
     { source: "sistemas_de_arquivos", target: "permissoes_linux" },
     { source: "kernel_so", target: "virtualizacao_hypervisors" },
+
     // Linux e Servidores -> Redes de Computadores
     { source: "terminal_shell", target: "ssh_protocolo" },
+
     // Redes de Computadores -> DevOps e Cloud Computing
     { source: "subredes_cidr", target: "aws_redes_vpc" },
     { source: "nat_dhcp", target: "aws_redes_vpc" },
     { source: "proxy_reverso", target: "orquestracao_k8s" },
     { source: "load_balancing", target: "aws_servicos" },
+
     // Linux e Servidores -> DevOps e Cloud Computing
     { source: "linux", target: "cultura_devops" },
     { source: "terminal_shell", target: "containers_docker" },
     { source: "bash_scripting", target: "ci_cd_pipelines" },
+
+    // Algoritmos e Lógica de Programação -> Linguagens de Programação e Compiladores
+    { source: "logica_de_programacao", target: "linguagens_de_programacao" },
+
+    // Teoria da Computação -> Linguagens de Programação e Compiladores
+    { source: "automatos_finitos_e_regex", target: "analise_lexica_compiladores" },
+    { source: "gramaticas_livres_de_contexto", target: "analise_sintatica_parsers" },
+
+    // Teoria da Computação -> Arquitetura de Computadores
+    { source: "maquinas_de_turing_e_computabilidade", target: "assembly" },
+
+    // =========================================================
+    // LIGAÇÕES INTERNAS DOS GRUPOS
+    // =========================================================
 
     // 1. Matemática Discreta
     { source: "matematica_discreta", target: "logica_proposicional_e_quantificadores" },
@@ -4069,6 +4646,19 @@ const graphData = {
     { source: "metodos_de_provacao", target: "inducao_matematica_e_recursao" },
     { source: "inducao_matematica_e_recursao", target: "analise_combinatoria_e_coeficientes_binomiais" },
     { source: "analise_combinatoria_e_coeficientes_binomiais", target: "probabilidade_discreta_e_valores_esperados" },
+
+    // 3. Teoria da Computação
+    { source: "teoria_da_computacao", target: "automatos_finitos_e_regex" },
+    { source: "automatos_finitos_e_regex", target: "gramaticas_livres_de_contexto" },
+    { source: "gramaticas_livres_de_contexto", target: "maquinas_de_turing_e_computabilidade" },
+
+    // 4. Algoritmos e Lógica de Programação
+    { source: "logica_de_programacao", target: "fundamentos_da_analise_de_algoritmos" },
+    { source: "fundamentos_da_analise_de_algoritmos", target: "algoritmos_de_ordenacao_e_selecao" },
+    { source: "fundamentos_da_analise_de_algoritmos", target: "estrategias_dividir_para_conquistar" },
+    { source: "estrategias_dividir_para_conquistar", target: "programacao_dinamica" },
+    { source: "programacao_dinamica", target: "algoritmos_gulosos" },
+    { source: "algoritmos_gulosos", target: "complexidade_computacional_np" },
 
     // 6. Fundamentos da Eletricidade
     { source: "fundamentos_eletricidade", target: "estrutura_atomica_eletron" },
@@ -4246,18 +4836,13 @@ const graphData = {
     { source: "aws_compute", target: "monitoramento_observabilidade" },
     { source: "orquestracao_k8s", target: "monitoramento_observabilidade" },
 
-    // // to-do: 11. Estruturas de Dados
-    // { source: "teoria_dos_conjuntos", target: "estruturas_de_dados" },
-    // { source: "teoria_dos_grafos", target: "estruturas_de_dados" },
-    // { source: "arvores_matematicas", target: "estruturas_de_dados" },
-
-    // // to-do: 12. Algoritmos e Lógica de Programação
-    // { source: "analise_assintotica", target: "algoritmos" },
-    // { source: "relacoes_de_recorrencia", target: "algoritmos" },
-
-    // // to-do: 13. Inteligência Artificial e Machine Learning
-    // { source: "probabilidade_discreta", target: "inteligencia_artificial" },
-    // { source: "logica_proposicional", target: "inteligencia_artificial" },
+    // 16. Linguagens de Programação e Compiladores
+    { source: "linguagens_de_programacao", target: "paradigmas_de_programacao" },
+    { source: "linguagens_de_programacao", target: "analise_lexica_compiladores" },
+    { source: "analise_lexica_compiladores", target: "analise_sintatica_parsers" },
+    { source: "analise_sintatica_parsers", target: "analise_semantica_e_tipagem" },
+    { source: "analise_semantica_e_tipagem", target: "otimizacao_de_codigo_intermediario" },
+    { source: "otimizacao_de_codigo_intermediario", target: "geracao_de_codigo_objeto" },
   ],
 };
 
