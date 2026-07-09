@@ -4313,7 +4313,6 @@ const KnowledgeMap = () => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [tooltip, setTooltip] = useState({ visible: false, content: "", x: 0, y: 0 });
 
-  // Array de identificadores para controle de múltiplos grupos simultâneos
   const [activeLegendGroups, setActiveLegendGroups] = useState([]);
   const [showLegend, setShowLegend] = useState(true);
 
@@ -4364,7 +4363,6 @@ const KnowledgeMap = () => {
     setActiveLegendGroups([]);
   };
 
-  // Mutação visual reativa a múltiplos grupos ativos em activeLegendGroups
   useEffect(() => {
     if (nodeRef.current) {
       nodeRef.current
@@ -4757,6 +4755,92 @@ const KnowledgeMap = () => {
                   </ul>
                 ) : (
                   <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exemplo registrado.</p>
+                )}
+
+                {/* ADICIONADO DE VOLTA: Bibliografia Recomendada */}
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Bibliografia Recomendada</h3>
+                {currentNode.books && currentNode.books.length > 0 ? (
+                  <ul
+                    style={{
+                      paddingLeft: "0",
+                      listStyleType: "none",
+                      fontSize: "14px",
+                      color: "#94a3b8",
+                      lineHeight: "1.6",
+                    }}>
+                    {currentNode.books.map((book, i) => (
+                      <li key={i} style={{ marginBottom: "8px" }}>
+                        📖 {book}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum livro registrado.</p>
+                )}
+
+                {/* ADICIONADO DE VOLTA: Exercícios Práticos */}
+                <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Exercícios Práticos</h3>
+                {currentNode.practice && currentNode.practice.length > 0 ? (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {currentNode.practice.map((prac, i) => (
+                      <details
+                        key={i}
+                        style={{
+                          background: "rgba(255,255,255,0.05)",
+                          borderRadius: "6px",
+                          padding: "12px",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                        }}>
+                        <summary
+                          style={{
+                            cursor: "pointer",
+                            color: "#cbd5e1",
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            outline: "none",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}>
+                          <span>📝</span> {prac.question}
+                        </summary>
+                        <div
+                          style={{
+                            marginTop: "10px",
+                            paddingTop: "10px",
+                            borderTop: "1px solid rgba(255,255,255,0.1)",
+                            color: "#94a3b8",
+                            fontSize: "13px",
+                            lineHeight: "1.6",
+                          }}>
+                          <strong style={{ color: "#10b981" }}>Resolução:</strong> {prac.answer}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                ) : (
+                  <p style={{ fontSize: "14px", color: "#64748b" }}>Nenhum exercício registrado.</p>
+                )}
+
+                {/* ADICIONADO DE VOLTA: Recursos Adicionais (Links) */}
+                {currentNode.links && currentNode.links.length > 0 && (
+                  <>
+                    <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "20px 0 8px 0" }}>Recursos Adicionais</h3>
+                    <ul style={{ paddingLeft: "0", listStyleType: "none", fontSize: "14px", lineHeight: "1.6" }}>
+                      {currentNode.links.map((link, i) => (
+                        <li key={i} style={{ marginBottom: "8px" }}>
+                          🔗{" "}
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "#3b82f6", textDecoration: "none" }}>
+                            {link.label || link.url}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
                 )}
               </>
             );
