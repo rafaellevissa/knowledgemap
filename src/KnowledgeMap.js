@@ -10,21 +10,27 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "A linguagem matemática dos sistemas computacionais. Une a modelagem de estruturas discretas e lógica formal (Rosen) com as técnicas analíticas e contínuas de resolução de problemas e aproximações assintóticas para algoritmos (Knuth).",
+        "A linguagem matemática dos sistemas computacionais. Aborda estruturas que podem assumir apenas valores distintos e separados, em contraste com o cálculo contínuo, formando a base de como os computadores armazenam e processam dados em bits.",
       examples: [
-        "O Conceito de Estruturas Discretas",
+        "O Conceito de Estruturas Discretas vs Contínuas",
         "Modelagem de Problemas Computacionais",
-        "Transição entre o Contínuo e o Discreto",
+        "Transição entre o Contínuo e o Discreto (Matemática Concreta)",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
       ],
       practice: [
         {
           question: "O que diferencia a abordagem da Matemática 'Concreta' da Matemática Discreta pura tradicional?",
           answer:
-            "A matemática discreta pura foca em estruturas separadas (lógica, conjuntos, grafos). A matemática 'Concreta' (termo que funde CONtínuo e disCRETO) usa ferramentas do cálculo e da análise matemática (como limites, derivadas e equações de diferenças) para resolver problemas puramente discretos de contagem e análise de algoritmos, eliminando a barreira entre o discreto e o contínuo.",
+            "A matemática discreta pura foca em estruturas separadas (lógica, grafos). A matemática 'Concreta' funde o contínuo e o discreto, usando ferramentas do cálculo e da análise matemática (como limites e derivadas) para resolver problemas puramente discretos de contagem e análise de algoritmos.",
+        },
+        {
+          question:
+            "Por que a Engenharia da Computação exige uma fundação em Matemática Discreta em vez de focar apenas no Cálculo tradicional?",
+          answer:
+            "Porque a arquitetura de computadores é fundamentalmente digital e baseada em estados finitos (0s e 1s). O Cálculo lida com taxas de variação contínuas e infinitos, enquanto a computação precisa de lógica booleana, contagem exata e estruturas de dados em memória, problemas inerentemente discretos.",
         },
       ],
       links: [],
@@ -35,19 +41,30 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "O estudo das regras do raciocínio matemático, sentenças declarativas e quantificadores. É a base da lógica booleana e de predicados que dita a verificação de sistemas, inferência em IA clássica e o design de circuitos digitais.",
+        "O estudo das regras do raciocínio matemático. É a base sintática que permite aos computadores tomarem decisões. Essencial para programação estruturada, verificação de sistemas (testes automatizados) e inferência em Inteligência Artificial.",
       examples: [
-        "Tabelas-Verdade e Equivalências Lógicas",
-        "Lógica de Predicados e Quantificadores (Universal e Existencial)",
-        "Regras de Inferência e Validação de Argumentos",
+        "Tabelas-Verdade e Operadores Lógicos (AND, OR, XOR)",
+        "Quantificadores (Universal ∀ e Existencial ∃)",
+        "Regras de Inferência (Modus Ponens, Modus Tollens)",
       ],
-      books: ["Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen"],
+      books: ["Matemática Discreta e Suas Aplicações - Kenneth H. Rosen"],
       practice: [
         {
           question:
             "Na lógica proposicional, o que acontece com a validade de uma proposição composta por 'P AND Q' se apenas a proposição P for verdadeira?",
           answer:
-            "A proposição composta inteira será Falsa. Na conjunção lógica (AND), a operação só resulta in Verdadeiro se, e somente se, todas as premissas de entrada (P e Q) forem verdadeiras ao mesmo tempo.",
+            "A proposição composta inteira será Falsa. Na conjunção lógica (AND), a operação só resulta em Verdadeiro se, e somente se, todas as premissas de entrada forem verdadeiras.",
+        },
+        {
+          question:
+            "Qual a diferença e a utilidade dos quantificadores Universal (∀) e Existencial (∃) na programação?",
+          answer:
+            "O Universal (∀) afirma que uma condição é verdadeira para TODOS os elementos (ex: verificar se todas as conexões estão criptografadas). O Existencial (∃) afirma que existe PELO MENOS UM elemento que satisfaz a condição (ex: verificar se existe pelo menos um usuário logado como administrador).",
+        },
+        {
+          question: "O que é uma Tautologia e qual seu impacto na otimização de código?",
+          answer:
+            "Uma tautologia é uma proposição que é sempre verdadeira, não importa o valor de suas variáveis. Em otimização de compiladores, se uma estrutura de decisão condicional (if) é avaliada como uma tautologia, o compilador a remove e executa o código diretamente, economizando ciclos de processamento.",
         },
       ],
       links: [],
@@ -58,18 +75,26 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "As ferramentas formais para construir argumentos matemáticos válidos. Ensina a demonstrar teoremas por vias diretas ou indiretas, fundamentando a especificação formal e garantindo que programas atendam aos seus requisitos de design.",
+        "As ferramentas formais para construir argumentos inquestionáveis. Essencial para provar que um algoritmo sempre encontra a resposta certa (corretude) ou que um sistema de segurança não possui falhas lógicas.",
       examples: [
-        "Provas Diretas e por Contraposição",
+        "Provas Diretas e Indiretas",
+        "Prova por Contraposição",
         "Prova por Contradição (Reductio ad Absurdum)",
-        "Provas por Construção e Contraexemplos",
       ],
-      books: ["Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen"],
+      books: [
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
+      ],
       practice: [
         {
           question: "Como funciona uma prova por contradição (Reductio ad absurdum)?",
           answer:
-            "Para provar que uma afirmação P é verdadeira por contradição, assumimos inicialmente que ela é falsa (¬P é verdadeira). A partir dessa premissa, usamos deduções lógicas corretas até chegar a um resultado matematicamente impossível ou contraditório (como 0 = 1). Isso prova que a suposição de que P era falsa está errada, logo P deve ser verdadeira.",
+            "Para provar que uma afirmação P é verdadeira por contradição, assumimos inicialmente que ela é falsa (¬P). A partir dessa premissa, usamos deduções até chegar a um resultado impossível (como 0 = 1). Isso prova que a suposição inicial estava errada, logo P deve ser verdadeira.",
+        },
+        {
+          question: "O que é a Prova por Contraposição e quando devemos utilizá-la?",
+          answer:
+            "É baseada na equivalência lógica de que 'Se P implica Q, então Não-Q implica Não-P'. É usada quando provar P -> Q diretamente é muito complexo matematicamente, tornando mais fácil e direto provar a sua negação invertida.",
         },
       ],
       links: [],
@@ -80,19 +105,24 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "A fundação abstrata para agrupar e organizar dados. Define as operações de coleções elementares, álgebra de conjuntos e identidades lógicas que sustentam os tipos de dados abstratos e o modelo relacional de bancos de dados.",
+        "A fundação abstrata para agrupar dados. Define operações e relações lógicas que são o núcleo da Teoria de Bancos de Dados Relacionais (SQL) e na definição de Tipos de Dados Abstratos (ADTs).",
       examples: [
         "Operações de União, Interseção e Diferença",
-        "Conjunto das Partes (Power Set) e Cardinalidade",
-        "Leis de De Morgan aplicadas a Conjuntos",
+        "Conjunto das Partes (Power Set)",
+        "Princípio da Inclusão-Exclusão",
       ],
-      books: ["Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen"],
+      books: ["Matemática Discreta e Suas Aplicações - Kenneth H. Rosen"],
       practice: [
         {
-          question:
-            "Como a operação de Interseção de Conjuntos (A ∩ B) é utilizada na prática in buscas de Banco de Dados?",
+          question: "Como a operação de Interseção de Conjuntos (A ∩ B) é utilizada na prática em Bancos de Dados?",
           answer:
-            "Quando você faz uma busca pedindo 'Mostre os clientes de SP (Conjunto A) AND com mais de 30 anos (Conjunto B)', o sistema realiza uma Interseção matemática, devolvendo apenas os elementos que existem simultaneamente dentro dos dois conjuntos.",
+            "Quando se executa um INNER JOIN ou uma busca com a cláusula AND ('clientes de SP' AND 'mais de 30 anos'), o banco de dados realiza uma Interseção, devolvendo apenas a sobreposição exata entre o conjunto A e o conjunto B.",
+        },
+        {
+          question:
+            "O que é o Conjunto das Partes (Power Set) e por que ele representa um problema de complexidade para a computação?",
+          answer:
+            "O Power Set é o conjunto de todos os subconjuntos possíveis de um conjunto original. Se um conjunto tem 'n' elementos, seu Power Set tem '2^n' elementos. Computar todas as combinações cresce exponencialmente, tornando algoritmos que dependem de Power Sets impraticáveis para grandes volumes de dados.",
         },
       ],
       links: [],
@@ -103,22 +133,33 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "Estuda o mapeamento de dados e o comportamento de progressões. Incorpora o tratamento intensivo do livro do Knuth sobre manipulação algorítmica de somatórios, notações de delimitadores de strings e o uso rigoroso das funções Piso (Floor) e Teto (Ceiling).",
+        "O estudo do mapeamento de inputs para outputs e a avaliação de acumulações de dados em loops. Crucial para criptografia (funções de hash) e na análise de complexidade de algoritmos iterativos.",
       examples: [
-        "Funções Injetoras, Sobrejetoras e Inversas",
-        "Manipulação de Somatórios e Notação Sigma (Perturbation Method)",
-        "Funções Piso (Floor) e Teto (Ceiling) e suas propriedades",
+        "Funções Injetoras, Sobrejetoras e Bijetoras",
+        "Funções Piso (Floor) e Teto (Ceiling)",
+        "Manipulação de Somatórios",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
       ],
       practice: [
         {
           question:
-            "Como a manipulação de somatórios pelo 'Método da Perturbação' de Knuth ajuda a analisar laços de repetição na programação?",
+            "Qual a importância de uma função ser Injetora (Um-para-Um) em algoritmos de Criptografia e Hashing?",
           answer:
-            "O método consiste in isolar o primeiro ou o último termo de um somatório (S_n + a_{n+1}) para reescrevê-lo in função de si mesmo. Isso gera uma equação algébrica fechada que elimina o laço de somatório, permitindo calcular o número exato de operações que um loop executará sem precisar simular o loop passo a passo.",
+            "Em funções hash ideais ou na criptografia, queremos evitar 'colisões'. Uma função injetora garante que elementos distintos no domínio gerem saídas (hashes) obrigatoriamente distintas no contradomínio, evitando que duas senhas diferentes validem o mesmo acesso.",
+        },
+        {
+          question:
+            "Como as funções Piso (Floor) e Teto (Ceiling) são usadas na implementação do algoritmo de Busca Binária?",
+          answer:
+            "Ao dividir um array iterativamente pela metade para encontrar um elemento, o tamanho do array pode ser ímpar (ex: 7 elementos). O computador precisa de índices inteiros. Usar a função piso (ex: floor(7/2) = 3) ou teto garante que o array seja dividido matematicamente em índices inteiros e exatos da memória.",
+        },
+        {
+          question: "Como a manipulação de somatórios do Knuth ajuda a analisar laços de repetição?",
+          answer:
+            "O método de resolver somatórios permite deduzir uma equação algébrica fechada equivalente a um loop de código. Isso nos deixa calcular exatamente o número de instruções que um laço 'for' executará em função da entrada 'n' sem precisar simular o loop (Base da análise Big-O).",
         },
       ],
       links: [],
@@ -129,22 +170,26 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "O motor matemático de validação em computação. Mostra como provar propriedades sobre estruturas infinitas discretas, ligando-se intimamente com as definições recursivas de algoritmos, invariantes de laço e indução estrutural.",
+        "Técnica para provar que uma propriedade se mantém para conjuntos infinitos provando o caso base e a transição. Intimamente ligada ao funcionamento de funções recursivas, Invariantes de Laço e na quebra de problemas complexos (Divide and Conquer).",
       examples: [
-        "Princípio da Indução Matemática (Fraca e Forte)",
-        "Definições e Estruturas Recursivas",
-        "Provas de Invariantes de Algoritmos",
+        "Princípio da Indução Matemática Fraca e Forte",
+        "Definições Recursivas (Ex: Fatorial, Fibonacci)",
+        "Invariantes de Laço e Corretude",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
       ],
       practice: [
         {
-          question:
-            "Por que o Princípio da Indução Matemática é considerado tão vital para engenheiros de software ao validar algoritmos?",
+          question: "Por que a Indução Matemática reflete perfeitamente o design de funções recursivas no código?",
           answer:
-            "A indução prova que se uma propriedade vale para um caso base inicial e se mantém de um passo para o próximo, ela vale para o infinito discreto. Isso é exatamente como funcionam os laços de repetição (loops) e funções recursivas no código: se você prova a invariante do laço por indução, garante que o programa funciona para qualquer volume de dados.",
+            "A indução possui o 'Caso Base' e o 'Passo Indutivo'. Na programação, funções recursivas precisam exatamente de uma 'Condição de Parada' (Caso Base) e de uma 'Chamada a Si Mesma com parâmetro menor' (Passo Indutivo) para evitar estouro de pilha (Stack Overflow) e garantir o processamento correto.",
+        },
+        {
+          question: "Qual a diferença entre a Indução Fraca e a Indução Forte?",
+          answer:
+            "Na indução fraca, provamos o passo k+1 assumindo que apenas a etapa imediatamente anterior (k) é verdadeira. Na indução forte, provamos o passo k+1 assumindo que TODAS as etapas anteriores (1, 2, 3... até k) são verdadeiras. Ambas são matematicamente equivalentes, mas a forte é útil para dividir para conquistar (como na prova do Teorema Fundamental da Aritmética).",
         },
       ],
       links: [],
@@ -155,22 +200,32 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "A ciência de contar estruturas sem listá-las. Expande os conceitos fundamentais do Rosen (permutações e pombos) com o arsenal avançado de Knuth sobre identidades hipergeométricas, inversão de coeficientes binomiais e os Números de Stirling.",
+        "A ciência de contar estruturas sem precisar listá-las. Fundamental para a análise da viabilidade de algoritmos (espaço de busca), teoria de probabilidade de rede e identificação de limites em alocação de memória.",
       examples: [
-        "Princípios do Produto, Soma e Inclusão-Exclusão",
-        "Coeficientes Binomiais e Triângulo de Pascal Avançado",
-        "Números de Stirling (Partições de Conjuntos e Permutações)",
+        "Permutações e Combinações",
+        "Princípio da Casa dos Pombos",
+        "Teorema Binomial e Identidades Combinatórias",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
+        "Principles of Combinatorics - C. Berge",
       ],
       practice: [
         {
-          question:
-            "O que dita o Princípio da Casa dos Pombos e por que ele prova a existência de 'Colisões de Hash' na computação?",
+          question: "O que é o Princípio da Casa dos Pombos e como ele prova a existência de 'Colisões de Hash'?",
           answer:
-            "O princípio diz que se você tiver 10 pombos e apenas 9 casas, obrigatoriamente uma casa terá mais de 1 pombo. Na computação, se você tem infinitas senhas (pombos) e um algoritmo de criptografia que gera chaves de tamanho limitado (casas), matematicamente duas senhas diferentes gerarão a mesma chave (colisão).",
+            "O princípio afirma que se você tem N itens e distribui em M recipientes, onde N > M, pelo menos um recipiente terá mais de um item. Na computação, como há uma quantidade infinita de senhas e arquivos (pombos), mas os algoritmos de Hash geram chaves de tamanho fixo finito (casas), obrigatoriamente ocorrerão colisões (dois arquivos com o mesmo Hash).",
+        },
+        {
+          question: "Qual a diferença algorítmica e matemática entre uma Permutação e uma Combinação?",
+          answer:
+            "Na Permutação a ordem dos elementos importa (ex: a senha '123' é diferente de '321'). Na Combinação a ordem não importa (ex: um time de desenvolvimento formado por João e Maria é o mesmo time de Maria e João). A fórmula da combinação divide o resultado pelas permutações repetidas (r!).",
+        },
+        {
+          question: "Como os coeficientes binomiais impactam a teoria da computação segundo Knuth?",
+          answer:
+            "Os coeficientes binomiais modelam formas de selecionar subconjuntos de dados. No livro de Knuth, identidades hipergeométricas e manipulação de coeficientes binomiais são essenciais para encontrar a solução fechada do tempo de execução de algoritmos genéticos e heurísticos, removendo a necessidade de aproximações imperfeitas.",
         },
       ],
       links: [],
@@ -181,21 +236,33 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "Mapeia a incerteza em universos discretos. Combina a visão estatística do Rosen (Bayes e distribuições) com o foco de Knuth em Funções Geradoras de Probabilidade para destrinchar o tempo médio exato de execução de algoritmos aleatórios.",
+        "O mapeamento da incerteza e do acaso em universos computacionais. Base para Machine Learning, detecção de falhas em redes, criptografia quântica e medição exata do tempo de execução de algoritmos aleatórios.",
       examples: [
-        "Probabilidade Condicional e o Teorema de Bayes",
-        "Variáveis Aleatórias, Valor Esperado e Variância",
-        "Funções Geradoras de Probabilidade (Deviations)",
+        "Probabilidade Condicional e Teorema de Bayes",
+        "Valor Esperado E(X) e Variância",
+        "Algoritmos Aleatorizados (Randomized Algorithms)",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
       ],
       practice: [
         {
-          question: "Como o conceito de Valor Esperado E(X) é usado para medir o desempenho de algoritmos de busca?",
+          question: "Como o Teorema de Bayes é utilizado pelos motores de Inteligência Artificial para detectar Spam?",
           answer:
-            "O valor esperado calcula a média ponderada dos custos de todas as execuções possíveis de um programa. Em algoritmos como o QuickSort, embora o pior caso seja O(n²), o cálculo do Valor Esperado prova matematicamente que o algoritmo performará em tempo médio O(n log n) na esmagadora maioria das vezes, justificando o seu uso industrial.",
+            "O Teorema de Bayes calcula a Probabilidade Condicional. O algoritmo analisa palavras no email (ex: 'Loteria', 'Desconto') e usa o Teorema para calcular qual a probabilidade do email inteiro ser um Spam *dado que* essas palavras estão presentes, atualizando suas crenças com base em dados passados.",
+        },
+        {
+          question:
+            "Como o conceito de Valor Esperado justifica o uso de algoritmos cujo pior caso é muito lento, como o QuickSort?",
+          answer:
+            "O Valor Esperado é a média ponderada de todas as possibilidades. Embora o pior cenário do QuickSort exija tempo quadrático O(n²), a análise de Valor Esperado prova que, com escolhas aleatórias de pivô, esse pior caso é estatisticamente quase impossível, resultando em um tempo 'esperado' de O(n log n) e grande eficiência na vida real.",
+        },
+        {
+          question:
+            "Como a Variância estatística impacta a Engenharia de Software ao avaliar o tempo de resposta de um Servidor web?",
+          answer:
+            "A média de tempo de resposta não conta a história toda. Se a Variância for alta, significa que alguns usuários estão recebendo respostas em milissegundos, enquanto outros recebem em segundos. Uma variância alta indica picos de gargalos imprevisíveis na alocação de threads do servidor.",
         },
       ],
       links: [],
@@ -206,19 +273,30 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "O estudo de como elementos se associam de forma emparelhada. Garante a fundamentação matemática formal de restrições em bancos de dados relacionais, fechos computacionais (como grafos de dependências de código) e conjuntos parcialmente ordenados.",
+        "O estudo de como elementos interagem aos pares. Define matematicamente chaves estrangeiras em banco de dados, resolução de dependências de compiladores (árvores de build) e versionamento de software.",
       examples: [
-        "Propriedades de Relações (Reflexividade, Simetria, Transitividade)",
-        "Fechos Transitivos (Algoritmo de Warshall) e Equivalências",
-        "Conjuntos Parcialmente Ordenados (Posets) e Diagramas de Hasse",
+        "Propriedades: Reflexiva, Simétrica, Transitiva",
+        "Relações de Equivalência",
+        "Conjuntos Parcialmente Ordenados (Posets) e Ordenação Topológica",
       ],
-      books: ["Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen"],
+      books: ["Matemática Discreta e Suas Aplicações - Kenneth H. Rosen"],
       practice: [
         {
           question:
-            "Por que o conceito matemático de 'Relação de Ordem Parcial' é fundamental para gerenciar tarefas e compilação de código?",
+            "Quais as três propriedades que definem uma 'Relação de Equivalência' e qual sua utilidade prática?",
           answer:
-            "Uma relação de ordem parcial estabelece que alguns elementos devem vir antes de outros, mas não necessariamente todos precisam ser comparáveis. Na computação, isso descreve árvores de dependência de pacotes ou tarefas paralelas: o sistema usa essa propriedade para executar algoritmos de Ordenação Topológica, decidindo o que processar primeiro sem quebrar dependências.",
+            "Ela precisa ser Reflexiva, Simétrica e Transitiva. Serve para classificar elementos diferentes que devem ser tratados como iguais pelo computador (ex: particionar requisições IP diferentes que pertencem ao mesmo usuário ou sessão para balanceamento de carga).",
+        },
+        {
+          question: "O que é o 'Fecho Transitivo' e como ele se aplica à análise de malwares numa rede?",
+          answer:
+            "O fecho transitivo expande a relação original para revelar todas as conexões indiretas. Se o computador A conectou no B, e o B conectou no C, o fecho transitivo mostra que A consegue alcançar C. Isso é vital para mapear o raio total de infecção de um malware.",
+        },
+        {
+          question:
+            "Por que uma 'Relação de Ordem Parcial' é fundamental para gerenciadores de pacotes como o NPM ou compiladores de código?",
+          answer:
+            "Uma ordem parcial dita dependências restritas (A deve vir antes de B), mas aceita que módulos não relacionados (C e D) sejam executados em paralelo. Usando algoritmos de Ordenação Topológica sobre essa ordem parcial, o sistema de build otimiza o que deve ser compilado primeiro sem quebrar o código.",
         },
       ],
       links: [],
@@ -229,46 +307,102 @@ const graphData = {
       group: 1,
       status: "pending",
       description:
-        "Conhecida como 'a matemática do relógio', onde os números recomeçam do zero após atingir um limite. É o alicerce absoluto da criptografia moderna (RSA), funções de hash e geração de números pseudoaleatórios na computação.",
+        "Matemática discreta onde os números operam de forma circular (wrap-around). É o núcleo absoluto que sustenta todas as transações seguras da Internet, arquitetura de criptografia e funções hash distribuídas.",
       examples: [
-        "Operador Módulo e Congruências Lineares",
-        "O Algoritmo Euclidiano (Cálculo do MDC rápido)",
-        "Números Primos e Criptografia de Chave Pública",
-        "Teorema Chinês do Resto",
+        "Operador Módulo e Algoritmo Euclidiano (MDC)",
+        "Teorema Chinês do Resto e Inversos Modulares",
+        "Criptografia RSA e Geração de Chaves Públicas/Privadas",
       ],
       books: [
-        "Matemática Discreta e Suas Aplicações (7ª Edição) - Kenneth H. Rosen",
-        "Concrete Mathematics: A Foundation for Computer Science (2ª Edição) - Donald E. Knuth",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Matemática Concreta: Fundamentos para a Ciência da Computação - Donald E. Knuth",
       ],
       practice: [
         {
           question:
-            "Por que a Aritmética Modular é o núcleo dos algoritmos de Criptografia de Chave Pública, como o RSA usado no HTTPS?",
+            "O que são 'Funções de Via Única' (One-Way Functions) na Aritmética Modular e por que sustentam a Criptografia RSA?",
           answer:
-            "Porque ela fornece 'Funções de Via Única' (One-Way Functions). Na aritmética normal, se você sabe o resultado de uma multiplicação, a divisão desfaz o processo facilmente. Na aritmética modular de números primos gigantescos, multiplicar é fácil para o processador, mas fazer a 'divisão' (encontrar o inverso modular sem a chave privada) exige um poder computacional absurdo, inviabilizando que um hacker quebre a senha.",
+            "São funções matemáticas fáceis de calcular em uma direção, mas computacionalmente inviáveis de reverter sem uma 'chave'. Na criptografia RSA, multiplicar dois números primos gigantescos (módulo n) leva milissegundos para o processador, mas tentar fatorar esse número colossal (reverter) demoraria milhares de anos para um supercomputador.",
+        },
+        {
+          question:
+            "Como o Teorema Chinês do Resto é aplicado para acelerar processamentos em computação de grande porte?",
+          answer:
+            "O teorema permite que operações complexas em números inteiros excessivamente grandes sejam quebradas e substituídas por várias operações menores e simultâneas sobre números modulares menores. Isso permite a paralelização massiva de cálculos matemáticos no nível de registradores de CPU.",
+        },
+        {
+          question: "Qual o papel do Algoritmo de Euclides estendido na Criptografia de Chave Pública?",
+          answer:
+            "Ele é o mecanismo eficiente utilizado para encontrar o 'Inverso Multiplicativo Modular'. Isso é estritamente o cálculo que o computador faz quando precisa gerar a sua 'Chave Privada' a partir de números primos base no algorítmo RSA.",
         },
       ],
       links: [],
     },
-    // 3. Teoria da Computação
+    {
+      id: "teoria_dos_grafos_e_arvores",
+      label: "Teoria dos Grafos e Árvores",
+      group: 1,
+      status: "pending",
+      description:
+        "O estudo de nós (vértices) interconectados (arestas). Base para modelagem de internet (roteadores), inteligência artificial (pathfinding), indexação de bancos de dados (B-trees) e compressão de arquivos (Huffman).",
+      examples: [
+        "Grafos Direcionados/Não Direcionados e Conectividade",
+        "Caminhos de Euler e Hamilton (Caixeiro Viajante)",
+        "Árvores de Busca, Árvores Geradoras e Balanceamento",
+      ],
+      books: [
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+        "Introdução à Teoria dos Grafos - Richard J. Trudeau",
+      ],
+      practice: [
+        {
+          question:
+            "Qual a diferença entre um Ciclo Euleriano e um Ciclo Hamiltoniano, e qual sua importância computacional?",
+          answer:
+            "O Ciclo Euleriano passa por todas as *arestas* de um grafo exatamente uma vez e volta à origem; é facilmente resolvível em tempo polinomial. O Ciclo Hamiltoniano exige visitar todos os *vértices* exatamente uma vez (Problema do Caixeiro Viajante); este é um problema NP-Completo, sem solução rápida conhecida, sendo base de testes para limites da computação moderna.",
+        },
+        {
+          question:
+            "Por que Árvores (como as B-Trees) são as estruturas padrão da indústria para índices de Bancos de Dados, em vez de Arrays ou Listas encadeadas?",
+          answer:
+            "Porque as B-Trees são hierárquicas e balanceadas, o que reduz drasticamente o tempo de busca (complexidade logarítmica O(log n)). Além disso, o formato de nós grandes (paginação) se encaixa perfeitamente na forma como os discos rígidos e SSDs modernos leem blocos físicos de memória, minimizando o I/O do disco.",
+        },
+        {
+          question: "O que é 'Coloração de Grafos' e como isso resolve o problema de alocação de memória no hardware?",
+          answer:
+            "Na coloração de grafos, atribuímos cores a vértices de modo que vértices adjacentes (conectados) não tenham a mesma cor. Em compiladores e processadores, isso modela a alocação de registradores (memória ultra-rápida): variáveis que 'competem' ao mesmo tempo não podem ficar no mesmo registrador (mesma cor). A coloração encontra a forma mais eficiente de reutilizar a memória.",
+        },
+      ],
+      links: [],
+    },
+    // 2. Teoria da Computação
     {
       id: "teoria_da_computacao",
       label: "Teoria da Computação",
-      group: 3,
+      group: 2,
       status: "pending",
       description:
-        "O estudo dos modelos matemáticos abstratos de computadores. Em vez de lidar com circuitos ou código, utiliza conjuntos e lógica para definir formalmente o que é um alfabeto, uma linguagem e o que significa 'computar' algo, servindo de fundação para criar novas linguagens de programação.",
+        "O estudo dos modelos matemáticos abstratos de computadores e seus limites de processamento. Utiliza conjuntos e lógica rigorosa para definir formalmente o que é um alfabeto, uma linguagem e o que significa 'computar', fornecendo a base matemática invariável para o design de qualquer nova arquitetura de software ou linguagem de programação.",
       examples: [
         "Alfabetos, Strings e Linguagens Formais",
-        "A Hierarquia de Chomsky",
-        "Modelos de Computação (Transições de Estado)",
+        "A Hierarquia de Chomsky (Modelos de reconhecimento matemático)",
+        "Modelos de Computação e Transições de Estado Abstractas",
       ],
-      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      books: [
+        "Introdução à Teoria da Computação - Michael Sipser",
+        "Gödel, Escher, Bach: Um Laço Eterno Brilhante - Douglas Hofstadter",
+      ],
       practice: [
         {
           question: "Na Teoria da Computação, qual é a definição formal de uma 'Linguagem'?",
           answer:
-            "Uma linguagem é simplesmente um conjunto (finito ou infinito) de strings formadas por símbolos de um alfabeto específico. Por exemplo, a linguagem de programação C não passa de um conjunto gigantesco, mas bem definido, de todas as strings (arquivos de texto) que compilam sem erros de sintaxe.",
+            "Uma linguagem é um conjunto (finito ou infinito) de strings formadas por símbolos de um alfabeto específico sob regras matemáticas estritas. Por exemplo, a linguagem de programação PHP ou o framework Laravel não passam de conjuntos gigantescos, mas finitos em suas regras formais, de todos os arquivos de texto que o compilador/interpretador aceita sem estourar erros de sintaxe.",
+        },
+        {
+          question:
+            "Por que estudamos modelos abstratos (como autômatos) em vez de analisar os limites computacionais diretamente no hardware e nos transistores?",
+          answer:
+            "Porque o hardware muda (válvulas, transistores de silício, computadores quânticos), mas a matemática não. Abstrair os detalhes físicos garante que as provas teóricas sobre o que pode ou não ser computado continuem válidas permanentemente, não importando a tecnologia física subjacente ou a linguagem utilizada.",
         },
       ],
       links: [],
@@ -276,28 +410,33 @@ const graphData = {
     {
       id: "automatos_finitos_e_regex",
       label: "Autômatos Finitos e Expressões Regulares",
-      group: 3,
+      group: 2,
       status: "pending",
       description:
-        "O modelo computacional com memória estritamente limitada. Define o que são Linguagens Regulares, fundamentais para buscas de texto rápidas e para construir a Análise Léxica (Lexers/Tokenizers) do compilador de uma linguagem de programação.",
+        "O modelo computacional mais simples, com memória estritamente limitada a estados. Fundamenta as Linguagens Regulares, que são a espinha dorsal de roteadores de URL em frameworks web, validações de texto de alta velocidade e a fase de Análise Léxica (Tokenizers) em interpretadores modernos.",
       examples: [
-        "Autômatos Finitos Determinísticos e Não-Determinísticos (DFA/NFA)",
-        "Expressões Regulares (Regex) puras",
+        "Autômatos Finitos Determinísticos (DFA) e Não-Determinísticos (NFA)",
+        "Expressões Regulares (Regex) puras e o Teorema de Kleene",
         "O Lema do Bombeamento (Pumping Lemma) para Linguagens Regulares",
       ],
-      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      books: ["Introdução à Teoria da Computação - Michael Sipser"],
       practice: [
         {
           question:
-            "Por que Expressões Regulares (Regex) não conseguem validar se uma expressão matemática tem parênteses balanceados (ex: '((a+b)*c)')?",
+            "Por que Expressões Regulares (Regex puro) não conseguem validar com segurança se uma expressão matemática tem parênteses balanceados (ex: '((a+b)*c)')?",
           answer:
-            "Porque linguagens com aninhamento exigem 'memória' infinita para contar quantos parênteses foram abertos. Autômatos Finitos (a base matemática do Regex verdadeiro) possuem um número fixo de estados e não têm uma estrutura de pilha para lembrar uma contagem arbitrária. Isso força o uso de modelos mais poderosos, como as Gramáticas Livres de Contexto.",
+            "Porque linguagens com aninhamento exigem 'memória' infinita para contar com precisão quantitativa quantos blocos foram abertos. Autômatos Finitos (a base do Regex estrutural) possuem apenas um número rígido e fixo de estados e não têm uma estrutura dinâmica de pilha. Tentar fazer o parse de aninhamentos profundos com Regex inevitavelmente leva a falhas de segurança.",
         },
         {
           question:
-            "Como o conceito de DFA (Autômato Finito Determinístico) se traduz na primeira fase de um Compilador?",
+            "Qual a vantagem prática de existir o NFA (Não-Determinístico) se o DFA (Determinístico) resolve exatamente os mesmos problemas léxicos?",
           answer:
-            "Ele é usado no Analisador Léxico (Lexer). O compilador lê o código-fonte caractere por caractere e usa DFAs para reconhecer e agrupar letras em 'tokens' válidos, diferenciando rapidamente palavras reservadas (como 'if' ou 'while'), identificadores e números.",
+            "O NFA é muito mais fácil e intuitivo para um engenheiro humano modelar e programar (como escrever uma string de Regex complexa). O compilador pega esse NFA humano e aplica algoritmos teóricos para convertê-lo matematicamente em um DFA equivalente, que executa com altíssima performance (complexidade linear O(n)), livre de ambiguidades de caminho.",
+        },
+        {
+          question: "Como o Autômato Finito Determinístico atua no núcleo do motor de um Compilador?",
+          answer:
+            "Ele opera no Analisador Léxico (Lexer). Enquanto processa o código-fonte caractere por caractere, o DFA transita de estado rapidamente para reconhecer padrões e agrupar letras isoladas em 'Tokens' significativos (diferenciando palavras reservadas, identificadores e literais) antes de passar para a verificação de sintaxe.",
         },
       ],
       links: [],
@@ -305,26 +444,33 @@ const graphData = {
     {
       id: "gramaticas_livres_de_contexto",
       label: "Gramáticas Livres de Contexto",
-      group: 3,
+      group: 2,
       status: "pending",
       description:
-        "Regras de substituição que permitem descrever a estrutura hierárquica e aninhada de blocos de texto. É a tecnologia matemática que permite construir Analisadores Sintáticos (Parsers) e Árvores de Sintaxe Abstrata (ASTs) para interpretar o seu código.",
+        "Sistemas robustos de regras de substituição que permitem descrever com precisão estruturas hierárquicas e blocos alinhados. É a tecnologia abstrata que impulsiona a criação de Analisadores Sintáticos (Parsers), ASTs (Abstract Syntax Trees) e validadores de formatos de intercâmbio de dados, como JSON e XML.",
       examples: [
-        "Gramáticas Livres de Contexto (CFGs)",
+        "Gramáticas Livres de Contexto (CFGs) e Formas de Backus-Naur (BNF)",
         "Autômatos com Pilha (Pushdown Automata)",
-        "Árvores de Derivação e Ambiguidade de Gramáticas",
+        "Árvores de Derivação (Parse Trees) e Resolução de Ambiguidade",
       ],
-      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      books: ["Introdução à Teoria da Computação - Michael Sipser"],
       practice: [
         {
-          question: "Qual a relação entre um Autômato com Pilha e a execução de código que utiliza funções?",
+          question:
+            "Qual a relação direta entre um Autômato com Pilha e o comportamento de funções recursivas num sistema operacional?",
           answer:
-            "Um Autômato com Pilha é um autômato finito acoplado a uma memória do tipo LIFO (Last-In, First-Out). Isso é o modelo teórico exato da Call Stack (pilha de chamadas) usada pelos sistemas operacionais: quando uma função chama a si mesma recursivamente, o contexto anterior é empilhado, permitindo aninhamento ilimitado (até acabar a memória física).",
+            "Um Autômato com Pilha é um autômato finito acoplado a uma memória linear do tipo LIFO (Last-In, First-Out). Esse é o modelo matemático primário da Call Stack (pilha de execução): quando um sistema chama microsserviços ou funções recursivamente, o contexto e o escopo anteriores são 'empilhados', permitindo um aninhamento sistêmico seguro e rastreável até retornar o processo principal.",
         },
         {
-          question: "O que significa uma gramática de linguagem de programação ser 'Ambígua'?",
+          question: "O que caracteriza uma gramática formal como 'Ambígua' e como isso impacta a compilação do código?",
           answer:
-            "Significa que uma mesma string (ou linha de código) pode gerar duas ou mais Árvores de Sintaxe Abstrata (ASTs) diferentes e válidas. Um exemplo clássico é o 'Dangling Else', onde o compilador não saberia matematicamente a qual 'If' um 'Else' solitário pertence, a não ser que regras adicionais de precedência sejam criadas.",
+            "A ambiguidade ocorre quando a mesma linha exata de código fonte pode gerar duas ou mais Árvores Sintáticas (ASTs) válidas. O exemplo mais notório é o 'Dangling Else': o compilador não teria como decidir matematicamente a qual bloco 'If' um 'Else' isolado pertence, exigindo que a linguagem imponha regras rígidas de precedência para evitar comportamentos inesperados em produção.",
+        },
+        {
+          question:
+            "Por que é tecnicamente impossível (e considerado um antipadrão de segurança) usar Expressões Regulares para fazer o parse completo de um arquivo JSON vindo de uma API REST?",
+          answer:
+            "O formato JSON define estruturas de objetos iteráveis ({}) e arrays ([]) que podem se aninhar infinitamente uns dentro dos outros. Como o Regex (Linguagens Regulares) não possui memória para contar estados aninhados, ele falha miseravelmente em validar o escopo. O JSON é uma Linguagem Livre de Contexto e exige nativamente um Autômato com Pilha (Parser) para ser processado com integridade e segurança.",
         },
       ],
       links: [],
@@ -332,61 +478,378 @@ const graphData = {
     {
       id: "maquinas_de_turing_e_computabilidade",
       label: "Máquinas de Turing e Computabilidade",
-      group: 3,
+      group: 2,
       status: "pending",
       description:
-        "O modelo abstrato de um computador generalista de fita infinita. Define o limite absoluto do que pode ser resolvido algoritmicamente e estabelece o padrão de 'Completude de Turing', que é a base para o conjunto de instruções do Assembly (ISA).",
+        "O modelo generalista definitivo, operando com uma fita de memória ilimitada. Delimita com absoluta certeza o teto do que pode (ou nunca poderá) ser resolvido por um computador generalista, fundamentando a 'Completude de Turing' e validando logicamente os conjuntos de instruções (ISA) dos processadores modernos.",
       examples: [
-        "A Máquina de Turing e suas Variantes",
-        "A Tese de Church-Turing",
-        "O Problema da Parada (Halting Problem) e Indecidibilidade",
+        "Máquinas de Turing e Tese de Church-Turing",
+        "Linguagens Decidíveis vs. Indecidíveis",
+        "O Problema da Parada (Halting Problem)",
+        "Aplicações históricas: A Máquina Bombe e a Quebra do Enigma",
       ],
-      books: ["Introduction to the Theory of Computation - Michael Sipser"],
+      books: [
+        "Introdução à Teoria da Computação - Michael Sipser",
+        "The Annotated Turing - Charles Petzold",
+        "Alan Turing: The Enigma - Andrew Hodges",
+      ],
       practice: [
         {
           question:
-            "O que quer dizer a afirmação: 'Linguagens de Programação e Arquiteturas Assembly são Turing-completas'?",
+            "O que a Tese de Church-Turing formalizou e qual sua importância para a unificação das Linguagens de Programação?",
           answer:
-            "Significa que elas possuem poder expressivo suficiente (como laços condicionais e memória arbitrária) para simular o comportamento de uma Máquina de Turing teórica. Ignorando as restrições físicas de memória e tempo, qualquer algoritmo que possa ser calculado no universo pode ser programado nessas linguagens ou instruções de processador.",
+            "A tese afirma que qualquer algoritmo intuitivo do mundo real equivale matematicamente ao que uma Máquina de Turing consegue computar. O impacto prático disso é que qualquer problema que possa ser codificado nativamente em Vue.js ou Node.js também pode ser codificado numa linguagem rústica como C ou no próprio binário da máquina. Diferentes linguagens são apenas abstrações de conveniência humana; o poder de processamento bruto limite é matematicamente idêntico em todas elas.",
         },
         {
-          question: "Como o Problema da Parada de Alan Turing afeta o dia a dia da Engenharia de Software?",
+          question: "Como o Problema da Parada afeta os testes de software diários de um Engenheiro de Computação?",
           answer:
-            "Turing provou que é matematicamente impossível criar um programa genérico que analise o código de qualquer outro programa e diga, com 100% de certeza prévia, se ele vai terminar de executar ou ficar preso num loop infinito. Isso significa que analisadores estáticos, compiladores e linters sempre terão limitações fundamentais e precisarão recorrer a heurísticas ou aproximações, justificando testes dinâmicos e validações contínuas.",
+            "Turing provou que é matematicamente impossível escrever um código perfeito que analise *qualquer* outro código e responda infalivelmente se ele irá travar em loop infinito ou finalizar com sucesso. Isso consolida que analisar estaticamente uma codebase complexa sempre terá falhas teóricas nativas. Consequentemente, abordagens estáticas e linters sempre exigirão heurísticas, justificando a obrigatoriedade de arquitetar suítes de testes dinâmicos e testes unitários robustos.",
+        },
+        {
+          question: "Como a quebra do Enigma por Turing ilustra o conceito de 'Máquina Universal'?",
+          answer:
+            "Turing percebeu que, em vez de construir uma máquina para cada cifra, ele poderia construir uma máquina generalista ('Universal') capaz de simular qualquer algoritmo de busca de estados. A máquina 'Bombe' de Bletchley Park foi um exemplo prático de um computador (especializado) que testava logicamente as configurações da máquina Enigma, provando que a criptografia poderia ser vencida pela computação lógica sistemática.",
         },
       ],
       links: [],
     },
-
-    // 4. Algoritmos e Lógica de Programação
+    {
+      id: "complexidade_computacional_p_np",
+      label: "Complexidade Computacional e NP-Completude",
+      group: 2,
+      status: "pending",
+      description:
+        "A fronteira definitiva da computação. Centraliza a teoria das classes P e NP com a arquitetura de software aplicada. Ensina a identificar quando um problema exige tempo exponencial e dita o momento exato de abandonar a busca pela 'solução perfeita' em favor de Algoritmos de Aproximação e Heurísticas.",
+      examples: [
+        "Classes de Tempo (P, NP, NP-Difícil, NP-Completo)",
+        "O Problema da Parada e Redutibilidade Polinomial",
+        "Algoritmos de Aproximação na Prática (Cobertura de Vértices e TSP)",
+      ],
+      books: [
+        "Introdução à Teoria da Computação - Michael Sipser",
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+      ],
+      practice: [
+        {
+          question: "Na análise computacional diária, o que separa estritamente a Classe P da Classe NP?",
+          answer:
+            "A Classe P abrange problemas onde calculamos a solução eficientemente (tempo polinomial). A Classe NP abrange problemas onde encontrar a solução do zero pode demorar séculos, mas, se fornecida uma 'resposta candidata', conseguimos validar instantaneamente se ela está correta.",
+        },
+        {
+          question:
+            "Qual a solução prática imediata ao descobrir que a regra de negócio central da sua aplicação exige uma solução NP-Completa?",
+          answer:
+            "Pivotar a arquitetura para 'Algoritmos de Aproximação' ou gulosos. Abandona-se o tempo exponencial do caminho perfeito por um código super veloz que entrega uma resposta 'sub-ótima' (ex: no máximo 2x pior que a matemática perfeita), mas que resolve o problema em tempo real e salva o sistema.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "complexidade_de_espaco",
+      label: "Complexidade de Espaço",
+      group: 2,
+      status: "pending",
+      description:
+        "A análise dos limites fundamentais da memória computacional. Enquanto as classes P e NP focam no tempo de execução, este ramo estuda os limites teóricos sobre a quantidade de memória RAM necessária para resolver problemas complexos.",
+      examples: [
+        "Classes PSPACE e NPSPACE",
+        "O Teorema de Savitch",
+        "Problemas PSPACE-Completos (Jogos Generalizados)",
+      ],
+      books: ["Introdução à Teoria da Computação - Michael Sipser"],
+      practice: [
+        {
+          question: "O que é a classe PSPACE e qual sua relação com problemas da classe NP?",
+          answer:
+            "PSPACE é a classe de problemas que podem ser resolvidos usando uma quantidade polinomial de espaço de memória, independentemente do tempo que levarem. Todos os problemas em NP pertencem a PSPACE (NP ⊆ PSPACE), porque se algo é resolvido em tempo polinomial, fisicamente não tem tempo hábil para consumir mais do que espaço polinomial.",
+        },
+        {
+          question: "Qual é o impacto do Teorema de Savitch na Teoria da Computação?",
+          answer:
+            "O Teorema prova que qualquer algoritmo que resolve um problema exigindo memória polinomial de forma não-determinística (NPSPACE) pode ser convertido em um algoritmo determinístico tradicional usando, no máximo, o quadrado da memória original (PSPACE = NPSPACE). Isso contrasta com o problema P vs NP, onde o determinismo para o tempo (e não espaço) parece gerar um abismo exponencial.",
+        },
+      ],
+      links: [],
+    },
+    // 3. Lógica de Programação
     {
       id: "logica_de_programacao",
       label: "Lógica de Programação",
-      group: 4,
+      group: 3,
       status: "pending",
       description:
-        "O ponto de partida computacional. Traduz o raciocínio dedutivo e proposicional da matemática para estruturas de controle de fluxo (laços de repetição, condicionais e recursão), definindo o alicerce para implementar qualquer algoritmo em pseudocódigo ou linguagem real.",
+        "O ponto de partida computacional. Traduz o raciocínio dedutivo da matemática para estruturas de controle de fluxo (laços de repetição, condicionais e chamadas de função). É a fundação absoluta para implementar qualquer rotina em pseudocódigo e escrever um código limpo e estruturado.",
       examples: [
-        "Estruturas de Controle (If/Else, While, For)",
+        "Estruturas de Controle de Fluxo (If/Else, While, For)",
         "Tradução de Modelos Matemáticos para Pseudocódigo",
         "Invariantes de Laço (Loop Invariants) para Correção",
       ],
       books: [
-        "Introduction to Algorithms - Thomas H. Cormen et al.",
-        "The Little Schemer - Daniel P. Friedman & Matthias Felleisen",
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Algoritmos: Lógica para Desenvolvimento de Programação - Manzano",
+        "Cracking the Coding Interview - Gayle Laakmann McDowell",
       ],
       practice: [
         {
           question:
-            "Segundo o CLRS, quais são as três propriedades que devem ser provadas sobre uma 'Invariante de Laço' (Loop Invariant) para garantir que um algoritmo está correto?",
+            "Qual a diferença fundamental entre um fluxograma e um diagrama de blocos na representação de um algoritmo?",
           answer:
-            "1. Inicialização: A invariante é verdadeira antes da primeira iteração do laço. 2. Manutenção: Se for verdadeira antes de uma iteração, permanece verdadeira antes da próxima. 3. Término: Quando o laço termina, a invariante nos dá uma propriedade útil que ajuda a provar que o algoritmo resolveu o problema (diferente da indução matemática padrão que segue infinitamente).",
+            "O fluxograma é uma ferramenta mais gerencial que descreve o fluxo geral de dados (seja manual ou mecânico) e os suportes físicos utilizados em um sistema. Já o diagrama de blocos é voltado à programação, detalhando a sequência exata de operações lógicas e o processamento interno a ser codificado na máquina.",
+        },
+        {
+          question: "Quais são as três estruturas básicas unificadas que compõem a técnica da lógica estruturada?",
+          answer:
+            "A programação estruturada se sustenta em três pilares fundamentais de controle: a sequência (instruções passo a passo), a seleção (tomadas de decisão condicionais) e a iteração (laços ou malhas de repetição).",
+        },
+        {
+          question: "O que caracteriza a técnica de desenvolvimento Top-Down na elaboração de um algoritmo?",
+          answer:
+            "O método Top-Down consiste em visualizar o problema como um todo, definindo as tarefas principais 'de cima para baixo'. Em seguida, divide-se sucessivamente esse problema monolítico em partes ou módulos menores e independentes (refinamento) antes de detalhar o código de cada unidade.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "tipos_de_dados",
+      label: "Tipos de Dados",
+      group: 3,
+      status: "pending",
+      description:
+        "A classificação da informação a ser processada pelo computador. Define como a máquina interpreta e armazena os dados na memória (variáveis e constantes), dividindo-os fundamentalmente em dados numéricos, literais e lógicos.",
+      examples: [
+        "Tipos Numéricos (Inteiros e Reais)",
+        "Tipos Literais (Caracteres/Strings)",
+        "Tipos Lógicos (Booleanos: Verdadeiro/Falso)",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question:
+            "Como os dados primitivos são classicamente separados para garantir o armazenamento adequado na memória?",
+          answer:
+            "Os dados primitivos dividem-se em numéricos inteiros (sem frações), numéricos reais (com ponto flutuante/fracionários), literais (sequências de texto e símbolos especiais delimitados por aspas) e lógicos (estados restritos a verdadeiro ou falso).",
         },
         {
           question:
-            "No contexto do CLRS, por que o pseudocódigo é preferido em vez de uma linguagem de programação real para estudar a lógica inicial dos algoritmos?",
+            "Qual a diferença conceitual e de ciclo de vida entre uma variável e uma constante durante o processamento?",
           answer:
-            "O pseudocódigo permite focar na essência e na lógica matemática do algoritmo (a resolução do problema em si), ignorando questões de engenharia de software, tratamento de erros de sintaxe ou peculiaridades de gerenciamento de memória que linguagens como C, Java ou Python exigiriam.",
+            "A variável representa um endereço nominal na memória cujo valor pode sofrer mutações dinâmicas a qualquer momento do algoritmo. A constante estabelece um valor fixo, imutável e estável ao longo de toda a execução, garantindo que certos parâmetros lógicos ou matemáticos jamais sejam corrompidos.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "operadores_aritmeticos",
+      label: "Operadores Aritméticos",
+      group: 3,
+      status: "pending",
+      description:
+        "O núcleo de cálculo matemático de um algoritmo. Permite a avaliação de expressões relacionando variáveis e constantes através de regras matemáticas de precedência.",
+      examples: [
+        "Operadores Unários (Inversão ou manutenção de sinal)",
+        "Operadores Binários (Adição, Subtração, Multiplicação, Exponenciação)",
+        "Operadores Especiais de Divisão (DIV e MOD)",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question: "Como os operadores aritméticos são categorizados com base em sua atuação mecânica sobre os dados?",
+          answer:
+            "Podem ser Unários, atuando na inversão ou manutenção de sinal de um único valor isolado (como negar um número), ou Binários, atuando como ponte entre dois operandos obrigatórios para calcular adição, subtração, multiplicação, divisão ou exponenciação.",
+        },
+        {
+          question:
+            "Em que a instrução lógica de divisão inteira ('DIV') diverge estritamente do operador de divisão tradicional ('/')?",
+          answer:
+            "O operador de divisão '/' efetua um cálculo contínuo gerando um quociente do tipo real com aproximações decimais (resto zero). O comando computacional 'DIV' força uma quebra matemática que resulta exclusivamente no quociente inteiro da divisão, ignorando completamente as frações resultantes.",
+        },
+        {
+          question: "Qual a função prática do operador matemático 'MOD' no fluxo de desenvolvimento?",
+          answer:
+            "O operador 'MOD' captura e retorna o valor exato do 'resto' resultante de uma divisão inteira entre dois valores. É imprescindível para algoritmos que precisem validar regras numéricas, como atestar se um número é divisível por outro ou detectar se o dado é par ou ímpar (verificando se o resto da divisão por 2 é zero).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "estruturas_de_controle",
+      label: "Estruturas de Controle",
+      group: 3,
+      status: "pending",
+      description:
+        "O mecanismo que quebra a execução linear rígida de um programa. Engloba as diretrizes fundamentais da programação estruturada: a capacidade de avaliar estados e decidir desvios lógicos ou repetir instruções de forma automatizada.",
+      examples: [
+        "A Transição da Lógica Linear para a Lógica Estruturada",
+        "Encadeamento Sistêmico de Fluxos",
+        "Condições Relacionais e Lógicas",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question:
+            "Por que a adoção das estruturas de controle quebra o conceito inicial de programação em 'Lógica Linear'?",
+          answer:
+            "A lógica linear obriga o processador a executar todos os blocos cegamente de cima para baixo. As estruturas de controle implementam os paradigmas da iteração e da seleção, dotando o software de autonomia para pular etapas que não sejam necessárias ou repetir cálculos com base nas condições exclusivas daquele ciclo.",
+        },
+        {
+          question: "O que constitui a prática de 'aninhamento' (ou encadeamento) em estruturas de controle?",
+          answer:
+            "Refere-se a colocar blocos de validação ou de repetição inteiros dentro de outros blocos. Esse encadeamento permite que o fluxo verifique condições sucessivas (onde a próxima regra só é testada se o conjunto anterior de instruções permitir) ou orquestre laços complexos em dimensões paralelas (como navegar entre linhas e colunas simultaneamente).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "estruturas_de_decisao",
+      label: "Estruturas de Decisão",
+      group: 3,
+      status: "pending",
+      description:
+        "Permite o desvio condicional do fluxo de execução avaliando expressões relacionais e lógicas. A base da inteligência do algoritmo para lidar com diferentes cenários e inputs.",
+      examples: [
+        "Desvio Condicional Simples (Se...Então) e Composto (Se...Então...Senão)",
+        "Desvios Encadeados e Operadores Lógicos (E, OU, NÃO)",
+        "Estrutura de Múltipla Escolha (Escolha...Caso)",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question: "Qual é a distinção de impacto no código entre uma tomada de decisão Simples e uma Composta?",
+          answer:
+            "A decisão Simples delimita um bloco que só é executado frente a uma verdade, seguindo a rotina padrão caso seja falso. A decisão Composta introduz formalmente o bloco 'Senão', dividindo o caminho em dois fluxos mutuamente excludentes, garantindo que ações exclusivas ocorram quando a validação reprovar.",
+        },
+        {
+          question:
+            "Como os operadores booleanos condicionais 'E' (AND) e 'OU' (OR) diferem na aceitação de uma verificação relacional conjunta?",
+          answer:
+            "A porta 'E' exige restrição extrema: o fluxo só desvia se todas as condições listadas forem integral e simultaneamente válidas. A porta 'OU' é permissiva: autoriza a execução se pelo menos um, qualquer um, dos relacionamentos testados acusar como verdadeiro na malha lógica.",
+        },
+        {
+          question: "Que comportamento o operador modificador 'NÃO' aplica a uma estrutura de desvio?",
+          answer:
+            "Ele atua como um inversor absoluto do estado lógico. A condição validará e permitirá a entrada no bloco de processamento se o retorno original do comparativo for falso. Essencialmente transforma perguntas baseadas em afirmações em verificações de exclusão.",
+        },
+        {
+          question:
+            "Quando o design algorítmico exige a troca de blocos 'Se...Então' aninhados pelo comando de Múltipla Escolha ('Escolha...Caso')?",
+          answer:
+            "Quando o escopo impõe inúmeras validações pontuais em série focadas em monitorar o estado específico de uma única variável. A estrutura Escolha...Caso limpa o diagrama e quebra a complexidade visual hierárquica exigida por desvios aninhados consecutivos.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "estruturas_de_repeticao",
+      label: "Estruturas de Repetição",
+      group: 3,
+      status: "pending",
+      description:
+        "Mecanismos conhecidos como loopings, laços ou malhas. Automatizam o processamento em massa executando um trecho de código múltiplas vezes fundamentado em testes lógicos de parada ou limites numéricos finitos.",
+      examples: [
+        "Teste Lógico no Início (Enquanto...Faça)",
+        "Teste Lógico no Fim (Repita...Até)",
+        "Laços Controlados por Variável/Contador (Para...De...Até)",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question:
+            "Qual a divergência fundamental de mecânica e segurança na utilização dos laços 'Enquanto' vs 'Repita'?",
+          answer:
+            "A malha 'Enquanto' executa a verificação na entrada do fluxo. Caso a regra seja inicialmente falsa, os comandos internos não são tocados e ignorados completamente. O laço 'Repita' atrasa a barreira para o fim, garantindo forçosamente que a série de instruções rode obrigatoriamente no mínimo uma vez antes de aferir se deve parar.",
+        },
+        {
+          question:
+            "Em que contexto o uso da variável de controle 'Para...Faça' (For) se torna inviável para guiar repetições de bloco?",
+          answer:
+            "Sua aplicação quebra quando o limite de repetições e contagens for desconhecido pela compilação. Essa estrutura lida apenas com interações numéricas finitas com inícios e finais pré-programados. Situações reativas que dependem do arbítrio do usuário no meio da operação exigem estruturas maleáveis como o 'Enquanto'.",
+        },
+        {
+          question:
+            "Qual o papel vital de uma estrutura denominada 'Flag' operando juntamente em um laço de busca condicional?",
+          answer:
+            "A Flag atua como uma 'bandeira' de controle em memória (normalmente do tipo booleana). Ela é inicializada como falsa e monitorada ininterruptamente pela estrutura de repetição. Ao localizar o dado cobiçado, a rotina a 'levanta' alterando para verdadeiro, forçando o corte brusco imediato do laço e poupando recurso de processamento extra.",
+        },
+        {
+          question:
+            "O que define uma variável do tipo acumuladora dentro do corpo lógico de uma repetição automatizada?",
+          answer:
+            "É uma variável submetida diretamente ao giro do laço, atualizando o seu próprio valor a cada passo ao receber novas somas lógicas sucessivas. É o fundamento básico exigido para compilar algoritmos que apurem somatórios contínuos de tabelas numéricas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modularizacao_parametros_subrotinas",
+      label: "Modularização, Parâmetros e Sub-rotinas",
+      group: 3,
+      status: "pending",
+      description:
+        "A fundação para dividir e conquistar. Aplica o método Top-Down e o refinamento sucessivo para quebrar algoritmos extensos e monolíticos em blocos menores (Procedimentos e Funções). Aborda a governança da memória através do escopo global e local.",
+      examples: [
+        "Procedimentos e Funções (Top-Down Design)",
+        "Escopo de Variáveis (Globais vs Locais)",
+        "Passagem de Parâmetros por Valor e por Referência",
+      ],
+      books: ["Algoritmos: Lógica para Desenvolvimento de Programação - Manzano"],
+      practice: [
+        {
+          question:
+            "Na quebra do código-fonte, o que difere dogmaticamente a estruturação de um Procedimento em contraste com a estruturação de uma Função?",
+          answer:
+            "O Procedimento processa blocos autônomos alterando dados ou injetando parâmetros. O formato Função tem uma imposição adicional: ele deve não apenas calcular, mas estar desenhado na sintaxe e retorno para embutir e transferir um resultado exato final, referenciado em seu próprio nome, ao fluxo chamador.",
+        },
+        {
+          question:
+            "Ao transitar o contexto via Passagem de Parâmetros, o que isola tecnicamente a modalidade 'Por Valor' em contraponto à 'Por Referência'?",
+          answer:
+            "A Passagem por Valor espelha e transmite apenas o dado como uma cópia volátil; caso o valor original formal varie dentro da sub-rotina, a fonte na hierarquia superior ficará intacta e isenta. A Passagem por Referência consolida a operação num ponteiro simultâneo; a modificação corrompe a raiz do programa real alterando as bases do software e devolvendo um novo número no campo da rotina chamadora externa.",
+        },
+        {
+          question:
+            "Por qual lógica de engenharia estrutural devemos repelir e evitar definições puras através de 'Variáveis Globais'?",
+          answer:
+            "A definição generalizada em 'Global' atrela a variável ao começo e base do código, retendo fragmento irrecuperável de espaço na RAM ao longo de integral vida útil do processamento. Isolar em 'Escopo Local' encapsulado desestabiliza a alocação e obriga que a memória recicle após finalizar a breve sub-rotina acionada.",
+        },
+        {
+          question:
+            "De que forma se configura a aplicação do princípio do refinamento sucessivo no desenvolvimento dos algoritmos modernos?",
+          answer:
+            "Ele consolida uma fragmentação da sub-rotina já estruturada em outras sub-rotinas subordinadas. Opera interceptando partes do fluxo central com instruções de códigos genéricas que operam muitas repetições constantes num único eixo de sistema e isola essas redundâncias padronizando novas minicélulas com comandos e variáveis globais.",
+        },
+        {
+          question:
+            "O que constitui exatamente o espectro ou 'escopo' restrito associado à visibilidade da informação alocada na memória?",
+          answer:
+            "Determina a permissão limitrofe e arquitetônica da visibilidade dos registros para a estrutura computacional. Define-se um limite onde apenas e tão somente blocos de sistema (e ramificações hierarquicamente atreladas) logrem enxergar, intervir e transferir referências com comandos cruzados sem ferir regras estáticas do encapsulamento em andamento.",
+        },
+      ],
+      links: [],
+    },
+    // 4. Algoritmos de Programação
+    {
+      id: "algoritmos",
+      label: "Algoritmos",
+      group: 4,
+      status: "pending",
+      description:
+        "A formalização do termo 'Algoritmo'. Transita da lógica de código simples para a definição de procedimentos computacionais bem definidos que recebem um conjunto de valores como entrada e produzem um conjunto de valores como saída, servindo como o motor lógico para o backend de qualquer aplicação.",
+      examples: [
+        "O Algoritmo como uma Tecnologia",
+        "Diferença entre Algoritmos e Estruturas de Dados",
+        "Especificação de Entradas (Inputs) e Saídas (Outputs)",
+      ],
+      books: ["Algoritmos: Teoria e Prática - Thomas H. Cormen et al."],
+      practice: [
+        {
+          question: "Qual a diferença conceitual estrita entre 'Lógica de Programação' e um 'Algoritmo'?",
+          answer:
+            "A Lógica de Programação é a ferramenta (como usar Ifs e Loops). O Algoritmo é a 'receita' ou sequência finita e exata de passos lógicos elaborados para transformar uma entrada de dados específica na saída desejada, resolvendo um problema computacional bem definido (ex: ordenar um array, treinar um modelo preditivo).",
+        },
+        {
+          question: "Por que o Cormen afirma que 'os algoritmos são uma tecnologia' assim como o hardware da máquina?",
+          answer:
+            "Porque o desempenho global de um sistema depende tanto da escolha de um algoritmo eficiente quanto da velocidade do processador. Rodar um algoritmo ruim (tempo exponencial) em um supercomputador frequentemente será mais lento do que rodar um algoritmo excelente (tempo logarítmico) em um processador fraco à medida que o volume de dados cresce.",
         },
       ],
       links: [],
@@ -397,30 +860,28 @@ const graphData = {
       group: 4,
       status: "pending",
       description:
-        "A base para avaliar a eficiência de um software de forma independente do hardware. Utiliza o comportamento assintótico para classificar algoritmos quanto ao consumo de tempo e memória conforme a entrada de dados cresce ao infinito.",
+        "A base matemática para medir a escalabilidade e o consumo de recursos de um software independentemente do hardware (nuvem ou servidor local). Utiliza o comportamento assintótico para prever se a aplicação sobreviverá ao aumento de carga no longo prazo.",
       examples: [
         "Notação Assintótica (Big-O, Ômega Ω, Theta Θ)",
         "Análise de Pior Caso, Melhor Caso e Caso Médio",
-        "Cálculo de Custos em Pseudocódigo (Modelo RAM)",
+        "Cálculo de Custos no Modelo de Máquina RAM",
       ],
-      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithms - Robert Sedgewick & Kevin Wayne"],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Projeto de Algoritmos - Jon Kleinberg & Éva Tardos",
+      ],
       practice: [
         {
           question:
             "Qual é a diferença rigorosa entre as notações Big-O (O), Omega (Ω) e Theta (Θ) na análise assintótica?",
           answer:
-            "Big-O (O) fornece um limite superior assintótico (o tempo de execução cresce no máximo a essa taxa). Omega (Ω) fornece um limite inferior (o tempo cresce pelo menos a essa taxa). Theta (Θ) indica um limite restrito, ou seja, o algoritmo é limitado tanto superiormente quanto inferiormente pela mesma função (o caso de execução cresce exatamente àquela taxa).",
-        },
-        {
-          question: "Por que o CLRS geralmente foca na análise do 'Pior Caso' de um algoritmo em vez do 'Caso Médio'?",
-          answer:
-            "1) Dá uma garantia (limite superior) para qualquer entrada, garantindo que o programa nunca demorará mais que aquilo. 2) Para muitos algoritmos (como busca), o pior caso ocorre com frequência (ex: quando o item não está no array). 3) O 'caso médio' muitas vezes é tão ruim quanto o pior caso matematicamente (ex: Insertion Sort tem caso médio e pior caso ambos Θ(n²)).",
+            "Big-O (O) fornece um limite superior (o tempo de execução cresce, no máximo, a essa taxa). Omega (Ω) fornece o limite inferior (o tempo cresce pelo menos a essa taxa). Theta (Θ) indica um limite restrito, provando que a execução do algoritmo está delimitada matematicamente de forma exata, tanto por cima quanto por baixo.",
         },
         {
           question:
-            "O que caracteriza o modelo de máquina RAM (Random-Access Machine) utilizado para analisar custos no livro?",
+            "Por que a engenharia de software e a análise de algoritmos focam quase exclusivamente no 'Pior Caso' em vez do 'Caso Médio'?",
           answer:
-            "No modelo RAM, as instruções (soma, subtração, atribuição, controle de fluxo) são executadas uma após a outra, sem operações simultâneas (sem paralelismo). Supõe-se que cada instrução básica leve um tempo constante para ser executada.",
+            "Focar no pior caso garante previsibilidade de escalabilidade. Se você prova que o pior caso de uma API suporta O(n log n), você assegura ao negócio que o sistema nunca travará por tempo excessivo, independentemente de quão bagunçados estejam os dados do usuário. Além disso, o caso médio muitas vezes é tão pesado matematicamente quanto o pior caso.",
         },
       ],
       links: [],
@@ -431,37 +892,34 @@ const graphData = {
       group: 4,
       status: "pending",
       description:
-        "O estudo clássico do rearranjo de dados. Compara algoritmos in-place e estáveis, demonstrando os limites matemáticos da ordenação baseada em comparação e explorando alternativas de tempo linear para cenários restritos.",
+        "O estudo anatômico do rearranjo eficiente de dados. Essencial na engenharia de dados. Compara ordenações in-place e estáveis, provando o limite matemático dos métodos por comparação e as táticas de indexação para quebrar esse teto em tempo linear.",
       examples: [
-        "Ordenação por Comparação (MergeSort, QuickSort, HeapSort)",
+        "Limites Inferiores de Ordenação (Árvores de Decisão)",
+        "Ordenação por Comparação (QuickSort, MergeSort, HeapSort)",
         "Ordenação em Tempo Linear (Counting Sort, Radix Sort)",
-        "Seleção do i-ésimo menor elemento (Selection em tempo linear)",
       ],
-      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithms - Robert Sedgewick & Kevin Wayne"],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Projeto de Algoritmos - Jon Kleinberg & Éva Tardos",
+      ],
       practice: [
         {
           question:
-            "De acordo com o modelo de Árvores de Decisão (Decision Trees), qual é o limite inferior de tempo para qualquer algoritmo de ordenação baseado em comparação?",
+            "De acordo com as Árvores de Decisão, qual é a fronteira teórica inquebrável para qualquer algoritmo de ordenação que compara valores?",
           answer:
-            "O limite inferior é Ω(n log n). Qualquer algoritmo que ordene elementos fazendo apenas comparações entre eles (como MergeSort ou HeapSort) precisa fazer pelo menos n log n comparações no pior caso para descobrir a permutação correta entre as n! (fatorial) possibilidades.",
+            "A barreira é Ω(n log n). A matemática prova que qualquer algoritmo que faça comparações do tipo (A > B) precisa de, no mínimo, n log n operações para adivinhar a permutação correta num cenário de pior caso. É impossível criar um algoritmo de comparação mais rápido que isso.",
         },
         {
           question:
-            "Por que o QuickSort é amplamente utilizado na indústria em vez do MergeSort, mesmo tendo um pior caso de O(n²)?",
+            "Por que o Radix Sort e o Counting Sort conseguem quebrar a barreira do O(n log n) e ordenar dados em tempo linear O(n)?",
           answer:
-            "Apesar do pior caso O(n²), o caso médio do QuickSort é Θ(n log n) com constantes ocultas extremamente pequenas. Além disso, ele ordena 'in-place' (usa apenas memória extra constante O(1)), possuindo excelente localidade de cache de hardware, superando o MergeSort que exige alocação de memória auxiliar O(n).",
+            "Porque eles descartam o modelo lógico de comparação de elementos. Em vez de testar variáveis entre si, eles usam a propriedade interna dos dados (que devem ser inteiros e delimitados) diretamente como índices de array de memória, alcançando o limite linear através de contagem pura.",
         },
         {
           question:
-            "O que define um algoritmo de ordenação como 'Estável' (Stable) e por que isso é crucial para algoritmos como o Radix Sort?",
+            "Na implementação industrial de linguagens, por que o QuickSort muitas vezes vence o MergeSort, sendo que o QuickSort tem um Pior Caso terrível de O(n²)?",
           answer:
-            "Um algoritmo é estável se ele preserva a ordem relativa dos elementos que possuem chaves idênticas. Isso é vital no Radix Sort, pois ele ordena dígito a dígito; se a ordenação dos dígitos intermediários não for estável, o trabalho feito nas casas decimais anteriores é destruído.",
-        },
-        {
-          question:
-            "Como algoritmos como Counting Sort quebram o limite inferior de Ω(n log n) e operam em tempo linear O(n)?",
-          answer:
-            "Eles não utilizam comparações (não comparam se A < B). Eles usam os próprios valores dos elementos (que devem ser inteiros pertencentes a um intervalo limitado conhecido) como índices de um array para contar frequências, permitindo ordenar em tempo linear.",
+            "Porque o caso médio do QuickSort é Θ(n log n) com constantes ocultas microscópicas. Além disso, a arquitetura de processadores modernos beneficia a altíssima 'localidade de cache' das ordenações In-Place (feitas dentro do mesmo vetor, como o QuickSort), enquanto o MergeSort exige o dobro de alocação de memória RAM para instanciar as divisões temporárias.",
         },
       ],
       links: [],
@@ -472,32 +930,28 @@ const graphData = {
       group: 4,
       status: "pending",
       description:
-        "Paradigma que quebra recursivamente um problema em subproblemas independentes e menores, resolve-os de forma simples e combina os resultados. Exige ferramentas matemáticas robustas para calcular o custo das chamadas recursivas.",
+        "O paradigma central do design algorítmico que decompõe de forma recursiva um problema monolítico em frações minúsculas e processáveis. Exige embasamento rigoroso para prever o custo das chamadas sobre a pilha de execução (Stack).",
       examples: [
-        "Abordagem Recursiva de Problemas",
-        "Árvores de Recursão e Método da Substituição",
+        "Passos: Dividir, Conquistar e Combinar",
         "O Teorema Mestre (Master Theorem) para Recorrências",
+        "Método da Árvore de Recursão e Substituição",
       ],
       books: [
-        "Introduction to Algorithms - Thomas H. Cormen et al.",
-        "Algorithm Design - Jon Kleinberg & Éva Tardos",
-        "The Little Schemer - Daniel P. Friedman & Matthias Felleisen",
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Projeto de Algoritmos - Jon Kleinberg & Éva Tardos",
+        "Cracking the Coding Interview - Gayle Laakmann McDowell",
       ],
       practice: [
         {
-          question: "Quais são os três passos fundamentais do paradigma Dividir para Conquistar?",
+          question: "Para que o Teorema Mestre é utilizado por engenheiros de software na análise de complexidade?",
           answer:
-            "1) DIVIDIR o problema original em vários subproblemas menores da mesma natureza. 2) CONQUISTAR resolvendo os subproblemas recursivamente (ou resolvendo diretamente se forem pequenos o suficiente - caso base). 3) COMBINAR as soluções dos subproblemas para formar a solução do problema original.",
+            "Ele fornece uma 'receita analítica direta' para descobrir o tempo Big-O de algoritmos recursivos definidos por equações de recorrência como T(n) = aT(n/b) + f(n). Ele compara a velocidade de quebra da recursão com o custo do agrupamento final (combinação), poupando o tempo de desenhar e somar árvores de recursão gigantes manuais.",
         },
         {
-          question: "Para que serve o Teorema Mestre (Master Theorem) no estudo de algoritmos?",
+          question:
+            "O Método da Substituição ensinado no Cormen depende de qual conceito puro da Matemática Discreta para funcionar?",
           answer:
-            "Ele fornece um método direto ('receita de bolo') para resolver equações de recorrência comuns do tipo T(n) = aT(n/b) + f(n). Ele compara a função de divisão/combinação f(n) com a função n^(log_b a) para determinar a complexidade Big-O sem precisar desenhar árvores de recursão inteiras.",
-        },
-        {
-          question: "O Teorema Mestre resolve todas as recorrências? Quando ele falha?",
-          answer:
-            "Não resolve. Ele falha quando a função f(n) cai em uma 'lacuna' (gap) entre os três casos do teorema (por exemplo, f(n) é menor, mas não polinomialmente menor). Nesses casos, utiliza-se o método da árvore de recursão ou o método da substituição (indução forte) para provar o limite.",
+            "Depende intrinsecamente da Indução Matemática. No método da substituição, você faz um 'chute' educado sobre qual deve ser o limite assintótico e depois usa a indução forte (provando o caso base e a validade sistêmica da lógica para instâncias menores) para confirmar que a equação de custo proposta está correta.",
         },
       ],
       links: [],
@@ -508,108 +962,462 @@ const graphData = {
       group: 4,
       status: "pending",
       description:
-        "Técnica de otimização que troca memória por velocidade. Utilizada quando um problema pode ser quebrado em subproblemas sobrepostos (overlapping subproblems), armazenando os resultados intermediários (memoization) para evitar recálculos exponenciais.",
+        "Tática agressiva de otimização onde se troca diretamente consumo de memória por saltos exponenciais em velocidade de processamento. Vital quando um cálculo repete as mesmas interações milhões de vezes, salvando as respostas intermediárias.",
       examples: [
         "Subestrutura Ótima e Subproblemas Sobrepostos",
         "Memoization (Top-down) vs Tabulação (Bottom-up)",
-        "Problemas Clássicos: Mochila 0/1, Maior Subsequência Comum (LCS)",
+        "Mochila 0/1 (Knapsack) e Maior Subsequência Comum (LCS)",
       ],
       books: [
-        "Introduction to Algorithms - Thomas H. Cormen et al.",
-        "Algorithm Design - Jon Kleinberg & Éva Tardos",
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
         "Dynamic Programming for Coding Interviews - Meenakshi & Kamal Rawat",
+        "Projeto de Algoritmos - Jon Kleinberg & Éva Tardos",
       ],
       practice: [
         {
           question:
-            "Qual a diferença central e arquitetônica entre 'Dividir para Conquistar' e 'Programação Dinâmica'?",
+            "Qual o erro conceitual grave em aplicar Programação Dinâmica (DP) em um algoritmo tradicional de Dividir para Conquistar, como o MergeSort?",
           answer:
-            "O paradigma Dividir para Conquistar quebra o problema em subproblemas *independentes* (que não se repetem). A Programação Dinâmica é aplicada quando os subproblemas se *sobrepõem* (o algoritmo precisa resolver o mesmo subproblema repetidas vezes). A DP otimiza isso salvando a resposta na memória.",
+            "A DP é matematicamente vantajosa apenas quando há 'Subproblemas Sobrepostos' (o código calcularia as mesmas coisas várias vezes na recursão, como Fibonacci). O MergeSort quebra o array em duas metades totalmente distintas e independentes. Como não há cálculo repetido/sobreposição, salvar os dados intermediários geraria um gasto inútil de memória (Overhead).",
         },
         {
           question:
-            "Quais são os dois ingredientes/características essenciais que um problema deve ter para que a Programação Dinâmica seja aplicável?",
+            "Em otimização de processamento, qual a vantagem real da Tabulação (Bottom-Up) sobre o Memoization (Top-Down)?",
           answer:
-            "1) Subestrutura Ótima: A solução ótima do problema contém as soluções ótimas de seus subproblemas. 2) Subproblemas Sobrepostos: O espaço de subproblemas é pequeno, de modo que um algoritmo recursivo resolve o mesmo subproblema várias vezes.",
-        },
-        {
-          question:
-            "Qual a diferença entre a abordagem Top-Down (Memoization) e Bottom-Up (Tabulação) na Programação Dinâmica?",
-          answer:
-            "Top-down escreve a solução recursivamente de forma natural, mas guarda o resultado de cada subproblema (memoization) para retornar a resposta se chamada novamente. Bottom-up remove a recursão: identifica a ordem dos problemas do menor para o maior e preenche uma tabela (array/matriz) iterativamente, geralmente economizando overhead de chamadas de funções da CPU.",
+            "O Memoization ainda utiliza chamadas recursivas, arriscando estourar a memória limite do sistema (Stack Overflow Error) se a profundidade for gigantesca. A Tabulação repensa a solução usando apenas laços 'for/while' em ordem crescente iterativa sobre uma tabela matricial, eliminando 100% do overhead de invocação de funções e garantindo robustez arquitetural total.",
         },
       ],
       links: [],
     },
     {
       id: "algoritmos_gulosos",
-      label: "Algoritmos Gulosos (Greedy Algorithms)",
+      label: "Algoritmos Gulosos",
       group: 4,
       status: "pending",
       description:
-        "Constrói soluções tomando a decisão localmente ótima e definitiva a cada passo, na esperança de atingir um ótimo global. É o motor matemático por trás de eficientes sistemas operacionais, compressão de dados (Huffman) e aplicações complexas de otimização, como a minimização do número de transações em plataformas de divisão de despesas financeiras.",
+        "Método onde a engine computacional toma a decisão imediatista e mais vantajosa a cada pequeno passo lógico, visando alcançar o melhor cenário global. Usado magistralmente para implementar códigos eficientes de agendamento, compressão e simplificação/minimização radical de transações em plataformas e algoritmos de gestão de gastos.",
       examples: [
-        "A Propriedade da Escolha Gulosa",
-        "Teoria dos Matroides (Matroids)",
-        "Códigos de Huffman e Agendamento de Tarefas",
+        "A Propriedade da Escolha Gulosa e Teoria de Matroides",
+        "Códigos de Huffman (Compressão Ótima)",
+        "Agendamento de Tarefas e Árvores Geradoras Mínimas",
       ],
-      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithm Design - Jon Kleinberg & Éva Tardos"],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Projeto de Algoritmos - Jon Kleinberg & Éva Tardos",
+      ],
       practice: [
         {
-          question: "O que é a 'Propriedade da Escolha Gulosa' e como ela difere do princípio da Programação Dinâmica?",
+          question: "Como a 'Propriedade da Escolha Gulosa' difere estritamente das táticas de Programação Dinâmica?",
           answer:
-            "A propriedade da escolha gulosa afirma que uma solução ótima global pode ser alcançada fazendo uma escolha que parece ser a melhor localmente, no momento, *sem* precisar revisar escolhas anteriores. Na Programação Dinâmica, nós fazemos escolhas baseadas na resolução (e comparação) de subproblemas cujas escolhas globais afetam as locais.",
+            "A escolha gulosa é dogmática e irrevogável: ela pega o que parece ser a melhor opção local naquele instante micro e segue em frente sem voltar atrás (ótimo para minimizar roteamentos de grafos financeiros de forma direta). A Programação Dinâmica avalia o contexto de todas as possibilidades futuras (subproblemas) antes de consolidar sua escolha.",
         },
         {
           question:
-            "Por que um Algoritmo Guloso encontra a solução perfeita para o Problema da Mochila Fracionária, mas falha gravemente no Problema da Mochila 0/1?",
+            "Por que tentar usar um Algoritmo Guloso clássico destruiria a eficiência de cálculos para resolver o Problema da Mochila 0/1?",
           answer:
-            "Na Mochila 0/1, ao fazer a escolha gulosa (pegar o item mais caro), pode sobrar um espaço inútil que comportaria dois itens menores que, somados, valem mais. Na Fracionária, o guloso funciona (ordenando por taxa valor/peso) porque o item pode ser cortado/fracionado para preencher perfeitamente os espaços vazios residuais.",
-        },
-        {
-          question:
-            "No contexto dos Códigos de Huffman para compressão de dados, qual é a escolha gulosa realizada pelo algoritmo?",
-          answer:
-            "Na construção da árvore de códigos de Huffman, a escolha gulosa a cada iteração é sempre selecionar os dois caracteres/nós que possuem as menores frequências de aparição, combinando-os em um novo nó intermediário.",
+            "Se o algoritmo sempre focar em pegar o item mais valioso primeiro sem olhar o contexto de capacidade, ele pode inutilizar o espaço cúbico que abrigaria dois itens menos valiosos, mas que agrupados dariam um lucro final superior ao primeiro. Para preenchimentos discretos e inteiros como esse, a tática gulosa erra a resposta e apenas a DP acerta.",
         },
       ],
       links: [],
     },
     {
-      id: "complexidade_computacional_np",
-      label: "Complexidade Computacional e NP-Completude",
+      id: "algoritmos_de_casamento_de_cadeias",
+      label: "Algoritmos de Casamento de Cadeias",
       group: 4,
       status: "pending",
       description:
-        "O limite do que os computadores conseguem resolver eficientemente. Estuda algoritmos cujas soluções corretas não podem ser encontradas em tempo polinomial, exigindo o uso de heurísticas e algoritmos de aproximação no mundo real.",
+        "O motor algorítmico por trás de buscadores, editores de texto e parsers genéticos. Na engenharia de dados e modelagem preditiva, a extração de features em tempo linear a partir de massivos volumes de texto estruturado exige técnicas que superam a busca força-bruta.",
       examples: [
-        "Classes de Complexidade: P, NP, NP-Difícil e NP-Completo",
-        "Polinômio de Redução e Provas de NP-Completude",
-        "O Problema do Caixeiro Viajante (TSP) e Cobertura de Vértices (Vertex Cover)",
+        "Algoritmo Ingênuo (Naïve) vs Rabin-Karp (Hashing)",
+        "Algoritmo Knuth-Morris-Pratt (KMP)",
+        "Autômatos Finitos para Busca de Strings",
       ],
-      books: ["Introduction to Algorithms - Thomas H. Cormen et al.", "Algorithm Design - Jon Kleinberg & Éva Tardos"],
+      books: ["Algoritmos: Teoria e Prática - Thomas H. Cormen et al."],
       practice: [
         {
-          question: "O que definem as classes P e NP na complexidade computacional?",
+          question:
+            "Como o algoritmo Knuth-Morris-Pratt (KMP) evita retrocessos desnecessários (backtracking) ao buscar palavras em um texto gigante?",
           answer:
-            "A classe P engloba problemas que podem ser *resolvidos* eficientemente (em tempo polinomial) por um computador determinístico. A classe NP engloba problemas cuja solução, se dada por alguém, pode ser *verificada* eficientemente em tempo polinomial.",
+            "O KMP pré-processa a palavra buscada gerando uma matriz de prefixos (tabela Pi). Se houver uma falha de correspondência (mismatch) no meio da verificação, essa tabela diz exatamente o quanto a busca pode avançar baseada nos caracteres que já combinaram, evitando que o ponteiro de leitura do texto principal jamais precise voltar para trás, garantindo tempo O(n).",
         },
         {
           question:
-            "O que significa dizer que um problema, na vida real de um Engenheiro de Software, é 'NP-Completo'?",
+            "De que maneira o algoritmo de Rabin-Karp utiliza Matemática Discreta para acelerar o String Matching?",
           answer:
-            "Significa que o problema é tão 'difícil' quanto qualquer outro problema em NP. É altamente provável que não exista um algoritmo rápido (polinomial) que encontre a solução perfeita (P ≠ NP). Ao deparar com um (como o Caixeiro Viajante), o engenheiro deve parar de tentar achar a solução ótima rápida e passar a usar heurísticas ou algoritmos de aproximação.",
+            "Ele utiliza funções de Hashing e Aritmética Modular. Em vez de comparar os caracteres letra por letra, ele calcula um valor numérico (Hash) da janela atual do texto e compara com o Hash da palavra buscada. Usando um 'Rolling Hash', o custo de deslizar a janela é reduzido a O(1) matemático.",
         },
+      ],
+      links: [],
+    },
+    {
+      id: "algoritmos_em_grafos_e_caminhos_minimos",
+      label: "Algoritmos em Grafos e Caminhos Mínimos",
+      group: 4,
+      status: "pending",
+      description:
+        "A aplicação prática da teoria dos grafos na resolução de problemas de roteamento e otimização de redes. Expandindo abordagens gulosas frequentemente utilizadas em motores de otimização financeira e divisão de contas, engloba a busca pelos trajetos menos custosos e a modelagem de fluxo em sistemas complexos.",
+      examples: [
+        "Caminhos Mínimos (Dijkstra e Bellman-Ford)",
+        "Árvores Geradoras Mínimas (Kruskal e Prim)",
+        "Fluxo Máximo em Redes (Ford-Fulkerson)",
+      ],
+      books: ["Algoritmos: Teoria e Prática - Thomas H. Cormen et al."],
+      practice: [
         {
-          question: "O que é uma 'Redução em Tempo Polinomial' e para que é usada no estudo de NP-Completude?",
+          question:
+            "Por que o algoritmo de Dijkstra não funciona em grafos com arestas de peso negativo, e qual é a alternativa?",
           answer:
-            "É um algoritmo que pega uma instância de um problema A e a transforma (traduz) em uma instância de um problema B em tempo polinomial. É usado para provar a dificuldade de um problema: se você pode traduzir um problema NP-Completo conhecido (A) num problema novo (B), você prova que B é NP-Difícil (tão difícil quanto A).",
+            "Dijkstra assume uma abordagem gulosa onde, uma vez que um nó é visitado, seu custo mínimo está fechado e não diminuirá. Pesos negativos quebram essa premissa matemática. A alternativa é o algoritmo de Bellman-Ford, que relaxa todas as arestas sistematicamente (V-1) vezes, conseguindo não apenas calcular o caminho com pesos negativos, mas também detectar ciclos negativos infinitos.",
         },
         {
           question:
-            "Já que problemas NP-Completos (como Cobertura de Vértices) exigem tempo exponencial para a resposta ótima, qual a solução prática ensinada no livro?",
+            "Como o conceito de 'Fluxo Máximo' se aplica ao balanceamento de tráfego em arquiteturas de microsserviços?",
           answer:
-            "O uso de Algoritmos de Aproximação em tempo polinomial. O CLRS mostra que, para Cobertura de Vértices, existe um algoritmo rápido que garante devolver uma solução que é, no máximo, duas vezes o tamanho da cobertura ótima real (taxa de aproximação de 2).",
+            "Modelando os servidores e roteadores como vértices e a largura de banda como a capacidade das arestas, algoritmos de fluxo máximo (como Ford-Fulkerson) calculam matematicamente a quantidade absoluta de dados (ou requisições) que a infraestrutura suporta enviar da origem ao destino sem saturar nenhum nó intermediário.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "analise_amortizada",
+      label: "Análise Amortizada",
+      group: 4,
+      status: "pending",
+      description:
+        "Técnica de análise de complexidade focada em estruturas de dados dinâmicas. Essencial para provar matematicamente que, mesmo que uma operação específica seja muito custosa (O(n)), o custo médio diluído de uma sequência inteira de operações permanece pequeno e escalável.",
+      examples: [
+        "Método da Agregação",
+        "Método do Potencial (Física aplicadas a estruturas de dados)",
+        "Tabelas Dinâmicas (Resizing de Arrays)",
+      ],
+      books: ["Algoritmos: Teoria e Prática - Thomas H. Cormen et al."],
+      practice: [
+        {
+          question: "Como a análise amortizada garante a performance de arrays dinâmicos na engine V8 do JavaScript?",
+          answer:
+            "Quando o array atinge seu limite e precisa realocar memória, o custo dessa operação específica é O(n). Porém, como a realocação dobra o tamanho da estrutura, a necessidade de realocar se torna exponencialmente mais rara. A análise amortizada prova que o custo diluído por inserção na sequência inteira se mantém rigidamente em O(1).",
+        },
+        {
+          question: "Qual a diferença central entre Análise Amortizada e a análise de Caso Médio (Average Case)?",
+          answer:
+            "A análise de caso médio baseia-se em probabilidade (espera-se que a entrada não seja o pior cenário). A análise amortizada não usa probabilidade; ela garante um limite estrito e absoluto de pior caso para uma *sequência* de operações, provando que o pior caso sistêmico não pode ocorrer com frequência suficiente para degradar o sistema.",
+        },
+      ],
+      links: [],
+    },
+    // 5. Estruturas de Dados
+    {
+      id: "estruturas_de_dados",
+      label: "Estruturas de Dados",
+      group: 5,
+      status: "pending",
+      description:
+        "A organização física e o layout da informação na memória (RAM e Disco). Separa a lógica teórica da implementação de sistemas reais. A escolha da estrutura correta é o que permite sustentar os princípios de Clean Code, viabilizando o encapsulamento eficiente de estado e a escalabilidade de aplicações sob alta carga.",
+      examples: [
+        "Tipos de Dados Abstratos (ADTs) vs Estruturas Físicas",
+        "Trade-offs: Consumo de Memória vs Tempo de CPU",
+        "Alocação Estática vs Alocação Dinâmica",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+        "Estruturas de Dados e Algoritmos - Aho, Hopcroft, Ullman",
+      ],
+      practice: [
+        {
+          question: "Qual a diferença conceitual entre um 'Tipo de Dado Abstrato' (ADT) e uma 'Estrutura de Dados'?",
+          answer:
+            "O ADT é o contrato ou a interface lógica (ex: uma 'Fila' especifica que o primeiro a entrar deve ser o primeiro a sair - FIFO). A Estrutura de Dados é a implementação física real na memória que faz esse contrato funcionar (ex: implementar a Fila usando um Array circular contíguo ou usando ponteiros soltos de uma Lista Encadeada).",
+        },
+        {
+          question:
+            "Por que a compreensão do layout de memória é vital ao modernizar sistemas legados e orquestrar grandes fluxos de dados?",
+          answer:
+            "Porque abstrações de alto nível frequentemente mascaram o custo real das operações. Escolher a estrutura errada ao refatorar um sistema (ex: usar arrays longos onde exclusões constantes ocorrem no meio do dado) gera gargalos de alocação exponencial, degradando o tempo de resposta do servidor à medida que a base de usuários cresce.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "arrays_e_strings",
+      label: "Arrays e Strings",
+      group: 5,
+      status: "pending",
+      description:
+        "Estruturas de alocação de blocos contíguos de memória. Oferecem acesso aleatório O(1), mas possuem custo elevado para redimensionamento. São a base fundamental para indexação vetorial e preparação de dados no treinamento de modelos preditivos e machine learning.",
+      examples: [
+        "Arrays Estáticos vs Arrays Dinâmicos (Vectors/ArrayLists)",
+        "Localidade de Cache (Cache Locality)",
+        "Manipulação e Busca em Strings",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+        "Estruturas de Dados e Algoritmos - Aho, Hopcroft, Ullman",
+      ],
+      practice: [
+        {
+          question:
+            "Como funciona internamente um 'Array Dinâmico' (como os vetores em C++ ou arrays dinâmicos no núcleo do Node.js) se a memória precisa ser contígua?",
+          answer:
+            "Quando a capacidade física máxima do array inicial é atingida, o sistema operacional aloca secretamente um novo bloco contíguo de memória com o dobro do tamanho. Ele copia todos os dados antigos para o novo espaço (custo O(n)) e deleta o antigo. O tempo médio diluído de inserção continua sendo O(1) (Custo Amortizado).",
+        },
+        {
+          question:
+            "Por que algoritmos de benchmark em machine learning (como Scikit-Learn ou XGBoost) preferem trabalhar massivamente com matrizes e arrays contíguos em vez de estruturas dinâmicas com ponteiros?",
+          answer:
+            "Devido à 'Localidade de Cache' da arquitetura de CPU. Quando um processador acessa o índice [0] de um array, ele carrega automaticamente os próximos dados contíguos ([1], [2], [3]) para a memória cache ultrarrápida L1/L2. Isso torna o processamento matricial vetorial dezenas de vezes mais veloz do que pular pela memória caçando ponteiros espalhados.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "listas_encadeadas",
+      label: "Listas Encadeadas",
+      group: 5,
+      status: "pending",
+      description:
+        "Coleções de nós isolados na memória conectados por ponteiros. Brilham em cenários de alta volatilidade, onde inserções e remoções ocorrem constantemente em posições arbitrárias, permitindo crescimento orgânico sem realocações maciças.",
+      examples: [
+        "Listas Simplesmente e Duplamente Encadeadas",
+        "Listas Circulares",
+        "Técnicas de Ponteiros (Fast e Slow Pointers)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+      ],
+      practice: [
+        {
+          question:
+            "Em cenários de frontend moderno ou arquiteturas focadas em interfaces, em que situação uma Lista Duplamente Encadeada seria superior a um Array padrão?",
+          answer:
+            "Ao implementar componentes com um grande volume de manipulação no meio da estrutura, como um carrossel infinito ou gerenciamento de abas complexas, onde precisamos de navegação bidirecional instantânea O(1) (anterior/próximo) e remoção de nós arbitrários sem precisar empurrar (fazer 'shift') de milhares de elementos subsequentes, como o Array exigiria.",
+        },
+        {
+          question:
+            "Qual o principal 'Débito' ou desvantagem de adotar Listas Encadeadas para dados primitivos pequenos?",
+          answer:
+            "O custo ou 'overhead' de memória. Para guardar um simples número inteiro de 4 bytes, o nó da lista precisa de mais 8 bytes adicionais em um sistema 64-bits apenas para armazenar a flecha (ponteiro) apontando para o próximo elemento. Você mais do que triplica o consumo de RAM só com metadados estruturais.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "pilhas_e_filas",
+      label: "Pilhas e Filas",
+      group: 5,
+      status: "pending",
+      description:
+        "Estruturas de restrição de acesso lógico. Essenciais na arquitetura moderna: pilhas (LIFO) gerenciam estados de renderização, enquanto filas (FIFO) orquestram trabalhos assíncronos (Jobs/Workers) em arquiteturas de microsserviços.",
+      examples: [
+        "Pilhas (LIFO) e Casos de Uso (Undo/Redo, Parsing)",
+        "Filas (FIFO) e Filas Circulares (Ring Buffers)",
+        "Deques (Filas de Duas Pontas)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+      ],
+      practice: [
+        {
+          question: "Como o conceito lógico de Fila (FIFO) resolve gargalos de concorrência no backend de um ERP SaaS?",
+          answer:
+            "Para evitar que transações pesadas travem o portal para o usuário, o backend enfileira as requisições demoradas (como geração de relatórios de impostos ou disparos de email) em uma Fila de jobs assíncrona. Os Workers consomem essa fila rigidamente na ordem de chegada (FIFO), suavizando a carga no banco de dados e mantendo a UI fluida.",
+        },
+        {
+          question:
+            "Por que uma Fila tradicional baseada em Array sofre do problema de 'Falso Cheio' e como a Fila Circular (Ring Buffer) resolve isso?",
+          answer:
+            "Na fila de array clássico, ao retirar elementos (dequeue) da frente e inserir (enqueue) atrás, os espaços iniciais ficam ociosos. Quando o índice traseiro chega no fim da memória, a fila diz que está cheia, mesmo com espaços vagos na frente. O Ring Buffer resolve isso usando o operador Módulo (%) para que os índices deem 'a volta' e reaproveitem os espaços descartados da frente.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "tabelas_hash",
+      label: "Tabelas Hash",
+      group: 5,
+      status: "pending",
+      description:
+        "O suprassumo do acesso aleatório rápido. Realizam o mapeamento de Chave-Valor em tempo O(1) médio. Servem como núcleo absoluto para sistemas de cache (Redis), gerenciamento de sessões, indexação em bancos NoSQL e estado otimizado em aplicações reativas.",
+      examples: [
+        "Funções de Dispersão (Hash Functions)",
+        "Tratamento de Colisões: Encadeamento Separado (Chaining)",
+        "Tratamento de Colisões: Endereçamento Aberto (Linear/Quadratic Probing)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos - Aho, Hopcroft, Ullman",
+      ],
+      practice: [
+        {
+          question:
+            "O que é uma 'Colisão' em uma Tabela Hash e por que é matematicamente impossível evitá-la completamente em conjuntos infinitos?",
+          answer:
+            "A colisão ocorre quando a função Hash mapeia duas 'chaves' diferentes para o mesmo 'índice' limitado do array físico. É impossível evitar devido ao Princípio da Casa dos Pombos: o universo possível de chaves (como strings de nomes) é infinitamente maior do que o tamanho alocado em RAM para a tabela de arrays físicos subjacentes.",
+        },
+        {
+          question: "Como o Encadeamento Separado (Separate Chaining) lida arquiteturalmente com colisões intensas?",
+          answer:
+            "Em vez de guardar o valor diretamente no array, cada índice do array aponta para uma Lista Encadeada (ou Árvore Balanceada em implementações modernas de Java/V8). Se várias chaves caírem no índice [5], a estrutura simplesmente anexa os novos nós no fim da lista encadeada pendurada naquele espaço.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "arvores_e_bst",
+      label: "Árvores Básicas e Árvores Binárias de Busca",
+      group: 5,
+      status: "pending",
+      description:
+        "O modelo de dados não-linear. Árvores moldam o núcleo hierárquico do desenvolvimento web (a árvore do DOM no Javascript e o Virtual DOM no Vue/React), enquanto as Árvores Binárias de Busca introduzem a ordenação estrutural em tempo logarítmico O(log n).",
+      examples: [
+        "Propriedades Básicas (Raiz, Folhas, Altura, Profundidade)",
+        "Árvores Binárias de Busca (BST) - Inserção e Remoção",
+        "Travessias de Árvore (In-Order, Pre-Order, Post-Order)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+      ],
+      practice: [
+        {
+          question:
+            "Por que uma Busca em profundidade utilizando a travessia lógica 'In-Order' em uma Árvore Binária de Busca (BST) é tão valorizada?",
+          answer:
+            "Porque, por definição de design, ao percorrer uma BST na sequência In-Order (Visita Esquerda -> Processa Raiz -> Visita Direita), os nós armazenados serão extraídos e processados de forma perfeitamente ordenada/crescente, sem precisar rodar nenhum algoritmo extra de ordenação (como QuickSort).",
+        },
+        {
+          question: "Qual o 'calcanhar de aquiles' sistêmico de uma BST comum não balanceada?",
+          answer:
+            "Se você inserir dados que já estão previamente ordenados nela (ex: 1, 2, 3, 4, 5), ela não criará ramificações estruturais. A árvore vai pender inteiramente para um único lado (direita), degenerando-se fisicamente numa Lista Encadeada comum, tornando o tempo de busca que deveria ser O(log n) no desastroso O(n).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "arvores_balanceadas_e_b_trees",
+      label: "Árvores Balanceadas",
+      group: 5,
+      status: "pending",
+      description:
+        "A resposta matemática para a degeneração hierárquica. Mantêm a complexidade logarítmica O(log n) forçando rotações corretivas de nós. A variante B-Tree é o motor estrutural por trás dos índices dos maiores bancos de dados transacionais do mercado (PostgreSQL/MySQL).",
+      examples: [
+        "Autobalanceamento: Rotações à Esquerda e Direita",
+        "Árvores Red-Black (Garantias Assintóticas em RAM)",
+        "B-Trees e B+Trees (Otimização para Leitura em Discos Magnéticos/SSDs)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos - Aho, Hopcroft, Ullman",
+      ],
+      practice: [
+        {
+          question:
+            "Por que bancos de dados como o PostgreSQL utilizam B-Trees para criar Índices de busca primários em vez das famosas Árvores Red-Black?",
+          answer:
+            "As Red-Black trees são ótimas em RAM, mas cada nó guarda apenas 1 dado e possui 2 filhos. Ao buscar no Disco (Hard Drive), buscar centenas de nós isolados gera excesso de operações I/O de disco lentas. B-Trees possuem 'Nós Gigantes' (Páginas) que guardam milhares de dados de uma vez (nós gordos) em formato largo, permitindo carregar toda a indexação em blocos nativos da arquitetura de disco, com pouquíssima profundidade e pulos.",
+        },
+        {
+          question: "Qual a propriedade central lógica da Árvore AVL que engatilha o autobalanceamento?",
+          answer:
+            "A regra invariante de que a diferença de Altura entre a subárvore esquerda e a subárvore direita de QUALQUER nó do sistema não pode ser maior do que 1 (fator de balanceamento). Se após uma inserção essa regra for violada, rotações precisas ocorrem instantaneamente para reequilibrar o peso.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "heaps_e_filas_de_prioridade",
+      label: "Heaps e Filas de Prioridade",
+      group: 5,
+      status: "pending",
+      description:
+        "Estruturas otimizadas puramente para recuperar o maior (Max) ou menor (Min) valor em O(1). São cruciais no agendamento de pacotes prioritários no núcleo de sistemas operacionais e servem como a espinha dorsal lógica na orquestração de algoritmos gulosos (*greedy*) voltados para a minimização de transações financeiras.",
+      examples: [
+        "Propriedade de Heap (Max-Heap e Min-Heap)",
+        "Representação física de Árvore Completa utilizando Arrays",
+        "Construção Linear: Heapify O(n)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+      ],
+      practice: [
+        {
+          question:
+            "Ao desenvolver um sistema complexo de divisão e liquidação de despesas em grupo (que utiliza algoritmos gulosos para minimizar as transferências financeiras interbancárias), como as Filas de Prioridade sustentam essa arquitetura?",
+          answer:
+            "O algoritmo guloso busca casar instantaneamente a pessoa que deve o 'maior' valor com a pessoa que precisa receber o 'maior' valor num dado momento. Ao usar duas Filas de Prioridade (Max-Heaps) - uma para devedores e outra para credores -, a aplicação extrai O(1) ambos os polos críticos, abate a dívida rapidamente na memória e reinsere os saldos residuais em O(log n), esmagando a necessidade de laços encadeados lentos para caçar os usuários.",
+        },
+        {
+          question:
+            "Como uma 'Árvore Heap' consegue ser armazenada fisicamente em um simples Array sem usar ponteiros?",
+          answer:
+            "Como o Heap é forçosamente preenchido da esquerda para a direita (Árvore Binária Quase Completa), podemos usar as propriedades numéricas dos índices matriciais: se o pai está no índice 'i', seu filho da esquerda estará sempre no índice '2i + 1', e o da direita em '2i + 2'. Isso economiza memória RAM abolindo todos os ponteiros estruturais.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "representacao_de_grafos",
+      label: "Representação de Grafos",
+      group: 5,
+      status: "pending",
+      description:
+        "A tradução de redes matemáticas conectadas para a memória. Modela dependências de projetos reais (como Grafos Acíclicos Direcionados gerenciando monorepos e pipelines em ferramentas como pnpm e Turborepo) e o rastreamento logístico de redes.",
+      examples: [
+        "Listas de Adjacência vs Matrizes de Adjacência",
+        "Pesos de Arestas e Direcionalidade (Grafos Direcionados/DAGs)",
+        "Complexidade de Espaço e Travessias Base (BFS, DFS)",
+      ],
+      books: [
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+        "Estruturas de Dados e Algoritmos - Aho, Hopcroft, Ullman",
+      ],
+      practice: [
+        {
+          question:
+            "Ao modelar uma topologia de rede extensa que possui 10 mil vértices, mas onde cada usuário (nó) possui apenas 3 a 5 conexões (um 'Grafo Esparso'), qual a representação física recomendada?",
+          answer:
+            "A Lista de Adjacência. Se usar uma Matriz de Adjacência (10.000 x 10.000), o sistema consumirá centenas de Megabytes para alocar 100 milhões de células, sendo que 99,9% delas estariam preenchidas com zeros irrelevantes (desperdício colossal). A Lista armazena e itera exclusivamente os vínculos reais de rede existentes.",
+        },
+        {
+          question:
+            "Como uma travessia Busca em Largura (BFS) numa representação de Grafo difere da Busca em Profundidade (DFS) fisicamente no código?",
+          answer:
+            "A BFS estrutura sua fila de nós para visitar armazenando-os numa 'Fila' padrão (FIFO) na memória RAM, garantindo a análise irradiando passo a passo. A DFS é programada instanciando as visitas do nó em uma 'Pilha' (LIFO), o que geralmente é feito delegando a alocação de forma elegante diretamente para a Call Stack recursiva da linguagem base.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "matrizes",
+      label: "Matrizes",
+      group: 5,
+      status: "pending",
+      description:
+        "A extensão natural dos arrays unidimensionais para múltiplas dimensões. Estrutura basilar para armazenar tabelas de dados, mapear grids espaciais (pixels em imagens) e fundamentar a computação vetorial exigida em algoritmos de Machine Learning e Programação Dinâmica.",
+      examples: [
+        "Matrizes 2D (Linhas e Colunas) e Tensores N-Dimensionais",
+        "Layout de Memória: Row-major vs Column-major order",
+        "Matrizes Esparsas (Sparse Matrices)",
+      ],
+      books: [
+        "Estruturas de Dados e Algoritmos em Java - Robert Lafore",
+        "Algoritmos: Teoria e Prática - Thomas H. Cormen et al.",
+      ],
+      practice: [
+        {
+          question: "O que é uma 'Matriz Esparsa' e como otimizamos seu armazenamento na RAM?",
+          answer:
+            "É uma matriz onde a esmagadora maioria dos elementos tem valor zero (ex: um grafo de rede social onde a maioria das pessoas não se conhece). Em vez de alocar uma grade NxN gigante e desperdiçar RAM com zeros, usamos estruturas otimizadas (como dicionários de coordenadas ou Listas de Adjacência) para gravar apenas os índices que possuem valores reais.",
+        },
+        {
+          question:
+            "Como o conceito de 'Row-major order' afeta a performance ao iterar sobre uma matriz com laços 'for' aninhados?",
+          answer:
+            "Linguagens como C/C++ guardam os dados de uma linha de forma contígua na memória física (Row-major). Se o seu código iterar travando a coluna e pulando de linha em linha, o processador perderá a vantagem do Cache L1/L2, causando lentidão maciça (Cache Misses). Iterar sempre linha por linha garante a localidade de referência e máxima performance.",
         },
       ],
       links: [],
@@ -2024,20 +2832,22 @@ const graphData = {
       group: 9,
       status: "pending",
       description:
-        "A matemática da lógica digital. Ensina as regras e teoremas usados para calcular e manipular expressões que só possuem dois valores possíveis: verdadeiro (1) ou falso (0).",
+        "A matemática que sustenta a computação. Este tópico conecta a lógica proposicional abstrata — regras, teoremas e manipulação de variáveis binárias — com a implementação física em circuitos de hardware, cobrindo desde a simplificação matemática até a otimização de arquiteturas de processadores.",
       examples: [
-        "Tabelas-Verdade",
-        "Teoremas Booleanos e Postulados",
-        "Leis de DeMorgan",
-        "Formas Padrão: Soma de Produtos (SOP)",
+        "Tabelas-Verdade e Teoremas Booleanos",
+        "Leis de DeMorgan e Princípio da Dualidade",
+        "Portas Lógicas Universais (NAND, NOR)",
+        "Formas Padrão (SOP/POS) e Minimização via Mapas de Karnaugh (K-Maps)",
       ],
-      books: ["Sistemas Digitais: Princípios e Aplicações - Ronald J. Tocci"],
+      books: [
+        "Sistemas Digitais: Princípios e Aplicações - Ronald J. Tocci",
+        "Matemática Discreta e Suas Aplicações - Kenneth H. Rosen",
+      ],
       practice: [
         {
-          question:
-            "Utilizando as Leis de DeMorgan, simplifique analiticamente a expressão booleana: Z = NOT(A * NOT(B) * C).",
+          question: "Utilizando as Leis de DeMorgan, simplifique: Z = NOT(A * NOT(B) * C).",
           answer:
-            "A Lei de DeMorgan diz que o inverso de um produto é a soma dos inversos. Logo: Z = NOT(A) + NOT(NOT(B)) + NOT(C). Como duas inversões se anulam (NOT(NOT(B)) = B), a expressão final simplificada fica: Z = NOT(A) + B + NOT(C).",
+            "A Lei de DeMorgan inverte os operadores: Z = NOT(A) + NOT(NOT(B)) + NOT(C). Como NOT(NOT(B)) = B, a expressão é Z = NOT(A) + B + NOT(C).",
         },
       ],
       links: [],
@@ -2109,6 +2919,11 @@ const graphData = {
             "Como as condições irrelevantes (Don't-Care), marcadas com um 'X' no Mapa de Karnaugh, ajudam a deixar um circuito mais barato e simples?",
           answer:
             "Os 'X' representam entradas que nunca vão acontecer na vida real do circuito. Como a saída deles não importa, o projetista pode assumir que valem '1' ou '0'. Escolhemos transformá-los em '1' sempre que isso ajudar a formar grupos maiores no mapa, o que elimina mais variáveis e corta custos do circuito.",
+        },
+        {
+          question: "Qual o papel dos Mapas de Karnaugh (K-Maps) na engenharia?",
+          answer:
+            "Oferecem um método visual para simplificar expressões booleanas, garantindo que o circuito final utilize o número mínimo de transistores. Isso otimiza o consumo de energia e reduz o atraso de propagação (delay) no hardware.",
         },
       ],
       links: [],
@@ -2328,11 +3143,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 11. Arquitetura de Computadores
+    // 10. Arquitetura de Computadores
     {
       id: "arquitetura_de_computadores",
       label: "Arquitetura de Computadores",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A ponte entre o hardware elétrico e o software que usamos. Estuda como montar, organizar e medir o desempenho de um computador equilibrando velocidade, custo e consumo de energia.",
@@ -2358,7 +3173,7 @@ const graphData = {
     {
       id: "tipos_computadores",
       label: "Classes e Tipos de Computadores",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A classificação dos computadores de acordo com a finalidade de mercado. Mostra como o projeto do hardware muda drasticamente se o chip for usado em um relógio de pulso ou em um servidor do Google.",
@@ -2382,7 +3197,7 @@ const graphData = {
     {
       id: "arquitetura_von_neumann",
       label: "Arquitetura Von Neumann",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O modelo clássico em que praticamente todos os computadores baseiam-se hoje. O seu grande diferencial foi colocar tanto os dados do usuário quanto as instruções do programa dentro da mesma memória unificada.",
@@ -2408,7 +3223,7 @@ const graphData = {
     {
       id: "isa",
       label: "ISA (Arquitetura do Conjunto de Instruções)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A linguagem oficial que o processador entende. É o 'manual de regras' que faz a ponte entre o hardware e o software, definindo quais comandos matemáticos e de memória existem no chip.",
@@ -2433,7 +3248,7 @@ const graphData = {
     {
       id: "assembly",
       label: "Linguagem Assembly",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A forma textual do código de máquina. Em vez de obrigar o programador a escrever tudo com zeros e uns, o Assembly usa palavras curtas (como ADD, SUB, MOV) para representar as instruções do processador.",
@@ -2456,7 +3271,7 @@ const graphData = {
     {
       id: "isa_cisc_x86",
       label: "ISA CISC (Família x86)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "Computadores com Conjunto Complexo de Instruções. A filosofia aqui é ter instruções muito poderosas, que façam o trabalho matemático e o acesso à memória na mesma linha, gerando programas pequenos em tamanho.",
@@ -2479,7 +3294,7 @@ const graphData = {
     {
       id: "isa_risc_arm",
       label: "ISA RISC (ARM, RISC-V)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "Computadores com Conjunto Reduzido de Instruções. O foco vira o jogo: usa apenas instruções muito simples e todas do mesmo tamanho, o que facilita construir um hardware extremamente rápido e limpo.",
@@ -2502,7 +3317,7 @@ const graphData = {
     {
       id: "cpu",
       label: "A Unidade Central de Processamento (CPU)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O verdadeiro cérebro da máquina. É a estrutura gigante que passa a vida repetindo três passos: busca uma instrução na memória, decifra o que ela quer fazer, e aciona os circuitos para executá-la.",
@@ -2527,7 +3342,7 @@ const graphData = {
     {
       id: "cpu_ula",
       label: "Unidade Lógica e Aritmética (ULA/ALU)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O núcleo matemático da CPU. Um gigantesco emaranhado de portas lógicas que não tem inteligência, apenas obedece comandos para somar, subtrair, ou comparar duas palavras de bits.",
@@ -2551,7 +3366,7 @@ const graphData = {
     {
       id: "cpu_uc",
       label: "Unidade de Controle (UC)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O maestro do processador. Ela não faz contas, mas lê o código da instrução e dispara dezenas de sinais elétricos que ativam a ULA, os registradores e a memória na hora exata.",
@@ -2577,7 +3392,7 @@ const graphData = {
     {
       id: "cpu_clock",
       label: "Clock, Tempo e Sincronização",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O oscilador eletrônico que funciona como o metrônomo do processador. Os pulsos de energia dão o ritmo para garantir que as correntes elétricas terminem de fluir antes do próximo passo.",
@@ -2600,7 +3415,7 @@ const graphData = {
     {
       id: "cpu_arquiteturas",
       label: "Microarquiteturas Avançadas e Pipelining",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "As grandes mágicas de engenharia feitas para executar várias instruções ao mesmo tempo dentro de um mesmo núcleo, sem aumentar a velocidade do clock.",
@@ -2624,7 +3439,7 @@ const graphData = {
     {
       id: "paralelismo_multiprocessadores",
       label: "Paralelismo e Multiprocessadores",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "Como conectar vários processadores para trabalharem juntos. Explora do processamento em vetor das placas de vídeo até a Lei de Amdahl, que dita o limite matemático de quanto um software consegue ficar mais rápido.",
@@ -2648,7 +3463,7 @@ const graphData = {
     {
       id: "cpu_tipos",
       label: "Evolução e Tipos de Processadores",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "Mostra como o design da CPU evoluiu. Analisa as especializações físicas, indo desde processadores com muitos núcleos para uso diário, até placas de vídeo massivas desenhadas para hiper-paralelismo.",
@@ -2671,7 +3486,7 @@ const graphData = {
     {
       id: "memoria",
       label: "O Subsistema de Memória",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O amplo conjunto de tecnologias encarregadas de guardar a informação do computador, variando dos flip-flops que alimentam a ULA até os enormes discos que guardam o sistema operacional.",
@@ -2697,7 +3512,7 @@ const graphData = {
     {
       id: "hierarquia_memoria",
       label: "A Hierarquia de Memória",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A genial organização em formato de pirâmide. O computador finge ter uma memória gigante e incrivelmente rápida colocando chips caros e pequenos no topo, e memórias massivas e baratas na base.",
@@ -2721,7 +3536,7 @@ const graphData = {
     {
       id: "memoria_principal",
       label: "Memória Principal (RAM)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O imenso espaço de trabalho volátil do computador. É aqui que os arquivos parados do disco ganham vida e passam a ser dados ativos prontos para o processador manipular.",
@@ -2744,7 +3559,7 @@ const graphData = {
     {
       id: "caches_niveis",
       label: "Memórias Cache (L1, L2, L3)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "As guardiãs da CPU. Memórias minúsculas, caras e puramente de SRAM de altíssima velocidade grudadas no processador. A função exclusiva delas é interceptar a RAM principal para evitar que a CPU fique esperando.",
@@ -2767,7 +3582,7 @@ const graphData = {
     {
       id: "armazenamento_secundario",
       label: "Armazenamento Secundário (HDs e SSDs)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A base gorda, lenta e persistente da pirâmide. Guarda todos os programas, o sistema operacional e as fotos do usuário indefinidamente, mesmo quando o sistema é totalmente desenergizado da tomada.",
@@ -2790,7 +3605,7 @@ const graphData = {
     {
       id: "entrada_saida",
       label: "O Sistema de Entrada e Saída (I/O)",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "O porto de contato entre o cérebro da máquina e o mundo humano e de periféricos. É uma arquitetura focada em compatibilizar a CPU absurdamente rápida com impressoras e placas lentas e assíncronas.",
@@ -2816,7 +3631,7 @@ const graphData = {
     {
       id: "barramentos_interrupcoes",
       label: "Barramentos, Interrupções e DMA",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A logística nervosa do trânsito de dados do PC. Estuda como as vias de fios são organizadas, como os componentes ganham prioridade de fala e como aparelhos pedem socorro para a CPU processá-los.",
@@ -2839,7 +3654,7 @@ const graphData = {
     {
       id: "dispositivos_io",
       label: "Dispositivos Periféricos",
-      group: 11,
+      group: 10,
       status: "pending",
       description:
         "A classificação lógica dos aparelhos finais instalados nas pontas do computador de acordo com o modo exato em que recebem e empacotam o fluxo de zeros e uns.",
@@ -2859,11 +3674,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 12. Sistemas Operacionais
+    // 11. Sistemas Operacionais
     {
       id: "sistemas_operacionais",
       label: "Sistemas Operacionais",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O software mestre que atua como tradutor e gerente geral. Ele esconde toda a fiação e complexidade da placa-mãe criando uma 'máquina virtual' limpa e fácil de usar, enquanto divide de forma justa a CPU, a RAM e o disco entre todos os programas abertos.",
@@ -2886,7 +3701,7 @@ const graphData = {
     {
       id: "kernel_so",
       label: "Núcleo do Sistema (Kernel)",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O coração do sistema operacional. É a porção de código que fica carregada na memória RAM o tempo todo e possui poder absoluto e irrestrito sobre a máquina. É ele quem decide qual programa usa o processador e quando.",
@@ -2905,7 +3720,7 @@ const graphData = {
     {
       id: "modo_usuario_kernel",
       label: "Modos de Execução",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "A barreira de segurança construída fisicamente no chip do processador. O computador é dividido em Modo Usuário (onde os programas rodam em uma 'caixa de areia' sem poder danificar o hardware) e Modo Kernel (permissão total).",
@@ -2928,7 +3743,7 @@ const graphData = {
     {
       id: "chamadas_de_sistema",
       label: "Chamadas de Sistema (System Calls)",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O 'guichê de atendimento' do sistema. Como os programas normais estão presos no Modo Usuário e não podem tocar na placa-mãe, eles usam essas chamadas para pedir educadamente ao Kernel que salve um arquivo ou acesse a internet por eles.",
@@ -2951,7 +3766,7 @@ const graphData = {
     {
       id: "tratamento_de_interrupcoes",
       label: "Tratamento de Interrupções",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O sistema de alarme da máquina. Se você clicar o mouse, o hardware envia um choque que pausa a CPU imediatamente. O SO atende essa interrupção, anota o clique e devolve a CPU para o que estava fazendo antes.",
@@ -2974,7 +3789,7 @@ const graphData = {
     {
       id: "device_drivers",
       label: "Device Drivers",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "Os manuais de instrução dos periféricos. Como o SO não sabe a língua de todas as impressoras ou placas de vídeo do mundo, os drivers são pequenos códigos injetados no Kernel que ensinam o sistema a comandar os chips elétricos corretos.",
@@ -2997,7 +3812,7 @@ const graphData = {
     {
       id: "sistemas_de_arquivos",
       label: "Sistemas de Arquivos",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "A biblioteca lógica do sistema operacional. Transforma os bilhões de setores e trilhas confusas do disco rígido em uma estrutura elegante e familiar de pastas, diretórios e nomes de arquivos que os usuários conseguem entender e organizar.",
@@ -3016,7 +3831,7 @@ const graphData = {
     {
       id: "escalonamento_de_processos",
       label: "Escalonamento de Processos",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O relógio de ponto da CPU. O Escalonador é o algoritmo que escolhe qual programa vai rodar no processador e por quantos milissegundos. Ele troca os programas tão rápido que cria a ilusão de que tudo roda ao mesmo tempo.",
@@ -3044,7 +3859,7 @@ const graphData = {
     {
       id: "gerenciamento_de_threads",
       label: "Gerenciamento de Threads",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "A divisão de trabalho dentro de um mesmo programa. Uma 'Thread' é como um braço do processo. Ela permite que um editor de texto use um braço para salvar o arquivo no disco enquanto o outro braço continua aceitando a sua digitação.",
@@ -3073,7 +3888,7 @@ const graphData = {
     {
       id: "condicoes_de_corrida",
       label: "Condições de Corrida",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O caos do trabalho em equipe desorganizado. Acontece quando duas threads mexem na mesma variável ou arquivo exatamente no mesmo microssegundo. Uma apaga a conta matemática da outra e o resultado fica corrompido e imprevisível.",
@@ -3096,7 +3911,7 @@ const graphData = {
     {
       id: "deadlocks",
       label: "Impasses (Deadlocks)",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O 'abraço da morte' dos computadores. É um travamento total e sem volta onde o Programa A segura o HD e espera a Placa de Rede, e o Programa B segura a Placa de Rede e espera o HD. Como nenhum solta, os dois congelam para sempre.",
@@ -3125,7 +3940,7 @@ const graphData = {
     {
       id: "gerenciamento_de_memoria",
       label: "Gerenciamento de Memória",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O zelador e segurança do espaço eletrônico. O SO cataloga quais partes da RAM estão vazias para abrir novos programas e constrói escudos virtuais para impedir que o navegador invada ou apague os dados do antivírus.",
@@ -3148,7 +3963,7 @@ const graphData = {
     {
       id: "memoria_virtual",
       label: "Memória Virtual",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "A maior mágica dos sistemas operacionais. O sistema mente para os programas, fingindo que cada um deles é o dono absoluto de uma RAM gigantesca de 64 GB, quando na verdade, o SO fatia os programas em blocos na RAM física e no HD.",
@@ -3170,7 +3985,7 @@ const graphData = {
     {
       id: "paginacao",
       label: "Paginação",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "O principal método para fazer a Memória Virtual funcionar. Divide a memória falsa do programa e a memória RAM real em blocos rigorosamente do mesmo tamanho (Páginas), permitindo que o SO brinque de Lego encaixando as peças onde quiser.",
@@ -3199,7 +4014,7 @@ const graphData = {
     {
       id: "segmentacao",
       label: "Segmentação",
-      group: 12,
+      group: 11,
       status: "pending",
       description:
         "Um modelo alternativo para gerenciar a memória virtual. Em vez de usar blocos travados do mesmo tamanho como a Paginação faz, ela divide o programa de acordo com as funções da programação (um pedaço para o código, outro só para as variáveis).",
@@ -3218,11 +4033,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 13. Redes de Computadores
+    // 12. Redes de Computadores
     {
       id: "redes_de_computadores",
       label: "Redes de Computadores",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A espinha dorsal da internet. Estuda como interligar computadores isolados para trocar informações através de um conjunto de regras e camadas, permitindo que um celular no Brasil acesse perfeitamente um servidor no Japão.",
@@ -3240,7 +4055,7 @@ const graphData = {
     {
       id: "modelo_osi",
       label: "O Modelo OSI",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A estrutura teórica de 7 camadas criada pela ISO. Embora quase ninguém use o OSI puro na prática hoje, ele é o modelo didático universal usado para explicar como as redes dividem problemas complexos em pedaços menores.",
@@ -3262,7 +4077,7 @@ const graphData = {
     {
       id: "modelo_tcp_ip",
       label: "O Modelo TCP/IP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A arquitetura prática e enxuta que venceu a guerra das normas e construiu a internet real. Foca menos no rigor acadêmico do OSI e mais na sobrevivência militar e na eficiência de repasse de pacotes.",
@@ -3285,7 +4100,7 @@ const graphData = {
     {
       id: "camada_fisica_redes",
       label: "Camada Física",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A camada 1 do modelo OSI. Trata da transmissão de bits brutos por um canal de comunicação, envolvendo voltagens, temporização, feixes de luz e pinagem de cabos.",
@@ -3303,7 +4118,7 @@ const graphData = {
     {
       id: "meios_de_transmissao",
       label: "Meios de Transmissão",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Os canais físicos pelos quais a informação trafega: fios de cobre (par trançado/coaxial), fibras ópticas e espectro eletromagnético (sem fio).",
@@ -3321,7 +4136,7 @@ const graphData = {
     {
       id: "modulacao_e_sinais",
       label: "Modulação e Sinais",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O processo de converter dados digitais do computador em sinais físicos, variando propriedades como amplitude, frequência ou fase de uma onda para representar informações na vida real.",
@@ -3339,7 +4154,7 @@ const graphData = {
     {
       id: "camada_de_enlace",
       label: "Camada de Enlace",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A camada 2 do modelo OSI. Pega os bits soltos que chegam da camada física e os organiza em caixas estruturadas chamadas Quadros (Frames), garantindo a entrega do pacote entre duas máquinas conectadas diretamente.",
@@ -3357,7 +4172,7 @@ const graphData = {
     {
       id: "subcamada_mac",
       label: "Subcamada MAC",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Media Access Control. O 'guarda de trânsito' da camada de enlace que lida com regras de acesso a meios compartilhados, decidindo quem pode falar e quando, caso vários PCs usem o mesmo cabo ou rede Wi-Fi.",
@@ -3376,7 +4191,7 @@ const graphData = {
     {
       id: "vlans",
       label: "VLANs (Redes Locais Virtuais)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A técnica da Camada de Enlace que permite fatiar um único Switch físico em vários switches lógicos isolados. Utilizado para separar e trancar o tráfego de diferentes departamentos (ex: RH e Financeiro) por segurança.",
@@ -3399,7 +4214,7 @@ const graphData = {
     {
       id: "placa_de_rede_nic",
       label: "Placa de Rede (NIC)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O componente de hardware físico instalado na placa-mãe que conecta o computador à rede. Atua convertendo os dados lógicos presentes na memória RAM em sinais elétricos, ópticos ou de rádio.",
@@ -3417,7 +4232,7 @@ const graphData = {
     {
       id: "dma_acesso_direto",
       label: "DMA (Direct Memory Access)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Mecanismo autônomo que permite que hardwares pesados, como a placa de rede Gigabit, transfiram enormes arquivos da internet direto para a memória RAM, sem precisar pedir para a CPU fazer o trabalho manual.",
@@ -3436,7 +4251,7 @@ const graphData = {
     {
       id: "deteccao_correcao_erros",
       label: "Detecção e Correção de Erros",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A matemática embutida no final do pacote de dados que permite ao PC receptor descobrir se a mensagem sofreu interferência eletromagnética durante a viagem, evitando abrir arquivos corrompidos.",
@@ -3454,7 +4269,7 @@ const graphData = {
     {
       id: "camada_de_rede",
       label: "Camada de Rede",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A camada 3 do modelo OSI (o carteiro global). É ela a responsável por fornecer o mapa da internet inteira, escolhendo e roteando os pacotes através de um labirinto de países e redes até o destino final.",
@@ -3472,7 +4287,7 @@ const graphData = {
     {
       id: "protocolo_ip_v4_v6",
       label: "Protocolo IP (IPv4 e IPv6)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A essência absoluta da internet. Cria o CEP eletrônico global (Endereço IP) para que pacotes viagem pelo globo através de um esforço não-confiável ('melhor esforço'), sem prometer que o pacote vai chegar perfeito.",
@@ -3491,7 +4306,7 @@ const graphData = {
     {
       id: "protocolo_arp",
       label: "Protocolo ARP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O tradutor entre a camada 3 (IP) e a camada 2 (MAC). Quando o PC sabe o IP do vizinho mas precisa descobrir o endereço de hardware da placa dele para enviar a carta na rede local, ele usa o ARP para 'gritar' na rede perguntando quem é dono daquele IP.",
@@ -3510,7 +4325,7 @@ const graphData = {
     {
       id: "algoritmos_de_roteamento",
       label: "Algoritmos de Roteamento",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O GPS da internet. Fórmulas e protocolos inteligentes (como OSPF e BGP) que permitem que os roteadores conversem entre si nos bastidores, avisando quais rotas estão caídas e recalculando o caminho mais rápido na hora.",
@@ -3528,7 +4343,7 @@ const graphData = {
     {
       id: "subredes_cidr",
       label: "Sub-redes e CIDR",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A matemática do endereçamento IP. Ensina como fatiar grandes redes em redes menores (Subnetting) para organizar a topologia de uma empresa e evitar o desperdício brutal de endereços.",
@@ -3546,7 +4361,7 @@ const graphData = {
     {
       id: "nat_dhcp",
       label: "NAT e DHCP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Os salvadores do protocolo IPv4. O DHCP atua como um rececionista, distribuindo endereços IP automaticamente a quem entra na rede. O NAT atua como um tradutor, permitindo que uma rede inteira aceda à internet partilhando um único IP público.",
@@ -3569,7 +4384,7 @@ const graphData = {
     {
       id: "protocolo_icmp",
       label: "Protocolo ICMP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O sistema de diagnóstico e alerta da Camada de Rede. É utilizado pelos routers e sistemas operativos para reportar erros (como 'Destino Inacessível') e testar a saúde da conectividade.",
@@ -3591,7 +4406,7 @@ const graphData = {
     {
       id: "camada_de_transporte",
       label: "Camada de Transporte",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A camada 4 do modelo OSI. Eleva a comunicação de um nível 'Máquina para Máquina' (que era o IP) para o nível 'Aplicativo para Aplicativo', criando o conceito de Portas Lógicas para que os dados achem a aba certa do seu programa.",
@@ -3614,7 +4429,7 @@ const graphData = {
     {
       id: "protocolos_tcp_udp",
       label: "Protocolos TCP e UDP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Os dois grandes chefes do transporte. O TCP é obcecado por garantia e ordem (mas é lerdo). O UDP não liga se pacotes se perderem pelo caminho, sendo absurdamente rápido e direto ao ponto.",
@@ -3642,7 +4457,7 @@ const graphData = {
     {
       id: "controle_de_congestionamento",
       label: "Controle de Congestionamento",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A inteligência embutida no TCP para frear as máquinas. Ele percebe quando roteadores mundiais estão engasgando de dados e manda o seu PC fazer o upload mais devagar para salvar a internet de um colapso catastrófico.",
@@ -3661,7 +4476,7 @@ const graphData = {
     {
       id: "firewalls",
       label: "Firewalls",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O porteiro de segurança da rede. Um sistema rigoroso que senta na porta de entrada da sua rede e intercepta os pacotes, bloqueando invasores de acordo com listas de IPs (Camada 3) e Portas (Camada 4) proibidas.",
@@ -3680,7 +4495,7 @@ const graphData = {
     {
       id: "pilha_tcp_ip",
       label: "A Pilha TCP/IP no Kernel",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A implementação física das regras dos protocolos na forma de código da linguagem C puro embutido direto no coração do núcleo (Kernel) do Windows ou do Linux. É o pedaço vivo do SO que lê a memória RAM e monta o pacote de dados real.",
@@ -3703,7 +4518,7 @@ const graphData = {
     {
       id: "sockets_api",
       label: "A Interface de Sockets",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Os ganchos de programação. A API universal que permite aos programadores pedirem para o Sistema Operacional conectar a sua aplicação à internet sem que o programador precise saber como montar um cabeçalho IP manualmente.",
@@ -3725,7 +4540,7 @@ const graphData = {
     {
       id: "camada_de_aplicacao",
       label: "Camada de Aplicação",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A camada 7 do topo do modelo. Aqui os aplicativos deixam de se importar com cabos e IPs e se focam apenas na semântica humana: como formatar um e-mail legível, como renderizar a página Web ou como transferir um arquivo.",
@@ -3743,7 +4558,7 @@ const graphData = {
     {
       id: "dns",
       label: "DNS (Sistema de Nomes de Domínio)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "O catálogo telefônico da internet. É o sistema distribuído que traduz nomes legíveis por humanos (como 'google.com') nos códigos matemáticos cruéis (Endereços IP) que os roteadores exigem para funcionar.",
@@ -3766,7 +4581,7 @@ const graphData = {
     {
       id: "protocolo_http",
       label: "Protocolo HTTP",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A linguagem universal da Web (Hypertext Transfer Protocol). Foi criado para enviar páginas, mas acabou virando a base que movimenta desde Netflix até integrações em microsserviços via requisições verbosas.",
@@ -3789,7 +4604,7 @@ const graphData = {
     {
       id: "http_headers",
       label: "HTTP Cabeçalhos (Headers)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Os metadados ocultos que vão anexados em toda conversa web. São linhas de texto que descrevem o que está sendo enviado (vídeo ou texto?), quem está enviando e qual a linguagem esperada.",
@@ -3808,7 +4623,7 @@ const graphData = {
     {
       id: "cookies_sessoes",
       label: "Cookies e Sessões",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A gambiarra brilhante que a indústria criou para contornar a amnésia natural do HTTP. Permite manter usuários autenticados em lojas e bancos exigindo que o navegador carregue crachás virtuais de identificação.",
@@ -3827,7 +4642,7 @@ const graphData = {
     {
       id: "ssl_tls_https",
       label: "SSL/TLS e HTTPS",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A blindagem militar inserida no meio da pilha de redes (entre o TCP e o HTTP). Embaralha todos os dados trocados para que roteadores espiões no meio da rua enxerguem apenas ruído, provando a verdadeira identidade de sites bancários.",
@@ -3850,7 +4665,7 @@ const graphData = {
     {
       id: "proxy_reverso",
       label: "Servidores de Proxy Reverso",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A muralha da aplicação web moderna. Um super servidor blindado de alta performance (como o NGINX) que recebe todos os tiros e tráfegos dos clientes e reencaminha educadamente apenas o que interessa para as aplicações escondidas da empresa.",
@@ -3872,7 +4687,7 @@ const graphData = {
     {
       id: "load_balancing",
       label: "Load Balancing",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A técnica de escalabilidade horizontal. Se o seu site ficou famoso e um único computador não aguenta os cliques, o Load Balancer distribui os usuários com perfeição matemática em cima de um exército de servidores gêmeos invisíveis.",
@@ -3895,7 +4710,7 @@ const graphData = {
     {
       id: "cdn",
       label: "CDN (Rede de Entrega de Conteúdo)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "A cura para a latência das longas distâncias marítimas. Uma frota de datacenters espalhados em centenas de países que mantêm cópias congeladas das fotos e vídeos da sua aplicação nas cidades e bordas mais próximas dos usuários finais.",
@@ -3918,7 +4733,7 @@ const graphData = {
     {
       id: "protocolos_iot_mqtt",
       label: "Protocolos IoT (MQTT)",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Protocolos ultraleves desenhados com parcimônia para internet das coisas. Ideal para chips baratos, baterias limitadas e conexões instáveis de roça que não aguentariam a complexidade dos protocolos tradicionais.",
@@ -3937,7 +4752,7 @@ const graphData = {
     {
       id: "ssh_protocolo",
       label: "Protocolo SSH",
-      group: 13,
+      group: 12,
       status: "pending",
       description:
         "Secure Shell. É o túnel blindado da internet. Permite que você acesse e controle o terminal de um servidor Linux que está do outro lado do mundo de forma totalmente criptografada, impedindo que hackers roubem as suas senhas pelo caminho.",
@@ -3965,11 +4780,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 14. Linux e Servidores
+    // 13. Linux e Servidores
     {
       id: "linux",
       label: "Linux e Servidores",
-      group: 14,
+      group: 13,
       status: "pending",
       description:
         "O sistema operacional de código aberto baseado no Unix. É a espinha dorsal da internet: domina os servidores globais, data centers e atua como a fundação nativa onde a nuvem e os contêineres existem.",
@@ -3991,7 +4806,7 @@ const graphData = {
     {
       id: "terminal_shell",
       label: "Terminal e Shell",
-      group: 14,
+      group: 13,
       status: "pending",
       description:
         "A interface puramente textual (CLI) onde o usuário opera o sistema enviando comandos diretos. Permite uma administração de altíssima eficiência e velocidade, dispensando o uso de interfaces gráficas pesadas.",
@@ -4013,7 +4828,7 @@ const graphData = {
     {
       id: "bash_scripting",
       label: "Bash Scripting",
-      group: 14,
+      group: 13,
       status: "pending",
       description:
         "A programação do dia a dia do administrador. Consiste em agrupar comandos do terminal em arquivos de texto utilizando lógica de programação (if, loops, variáveis) para automatizar rotinas do sistema.",
@@ -4031,7 +4846,7 @@ const graphData = {
     {
       id: "permissoes_linux",
       label: "Permissões Linux",
-      group: 14,
+      group: 13,
       status: "pending",
       description:
         "O modelo de segurança e gestão do sistema de arquivos. Define rigorosamente quem possui o direito de Ler (Read), Escrever (Write) ou Executar (Execute) cada pasta e arquivo no disco.",
@@ -4053,7 +4868,7 @@ const graphData = {
     {
       id: "virtualizacao_hypervisors",
       label: "Virtualização (VMs)",
-      group: 14,
+      group: 13,
       status: "pending",
       description:
         "A tecnologia que emula hardware físico através de software. O Hypervisor fatia a CPU e a RAM de um servidor gigante para rodar múltiplos Sistemas Operacionais simultâneos e isolados na mesma placa-mãe.",
@@ -4072,11 +4887,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 15. DevOps e Cloud Computing
+    // 14. DevOps e Cloud Computing
     {
       id: "cultura_devops",
       label: "Cultura DevOps",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A ponte entre o Desenvolvimento e a Operação de Infraestrutura. Metodologia focada em destruir as barreiras entre equipes através de colaboração e automação maciça para lançar softwares com velocidade e estabilidade.",
@@ -4094,7 +4909,7 @@ const graphData = {
     {
       id: "git_versionamento",
       label: "Git & Versionamento",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A máquina do tempo dos programadores. Um sistema de controle de versão distribuído que grava todas as edições feitas no código, permitindo viajar para o passado e colaborar sem apagar o trabalho do colega.",
@@ -4116,7 +4931,7 @@ const graphData = {
     {
       id: "github_fluxos",
       label: "GitHub & Fluxos de Trabalho",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A plataforma social e colaborativa para hospedagem de código Git. Facilita o controle do projeto através de revisões de código, fóruns de discussão e automação de processos de aceitação.",
@@ -4137,8 +4952,8 @@ const graphData = {
     },
     {
       id: "containers_docker",
-      label: "Contêineres (Docker)",
-      group: 9,
+      label: "Containers Docker",
+      group: 14,
       status: "pending",
       description:
         "A evolução ágil das VMs. Em vez de emular um hardware inteiro com um SO pesado, o Docker empacota apenas o seu programa e suas bibliotecas. Ele roda dividindo o Kernel hospedeiro, tornando-se ultraleve e rápido.",
@@ -4156,7 +4971,7 @@ const graphData = {
     {
       id: "orquestracao_k8s",
       label: "Kubernetes (K8s)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "O maestro dos contêineres. Um sistema avançado que decide em quais servidores os contêineres Docker vão rodar, garantindo que eles se multipliquem automaticamente em caso de muitos acessos e recriando os que falharem.",
@@ -4174,7 +4989,7 @@ const graphData = {
     {
       id: "ci_cd_pipelines",
       label: "CI/CD (Pipelines)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A linha de montagem industrial do código. Automatiza o processo de Integração Contínua (compilar e testar o código assim que ele chega no Git) e Entrega Contínua (publicar no servidor automaticamente).",
@@ -4192,7 +5007,7 @@ const graphData = {
     {
       id: "aws_cloud",
       label: "Cloud Computing (AWS)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A terceirização maciça de datacenters. Em vez de comprar servidores físicos, as empresas alugam máquinas e serviços nas fazendas da Amazon, pagando por segundo de uso com a capacidade de escalar recursos de forma quase infinita.",
@@ -4214,7 +5029,7 @@ const graphData = {
     {
       id: "aws_compute",
       label: "Computação na Nuvem (EC2/Lambda)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "Os motores de processamento da Nuvem. Ofertam o aluguel de Máquinas Virtuais cruas e dedicadas (EC2) ou plataformas Serverless (Lambda), onde o desenvolvedor apenas roda o código e a nuvem cobra somente pelos milissegundos utilizados.",
@@ -4232,7 +5047,7 @@ const graphData = {
     {
       id: "aws_storage",
       label: "Armazenamento na Nuvem (S3/EBS)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "As soluções para guardar dados indefinidamente. Variam desde discos rígidos virtuais anexados às máquinas (EBS) até baldes de armazenamento de objetos globais (S3) ideais para backups pesados e fotos de usuários.",
@@ -4250,7 +5065,7 @@ const graphData = {
     {
       id: "aws_redes_vpc",
       label: "Redes Virtuais (VPC)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A infraestrutura de redes virtuais que permite isolar seus servidores em um datacenter privado dentro da nuvem. Define tabelas de roteamento, controle de tráfego e decide quais máquinas terão acesso à internet pública.",
@@ -4268,7 +5083,7 @@ const graphData = {
     {
       id: "aws_servicos",
       label: "Ecossistema de Serviços AWS",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "O catálogo de componentes gerenciados prontos para uso. Fornece ferramentas como bancos de dados, envio de e-mails em massa e filas de mensagens sem que você precise instalar nada nos servidores manualmente.",
@@ -4290,7 +5105,7 @@ const graphData = {
     {
       id: "seguranca_nuvem",
       label: "Segurança na Nuvem (IAM/WAF)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "As chaves e os firewalls da nuvem. Onde regras estritas de identidade definem exatamente quais usuários ou sistemas podem criar recursos ou acessar dados sensíveis, garantindo a proteção da infraestrutura.",
@@ -4312,7 +5127,7 @@ const graphData = {
     {
       id: "iac_terraform",
       label: "Infraestrutura como Código (IaC)",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "A revolução no provisionamento. Em vez de clicar em painéis, escrevem-se arquivos de texto declarativos descrevendo o Datacenter desejado. Ferramentas como o Terraform leem o arquivo e constroem tudo automaticamente na nuvem.",
@@ -4334,7 +5149,7 @@ const graphData = {
     {
       id: "monitoramento_observabilidade",
       label: "Monitoramento e Observabilidade",
-      group: 15,
+      group: 14,
       status: "pending",
       description:
         "Os exames diagnósticos da infraestrutura. O Monitoramento avisa quando algo falhou (ex: 'CPU está em 100%'). A Observabilidade utiliza rastreamentos profundos e logs para permitir ao engenheiro descobrir por que a falha aconteceu.",
@@ -4349,11 +5164,11 @@ const graphData = {
       ],
       links: [],
     },
-    // 16. Linguagens de Programação e Compiladores
+    // 15. Linguagens de Programação
     {
       id: "linguagens_de_programacao",
       label: "Linguagens de Programação",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "O nó raiz que conecta os limites teóricos da computação à prática da engenharia de software. Estuda os princípios de design, sintaxe e semântica que guiam a criação das linguagens, analisando por que algumas adotam tipagem estática e compilação rigorosa, enquanto outras priorizam a expressividade dinâmica e a interpretação em tempo de execução.",
@@ -4378,7 +5193,7 @@ const graphData = {
         },
         {
           question:
-            "Como a Teoria da Computação justifica a existência de tantas linguagens de programação diferentes, se todas são 'Turing-completas'?",
+            "Como a Teoria da Computação justifica a existência de tantas Linguagens de Programação diferentes, se todas são 'Turing-completas'?",
           answer:
             "Sendo Turing-completas, qualquer linguagem pode resolver qualquer problema computável. A existência de várias linguagens não se deve ao poder matemático, mas sim ao 'Pragmatismo': linguagens diferentes oferecem abstrações diferentes (paradigmas, gerenciamento de memória automático, segurança de tipos) que tornam a modelagem de certos problemas do mundo real mais segura, expressiva ou eficiente para os engenheiros humanos.",
         },
@@ -4388,7 +5203,7 @@ const graphData = {
     {
       id: "paradigmas_de_programacao",
       label: "Paradigmas de Programação",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "O estudo dos diferentes estilos de construção de software (Imperativo, Orientado a Objetos, Funcional e Lógico). Entender paradigmas é essencial antes de estudar como um compilador traduz essas diferentes abstrações humanas para o formato sequencial da máquina.",
@@ -4408,9 +5223,68 @@ const graphData = {
       links: [],
     },
     {
+      id: "paradigma_orientacao_objetos",
+      label: "Programação Orientada a Objetos (POO)",
+      group: 15,
+      status: "pending",
+      description:
+        "O paradigma focado em modelar o mundo real através de 'Objetos' que unem estado (dados) e comportamento (métodos). É a base estrutural que permite aos engenheiros de software gerenciar a complexidade de sistemas gigantescos através de contratos e abstrações.",
+      examples: [
+        "Os 4 Pilares (Abstração, Encapsulamento, Herança e Polimorfismo)",
+        "Composição vs Herança",
+        "Design Patterns (GoF - Gang of Four)",
+      ],
+      books: [
+        "Design Patterns: Elements of Reusable Object-Oriented Software - GoF",
+        "Head First Object-Oriented Analysis and Design - Brett McLaughlin",
+      ],
+      practice: [
+        {
+          question:
+            "Na POO, por que a máxima 'Favoreça a Composição em vez da Herança' é tão recomendada na engenharia moderna?",
+          answer:
+            "A herança cria um acoplamento extremamente rígido; se a classe 'Pai' mudar, todas as filhas quebram (Problema da Classe Base Frágil). A composição permite que você monte objetos injetando comportamentos menores neles em tempo de execução, garantindo um código muito mais flexível e fácil de testar.",
+        },
+        {
+          question: "O que o princípio do Polimorfismo permite em uma arquitetura de software?",
+          answer:
+            "Permite que o código principal trate objetos diferentes (como 'PagamentoCartao' ou 'PagamentoBoleto') da mesma exata maneira, usando uma interface comum ('ProcessarPagamento()'). O sistema não precisa de dezenas de IFs para checar o tipo; o próprio objeto sabe como se processar de forma polimórfica.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "paradigma_funcional",
+      label: "Programação Funcional",
+      group: 15,
+      status: "pending",
+      description:
+        "O paradigma baseado na avaliação de funções matemáticas puras. Tem ganhado extrema força na engenharia de software moderna (como no React e em sistemas distribuídos) por evitar estados mutáveis e dados compartilhados, eliminando bugs de concorrência na raiz.",
+      examples: [
+        "Funções Puras e Imutabilidade",
+        "Funções de Ordem Superior (Map, Filter, Reduce)",
+        "Efeitos Colaterais (Side Effects) e Closures",
+      ],
+      books: ["Structure and Interpretation of Computer Programs - Abelson & Sussman"],
+      practice: [
+        {
+          question: "O que caracteriza uma 'Função Pura' e por que ela é o Santo Graal dos testes unitários?",
+          answer:
+            "Uma função pura possui duas regras: 1) Ela sempre retorna o mesmo resultado para os mesmos argumentos. 2) Ela não causa 'Efeitos Colaterais' (não altera variáveis globais, não escreve no banco de dados, não muda a tela). Por ser um bloco matemático fechado, testá-la é instantâneo e à prova de falhas.",
+        },
+        {
+          question:
+            "Como o conceito de 'Imutabilidade' do paradigma funcional resolve as 'Condições de Corrida' (Race Conditions) em servidores paralelos?",
+          answer:
+            "Condições de corrida acontecem quando duas threads tentam alterar a mesma variável ao mesmo tempo. Na imutabilidade, variáveis não podem ser alteradas depois de criadas. Se você precisa mudar o valor de um objeto, você deve criar um clone atualizado dele. Sem dados sendo alterados na memória compartilhada, as threads podem rodar em paralelo sem usar travas (Locks) complexas.",
+        },
+      ],
+      links: [],
+    },
+    {
       id: "analise_lexica_compiladores",
       label: "Análise Léxica (Lexers)",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "A primeira fase de um compilador. Puxa os conceitos de Autômatos Finitos e Regex da Teoria da Computação para varrer o código-fonte caractere por caractere e agrupá-los em 'Tokens' significativos (palavras-chave, identificadores, operadores), ignorando espaços e comentários.",
@@ -4432,7 +5306,7 @@ const graphData = {
     {
       id: "analise_sintatica_parsers",
       label: "Análise Sintática (Parsers) e ASTs",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "O coração estrutural do compilador. Utiliza Gramáticas Livres de Contexto para validar se a sequência de tokens forma expressões matemáticas e blocos lógicos corretos, construindo a Árvore de Sintaxe Abstrata (AST). É a tecnologia usada por frameworks modernos para compilar templates declarativos.",
@@ -4454,7 +5328,7 @@ const graphData = {
     {
       id: "analise_semantica_e_tipagem",
       label: "Análise Semântica e Sistemas de Tipos",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "A fase em que o compilador 'entende' o significado do código. Garante que variáveis foram declaradas antes do uso, valida o escopo e executa a checagem de tipos (Type Checking). Ferramentas robustas de tipagem estática operam ativamente nesta camada da AST.",
@@ -4479,7 +5353,7 @@ const graphData = {
     {
       id: "otimizacao_de_codigo_intermediario",
       label: "Representação Intermediária e Otimização",
-      group: 16,
+      group: 15,
       status: "pending",
       description:
         "Para evitar reescrever o compilador para cada nova CPU arquitetada, o código é traduzido para uma linguagem neutra (IR - Intermediate Representation). Nesta fase, algoritmos pesados (como propagação de constantes e eliminação de código morto) são aplicados para deixar o programa mais rápido sem alterar seu resultado.",
@@ -4501,8 +5375,8 @@ const graphData = {
     },
     {
       id: "geracao_de_codigo_objeto",
-      label: "Geração de Código (Back-end do Compilador)",
-      group: 16,
+      label: "Geração de Código Objeto",
+      group: 15,
       status: "pending",
       description:
         "O estágio final que une o software ao hardware. Mapeia a Representação Intermediária otimizada para as instruções específicas da arquitetura alvo (Assembly x86, ARM, ou Bytecodes). Envolve decisões críticas como a alocação de registradores usando heurísticas de grafos.",
@@ -4521,146 +5395,1206 @@ const graphData = {
       ],
       links: [],
     },
+    {
+      id: "linguagem_c",
+      label: "Linguagem C",
+      group: 15,
+      status: "pending",
+      description:
+        "A 'língua franca' da computação moderna e a base sintática da maioria das linguagens. Fornece controle absoluto e direto sobre o hardware e a memória (ponteiros, alocação manual), sendo o padrão-ouro para escrever sistemas operacionais, drivers e os próprios compiladores de outras linguagens.",
+      examples: [
+        "Gerenciamento Manual de Memória (malloc, free)",
+        "Aritmética de Ponteiros e Acesso Direto",
+        "Compilação estática direta para Código Máquina (Assembly)",
+      ],
+      books: ["The C Programming Language - Brian W. Kernighan e Dennis M. Ritchie"],
+      practice: [
+        {
+          question:
+            "Por que a linguagem C é descrita como tendo abstração 'zero-cost' (custo zero) em relação ao hardware?",
+          answer:
+            "Porque as construções em C (como structs e ponteiros) mapeiam quase diretamente para instruções nativas do processador e endereços de RAM. Não há um 'Runtime' complexo ou Garbage Collector rodando em segundo plano para consumir ciclos de CPU, garantindo que o programa execute exatamente o que foi escrito, com máxima previsibilidade e velocidade.",
+        },
+        {
+          question:
+            "Qual é o perigo arquitetural dos 'Ponteiros Pendentes' (Dangling Pointers) e 'Vazamento de Memória' (Memory Leak) em C?",
+          answer:
+            "Como a alocação é manual, se o programador esquecer de usar 'free()', a memória fica eternamente bloqueada (Leak) até o sistema travar. Se ele liberar a memória mas continuar usando o ponteiro (Dangling Pointer), o programa tentará ler ou sobrescrever dados aleatórios de outros processos, causando vulnerabilidades críticas de segurança (Segfaults).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_java",
+      label: "Java",
+      group: 15,
+      status: "pending",
+      description:
+        "O marco na abstração de hardware ('Write Once, Run Anywhere'). Java introduziu a compilação para um código intermediário (Bytecode) que roda dentro de um ecossistema isolado (A Máquina Virtual Java). Padronizou o gerenciamento automático de memória via Garbage Collection em aplicações corporativas.",
+      examples: [
+        "A Máquina Virtual Java (JVM) e Bytecodes",
+        "Compilação JIT (Just-In-Time) no Runtime",
+        "Tipagem Estática Forte e Orientação a Objetos Estrita",
+      ],
+      books: ["Effective Java - Joshua Bloch", "Java Performance: The Definitive Guide - Scott Oaks"],
+      practice: [
+        {
+          question: "Como funciona a compilação Híbrida do Java (AOT + JIT) para atingir alta performance?",
+          answer:
+            "O compilador 'javac' primeiro traduz o código humano para 'Bytecode' (Ahead-of-Time). Quando o programa roda, a JVM interpreta esse bytecode inicial. Porém, a JVM monitora o código em tempo real e, usando o compilador JIT (Just-In-Time), traduz os trechos mais repetitivos (Hot Spots) diretamente para código de máquina nativo ultraveloz, otimizando o sistema enquanto ele opera.",
+        },
+        {
+          question: "O que o Garbage Collector (GC) faz no ecossistema Java e qual é o seu 'trade-off'?",
+          answer:
+            "O GC varre automaticamente o 'Heap' da memória procurando objetos que não têm mais referências (ponteiros) apontando para eles, e os destrói para liberar RAM. O trade-off é que o desenvolvedor perde o controle exato de *quando* a memória será limpa, e o processo de coleta pode causar pequenas pausas (Stop-the-World) na execução do programa principal.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_csharp",
+      label: "Linguagem C#",
+      group: 15,
+      status: "pending",
+      description:
+        "A resposta arquitetural da Microsoft. Assim como o Java, compila para uma linguagem intermediária (IL) rodando sobre um runtime gerenciado (CLR - Common Language Runtime). C# destaca-se pela evolução sintática agressiva, mesclando orientação a objetos profunda com recursos poderosos do paradigma funcional (como LINQ).",
+      examples: [
+        "Common Language Runtime (CLR) e Intermediate Language (IL)",
+        "Tipos de Valor (Structs) vs Tipos de Referência (Classes)",
+        "Programação Assíncrona (async/await) no nível do Compilador",
+      ],
+      books: ["C# in Depth - Jon Skeet", "CLR via C# - Jeffrey Richter"],
+      practice: [
+        {
+          question:
+            "Como a Máquina Virtual do .NET (CLR) lida com a alocação de 'Structs' (Value Types) em comparação com 'Classes' (Reference Types)?",
+          answer:
+            "Structs (Value Types) são frequentemente alocados na memória Stack (Pilha) de forma ultraveloz e são automaticamente destruídos quando o escopo da função termina, sem depender do Garbage Collector. Classes (Reference Types) são alocadas no Heap e apenas o ponteiro fica na Stack, exigindo limpeza posterior pelo GC. Isso permite otimizações massivas de memória em C# para alta performance (como no desenvolvimento de jogos).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_rust",
+      label: "Linguagem Rust",
+      group: 15,
+      status: "pending",
+      description:
+        "A revolução na programação de sistemas. Rust atinge a performance pura do C/C++ sem os riscos de falha de segmentação, resolvendo o problema de alocação através de um sistema de tipagem focado em 'Posse' (Ownership) e 'Tempo de Vida' (Lifetimes) verificado rigidamente em tempo de compilação.",
+      examples: [
+        "Ownership, Borrowing (Empréstimo) e Lifetimes",
+        "Borrow Checker do Compilador",
+        "Zero-Cost Abstractions e Concorrência Segura",
+      ],
+      books: ["The Rust Programming Language - Steve Klabnik e Carol Nichols"],
+      practice: [
+        {
+          question:
+            "Como o modelo de 'Ownership' (Posse) do Rust dispensa o uso de um Garbage Collector sem causar vazamentos de memória?",
+          answer:
+            "O compilador do Rust impõe uma regra matemática estrita: cada pedaço de memória tem exatamente um único 'dono' por vez. Quando a variável dona sai de escopo lógico no código, o próprio compilador injeta secretamente a instrução 'free()' naquele ponto exato no binário final. A memória é gerenciada deterministicamente no tempo de compilação, sem processos rodando em background.",
+        },
+        {
+          question: "O que o 'Borrow Checker' impede durante a compilação do código?",
+          answer:
+            "O Borrow Checker impede Data Races (Condição de Corrida) e acessos inválidos. Ele bloqueia a compilação se você tentar criar duas referências mutáveis apontando para o mesmo dado simultaneamente, ou se tentar acessar uma referência para um dado que já foi destruído, forçando a segurança estrita do código no momento da construção.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_python",
+      label: "Linguagem Python",
+      group: 15,
+      status: "pending",
+      description:
+        "Focada na máxima legibilidade e expressividade humana. Como uma linguagem de tipagem dinâmica e fortemente interpretada (tipicamente via CPython), Python abdica da velocidade bruta de execução em favor da velocidade de desenvolvimento, atuando como o motor unificador na ciência de dados e inteligência artificial.",
+      examples: [
+        "Tipagem Dinâmica e Duck Typing",
+        "Global Interpreter Lock (GIL) e Concorrência",
+        "Interação nativa com binários em C (FFI)",
+      ],
+      books: ["Fluent Python - Luciano Ramalho"],
+      practice: [
+        {
+          question: "O que é o 'Duck Typing' (Tipagem Pato) na semântica do Python?",
+          answer:
+            "É um estilo de tipagem dinâmica onde o comportamento de um objeto determina sua utilidade, não a sua herança de classe ('Se anda como um pato e grasna como um pato, então é um pato'). O interpretador não checa se o objeto é do tipo exato esperado; ele apenas tenta chamar o método. Se o método existir no objeto, a execução continua; se não, lança erro no Runtime.",
+        },
+        {
+          question: "O que é o GIL (Global Interpreter Lock) no CPython e como ele afeta o processamento paralelo?",
+          answer:
+            "O GIL é um mecanismo de segurança de memória (um Mutex) do interpretador padrão que impede que múltiplas threads executem bytecodes do Python simultaneamente na mesma máquina. Isso torna o Python thread-safe para operações internas, mas significa que threads puras em Python não conseguem usar múltiplos núcleos do processador para cálculos matemáticos pesados simultâneos (limitando o verdadeiro paralelismo em CPU-bound).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_php",
+      label: "Linguagem PHP",
+      group: 15,
+      status: "pending",
+      description:
+        "A linguagem que moldou a web dinâmica moderna. Possui um modelo de execução único onde todo o estado da aplicação morre ao final de cada requisição HTTP, garantindo isolamento total e imunidade a muitos tipos clássicos de vazamento de memória em servidores de longa duração.",
+      examples: [
+        "Ciclo de Vida 'Shared-Nothing' (Requisição isolada)",
+        "Zend Engine e OpCache",
+        "Tipagem Dinâmica com Tipagem Gradual e Estrita (Evolução)",
+      ],
+      books: ["PHP Objects, Patterns, and Practice - Matt Zandstra"],
+      practice: [
+        {
+          question:
+            "Como a arquitetura 'Shared-Nothing' (Nada Compartilhado) do PHP lida com problemas de concorrência em servidores Web?",
+          answer:
+            "Diferente de aplicações Java ou Node.js (que mantêm um servidor persistente rodando com estado compartilhado na memória), cada requisição HTTP que chega para o PHP inicia um processo/thread de script limpo e isolado. Quando a resposta web é enviada, a memória daquela requisição é inteiramente aniquilada. Esse design previne conflitos catastróficos entre requisições de diferentes usuários e falhas sistêmicas por vazamento acumulado.",
+        },
+        {
+          question: "Qual o papel do 'OpCache' na execução interpretada moderna do PHP?",
+          answer:
+            "Originalmente, o PHP compilava o arquivo fonte para bytecodes toda vez que uma requisição chegava, gerando altíssimo custo de CPU. O OpCache armazena a compilação desse bytecode em memória RAM compartilhada. Nas requisições seguintes, o motor Zend pula as fases de Análise Léxica e Sintática, executando diretamente o bytecode pré-compilado, elevando a performance drasticamente.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_javascript",
+      label: "Linguagem JavaScript",
+      group: 15,
+      status: "pending",
+      description:
+        "A linguagem universal da Web. Roda sobre motores JIT complexos (como o V8) utilizando uma arquitetura Single-Threaded baseada no Event Loop (Laço de Eventos). Diferencia-se pela delegação nativa de processos de I/O de forma assíncrona para não travar a interface do usuário ou o servidor (Node.js).",
+      examples: [
+        "Event Loop e Call Stack (Arquitetura Assíncrona)",
+        "Motor V8 e JIT Compilation Otimizada",
+        "Delegação baseada em Protótipos (Prototypal Inheritance)",
+      ],
+      books: ["You Don't Know JS Yet - Kyle Simpson"],
+      practice: [
+        {
+          question:
+            "Como o JavaScript (que roda em uma única Thread) consegue fazer centenas de chamadas assíncronas ao banco de dados sem travar a aplicação (Node.js)?",
+          answer:
+            "Através do 'Event Loop' e APIs C++ em background. A única thread do JS (Call Stack) apenas aciona o comando da chamada ao banco e delega o trabalho pesado de I/O para o Sistema Operacional/Threadpool rodando fora do JS. A Call Stack fica imediatamente livre. Quando o banco responde, o SO coloca um 'Callback' na fila (Task Queue), e o Event Loop empurra essa função de volta para o JS processar o resultado.",
+        },
+        {
+          question:
+            "O que caracteriza a 'Herança Baseada em Protótipos' do JavaScript em contraste com a herança clássica de Java/C#?",
+          answer:
+            "Em vez de criar uma planta arquitetural abstrata (Classe) para instanciar objetos, o JavaScript usa objetos vivos e concretos ligados por uma corrente (Prototype Chain). Quando você tenta acessar uma propriedade que não existe em um objeto A, o motor delega a busca transparentemente para o objeto B (o seu protótipo), e assim por diante. É uma delegação direta entre objetos na memória.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_typescript",
+      label: "Linguagem TypeScript",
+      group: 15,
+      status: "pending",
+      description:
+        "Um superconjunto sintático estrito do JavaScript. Introduz um sistema de tipos estático poderoso e inovador projetado especificamente para rodar apenas no tempo de desenvolvimento (Transpilação). Não emite bytecodes, mas atua como uma ferramenta analítica matemática de checagem para prevenir bugs antes do deploy.",
+      examples: [
+        "Tipagem Estrutural (Structural Typing / Duck Typing Estático)",
+        "Type Erasure (Apagamento de Tipos na compilação para JS)",
+        "Inferência Avançada e Tipos Genéricos (Generics)",
+      ],
+      books: ["Programming TypeScript - Boris Cherny"],
+      practice: [
+        {
+          question: "O que significa 'Type Erasure' (Apagamento de Tipos) na compilação do TypeScript?",
+          answer:
+            "Significa que todas as anotações e regras de tipos do TypeScript existem estritamente na fase do Compilador (Análise Estática/Tempo de Desenvolvimento). Quando o código é convertido para JavaScript final, 100% das regras de tipos são descartadas. O motor V8 executa o código final ignorando os tipos, provando que o TypeScript não altera o comportamento do tempo de execução (Runtime).",
+        },
+        {
+          question:
+            "Como a 'Tipagem Estrutural' do TypeScript difere da Tipagem Nominal de linguagens como Java ou C#?",
+          answer:
+            "Em Java (Tipagem Nominal), dois objetos só são compatíveis se eles declararem explicitamente que implementam a mesma interface pelo NOME. No TypeScript (Tipagem Estrutural), se o objeto 'A' tem exatamente o formato, as chaves e os tipos de dados exigidos pelo objeto 'B' (mesma estrutura matemática), o compilador os aceita como compatíveis, independentemente de seus nomes ou origens hierárquicas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_kotlin",
+      label: "Linguagem Kotlin",
+      group: 15,
+      status: "pending",
+      description:
+        "A evolução moderna do ecossistema Java. Foi projetada pragmática e propositalmente para rodar 100% interligada à JVM, compilando para os mesmos Bytecodes. Seu compilador resolve problemas históricos de design resolvendo NullPointerExceptions diretamente na Árvore Sintática e promovendo sintaxe expressiva funcional.",
+      examples: [
+        "Interoperabilidade Bidirecional com Java",
+        "Null Safety intrínseco ao Sistema de Tipos",
+        "Coroutines para Programação Assíncrona de Alta Performance",
+      ],
+      books: ["Kotlin in Action - Dmitry Jemerov e Svetlana Isakova"],
+      practice: [
+        {
+          question:
+            "Como o compilador do Kotlin eliminou nativamente o problema de bilhão de dólares (Null Pointer Exceptions) herdado do Java?",
+          answer:
+            "Alterando o sistema de tipos. Em Java, qualquer objeto pode secretamente ser 'null', o que só é descoberto quando a JVM explode em Runtime. No Kotlin, tipos são 'Non-Nullable' (Não Nulos) por padrão matematicamente. Se você tentar atribuir 'null' a uma variável comum, o compilador bloqueia a compilação. Tipos nulos precisam ser declarados explicitamente (ex: `String?`), forçando o desenvolvedor a escrever código de segurança antes de rodar.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_go",
+      label: "Linguagem Golang",
+      group: 15,
+      status: "pending",
+      description:
+        "Desenhada para a era do Cloud Computing e dos processadores multi-core. O Go combina o desempenho brutal e a compilação nativa do C com a segurança da gestão automática de memória (Garbage Collection de baixíssima latência). Destaca-se por tratar a concorrência como um elemento de primeira classe na sua sintaxe, abdicando da herança orientada a objetos em favor da composição simples.",
+      examples: [
+        "Concorrência com Goroutines (Múltiplas para 1 OS Thread)",
+        "Canais (Channels) e o modelo CSP (Communicating Sequential Processes)",
+        "Compilação estática rápida e tipagem forte",
+      ],
+      books: ["The Go Programming Language - Alan A. A. Donovan e Brian W. Kernighan"],
+      practice: [
+        {
+          question:
+            "Por que as Goroutines do Go são arquiteturalmente consideradas muito 'mais leves' do que as Threads tradicionais do Sistema Operativo (utilizadas no Java ou C++)?",
+          answer:
+            "Uma Thread do Sistema Operativo consome tipicamente entre 1MB e 2MB de memória RAM logo de início e exige uma troca de contexto (context switch) dispendiosa a nível de kernel. Uma Goroutine, pelo contrário, inicia com uma pilha (Stack) de apenas ~2KB e é gerida inteiramente no espaço de utilizador pelo 'Runtime' do Go, permitindo que um único servidor execute milhões de Goroutines simultaneamente sem esgotar a memória.",
+        },
+        {
+          question:
+            "Como o modelo CSP (Communicating Sequential Processes) e os 'Channels' (Canais) do Go resolvem os problemas clássicos de concorrência (como o uso intenso de Mutexes e Data Races)?",
+          answer:
+            "No modelo tradicional, diferentes threads comunicam através da partilha do mesmo espaço de memória, o que exige a aplicação de bloqueios (Locks/Mutexes) constantes para evitar colisões de dados. O Go inverte esse paradigma com o seu lema: 'Não comunique partilhando memória; em vez disso, partilhe memória comunicando'. Os canais funcionam como tubos seguros por onde uma Goroutine envia a posse direta de um dado para outra Goroutine, dispensando bloqueios complexos na memória partilhada.",
+        },
+        {
+          question:
+            "De que forma a gestão de pacotes e a compilação do Go diferem das linguagens interpretadas e das que usam máquinas virtuais?",
+          answer:
+            "Ao contrário do Python (interpretado) ou do Java/C# (que dependem de uma VM instalada no servidor de destino), o compilador do Go produz um único ficheiro binário executável estaticamente ligado. Este binário já contém o runtime, o Garbage Collector e todas as dependências embutidas, bastando copiá-lo para um servidor Linux ou Windows (sem precisar instalar absolutamente mais nada) para que execute nativamente.",
+        },
+      ],
+      links: [],
+    },
+    // 16. Engenharia de Software
+    {
+      id: "engenharia_de_software",
+      label: "Engenharia de Software",
+      group: 16,
+      status: "pending",
+      description:
+        "O panorama geral do ciclo de vida de uma aplicação. Estuda como o software é especificado, desenhado, desenvolvido e mantido, contrastando os processos tradicionais pesados com as metodologias ágeis modernas.",
+      examples: [
+        "Modelos de Processo (Cascata vs Ágil)",
+        "Engenharia de Requisitos e Histórias de Usuário",
+        "Evolução e Manutenção de Sistemas Legados",
+      ],
+      books: ["Software Engineering - Ian Sommerville"],
+      practice: [
+        {
+          question: "Na engenharia de requisitos, qual a diferença entre requisitos funcionais e não-funcionais?",
+          answer:
+            "Requisitos funcionais definem o que o sistema DEVE FAZER (ex: 'O sistema deve emitir um relatório de impostos'). Requisitos não-funcionais definem COMO o sistema deve se comportar (ex: 'O relatório deve ser gerado em menos de 2 segundos sob alta carga'), focando em performance, segurança e escalabilidade.",
+        },
+        {
+          question:
+            "Quais são as atividades fundamentais que compõem qualquer processo de software, segundo Sommerville?",
+          answer:
+            "São quatro atividades básicas: Especificação (definir o que o sistema fará), Desenvolvimento (projetar e programar), Validação (testar para garantir que atende ao cliente) e Evolução (manter e modernizar o código para se adaptar a novas necessidades do negócio).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "clean_code",
+      label: "Clean Code",
+      group: 16,
+      status: "pending",
+      description:
+        "A arte de escrever código para humanos lerem, e não apenas para máquinas executarem. Foca na manutenibilidade, nomenclatura expressiva, funções minúsculas e na eliminação impiedosa da dívida técnica.",
+      examples: [
+        "Nomes Significativos e Intenção Clara",
+        "Funções de Propósito Único (Do One Thing)",
+        "Tratamento de Erros Sem Poluir a Lógica Central",
+        "A Regra do Escoteiro (Deixe o código melhor do que encontrou)",
+      ],
+      books: ["Clean Code - Robert C. Martin (Uncle Bob)"],
+      practice: [
+        {
+          question:
+            "Segundo o Clean Code, por que o uso excessivo de comentários no código é frequentemente considerado um 'Code Smell' (mau cheiro)?",
+          answer:
+            "Comentários frequentemente mentem porque o código muda e o comentário é esquecido. O ideal é que a própria linguagem seja expressiva o suficiente. Em vez de escrever um bloco complexo e colocar um comentário '// checa se é administrador', deve-se extrair a lógica para uma função bem nomeada como 'isUserAdmin()'.",
+        },
+        {
+          question:
+            "O que o princípio SRP (Single Responsibility Principle) dita sobre a estrutura de classes e funções?",
+          answer:
+            "Dita que uma classe ou módulo deve ter um, e apenas um, motivo para mudar. Se uma classe lida com regras de negócio de faturamento e também lida com formatação visual de relatórios, ela tem duas responsabilidades e deve ser dividida.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "tdd_e_testes_unitarios",
+      label: "TDD e Testes Unitários",
+      group: 16,
+      status: "pending",
+      description:
+        "A disciplina de provar que o código funciona matematicamente. O TDD (Test-Driven Development) inverte o fluxo: o teste é escrito antes do código de produção, forçando um design altamente desacoplado e testável desde o minuto zero.",
+      examples: [
+        "O Ciclo Red-Green-Refactor",
+        "Anatomia de um Teste: AAA (Arrange, Act, Assert)",
+        "Isolamento com Dublês de Teste (Mocks, Stubs e Fakes)",
+      ],
+      books: ["Test Driven Development: By Example - Kent Beck", "The Art of Unit Testing - Roy Osherove"],
+      practice: [
+        {
+          question: "Como o ciclo 'Red-Green-Refactor' do TDD conduz o desenvolvimento do software?",
+          answer:
+            "Red: Escreve-se um teste que falha (porque a funcionalidade não existe). Green: Escreve-se o código mais simples e 'sujo' possível apenas para fazer o teste passar. Refactor: Com a segurança do teste passando, melhora-se a arquitetura e a performance do código sem medo de quebrar a regra de negócio.",
+        },
+        {
+          question: "Na arte de isolar testes unitários, qual é a diferença técnica entre um 'Stub' e um 'Mock'?",
+          answer:
+            "Um Stub é um substituto burro que apenas retorna dados forjados para a função testada conseguir rodar (ex: fingir que o banco retornou 'Usuário Ativo'). Um Mock é um substituto inteligente que verifica comportamento: no final do teste, você pergunta ao Mock 'a função principal chamou você enviando o ID correto?'.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "testes_integracao_e2e",
+      label: "Testes de Integração e E2E",
+      group: 16,
+      status: "pending",
+      description:
+        "Garante que as peças isoladas do software funcionam quando conectadas. Abrange desde a validação de contratos de API no backend até a simulação robótica do comportamento do usuário final interagindo com o DOM em frameworks como Vue ou React.",
+      examples: [
+        "Validação de Contratos de API (Postman/Newman)",
+        "Automação de Interface de Usuário (Cypress)",
+        "Interceptação de Requisições de Rede (Network Stubbing)",
+      ],
+      books: [
+        "API Testing and Development with Postman - Dave Westerveld",
+        "End-to-End Testing with Cypress - Waweru Mwaura",
+      ],
+      practice: [
+        {
+          question:
+            "Por que não é recomendado focar exclusivamente em Testes E2E (End-to-End) na sua suíte de validação?",
+          answer:
+            "Testes E2E são extremamente lentos, frágeis (quebram se um botão mudar de cor) e difíceis de manter, pois sobem todo o banco, backend e frontend. Segundo a 'Pirâmide de Testes', a base deve ser de testes unitários ultrarrápidos, seguidos por testes de integração de API, deixando o topo do E2E apenas para os fluxos mais críticos do usuário.",
+        },
+        {
+          question:
+            "Como o Cypress lida com o problema clássico de assincronismo do JavaScript (demora para carregar elementos na tela)?",
+          answer:
+            "O Cypress tem um mecanismo embutido de 'Retry-ability'. Em vez de usar comandos 'sleep' fixos e inúteis, ele tenta encontrar o elemento no DOM continuamente e espera que as chamadas de rede finalizem automaticamente antes de estourar um erro (timeout), garantindo estabilidade em interfaces modernas altamente reativas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "arquitetura_de_software_padroes",
+      label: "Arquitetura de Software e Clean Architecture",
+      group: 16,
+      status: "pending",
+      description:
+        "A espinha dorsal invisível da aplicação. Estuda como organizar pastas, módulos e dependências para que o sistema possa ser modernizado e escalado anos no futuro. Foca em separar o núcleo do negócio das tecnologias externas temporárias.",
+      examples: [
+        "Padrões Monolíticos (Layered, Pipeline)",
+        "Inversão de Dependência (Dependency Inversion)",
+        "Clean Architecture / Hexagonal (Ports and Adapters)",
+        "Desacoplamento de Frameworks (Vue/React e Laravel/Node não são o sistema)",
+      ],
+      books: ["Software Architecture Patterns - Mark Richards", "Clean Architecture - Robert C. Martin (Uncle Bob)"],
+      practice: [
+        {
+          question: "Qual é a regra suprema de dependência (The Dependency Rule) na Clean Architecture?",
+          answer:
+            "O código deve sempre apontar das camadas externas (detalhes: Banco de Dados, UI, Frameworks) para as camadas internas (regras de negócio abstratas: Entidades e Casos de Uso). O núcleo do sistema nunca deve saber que o banco de dados atual é SQL ou que o frontend é feito em JavaScript.",
+        },
+        {
+          question:
+            "Ao enfrentar o desafio de modernizar um sistema legado, como a Inversão de Dependência ajuda no processo?",
+          answer:
+            "Em vez de o código legado instanciar conexões diretas com o banco antigo, criam-se 'Interfaces' abstratas (Contratos). O sistema passa a depender dessa interface lógica. Assim, você pode criar uma nova classe que implementa essa interface conversando com o banco novo e injetá-la sem precisar reescrever milhares de regras de negócio antigas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "microsservicos_event_driven",
+      label: "Microsserviços Orientados a Eventos",
+      group: 16,
+      status: "pending",
+      description:
+        "O paradigma focado em sistemas altamente distribuídos. Quebra o grande monólito em pequenas peças independentes que conversam reagindo a eventos assíncronos, aumentando a resiliência e a tolerância a falhas.",
+      examples: [
+        "Síncrono (REST) vs Assíncrono (Eventos)",
+        "Event Sourcing e CQRS",
+        "Coreografia vs Orquestração de Serviços",
+        "Brokers de Mensagem (Kafka, RabbitMQ)",
+      ],
+      books: ["Building Event-Driven Microservices - Adam Bellemare"],
+      practice: [
+        {
+          question:
+            "No design de microsserviços, qual é a falha grave ao utilizar requisições HTTP REST síncronas entre serviços internos?",
+          answer:
+            "Cria um acoplamento temporal rigoroso. Se o Serviço A precisar chamar o Serviço B via HTTP e o B estiver fora do ar, o A trava também, criando um efeito dominó de quedas. Arquiteturas Event-Driven usam filas: o Serviço A emite um evento 'Pedido Criado' e volta ao trabalho, não importando se o Serviço B está pronto para ler isso na hora ou amanhã.",
+        },
+        {
+          question: "Qual a diferença entre Orquestração e Coreografia ao gerir eventos distribuídos?",
+          answer:
+            "Orquestração usa um serviço 'Maestro' central que diz explicitamente para cada microsserviço o que fazer em sequência. Coreografia é descentralizada: cada microsserviço conhece seu próprio trabalho, escuta os eventos globais e reage instintivamente, sem que haja um controlador mestre mandando.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "seguranca_aplicacoes_web",
+      label: "Segurança de Aplicações Web",
+      group: 16,
+      status: "pending",
+      description:
+        "A defesa proativa contra explorações lógicas e cibernéticas. Estuda como cibercriminosos encontram brechas no código, manipulando entradas, sessões e APIs para contornar autenticações e vazar dados confidenciais.",
+      examples: [
+        "Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF)",
+        "Injeção de SQL e Abuso de ORMs",
+        "Autenticação e Manipulação de JWT",
+        "Ataques Lógicos de Controle de Acesso (IDOR)",
+      ],
+      books: ["The Web Application Hacker's Handbook - Dafydd Stuttard & Marcus Pinto"],
+      practice: [
+        {
+          question: "Como o ataque de Cross-Site Scripting (XSS) funciona na prática e como proteger o frontend?",
+          answer:
+            "O XSS ocorre quando a aplicação aceita um texto do usuário (ex: no campo de nome) contendo uma tag <script> maliciosa e a exibe crua para outros usuários na tela, forçando o navegador das vítimas a executar o vírus. Previne-se isso usando 'Sanitização' ou 'Escapamento' (HTML Encoding) para transformar os símbolos dos scripts em texto inofensivo antes de renderizar.",
+        },
+        {
+          question: "O que é Insecure Direct Object Reference (IDOR)?",
+          answer:
+            "É uma falha de autorização gravíssima. Acorre quando a API recebe um pedido como 'GET /api/fatura/123' e entrega o arquivo na hora, sem antes verificar no banco de dados se o usuário logado que fez o pedido é realmente o dono da fatura 123. O invasor apenas muda o número na URL e consegue roubar documentos de terceiros.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "servidores_web_proxy",
+      label: "Servidores Web e Proxy (Nginx)",
+      group: 16,
+      status: "pending",
+      description:
+        "A administração da porta de entrada da sua arquitetura de software. Onde as requisições HTTP da internet batem primeiro antes de chegarem ao seu código backend. Lida com performance de roteamento, entrega de assets estáticos e terminação de segurança.",
+      examples: [
+        "Arquitetura Baseada em Eventos do Nginx",
+        "Configuração de Proxy Reverso e SSL/TLS",
+        "Balanceamento de Carga Básico",
+        "Servindo SPAs Front-First e Tratamento de Roteamento (Fallback)",
+      ],
+      books: ["Nginx Cookbook - Derek DeJonghe"],
+      practice: [
+        {
+          question:
+            "Por que uma aplicação frontend baseada em Single Page Application (SPA), usando roteamento do Vue ou React, quebra quando o usuário dá 'F5' no navegador, e como o Nginx resolve isso?",
+          answer:
+            "Porque ao dar F5 na URL '/dashboard', o navegador manda o pedido real para o servidor. Como a pasta '/dashboard' não existe fisicamente no HD do servidor (é uma rota ilusória do JS), ele retorna Erro 404. Resolve-se isso configurando o bloco 'try_files' no Nginx, forçando-o a direcionar qualquer URL não encontrada de volta para o 'index.html', deixando que o JS assuma o roteamento na tela.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "principios_solid",
+      label: "Princípios SOLID",
+      group: 16,
+      status: "pending",
+      description:
+        "O acrônimo fundamental da programação orientada a objetos moderna. Um conjunto de cinco princípios de design (SRP, OCP, LSP, ISP, DIP) criados para combater o acoplamento excessivo, facilitando a criação de sistemas flexíveis, fáceis de manter, refatorar e testar.",
+      examples: [
+        "SRP (Single Responsibility) e OCP (Open/Closed)",
+        "LSP (Liskov Substitution) e ISP (Interface Segregation)",
+        "DIP (Dependency Inversion)",
+      ],
+      books: [
+        "Clean Architecture - Robert C. Martin (Uncle Bob)",
+        "Agile Software Development, Principles, Patterns, and Practices - Robert C. Martin",
+      ],
+      practice: [
+        {
+          question: "O que o Princípio do Aberto/Fechado (OCP) determina sobre a evolução de uma funcionalidade?",
+          answer:
+            "Ele dita que as entidades de software devem ser 'Abertas para extensão, mas Fechadas para modificação'. Isso significa que você deve conseguir adicionar novos comportamentos ao sistema criando código novo (novas classes herdadas ou injeção de dependências), sem precisar alterar o código antigo e já testado que está em produção.",
+        },
+        {
+          question:
+            "Como a violação do Princípio da Substituição de Liskov (LSP) causa comportamentos inesperados no sistema?",
+          answer:
+            "O LSP exige que uma classe filha deve poder substituir sua classe pai sem quebrar a lógica do programa. Se uma função espera receber a classe 'Pássaro' e chamar o método 'voar()', e você passa a classe filha 'Pinguim' (que herda de Pássaro mas lança um erro ao tentar voar), o princípio foi violado e o sistema vai falhar em tempo de execução.",
+        },
+        {
+          question:
+            "Qual a diferença prática entre o Princípio da Segregação de Interfaces (ISP) e a Herança clássica?",
+          answer:
+            "O ISP combate interfaces 'gordas'. Em vez de criar uma única interface gigante que obriga uma classe a implementar métodos que ela não vai usar (ex: uma impressora simples sendo forçada a implementar 'escanear()'), o ISP prega a criação de múltiplas interfaces pequenas e específicas, garantindo que as classes dependam apenas daquilo que realmente usam.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "mapeamento_objeto_relacional_orm",
+      label: "Mapeamento Objeto-Relacional (ORM)",
+      group: 16,
+      status: "pending",
+      description:
+        "A ferramenta arquitetural que traduz o Paradigma Orientado a Objetos (Classes e Métodos) do software para o Modelo Relacional (Tabelas e Linhas) do SGBD. Foca na agilidade de desenvolvimento, atuando como a camada de persistência da aplicação.",
+      examples: [
+        "Problema da Impedância Objeto-Relacional",
+        "Padrões de Design: Active Record vs Data Mapper",
+        "Gargalos de Performance: O Problema da Consulta N+1",
+        "Estratégias de Carregamento: Lazy Loading vs Eager Loading",
+      ],
+      books: [
+        "Patterns of Enterprise Application Architecture - Martin Fowler",
+        "Designing Data-Intensive Applications - Martin Kleppmann",
+      ],
+      practice: [
+        {
+          question: "Qual a diferença estrutural entre os padrões de ORM 'Active Record' e 'Data Mapper'?",
+          answer:
+            "No Active Record, a própria classe do domínio possui os métodos de salvar e buscar (ex: `usuario.save()`), unindo a regra de negócio com o banco de dados (rápido para projetos menores). O Data Mapper separa isso completamente: o objeto de negócio não sabe que o banco existe, e um repositório isolado é quem faz a tradução, favorecendo a 'Arquitetura Limpa' (Clean Architecture).",
+        },
+      ],
+      links: [],
+    },
+    // 17. Bancos de Dados
+    {
+      id: "bancos_de_dados",
+      label: "Bancos de Dados",
+      group: 17,
+      status: "pending",
+      description:
+        "A introdução aos Sistemas Gerenciadores de Bancos de Dados (SGBDs). Estabelece a diferença entre sistemas de arquivos baseados em aplicação e uma abordagem centralizada, detalhando os níveis de abstração que garantem a independência física e lógica dos dados vitais para a modernização de sistemas corporativos.",
+      examples: [
+        "Processamento de Arquivos vs Abordagem de Banco de Dados",
+        "Níveis de Abstração (Físico, Lógico e de Visões)",
+        "Independência de Dados Lógica e Física",
+      ],
+      books: [
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+      ],
+      practice: [
+        {
+          question:
+            "Qual é a falha arquitetural central do antigo sistema de 'Processamento de Arquivos' que os SGBDs vieram resolver?",
+          answer:
+            "A forte dependência entre os dados e os programas. Em sistemas de arquivos isolados (legados), se a estrutura física de um dado mudasse (ex: adicionar um novo campo num arquivo de texto), todo o código-fonte que lia aquele arquivo precisaria ser reescrito. SGBDs abstraem isso, permitindo que a estrutura mude sem quebrar o código da aplicação.",
+        },
+        {
+          question:
+            "O que o nível de 'Visões' (Views) fornece em um SGBD que é essencial para a segurança de dados corporativos?",
+          answer:
+            "O nível de Visões permite ocultar partes do banco de dados (o esquema lógico) para determinados usuários ou aplicações. Em vez de dar acesso direto à tabela inteira, o SGBD expõe apenas as colunas ou registros relevantes para aquela função específica, garantindo isolamento e restringindo o acesso a informações sensíveis.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modelagem_er",
+      label: "Modelagem Entidade-Relacionamento (ER)",
+      group: 17,
+      status: "pending",
+      description:
+        "A fase de design conceitual onde as regras de negócio abstratas do mundo real são traduzidas para um esquema formal visual. É a etapa onde engenheiros definem o domínio da aplicação antes de escrever qualquer linha de código SQL.",
+      examples: [
+        "Entidades, Atributos e Chaves",
+        "Tipos de Relacionamentos e Cardinalidade (1:1, 1:N, M:N)",
+        "Entidades Fracas e Restrições de Participação",
+      ],
+      books: [
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+      ],
+      practice: [
+        {
+          question: "Como se caracteriza uma 'Entidade Fraca' na modelagem de dados?",
+          answer:
+            "Uma entidade fraca é aquela que não possui atributos suficientes para formar uma chave primária própria e independente. A sua existência no banco depende logicamente da existência de uma 'Entidade Forte' à qual está vinculada (ex: uma entidade 'Dependente' não faz sentido no sistema sem estar amarrada a um 'Funcionário').",
+        },
+        {
+          question:
+            "Qual o impacto de definir um relacionamento com 'Participação Total' (ou Dependência de Existência)?",
+          answer:
+            "A participação total dita que uma entidade não pode existir no banco sem estar envolvida naquele relacionamento. Por exemplo, se a regra de negócio exige que todo funcionário pertença a um departamento, o SGBD rejeitará a inserção de um funcionário 'órfão', garantindo a integridade dos processos da empresa no nível do banco de dados.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "modelo_relacional_e_algebra",
+      label: "Modelo Relacional e Álgebra Relacional",
+      group: 17,
+      status: "pending",
+      description:
+        "A base matemática estruturada em relações (tabelas) baseada na teoria dos conjuntos. A álgebra relacional fornece os operadores teóricos determinísticos que os motores de banco de dados usam internamente para processar e mesclar informações massivas.",
+      examples: [
+        "Restrições de Domínio e Integridade Referencial",
+        "Operadores Fundamentais (Seleção σ, Projeção π)",
+        "Operações de Conjuntos e Junções (Joins ⋈)",
+      ],
+      books: [
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+        "Sistemas de Gerenciamento de Bancos de Dados - Ramakrishnan e Gehrke",
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+      ],
+      practice: [
+        {
+          question: "Qual o papel fundamental da Integridade Referencial (Foreign Keys) no Modelo Relacional?",
+          answer:
+            "Ela assegura que os vínculos entre tabelas permaneçam válidos matematicamente. Se um registro na Tabela A aponta para um registro na Tabela B, a integridade referencial impede que o registro da Tabela B seja deletado ou alterado de forma que deixe o registro de A apontando para 'o nada' (dangling reference), evitando a corrupção relacional sistêmica.",
+        },
+        {
+          question:
+            "Na Álgebra Relacional, qual a diferença de comportamento entre os operadores de Seleção (σ) e Projeção (π)?",
+          answer:
+            "A Seleção (σ) atua sobre as *linhas* da tabela, atuando como um filtro (cláusula WHERE no SQL) para retornar apenas os registros que cumprem uma condição. A Projeção (π) atua sobre as *colunas*, descartando os atributos indesejados e retornando apenas os campos específicos solicitados (cláusula SELECT no SQL).",
+        },
+        {
+          question: "Por que a operação de Produto Cartesiano puro é perigosa em bancos de dados relacionais?",
+          answer:
+            "O Produto Cartesiano combina todas as tuplas de uma tabela com todas as tuplas de outra. Se você cruzar uma tabela de 10.000 clientes com uma de 5.000 produtos sem usar uma condição de Junção (Join), o banco de dados tentará processar e devolver 50 milhões de linhas de combinações sem sentido, travando a alocação de memória do servidor.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "linguagem_sql",
+      label: "Linguagem SQL",
+      group: 17,
+      status: "pending",
+      description:
+        "A interface padrão de comunicação com o SGBD relacional. Permite gerenciar o ciclo de vida dos dados desde a criação de esquemas e tabelas estruturadas (DDL) até a manipulação, filtro, cruzamento e extração avançada de relatórios (DML e DQL).",
+      examples: [
+        "DDL vs DML (Data Definition vs Data Manipulation)",
+        "Tipos de Junções (INNER, LEFT, RIGHT, FULL OUTER JOIN)",
+        "Agregações e Agrupamentos (GROUP BY, HAVING)",
+      ],
+      books: [
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+      ],
+      practice: [
+        {
+          question: "Qual a utilidade da cláusula HAVING em oposição à cláusula WHERE no SQL?",
+          answer:
+            "O WHERE filtra linhas individuais *antes* de qualquer agrupamento ou cálculo matemático ocorrer. O HAVING foi criado para filtrar os resultados *depois* que os dados foram agrupados pelo GROUP BY. Se você quiser encontrar departamentos que têm uma 'soma de salários maior que 10.000', o WHERE falhará (pois atua por registro isolado), exigindo o uso do HAVING sobre o agrupamento do departamento.",
+        },
+        {
+          question: "Qual é a diferença de comportamento entre um INNER JOIN e um LEFT OUTER JOIN ao buscar registros?",
+          answer:
+            "O INNER JOIN é exclusivo; ele retorna *apenas* os registros que possuem uma correspondência exata nas duas tabelas que estão sendo cruzadas. O LEFT OUTER JOIN garante que *todos* os registros da tabela da esquerda apareçam no resultado final, mesmo que não encontrem correspondência na tabela da direita (preenchendo os espaços vazios da direita com valores NULL).",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "normalizacao",
+      label: "Normalização e Design de Esquemas",
+      group: 17,
+      status: "pending",
+      description:
+        "A técnica arquitetural formal para avaliar e decompor tabelas do banco de dados visando mitigar redundâncias sistêmicas. Fundamental na reestruturação de bancos de dados legados e na eliminação de anomalias de atualização.",
+      examples: [
+        "Anomalias de Inserção, Atualização e Deleção",
+        "Dependências Funcionais e Multivaloradas",
+        "Primeira a Terceira Formas Normais (1NF, 2NF, 3NF)",
+      ],
+      books: [
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+      ],
+      practice: [
+        {
+          question: "O que é uma 'Anomalia de Atualização' em uma tabela não-normalizada?",
+          answer:
+            "Ocorre quando uma informação está duplicada em várias linhas da mesma tabela. Se um departamento muda de nome, o sistema terá que percorrer milhares de registros de funcionários atualizando o campo 'Nome do Departamento' repetidamente. Se uma falha ocorrer no meio da operação, o banco de dados entrará em um estado logicamente corrompido, com o mesmo departamento tendo dois nomes diferentes na base.",
+        },
+        {
+          question: "Qual é a regra mandatória para que uma relação esteja na Segunda Forma Normal (2NF)?",
+          answer:
+            "Além de estar na 1NF (sem atributos multivalorados), a 2NF exige a eliminação de Dependências Parciais. Isso significa que todos os atributos que não fazem parte da Chave Primária devem depender da chave primária *inteira* e não apenas de um pedaço dela (caso a chave seja composta por múltiplas colunas).",
+        },
+        {
+          question: "O que a Terceira Forma Normal (3NF) exige para que seja satisfeita?",
+          answer:
+            "A 3NF exige que não haja Dependências Transitivas. Nenhum atributo não-chave deve depender de outro atributo não-chave para existir. Se 'ID_Funcionario' determina o 'ID_Cargo', e 'ID_Cargo' determina o 'Salario_Base', deixar 'Salario_Base' na tabela de funcionário quebra a 3NF. O salário deve migrar para uma tabela de Cargos separada.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "transacoes_e_concorrencia",
+      label: "Transações e Controle de Concorrência",
+      group: 17,
+      status: "pending",
+      description:
+        "O coração da confiabilidade de um sistema corporativo. Trata de como o SGBD garante que milhões de requisições simultâneas não colidam e destruam dados, orquestrando operações em blocos lógicos inquebráveis e recuperáveis após quedas de energia.",
+      examples: [
+        "Propriedades ACID",
+        "Níveis de Isolamento e Execução Serializável",
+        "Bloqueios (Locks) em Duas Fases (2PL) e Deadlocks",
+      ],
+      books: [
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+        "Sistemas de Gerenciamento de Bancos de Dados - Ramakrishnan e Gehrke",
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+      ],
+      practice: [
+        {
+          question: "O que significa a propriedade de 'Atomicidade' nas garantias ACID de um SGBD?",
+          answer:
+            "Atomicidade significa 'tudo ou nada'. Quando um fluxo na aplicação engatilha uma Transação (como transferir dinheiro entre duas contas), ela envolve múltiplos passos (debitar de uma, creditar na outra). A atomicidade garante que se o servidor cair no meio da transferência, as mudanças parciais serão completamente revertidas (Rollback), impedindo que o dinheiro suma ou duplique.",
+        },
+        {
+          question: "Como o controle de concorrência lida com o fenômeno de 'Dirty Read' (Leitura Suja)?",
+          answer:
+            "Um Dirty Read acontece quando a Transação A lê um dado que a Transação B acabou de alterar, mas a Transação B ainda não deu COMMIT (não confirmou). Se a Transação B der rollback, a Transação A operou usando dados fantasmas. O controle de concorrência evita isso subindo o 'Nível de Isolamento' do SGBD (ex: Read Committed), onde o banco aplica bloqueios e proíbe consultas de acessar registros não confirmados.",
+        },
+        {
+          question: "O que é um 'Deadlock' no contexto de gerenciadores de banco de dados e bloqueios (Locks)?",
+          answer:
+            "Um Deadlock é um impasse lógico perpétuo. Ocorre quando a Transação A segura o bloqueio da 'Tabela X' e aguarda a liberação da 'Tabela Y', enquanto a Transação B segura o bloqueio da 'Tabela Y' e aguarda a liberação da 'Tabela X'. Nenhuma pode avançar. O SGBD monitora ativamente esses grafos circulares, escolhendo e abortando uma das transações para destravar o sistema.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "armazenamento_e_indexacao",
+      label: "Armazenamento Físico e Indexação",
+      group: 17,
+      status: "pending",
+      description:
+        "O detalhamento arquitetural de como os bits e registros são gravados no disco físico pelas engines. A indexação é a técnica que quebra a complexidade de buscas lineares lentas, adotando estruturas de dados que suportam operações instantâneas sobre trilhões de registros.",
+      examples: [
+        "Organização de Arquivos e Páginas de Dados",
+        "Árvores B e B+ em Bancos de Dados",
+        "Índices Hashing e Mapas de Bits (Bitmaps)",
+      ],
+      books: [
+        "Sistemas de Gerenciamento de Bancos de Dados - Ramakrishnan e Gehrke",
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+      ],
+      practice: [
+        {
+          question: "Qual é a diferença de propósito entre usar uma estrutura de Árvore B+ e um Índice Hash no SGBD?",
+          answer:
+            "O Índice Hash encontra correspondências exatas em tempo formidável O(1) (ex: WHERE id = 10), mas é inútil para buscar intervalos. A Árvore B+, que é a estrutura padrão dos bancos relacionais modernos, mantém os dados perfeitamente ordenados nas folhas e encadeados, sendo extremamente otimizada tanto para buscas exatas quanto para varreduras de intervalos (ex: WHERE data BETWEEN '2020' AND '2026').",
+        },
+        {
+          question:
+            "Por que uma B-Tree/B+Tree é mais adequada para discos de memória (I/O) do que as Árvores Binárias estudadas na computação clássica?",
+          answer:
+            "Um disco físico é lento e lê os dados em grandes blocos (páginas). Uma Árvore Binária possui nós minúsculos com apenas duas ramificações, forçando o disco a fazer centenas de leituras pequenas e lentas pulando pela memória. A B-Tree possui 'nós gordos', onde um único nó pode abrigar centenas de filhos, achatando a árvore. O SGBD puxa o bloco inteiro de uma só vez numa operação de I/O de disco maciça e eficiente.",
+        },
+        {
+          question:
+            "O que caracteriza um 'Índice Bitmap' abordado por Ramakrishnan e Gehrke, e quando ele deve ser utilizado?",
+          answer:
+            "É um índice que utiliza arranjos de bits (0s e 1s) para registrar valores em colunas com baixa variabilidade (baixa cardinalidade), como o campo 'Gênero' ou 'Status_Aprovado'. Eles são compactos e permitem que o SGBD realize junções e interseções complexas em alta velocidade usando operadores bitwise lógicos (AND/OR), sendo matadores na arquitetura de Data Warehouses e sistemas OLAP.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "processamento_e_otimizacao_de_consultas",
+      label: "Processamento e Otimização de Consultas",
+      group: 17,
+      status: "pending",
+      description:
+        "A inteligência analítica do SGBD. Analisa a declaração de intenção feita via SQL, converte em representações na álgebra relacional e usa estatísticas e modelos de custo para mapear a estratégia física mais rápida para vasculhar e mesclar as informações antes de de fato executá-la.",
+      examples: [
+        "Otimizador Baseado em Custo vs Heurística",
+        "Equivalências na Álgebra Relacional",
+        "Estratégias de Avaliação de Joins (Nested-Loop, Sort-Merge, Hash Join)",
+      ],
+      books: [
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+        "Sistemas de Gerenciamento de Bancos de Dados - Ramakrishnan e Gehrke",
+      ],
+      practice: [
+        {
+          question:
+            "Como o SGBD usa 'Equivalências da Álgebra Relacional' para reescrever uma consulta escrita pelo engenheiro de software?",
+          answer:
+            "O SQL é declarativo (você diz o que quer, não como fazer). O motor lógico sabe que aplicar um filtro (Seleção) *depois* de fazer um Produto Cartesiano de duas tabelas gigantes é fatal para a memória. Pelas regras de equivalência algébrica, o otimizador do banco empurra as operações de filtro (WHERE) o mais para baixo possível na árvore antes que os Joins ocorram, quebrando o volume de carga antecipadamente.",
+        },
+        {
+          question:
+            "Como o Otimizador Baseado em Custo do SGBD toma a decisão de ignorar um Índice que o desenvolvedor criou e usar um 'Table Scan' completo em vez disso?",
+          answer:
+            "O otimizador armazena estatísticas (metadados) sobre as tabelas. Se a tabela for muito pequena ou se a consulta solicitar (SELECT) uma faixa de dados enorme que abrangerá quase 90% da tabela, o otimizador calcula o custo e percebe que procurar a posição nos ponteiros do índice de cada linha separadamente e pular para a tabela em disco sairá mais lento do que ler a tabela física inteira numa tacada sequencial no disco (Sequential Scan).",
+        },
+        {
+          question: "Qual é a diferença tática entre um 'Nested-Loop Join' e um 'Hash Join' escolhido pelo otimizador?",
+          answer:
+            "O Nested-Loop é um laço de repetição bruto: pega uma linha da Tabela A e percorre inteiramente a Tabela B comparando. É catastrófico para dados massivos, mas rápido se uma das tabelas for minúscula. O Hash Join constrói temporariamente uma Tabela Hash em RAM baseada na tabela menor e escaneia a tabela maior testando esse Hash em tempo O(1), oferecendo altíssima performance para junções de duas tabelas grandes e desordenadas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "sgbds_relacionais_sql",
+      label: "SGBDs Relacionais (SQL)",
+      group: 17,
+      status: "pending",
+      description:
+        "A espinha dorsal da persistência corporativa clássica e moderna. O ecossistema Relacional foca em dados altamente estruturados (tabelas e relações lógicas), impondo esquemas rígidos e priorizando a consistência e integridade absoluta através das propriedades ACID. Sua estratégia de crescimento tradicional é a Escalabilidade Vertical (adicionar mais CPU/RAM ao servidor).",
+      examples: [
+        "Principais SGBDs Open-Source: PostgreSQL e MySQL (incluindo MariaDB)",
+        "Principais SGBDs Enterprise: Oracle Database e Microsoft SQL Server",
+        "Garantias ACID (Atomicidade, Consistência, Isolamento e Durabilidade)",
+        "Escalabilidade Vertical (Scale-up) vs Limites de Hardware",
+      ],
+      books: [
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+        "Sistema de Banco de Dados - Silberschatz, Korth e Sudarshan",
+        "Designing Data-Intensive Applications - Martin Kleppmann",
+      ],
+      practice: [
+        {
+          question:
+            "Por que o PostgreSQL é frequentemente a escolha padrão para refatoração e modernização de sistemas legados corporativos robustos?",
+          answer:
+            "O PostgreSQL é um SGBD Objeto-Relacional open-source de nível 'Enterprise'. Ele possui uma aderência estrita aos padrões ANSI SQL, suporte nativo avançado a dados semi-estruturados (como JSONB, unindo o melhor do mundo relacional com a flexibilidade NoSQL) e um controle de concorrência multiversão (MVCC) formidável, o que garante transações ACID pesadas sem travar leituras simultâneas do sistema.",
+        },
+        {
+          question:
+            "Quais são os limites práticos da 'Escalabilidade Vertical' inerente à arquitetura dos SGBDs Relacionais tradicionais?",
+          answer:
+            "A escalabilidade vertical significa melhorar a máquina onde o banco roda (mais RAM, CPU, SSDs mais rápidos). O limite é físico e financeiro: chega um ponto em que não existe um supercomputador no mercado capaz de lidar sozinho com o volume de dados (ou o custo se torna proibitivo), criando um gargalo inevitável e um 'Ponto Único de Falha' (Single Point of Failure) no servidor.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "sgbds_nao_relacionais_nosql",
+      label: "SGBDs Não-Relacionais (NoSQL)",
+      group: 17,
+      status: "pending",
+      description:
+        "A resposta da engenharia moderna à explosão do Big Data e à necessidade de alta disponibilidade geográfica. Os bancos NoSQL quebram a obrigatoriedade do esquema fixo (Schema-less) e do Modelo Relacional, abraçando a Escalabilidade Horizontal em clusters e adotando paradigmas arquiteturais flexíveis guiados pelo Teorema CAP e princípios BASE (Consistência Eventual).",
+      examples: [
+        "SGBDs de Documento: MongoDB, Couchbase (JSON/BSON)",
+        "SGBDs de Chave-Valor: Redis, Amazon DynamoDB (Altíssima Performance/Memória)",
+        "SGBDs Orientados a Grafos: Neo4j (Relacionamentos altamente complexos)",
+        "SGBDs Colunares (Wide-Column): Apache Cassandra, HBase (Séries temporais e Big Data)",
+      ],
+      books: [
+        "Designing Data-Intensive Applications - Martin Kleppmann",
+        "Sistemas de Banco de Dados - Elmasri e Navathe",
+      ],
+      practice: [
+        {
+          question:
+            "Em termos de modelo de dados, como o MongoDB (Orientado a Documentos) difere fundamentalmente do MySQL?",
+          answer:
+            "Enquanto o MySQL exige que os dados sejam achatados em tabelas bidimensionais com colunas rígidas previamente definidas (esquema forte), o MongoDB armazena dados em documentos do tipo JSON (BSON). Isso significa que cada registro pode ter uma estrutura de campos completamente diferente (Schema-less), permitindo que matrizes e subdocumentos aninhados sejam salvos em um único disco, eliminando a necessidade de Joins complexos para leitura.",
+        },
+        {
+          question:
+            "Para resolver o problema logístico de encontrar a 'Rota mais curta' entre dezenas de cidades, por que o Neo4j seria uma escolha melhor que o PostgreSQL?",
+          answer:
+            "O Neo4j é um banco de dados Orientado a Grafos. Enquanto o PostgreSQL teria que executar junções recursivas (Recursive CTEs) matematicamente custosas e lentas para navegar pelos nós, o Neo4j é fisicamente construído sobre a Teoria dos Grafos. Seus registros (Nós e Arestas) são ligados diretamente por ponteiros na memória de armazenamento, permitindo travessias e algoritmos de *Pathfinding* em frações de segundo, independentemente da profundidade da rede.",
+        },
+        {
+          question:
+            "Como o Apache Cassandra atinge a 'Escalabilidade Horizontal' verdadeira e lida com falhas em datacenters?",
+          answer:
+            "O Cassandra adota uma arquitetura descentralizada (Ring Topology) baseada nos princípios do NoSQL, onde não existe um nó 'Mestre' principal. Todos os servidores (nós) do cluster são iguais. Se você precisa de mais capacidade para gravar petabytes de dados, basta adicionar mais servidores paralelos baratos. Os dados são particionados e replicados automaticamente; se um datacenter inteiro cair, o sistema continua operando sem downtime, provendo altíssima Disponibilidade (AP no Teorema CAP).",
+        },
+      ],
+      links: [],
+    },
+    // 19. Inteligência Artificial
+    {
+      id: "inteligencia_artificial",
+      label: "Inteligência Artificial",
+      group: 18,
+      status: "pending",
+      description:
+        "O estudo de sistemas computacionais capazes de realizar tarefas que normalmente requerem inteligência humana. Engloba aprendizado de máquina, redes neurais, processamento de linguagem natural e visão computacional.",
+      examples: [
+        "Aprendizado de Máquina (Machine Learning)",
+        "Aprendizado Supervisionado vs Não Supervisionado",
+        "Redes Neurais Artificiais e Deep Learning",
+        "Processamento de Linguagem Natural (NLP)",
+      ],
+      books: ["Artificial Intelligence: A Modern Approach - Stuart Russell & Peter Norvig"],
+      practice: [
+        {
+          question: "Qual é a diferença fundamental entre aprendizado supervisionado e não supervisionado?",
+          answer:
+            "No aprendizado supervisionado, o modelo é treinado com dados rotulados, ou seja, cada entrada tem uma saída conhecida. No aprendizado não supervisionado, o modelo trabalha com dados não rotulados e tenta encontrar padrões ou agrupamentos por conta própria.",
+        },
+        {
+          question: "O que é uma rede neural artificial e como ela se inspira no cérebro humano?",
+          answer:
+            "Uma rede neural artificial é um modelo computacional composto por camadas de 'neurônios' artificiais que processam informações. Ela se inspira no cérebro humano ao simular a forma como os neurônios biológicos transmitem sinais e aprendem a partir de exemplos, ajustando os pesos das conexões com base nos erros de previsão.",
+        },
+        {
+          question: "Como o processamento de linguagem natural (NLP) é aplicado em assistentes virtuais?",
+          answer:
+            "O NLP permite que assistentes virtuais compreendam, interpretem e respondam à linguagem humana. Ele envolve tarefas como análise sintática, reconhecimento de entidades, tradução automática e geração de respostas, permitindo interações mais naturais entre humanos e máquinas.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "agentes_inteligentes_e_busca",
+      label: "Agentes Inteligentes e Busca",
+      group: 18,
+      status: "pending",
+      description:
+        "O berço da IA simbólica. Estuda como criar sistemas (agentes) que percebem um ambiente e tomam decisões racionais para maximizar seu sucesso usando algoritmos de busca em grafos e heurísticas.",
+      examples: [
+        "Arquitetura de Agentes Racionais",
+        "Algoritmos de Busca Não-Informada e Informada (A*)",
+        "Busca Competitiva e Árvores Minimax (Jogos)",
+      ],
+      books: ["Artificial Intelligence: A Modern Approach - Stuart Russell & Peter Norvig"],
+      practice: [
+        {
+          question: "Na teoria da IA, o que define estritamente um 'Agente Racional'?",
+          answer:
+            "É uma entidade que toma a ação que tem a maior probabilidade de maximizar sua medida de desempenho esperada, dadas as evidências que ele percebeu do ambiente até o momento e qualquer conhecimento embutido que ele possua.",
+        },
+        {
+          question:
+            "Como o algoritmo de busca A* (A-Estrela) garante encontrar o caminho mais curto sem expandir o grafo inteiro?",
+          answer:
+            "Ele combina o custo real já percorrido (como o algoritmo de Dijkstra) com uma função Heurística (uma estimativa otimista do custo restante até o alvo). Se a heurística for 'admissível' (nunca superestimar o custo real), o A* sempre acha o trajeto perfeito cortando os caminhos ruins precocemente.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "machine_learning_classico",
+      label: "Machine Learning Clássico",
+      group: 18,
+      status: "pending",
+      description:
+        "A transição da programação baseada em regras rígidas para a programação baseada em dados. Ensina o modelo a reconhecer padrões estatísticos fundamentais usando algoritmos preditivos clássicos.",
+      examples: [
+        "Regressão Linear e Logística",
+        "Árvores de Decisão e Random Forests (Ensembles)",
+        "Support Vector Machines (SVM)",
+      ],
+      books: ["Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow - Aurélien Géron"],
+      practice: [
+        {
+          question: "Qual é a diferença funcional entre algoritmos de Regressão e algoritmos de Classificação?",
+          answer:
+            "A regressão é usada quando queremos prever um valor numérico contínuo (ex: o preço de uma casa ou a temperatura de amanhã). A classificação é usada quando queremos prever uma categoria discreta (ex: este e-mail é 'Spam' ou 'Não Spam'?).",
+        },
+        {
+          question: "O que é o fenômeno do 'Overfitting' (Sobreajuste) e como ele é evitado?",
+          answer:
+            "Ocorre quando o modelo é excessivamente complexo e acaba 'decorando' os dados de treinamento, incluindo os ruídos, o que faz com que ele erre miseravelmente ao ver dados novos no mundo real. É evitado aplicando técnicas de Regularização, aumentando o volume de dados ou usando validação cruzada.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "deep_learning_fundamentos",
+      label: "Redes Neurais e Deep Learning",
+      group: 18,
+      status: "pending",
+      description:
+        "O núcleo da IA contemporânea. Aborda arquiteturas formadas por múltiplas camadas de processamento não linear que conseguem extrair características abstratas de dados complexos, como imagens e áudios.",
+      examples: [
+        "O Algoritmo de Backpropagation e Gradiente Descendente",
+        "Redes Neurais Convolucionais (CNNs) para Visão Computacional",
+        "Funções de Ativação e o Problema do Gradiente Desvanescente",
+      ],
+      books: [
+        "Deep Learning - Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+        "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow - Aurélien Géron",
+      ],
+      practice: [
+        {
+          question: "Qual o papel vital do algoritmo de Backpropagation no treinamento de uma Rede Neural?",
+          answer:
+            "Ele utiliza a regra da cadeia do Cálculo para calcular o gradiente (a taxa de erro) da função de perda em relação a cada peso isolado da rede, de trás para frente. É isso que diz ao otimizador se ele deve aumentar ou diminuir o valor numérico de cada conexão sináptica para que a rede acerte na próxima tentativa.",
+        },
+        {
+          question:
+            "Por que as CNNs (Convolucionais) substituíram as Redes Densas tradicionais no processamento de imagens?",
+          answer:
+            "Uma rede densa (onde tudo liga em tudo) achataria uma imagem 2D perdendo completamente a relação espacial entre os pixels, além de gerar uma explosão incomputável de parâmetros. A CNN aplica pequenos 'Filtros' (Convoluções) que deslizam sobre a imagem, aprendendo a reconhecer texturas e bordas de forma localizada e com altíssima eficiência matemática.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "nlp_e_transformers",
+      label: "Processamento de Linguagem Natural (NLP)",
+      group: 18,
+      status: "pending",
+      description:
+        "A revolução na forma como as máquinas processam texto. Estuda a transição dos antigos modelos sequenciais para a arquitetura Transformer, que lida com o contexto global das frases utilizando mecanismos de atenção matemática.",
+      examples: [
+        "Embeddings e Representações Vetoriais de Palavras",
+        "O Mecanismo de Autoatenção (Self-Attention)",
+        "A Arquitetura Transformer (Encoders tipo BERT e Decoders tipo GPT)",
+      ],
+      books: ["Natural Language Processing with Transformers - Lewis Tunstall, Leandro von Werra, Thomas Wolf"],
+      practice: [
+        {
+          question:
+            "Como os 'Embeddings' resolvem o problema de o computador não conseguir entender palavras em texto puro?",
+          answer:
+            "Eles convertem cada palavra em um vetor denso de números em um espaço n-dimensional. O grande poder é que a matemática organiza esse espaço por significado: palavras com semântica semelhante (como 'Rei' e 'Rainha') ficam com vetores fisicamente próximos, ensinando ao computador o contexto das palavras através da distância matemática.",
+        },
+        {
+          question:
+            "Qual foi a grande inovação do mecanismo de Autoatenção (Self-Attention) introduzido na arquitetura Transformer?",
+          answer:
+            "As antigas redes recorrentes (RNNs) liam a frase palavra por palavra, esquecendo o início quando chegavam no final. A Autoatenção quebrou a fila: ela permite que, ao processar a palavra 'banco', a rede olhe matematicamente para TODAS as outras palavras da frase simultaneamente para decidir se é um 'banco de praça' ou um 'banco financeiro', paralelizando o processamento.",
+        },
+      ],
+      links: [],
+    },
+    {
+      id: "llms_engenharia_prompts",
+      label: "LLMs, Agentes e Eng. de Prompts",
+      group: 18,
+      status: "pending",
+      description:
+        "A engenharia aplicada ao topo dos Modelos de Fundação. Foca em como extrair raciocínio lógico otimizado da IA, ancorar as respostas em bases de dados privadas e criar agentes capazes de usar ferramentas reais.",
+      examples: [
+        "Técnicas de Prompting (Few-Shot, Chain-of-Thought)",
+        "Arquitetura RAG (Retrieval-Augmented Generation)",
+        "Orquestração de Fluxos e Agentes Autônomos (LangChain)",
+      ],
+      books: ["Prompt Engineering Guide (Online)", "LangChain Documentation"],
+      practice: [
+        {
+          question:
+            "Como o padrão RAG (Retrieval-Augmented Generation) atua para mitigar as 'alucinações' dos LLMs em ambientes corporativos?",
+          answer:
+            "Em vez de perguntar diretamente ao LLM e torcer para ele lembrar do treinamento, o RAG intercepta a pergunta do usuário, busca documentos relevantes no banco de dados interno da empresa e anexa esses textos como contexto no prompt. O LLM então atua apenas como um leitor dinâmico, respondendo estritamente com base nos fatos que lhe foram fornecidos na hora.",
+        },
+        {
+          question: "Qual o impacto de utilizar a técnica de prompt 'Chain-of-Thought' (Cadeia de Pensamento)?",
+          answer:
+            "Ela força o modelo a imprimir e externalizar o seu raciocínio lógico passo a passo antes de entregar o resultado final. Como o mecanismo de atenção do Transformer se alimenta das palavras anteriores, escrever o raciocínio primeiro permite que a IA preste atenção na própria lógica, reduzindo drasticamente erros de matemática ou lógica em tarefas complexas.",
+        },
+      ],
+      links: [],
+    },
   ],
   links: [
-    // =========================================================
-    // 0. LIGAÇÕES ENTRE OS GRUPOS (INTER-GRUPOS)
-    // =========================================================
-
-    // Matemática Discreta -> Sistemas Digitais
-    { source: "logica_proposicional_e_quantificadores", target: "algebra_booleana" },
-
-    // Matemática Discreta -> Redes de Computadores
-    { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssl_tls_https" },
-    { source: "aritmetica_modular_e_teoria_dos_numeros", target: "ssh_protocolo" },
-    { source: "aritmetica_modular_e_teoria_dos_numeros", target: "deteccao_correcao_erros" },
-
-    // Matemática Discreta -> Algoritmos e Lógica de Programação
-    { source: "logica_proposicional_e_quantificadores", target: "logica_de_programacao" },
-    { source: "inducao_matematica_e_recursao", target: "estrategias_dividir_para_conquistar" },
-    { source: "funcoes_sequencias_e_somatorios", target: "fundamentos_da_analise_de_algoritmos" },
+    // ========================================================================
+    // 1. Matemática Discreta
+    // ========================================================================
+    { source: "matematica_discreta", target: "logica_proposicional_e_quantificadores" },
+    { source: "logica_proposicional_e_quantificadores", target: "teoria_dos_conjuntos" },
+    { source: "logica_proposicional_e_quantificadores", target: "metodos_de_provacao" },
+    { source: "teoria_dos_conjuntos", target: "funcoes_sequencias_e_somatorios" },
+    { source: "teoria_dos_conjuntos", target: "relacoes_e_estruturas_de_ordem" },
+    { source: "metodos_de_provacao", target: "inducao_matematica_e_recursao" },
+    { source: "inducao_matematica_e_recursao", target: "aritmetica_modular_e_teoria_dos_numeros" },
+    { source: "inducao_matematica_e_recursao", target: "funcoes_sequencias_e_somatorios" },
+    { source: "funcoes_sequencias_e_somatorios", target: "analise_combinatoria_e_coeficientes_binomiais" },
+    { source: "analise_combinatoria_e_coeficientes_binomiais", target: "probabilidade_discreta_e_valores_esperados" },
+    { source: "relacoes_e_estruturas_de_ordem", target: "teoria_dos_grafos_e_arvores" },
 
     // Matemática Discreta -> Teoria da Computação
     { source: "teoria_dos_conjuntos", target: "teoria_da_computacao" },
     { source: "metodos_de_provacao", target: "teoria_da_computacao" },
+    // Matemática Discreta -> Algoritmos
+    { source: "funcoes_sequencias_e_somatorios", target: "algoritmos" },
+    // Matemática Discreta -> Estruturas de Dados
+    { source: "aritmetica_modular_e_teoria_dos_numeros", target: "tabelas_hash" },
+    { source: "teoria_dos_grafos_e_arvores", target: "arvores_e_bst" },
+    // Matemática Discreta -> Sistemas Digitais
+    { source: "logica_proposicional_e_quantificadores", target: "algebra_booleana" },
+    // Matemática Discreta -> Sistemas Digitais
+    { source: "aritmetica_modular_e_teoria_dos_numeros", target: "sistemas_de_numeracao" },
+    // Matemática Discreta -> Inteligência Artificial
+    { source: "probabilidade_discreta_e_valores_esperados", target: "inteligencia_artificial" },
 
-    // Fundamentos da Eletricidade -> Circuitos Elétricos
-    { source: "tensao_eletrica", target: "lei_de_ohm" },
-    { source: "corrente_eletrica", target: "lei_de_ohm" },
-    { source: "resistencia_eletrica", target: "lei_de_ohm" },
-    { source: "efeito_joule", target: "circuitos_eletricos" },
-    { source: "potencia_eletrica", target: "circuitos_eletricos" },
-    { source: "lei_de_ohm", target: "circuitos_eletricos" },
-
-    // Fundamentos da Eletricidade -> Eletrônica Geral
-    { source: "condutores_isolantes", target: "semicondutores" },
-
-    // Circuitos Elétricos -> Eletrônica Geral
-    { source: "teoremas_thevenin_norton", target: "transistores_bjt" },
-    { source: "teoremas_thevenin_norton", target: "transistores_fet" },
-    { source: "divisor_de_tensao", target: "aplicacoes_diodos" },
-    { source: "lei_das_malhas", target: "aplicacoes_diodos" },
-    { source: "analise_de_circuitos", target: "amplificadores_bjt_mosfet" },
-    { source: "senoides_e_fasores", target: "resposta_em_frequencia" },
-    { source: "circuitos_segunda_ordem_rlc", target: "aplicacoes_amp_op" },
-
-    // Eletrônica Geral -> Sistemas Digitais
-    { source: "eletronica_geral", target: "sistemas_digitais" },
-
-    // Circuitos Elétricos -> Sistemas Digitais
-    { source: "circuitos_eletricos", target: "sistemas_digitais" },
-
-    // Sistemas Digitais -> Arquitetura de Computadores
-    { source: "sistemas_digitais", target: "arquitetura_de_computadores" },
-    { source: "circuitos_combinacionais_msi", target: "cpu_ula" },
-    { source: "maquinas_de_estado", target: "cpu_uc" },
-    { source: "dispositivos_de_memoria", target: "hierarquia_memoria" },
-    { source: "dispositivos_de_memoria", target: "memoria" },
-    { source: "latches_flipflops", target: "caches_niveis" },
-
-    // Sistemas Digitais -> Redes de Computadores
-    { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
-    { source: "codigos_digitais", target: "deteccao_correcao_erros" },
-
-    // Arquitetura de Computadores -> Redes de Computadores
-    { source: "dispositivos_io", target: "placa_de_rede_nic" },
-    { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
-
-    // Arquitetura de Computadores -> Sistemas Operacionais
-    { source: "isa", target: "modo_usuario_kernel" },
-    { source: "isa", target: "chamadas_de_sistema" },
-    { source: "barramentos_interrupcoes", target: "tratamento_de_interrupcoes" },
-    { source: "dispositivos_io", target: "device_drivers" },
-    { source: "memoria_principal", target: "gerenciamento_de_memoria" },
-    { source: "hierarquia_memoria", target: "memoria_virtual" },
-    { source: "caches_niveis", target: "paginacao" },
-    { source: "armazenamento_secundario", target: "sistemas_de_arquivos" },
-
-    // Sistemas Operacionais -> Redes de Computadores
-    { source: "device_drivers", target: "placa_de_rede_nic" },
-    { source: "tratamento_de_interrupcoes", target: "dma_acesso_direto" },
-    { source: "kernel_so", target: "pilha_tcp_ip" },
-    { source: "chamadas_de_sistema", target: "sockets_api" },
-
-    // Sistemas Operacionais -> Linux e Servidores
-    { source: "sistemas_operacionais", target: "linux" },
-    { source: "sistemas_de_arquivos", target: "permissoes_linux" },
-    { source: "kernel_so", target: "virtualizacao_hypervisors" },
-
-    // Linux e Servidores -> Redes de Computadores
-    { source: "terminal_shell", target: "ssh_protocolo" },
-
-    // Redes de Computadores -> DevOps e Cloud Computing
-    { source: "subredes_cidr", target: "aws_redes_vpc" },
-    { source: "nat_dhcp", target: "aws_redes_vpc" },
-    { source: "proxy_reverso", target: "orquestracao_k8s" },
-    { source: "load_balancing", target: "aws_servicos" },
-
-    // Linux e Servidores -> DevOps e Cloud Computing
-    { source: "linux", target: "cultura_devops" },
-    { source: "terminal_shell", target: "containers_docker" },
-    { source: "bash_scripting", target: "ci_cd_pipelines" },
-
-    // Algoritmos e Lógica de Programação -> Linguagens de Programação e Compiladores
-    { source: "logica_de_programacao", target: "linguagens_de_programacao" },
-
-    // Teoria da Computação -> Linguagens de Programação e Compiladores
-    { source: "automatos_finitos_e_regex", target: "analise_lexica_compiladores" },
-    { source: "gramaticas_livres_de_contexto", target: "analise_sintatica_parsers" },
-
-    // Teoria da Computação -> Arquitetura de Computadores
-    { source: "maquinas_de_turing_e_computabilidade", target: "assembly" },
-
-    // =========================================================
-    // LIGAÇÕES INTERNAS DOS GRUPOS
-    // =========================================================
-
-    // 1. Matemática Discreta
-    { source: "matematica_discreta", target: "logica_proposicional_e_quantificadores" },
-    { source: "logica_proposicional_e_quantificadores", target: "metodos_de_provacao" },
-    { source: "logica_proposicional_e_quantificadores", target: "teoria_dos_conjuntos" },
-    { source: "teoria_dos_conjuntos", target: "funcoes_sequencias_e_somatorios" },
-    { source: "funcoes_sequencias_e_somatorios", target: "analise_combinatoria_e_coeficientes_binomiais" },
-    { source: "funcoes_sequencias_e_somatorios", target: "relacoes_e_estruturas_de_ordem" },
-    { source: "funcoes_sequencias_e_somatorios", target: "aritmetica_modular_e_teoria_dos_numeros" },
-    { source: "metodos_de_provacao", target: "inducao_matematica_e_recursao" },
-    { source: "inducao_matematica_e_recursao", target: "analise_combinatoria_e_coeficientes_binomiais" },
-    { source: "analise_combinatoria_e_coeficientes_binomiais", target: "probabilidade_discreta_e_valores_esperados" },
-
-    // 3. Teoria da Computação
+    // ========================================================================
+    // 2. Teoria da Computação
+    // ========================================================================
     { source: "teoria_da_computacao", target: "automatos_finitos_e_regex" },
     { source: "automatos_finitos_e_regex", target: "gramaticas_livres_de_contexto" },
     { source: "gramaticas_livres_de_contexto", target: "maquinas_de_turing_e_computabilidade" },
+    { source: "maquinas_de_turing_e_computabilidade", target: "complexidade_computacional_p_np" },
+    { source: "complexidade_computacional_p_np", target: "complexidade_de_espaco" },
 
-    // 4. Algoritmos e Lógica de Programação
-    { source: "logica_de_programacao", target: "fundamentos_da_analise_de_algoritmos" },
+    // Teoria da Computação -> Linguagens de Programação
+    { source: "automatos_finitos_e_regex", target: "analise_lexica_compiladores" },
+    { source: "gramaticas_livres_de_contexto", target: "analise_sintatica_parsers" },
+
+    // ========================================================================
+    // 3. Lógica de Programação
+    // ========================================================================
+    { source: "logica_de_programacao", target: "tipos_de_dados" },
+    { source: "tipos_de_dados", target: "operadores_aritmeticos" },
+    { source: "operadores_aritmeticos", target: "estruturas_de_controle" },
+    { source: "estruturas_de_controle", target: "estruturas_de_decisao" },
+    { source: "estruturas_de_controle", target: "estruturas_de_repeticao" },
+    { source: "estruturas_de_decisao", target: "modularizacao_parametros_subrotinas" },
+    { source: "estruturas_de_repeticao", target: "modularizacao_parametros_subrotinas" },
+
+    // Lógica de Programação -> Estruturas de Dados
+    { source: "estruturas_de_repeticao", target: "estruturas_de_dados" },
+    // Lógica de Programação -> Algoritmos
+    { source: "modularizacao_parametros_subrotinas", target: "algoritmos" },
+    // Lógica de Programação -> Linguagens de Programação
+    { source: "modularizacao_parametros_subrotinas", target: "linguagens_de_programacao" },
+
+    // ========================================================================
+    // 4. Algoritmos
+    // ========================================================================
+    { source: "algoritmos", target: "fundamentos_da_analise_de_algoritmos" },
     { source: "fundamentos_da_analise_de_algoritmos", target: "algoritmos_de_ordenacao_e_selecao" },
-    { source: "fundamentos_da_analise_de_algoritmos", target: "estrategias_dividir_para_conquistar" },
+    { source: "fundamentos_da_analise_de_algoritmos", target: "algoritmos_gulosos" },
+    { source: "algoritmos_de_ordenacao_e_selecao", target: "estrategias_dividir_para_conquistar" },
     { source: "estrategias_dividir_para_conquistar", target: "programacao_dinamica" },
-    { source: "programacao_dinamica", target: "algoritmos_gulosos" },
-    { source: "algoritmos_gulosos", target: "complexidade_computacional_np" },
+    { source: "algoritmos_gulosos", target: "algoritmos_em_grafos_e_caminhos_minimos" },
+    { source: "programacao_dinamica", target: "algoritmos_em_grafos_e_caminhos_minimos" },
+    { source: "programacao_dinamica", target: "algoritmos_de_casamento_de_cadeias" },
+    { source: "fundamentos_da_analise_de_algoritmos", target: "analise_amortizada" },
 
+    // Algoritmos -> Interdisciplinares
+    { source: "algoritmos_em_grafos_e_caminhos_minimos", target: "inteligencia_artificial" },
+    { source: "fundamentos_da_analise_de_algoritmos", target: "complexidade_computacional_p_np" },
+
+    // ========================================================================
+    // 5. Estruturas de Dados
+    // ========================================================================
+    { source: "estruturas_de_dados", target: "arrays_e_strings" },
+    { source: "arrays_e_strings", target: "matrizes" },
+    { source: "arrays_e_strings", target: "pilhas_e_filas" },
+    { source: "matrizes", target: "listas_encadeadas" },
+    { source: "listas_encadeadas", target: "tabelas_hash" },
+    { source: "listas_encadeadas", target: "arvores_e_bst" },
+    { source: "pilhas_e_filas", target: "arvores_e_bst" },
+    { source: "arvores_e_bst", target: "arvores_balanceadas_e_b_trees" },
+    { source: "arvores_e_bst", target: "heaps_e_filas_de_prioridade" },
+    { source: "arvores_e_bst", target: "representacao_de_grafos" },
+    { source: "heaps_e_filas_de_prioridade", target: "algoritmos_em_grafos_e_caminhos_minimos" },
+    { source: "representacao_de_grafos", target: "algoritmos_em_grafos_e_caminhos_minimos" },
+
+    // Estruturas de Dados -> Interdisciplinares
+    { source: "pilhas_e_filas", target: "gramaticas_livres_de_contexto" },
+    { source: "arrays_e_strings", target: "algoritmos" },
+    { source: "arvores_balanceadas_e_b_trees", target: "bancos_de_dados" },
+    { source: "tabelas_hash", target: "bancos_de_dados" },
+
+    // ========================================================================
     // 6. Fundamentos da Eletricidade
+    // ========================================================================
     { source: "fundamentos_eletricidade", target: "estrutura_atomica_eletron" },
     { source: "estrutura_atomica_eletron", target: "condutores_isolantes" },
     { source: "condutores_isolantes", target: "resistividade" },
@@ -4671,32 +6605,47 @@ const graphData = {
     { source: "corrente_eletrica", target: "potencia_eletrica" },
     { source: "tensao_eletrica", target: "potencia_eletrica" },
     { source: "corrente_eletrica", target: "efeito_joule" },
+    { source: "corrente_eletrica", target: "lei_de_ohm" },
+    { source: "potencia_eletrica", target: "circuitos_eletricos" },
+    { source: "condutores_isolantes", target: "semicondutores" },
 
+    // ========================================================================
     // 7. Circuitos Elétricos
-    { source: "lei_de_ohm", target: "circuitos_eletricos" },
-    { source: "circuitos_eletricos", target: "leis_de_kirchhoff" },
-    { source: "circuitos_eletricos", target: "associacao_de_resistores" },
+    // ========================================================================
+    { source: "circuitos_eletricos", target: "lei_de_ohm" },
     { source: "circuitos_eletricos", target: "capacitores_indutores" },
-    { source: "leis_de_kirchhoff", target: "lei_das_malhas" },
-    { source: "leis_de_kirchhoff", target: "lei_dos_nos" },
+    { source: "lei_de_ohm", target: "associacao_de_resistores" },
     { source: "associacao_de_resistores", target: "circuitos_em_serie" },
     { source: "associacao_de_resistores", target: "circuitos_em_paralelo" },
-    { source: "circuitos_em_serie", target: "circuitos_serie_paralelo" },
-    { source: "circuitos_em_paralelo", target: "circuitos_serie_paralelo" },
     { source: "circuitos_em_serie", target: "divisor_de_tensao" },
     { source: "circuitos_em_paralelo", target: "divisor_de_corrente" },
-    { source: "lei_das_malhas", target: "analise_de_circuitos" },
-    { source: "lei_dos_nos", target: "analise_de_circuitos" },
+    { source: "divisor_de_tensao", target: "circuitos_serie_paralelo" },
+    { source: "divisor_de_corrente", target: "circuitos_serie_paralelo" },
+    { source: "lei_de_ohm", target: "leis_de_kirchhoff" },
+    { source: "leis_de_kirchhoff", target: "lei_dos_nos" },
+    { source: "leis_de_kirchhoff", target: "lei_das_malhas" },
     { source: "circuitos_serie_paralelo", target: "analise_de_circuitos" },
-    { source: "analise_de_circuitos", target: "circuitos_equivalentes" },
+    { source: "lei_dos_nos", target: "analise_de_circuitos" },
+    { source: "lei_das_malhas", target: "analise_de_circuitos" },
     { source: "analise_de_circuitos", target: "principio_superposicao" },
-    { source: "analise_de_circuitos", target: "teoremas_thevenin_norton" },
+    { source: "analise_de_circuitos", target: "circuitos_equivalentes" },
+    { source: "principio_superposicao", target: "teoremas_thevenin_norton" },
+    { source: "circuitos_equivalentes", target: "teoremas_thevenin_norton" },
     { source: "teoremas_thevenin_norton", target: "maxima_transferencia_de_potencia" },
     { source: "capacitores_indutores", target: "circuitos_primeira_ordem_rc_rl" },
-    { source: "capacitores_indutores", target: "senoides_e_fasores" },
+    { source: "teoremas_thevenin_norton", target: "circuitos_primeira_ordem_rc_rl" },
     { source: "circuitos_primeira_ordem_rc_rl", target: "circuitos_segunda_ordem_rlc" },
+    { source: "circuitos_segunda_ordem_rlc", target: "senoides_e_fasores" },
 
+    // Circuitos -> Eletrônica Geral
+    { source: "teoremas_thevenin_norton", target: "transistores_bjt" },
+    { source: "teoremas_thevenin_norton", target: "transistores_fet" },
+    { source: "circuitos_primeira_ordem_rc_rl", target: "fontes_alimentacao_reguladores" },
+    { source: "senoides_e_fasores", target: "resposta_em_frequencia" },
+
+    // ========================================================================
     // 8. Eletrônica Geral
+    // ========================================================================
     { source: "semicondutores", target: "diodos" },
     { source: "semicondutores", target: "transistores" },
     { source: "semicondutores", target: "tiristores_outros_dispositivos" },
@@ -4715,7 +6664,15 @@ const graphData = {
     { source: "amplificadores_operacionais", target: "aplicacoes_amp_op" },
     { source: "amplificadores_operacionais", target: "osciladores_realimentacao" },
 
+    // Eletrônica -> Sistemas Digitais
+    { source: "transistores_bjt", target: "familias_logicas" },
+    { source: "transistores_fet", target: "familias_logicas" },
+    { source: "amplificadores_operacionais", target: "interface_mundo_analogico" },
+    { source: "osciladores_realimentacao", target: "cpu_clock" },
+
+    // ========================================================================
     // 9. Sistemas Digitais
+    // ========================================================================
     { source: "sistemas_de_numeracao", target: "codigos_digitais" },
     { source: "algebra_booleana", target: "portas_logicas" },
     { source: "portas_logicas", target: "simplificacao_logica" },
@@ -4734,8 +6691,19 @@ const graphData = {
     { source: "dispositivos_de_memoria", target: "dispositivos_programaveis_cpld_fpga" },
     { source: "dispositivos_programaveis_cpld_fpga", target: "linguagens_hdl" },
 
+    // Sistemas Digitais -> Arquitetura de Computadores
+    { source: "sistemas_digitais", target: "arquitetura_de_computadores" },
+    { source: "circuitos_combinacionais_msi", target: "cpu_ula" },
+    { source: "maquinas_de_estado", target: "cpu_uc" },
+    { source: "dispositivos_de_memoria", target: "memoria" },
+    // Sistemas Digitais -> Redes de Computadores
+    { source: "interface_mundo_analogico", target: "modulacao_e_sinais" },
+    { source: "codigos_digitais", target: "deteccao_correcao_erros" },
+
+    // ========================================================================
     // 11. Arquitetura de Computadores
-    { source: "tipos_computadores", target: "arquitetura_de_computadores" },
+    // ========================================================================
+    { source: "arquitetura_de_computadores", target: "tipos_computadores" },
     { source: "arquitetura_de_computadores", target: "isa" },
     { source: "arquitetura_de_computadores", target: "arquitetura_von_neumann" },
     { source: "isa", target: "assembly" },
@@ -4757,7 +6725,25 @@ const graphData = {
     { source: "hierarquia_memoria", target: "armazenamento_secundario" },
     { source: "entrada_saida", target: "dispositivos_io" },
 
+    // Arquitetura de Computadores -> Linguagens de Programação
+    { source: "assembly", target: "geracao_de_codigo_objeto" },
+    // Arquitetura de Computadores -> Sistemas Operacionais
+    { source: "isa", target: "modo_usuario_kernel" },
+    { source: "isa", target: "chamadas_de_sistema" },
+    { source: "barramentos_interrupcoes", target: "tratamento_de_interrupcoes" },
+    { source: "dispositivos_io", target: "device_drivers" },
+    { source: "memoria_principal", target: "gerenciamento_de_memoria" },
+    { source: "hierarquia_memoria", target: "memoria_virtual" },
+    { source: "caches_niveis", target: "paginacao" },
+    { source: "armazenamento_secundario", target: "sistemas_de_arquivos" },
+    // Arquitetura de Computadores -> Redes de Computadores
+    { source: "dispositivos_io", target: "placa_de_rede_nic" },
+    { source: "barramentos_interrupcoes", target: "dma_acesso_direto" },
+    { source: "armazenamento_secundario", target: "armazenamento_e_indexacao" },
+
+    // ========================================================================
     // 12. Sistemas Operacionais
+    // ========================================================================
     { source: "sistemas_operacionais", target: "kernel_so" },
     { source: "kernel_so", target: "modo_usuario_kernel" },
     { source: "kernel_so", target: "chamadas_de_sistema" },
@@ -4773,8 +6759,16 @@ const graphData = {
     { source: "gerenciamento_de_memoria", target: "memoria_virtual" },
     { source: "memoria_virtual", target: "paginacao" },
     { source: "memoria_virtual", target: "segmentacao" },
+    { source: "device_drivers", target: "placa_de_rede_nic" },
+    { source: "tratamento_de_interrupcoes", target: "dma_acesso_direto" },
+    { source: "kernel_so", target: "pilha_tcp_ip" },
+    { source: "chamadas_de_sistema", target: "sockets_api" },
+    { source: "kernel_so", target: "linux" },
+    { source: "sistemas_de_arquivos", target: "permissoes_linux" },
 
+    // ========================================================================
     // 13. Redes de Computadores
+    // ========================================================================
     { source: "redes_de_computadores", target: "modelo_osi" },
     { source: "modelo_osi", target: "modelo_tcp_ip" },
     { source: "modelo_tcp_ip", target: "camada_fisica_redes" },
@@ -4812,13 +6806,34 @@ const graphData = {
     { source: "proxy_reverso", target: "load_balancing" },
     { source: "load_balancing", target: "cdn" },
 
-    // 14. Linux e Servidores
+    // Redes de Computadores -> DevOps e Cloud Computing
+    { source: "subredes_cidr", target: "aws_redes_vpc" },
+    { source: "nat_dhcp", target: "aws_redes_vpc" },
+    { source: "proxy_reverso", target: "orquestracao_k8s" },
+    { source: "load_balancing", target: "aws_servicos" },
+    // Redes de Computadores ->Engenharia de Software
+    { source: "firewalls", target: "seguranca_aplicacoes_web" },
+    { source: "protocolo_http", target: "seguranca_aplicacoes_web" },
+    { source: "seguranca_nuvem", target: "seguranca_aplicacoes_web" },
+    { source: "proxy_reverso", target: "servidores_web_proxy" },
+
+    // ========================================================================
+    // 13. Linux e Servidores
+    // ========================================================================
     { source: "linux", target: "terminal_shell" },
     { source: "linux", target: "virtualizacao_hypervisors" },
     { source: "terminal_shell", target: "permissoes_linux" },
     { source: "terminal_shell", target: "bash_scripting" },
 
-    // 15. DevOps e Cloud Computing
+    // Linux e Servidores -> Redes de Computadores
+    { source: "terminal_shell", target: "ssh_protocolo" },
+    // Linux e Servidores -> DevOps e Cloud Computing
+    { source: "linux", target: "cultura_devops" },
+    { source: "terminal_shell", target: "containers_docker" },
+    { source: "bash_scripting", target: "ci_cd_pipelines" },
+
+    // 14. DevOps e Cloud Computing
+
     { source: "cultura_devops", target: "git_versionamento" },
     { source: "cultura_devops", target: "containers_docker" },
     { source: "cultura_devops", target: "aws_cloud" },
@@ -4836,13 +6851,73 @@ const graphData = {
     { source: "aws_compute", target: "monitoramento_observabilidade" },
     { source: "orquestracao_k8s", target: "monitoramento_observabilidade" },
 
-    // 16. Linguagens de Programação e Compiladores
+    // ========================================================================
+    // 15. Linguagens de Programação
+    // ========================================================================
     { source: "linguagens_de_programacao", target: "paradigmas_de_programacao" },
+    { source: "paradigmas_de_programacao", target: "paradigma_orientacao_objetos" },
+    { source: "paradigmas_de_programacao", target: "paradigma_funcional" },
     { source: "linguagens_de_programacao", target: "analise_lexica_compiladores" },
     { source: "analise_lexica_compiladores", target: "analise_sintatica_parsers" },
     { source: "analise_sintatica_parsers", target: "analise_semantica_e_tipagem" },
     { source: "analise_semantica_e_tipagem", target: "otimizacao_de_codigo_intermediario" },
     { source: "otimizacao_de_codigo_intermediario", target: "geracao_de_codigo_objeto" },
+    { source: "linguagens_de_programacao", target: "linguagem_c" },
+    { source: "linguagem_c", target: "linguagem_java" },
+    { source: "linguagem_c", target: "linguagem_csharp" },
+    { source: "linguagem_c", target: "linguagem_python" },
+    { source: "linguagem_c", target: "linguagem_php" },
+    { source: "linguagem_c", target: "linguagem_javascript" },
+    { source: "linguagem_c", target: "linguagem_rust" },
+    { source: "linguagem_c", target: "linguagem_go" },
+    { source: "linguagem_java", target: "linguagem_kotlin" },
+    { source: "linguagem_javascript", target: "linguagem_typescript" },
+    { source: "analise_semantica_e_tipagem", target: "linguagem_typescript" },
+    { source: "analise_semantica_e_tipagem", target: "linguagem_rust" },
+
+    // Linguagens de Programação -> Engenharia de Software
+    { source: "paradigma_orientacao_objetos", target: "engenharia_de_software" },
+    { source: "paradigma_funcional", target: "engenharia_de_software" },
+
+    // ========================================================================
+    // 16. Engenharia de Software
+    // ========================================================================
+    { source: "engenharia_de_software", target: "clean_code" },
+    { source: "clean_code", target: "tdd_e_testes_unitarios" },
+    { source: "tdd_e_testes_unitarios", target: "testes_integracao_e2e" },
+    { source: "clean_code", target: "arquitetura_de_software_padroes" },
+    { source: "arquitetura_de_software_padroes", target: "microsservicos_event_driven" },
+    { source: "arquitetura_de_software_padroes", target: "servidores_web_proxy" },
+    { source: "servidores_web_proxy", target: "seguranca_aplicacoes_web" },
+    { source: "arquitetura_de_software_padroes", target: "mapeamento_objeto_relacional_orm" },
+
+    // Engenharia de Software -> DevOps e Cloud Computing
+    { source: "microsservicos_event_driven", target: "cultura_devops" },
+    { source: "microsservicos_event_driven", target: "aws_servicos" },
+
+    // ========================================================================
+    // 17. Bancos de Dados
+    // ========================================================================
+    { source: "bancos_de_dados", target: "sgbds_relacionais_sql" },
+    { source: "sgbds_relacionais_sql", target: "modelagem_er" },
+    { source: "modelagem_er", target: "modelo_relacional_e_algebra" },
+    { source: "modelo_relacional_e_algebra", target: "normalizacao" },
+    { source: "normalizacao", target: "linguagem_sql" },
+    { source: "linguagem_sql", target: "transacoes_e_concorrencia" },
+    { source: "linguagem_sql", target: "armazenamento_e_indexacao" },
+    { source: "armazenamento_e_indexacao", target: "processamento_e_otimizacao_de_consultas" },
+    { source: "transacoes_e_concorrencia", target: "processamento_e_otimizacao_de_consultas" },
+    { source: "bancos_de_dados", target: "sgbds_nao_relacionais_nosql" },
+    { source: "transacoes_e_concorrencia", target: "sgbds_nao_relacionais_nosql" },
+
+    // ========================================================================
+    // 19. Inteligência Artificial
+    // ========================================================================
+    { source: "inteligencia_artificial", target: "agentes_inteligentes_e_busca" },
+    { source: "inteligencia_artificial", target: "machine_learning_classico" },
+    { source: "machine_learning_classico", target: "deep_learning_fundamentos" },
+    { source: "deep_learning_fundamentos", target: "nlp_e_transformers" },
+    { source: "nlp_e_transformers", target: "llms_engenharia_prompts" },
   ],
 };
 
@@ -4856,24 +6931,23 @@ const statusColor = {
 
 const GROUP_CONFIG = {
   1: { color: "#3b82f6", label: "1. Matemática Discreta" },
-  2: { color: "#f97316", label: "2. Cálculo e Álgebra" },
-  3: { color: "#22c55e", label: "3. Teoria da Computação" },
-  4: { color: "#ec4899", label: "4. Algoritmos e Lógica de Programação" },
-  5: { color: "#eab308", label: "5. Estruturas de Dados" },
-  6: { color: "#06b6d4", label: "6. Fundamentos da Eletricidade" },
-  7: { color: "#ef4444", label: "7. Circuitos Elétricos" },
-  8: { color: "#6366f1", label: "8. Eletrônica Geral" },
-  9: { color: "#84cc16", label: "9. Sistemas Digitais" },
-  10: { color: "#a855f7", label: "10. Processamento Digital de Sinais" },
-  11: { color: "#14b8a6", label: "11. Arquitetura de Computadores" },
-  12: { color: "#f59e0b", label: "12. Sistemas Operacionais" },
-  13: { color: "#f43f5e", label: "13. Redes de Computadores" },
-  14: { color: "#0ea5e9", label: "14. Linux e Administração de Sistemas" },
-  15: { color: "#64748b", label: "15. DevOps e Cloud Computing" },
-  16: { color: "#d946ef", label: "16. Linguagens de Programação" },
+  2: { color: "#22c55e", label: "2. Teoria da Computação" },
+  3: { color: "#ec4899", label: "3. Lógica de Programação" },
+  4: { color: "#eab308", label: "4. Algoritmos" },
+  5: { color: "#06b6d4", label: "5. Estruturas de Dados" },
+  6: { color: "#ef4444", label: "6. Fundamentos da Eletricidade" },
+  7: { color: "#6366f1", label: "7. Circuitos Elétricos" },
+  8: { color: "#a855f7", label: "8. Eletrônica Geral" },
+  9: { color: "#f97316", label: "9. Sistemas Digitais" },
+  10: { color: "#14b8a6", label: "10. Arquitetura de Computadores" },
+  11: { color: "#84cc16", label: "11. Sistemas Operacionais" },
+  12: { color: "#d946ef", label: "12. Redes de Computadores" },
+  13: { color: "#0ea5e9", label: "13. Linux e Servidores" },
+  14: { color: "#c026d3", label: "14. DevOps e Cloud Computing" },
+  15: { color: "#f43f5e", label: "15. Linguagens de Programação" },
+  16: { color: "#fb923c", label: "16. Engenharia de Software" },
   17: { color: "#10b981", label: "17. Bancos de Dados" },
-  18: { color: "#78716c", label: "18. Engenharia de Software" },
-  19: { color: "#8b5cf6", label: "19. Inteligência Artificial" },
+  18: { color: "#be185d", label: "18. Inteligência Artificial" },
 };
 
 const KnowledgeMap = () => {
@@ -5052,16 +7126,20 @@ const KnowledgeMap = () => {
 
     const simulation = d3
       .forceSimulation(nodes)
+      // 1. Aumenta a distância dos links para dar mais espaço
       .force(
         "link",
         d3
           .forceLink(links)
           .id((d) => d.id)
-          .distance(160),
+          .distance(180)
+          .strength(0.5),
       )
-      .force("charge", d3.forceManyBody().strength(-400))
+      .force("charge", d3.forceManyBody().strength(-800))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collide", d3.forceCollide().radius(45));
+      .force("collide", d3.forceCollide().radius(60))
+      .force("x", d3.forceX(width / 2).strength(0.05))
+      .force("y", d3.forceY(height / 2).strength(0.05));
 
     const link = g
       .append("g")
